@@ -7,7 +7,7 @@ import PageLayout from "@/layouts/Base.astro";
 	<section>
 		<div class="mb-8 flex flex-col items-center sm:flex-row sm:items-start sm:gap-8">
 			<img
-				src="/suraj.jpg"
+				src="/icons/profile.jpg"
 				alt="Suraj Sahu"
 				class="h-32 w-32 rounded-full object-cover shadow-lg sm:h-40 sm:w-40"
 			/>
@@ -27,21 +27,32 @@ import PageLayout from "@/layouts/Base.astro";
 
 	<section class="mt-16">
 		<h2 class="title mb-6 text-xl">Affiliations</h2>
-		<div class="prose prose-sm prose-cactus max-w-none">
-			<ul class="space-y-2">
-				<li>
-					Graduate Researcher at <a class="cactus-link" href="http://gopinathanlab.ucmerced.edu" target="_blank" rel="noopener">Gopinathan Group</a>
-				</li>
-				<li>
-					<a class="cactus-link" href="https://physics.ucmerced.edu" target="_blank" rel="noopener">Department of Physics</a>, <a class="cactus-link" href="https://www.ucmerced.edu" target="_blank" rel="noopener">University of California Merced</a>
-				</li>
-				<li>
-					<a class="cactus-link" href="https://cemb.upenn.edu" target="_blank" rel="noopener">Center for Engineering MechanoBiology</a>, UPenn
-				</li>
-				<li>
-					<a class="cactus-link" href="https://ccbm.ucmerced.edu" target="_blank" rel="noopener">Center for Cellular and Biomolecular Machines</a>
-				</li>
-			</ul>
+		<div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+			<div class="flex items-center gap-4">
+				<img src="/icons/ucmerced.webp" alt="UC Merced" class="h-16 w-16 object-contain" />
+				<div>
+					<a class="cactus-link font-semibold" href="https://www.ucmerced.edu" target="_blank" rel="noopener">University of California Merced</a>
+					<p class="text-sm opacity-75">
+						Graduate Researcher, <a class="cactus-link" href="http://gopinathanlab.ucmerced.edu" target="_blank" rel="noopener">Gopinathan Group</a>
+					</p>
+					<p class="text-sm opacity-75">
+						<a class="cactus-link" href="https://physics.ucmerced.edu" target="_blank" rel="noopener">Department of Physics</a>
+					</p>
+				</div>
+			</div>
+			<div class="flex items-center gap-4">
+				<img src="/icons/cemb.png" alt="CEMB" class="h-16 w-16 object-contain" />
+				<div>
+					<a class="cactus-link font-semibold" href="https://cemb.upenn.edu" target="_blank" rel="noopener">Center for Engineering MechanoBiology</a>
+					<p class="text-sm opacity-75">UPenn</p>
+				</div>
+			</div>
+			<div class="flex items-center gap-4">
+				<img src="/icons/ccbm.png" alt="CCBM" class="h-16 w-16 object-contain" />
+				<div>
+					<a class="cactus-link font-semibold" href="https://ccbm.ucmerced.edu" target="_blank" rel="noopener">Center for Cellular and Biomolecular Machines</a>
+				</div>
+			</div>
 		</div>
 	</section>
 </PageLayout>
