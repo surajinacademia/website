@@ -1,10 +1,10 @@
 /* would like to ignore ./src/pages/og-image/[slug].png.ts */
+/* Import font similar to CMU Sans-serif */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+
 @import "tailwindcss";
 /* config for tailwindcss-typography plugin */
 @config "../../tailwind.config.ts";
-
-/* Import font similar to CMU Sans-serif */
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
 
 /* use a selector-based strategy for dark mode */
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
