@@ -41,12 +41,20 @@ export const menuLinks: { path: string; title: string }[] = [
 		title: "About",
 	},
 	{
+		path: "/cv/",
+		title: "CV",
+	},
+	{
 		path: "/posts/",
 		title: "Blog",
 	},
 	{
-		path: "/notes/",
-		title: "Notes",
+		path: "/photography/",
+		title: "Photography",
+	},
+	{
+		path: "/resources/",
+		title: "Resources",
 	},
 ];
 

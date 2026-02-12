@@ -1,0 +1,47 @@
+---
+import PageLayout from "@/layouts/Base.astro";
+
+const meta = {
+	description: "Curriculum Vitae - Suraj Sahu",
+	title: "CV",
+};
+---
+
+<PageLayout meta={meta}>
+	<h1 class="title mb-12">Curriculum Vitae</h1>
+	<div class="prose prose-sm prose-cactus max-w-none">
+		<p class="mb-6">
+			Download my full CV as a PDF using the button below:
+		</p>
+		<a
+			class="cactus-link inline-block rounded-lg border border-current px-6 py-3 text-center font-medium hover:bg-accent hover:text-accent-fg"
+			href="/cv.pdf"
+			download="Suraj_Sahu_CV.pdf"
+		>
+			Download CV (PDF)
+		</a>
+
+		<div class="mt-12">
+			<h2 class="mb-4 text-xl">Education</h2>
+			<div class="mb-6">
+				<h3 class="font-semibold">PhD in Computational Physics</h3>
+				<p class="text-sm opacity-75">University of California Merced - Gopinathan Lab</p>
+				<p class="text-sm opacity-75">Current</p>
+			</div>
+			<div class="mb-6">
+				<h3 class="font-semibold">Masters Degree</h3>
+				<p class="text-sm opacity-75">National Institute of Technology</p>
+			</div>
+		</div>
+
+		<div class="mt-12">
+			<h2 class="mb-4 text-xl">Research Focus</h2>
+			<ul class="list-inside list-disc">
+				<li>Computational modeling of biological systems</li>
+				<li>Self-organization in multicellular networks</li>
+				<li>Blood vascular development</li>
+				<li>Cell-ECM interactions and tissue remodeling</li>
+			</ul>
+		</div>
+	</div>
+</PageLayout>
