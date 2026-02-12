@@ -1,28 +1,6 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
-import PostPreview from "@/components/blog/PostPreview.astro";
-import Note from "@/components/note/Note.astro";
 import SocialList from "@/components/SocialList.astro";
-import { getAllPosts } from "@/data/post";
 import PageLayout from "@/layouts/Base.astro";
-import { collectionDateSort } from "@/utils/date";
-
-// Posts
-const MAX_POSTS = 10;
-const allPosts = await getAllPosts();
-const allPostsByDate = allPosts.sort(collectionDateSort) as CollectionEntry<"post">[];
-const latestPosts = allPostsByDate.slice(0, MAX_POSTS);
-
-// Pinned Posts, set to a max of 3;
-const MAX_PINNED_POSTS = 3;
-const pinnedPosts = allPostsByDate.filter((p) => p.data.pinned).slice(0, MAX_PINNED_POSTS);
-
-// Notes
-const MAX_NOTES = 5;
-const allNotes = await getCollection("note");
-const latestNotes = allNotes
-	.sort(collectionDateSort)
-	.slice(0, MAX_NOTES) as CollectionEntry<"note">[];
 ---
 
 <PageLayout meta={{ title: "Home" }}>
@@ -34,7 +12,8 @@ const latestNotes = allNotes
 				class="h-32 w-32 rounded-full object-cover shadow-lg sm:h-40 sm:w-40"
 			/>
 			<div class="mt-6 sm:mt-0">
-				<h1 class="title mb-4">Hi! I am Suraj.</h1>
+				<h1 class="title mb-2">Hi! I am Suraj.</h1>
+				<p class="mb-4 text-sm opacity-75">Pronouns: He/Him/His</p>
 				<p class="mb-4">
 					PhD Candidate in Gopinathan Lab at University of California Merced. I am a computational physicist by training and I am interested in understanding the intricacies of how life works. I am motivated by the processes of self-organization and how that makes life so beautiful. I study how physical interactions between the cells and with their surrounding ECM lead to formation and remodeling of multicellular networks. For example, Blood Vascular Development.
 				</p>
@@ -45,46 +24,24 @@ const latestNotes = allNotes
 		</div>
 		<SocialList />
 	</section>
-	{
-		pinnedPosts.length > 0 && (
-			<section class="mt-16">
-				<h2 class="title mb-6 text-xl">Pinned Posts</h2>
-				<ul class="space-y-4" role="list">
-					{pinnedPosts.map((p) => (
-						<li class="grid gap-1 sm:grid-cols-[auto_1fr]">
-							<PostPreview post={p} />
-						</li>
-					))}
-				</ul>
-			</section>
-		)
-	}
+
 	<section class="mt-16">
-		<h2 class="title text-accent mb-6 text-xl"><a href="/posts/">Posts</a></h2>
-		<ul class="space-y-4" role="list">
-			{
-				latestPosts.map((p) => (
-					<li class="grid gap-1 sm:grid-cols-[auto_1fr]">
-						<PostPreview post={p} />
-					</li>
-				))
-			}
-		</ul>
+		<h2 class="title mb-6 text-xl">Affiliations</h2>
+		<div class="prose prose-sm prose-cactus max-w-none">
+			<ul class="space-y-2">
+				<li>
+					Graduate Researcher at <a class="cactus-link" href="http://gopinathanlab.ucmerced.edu" target="_blank" rel="noopener">Gopinathan Group</a>
+				</li>
+				<li>
+					<a class="cactus-link" href="https://physics.ucmerced.edu" target="_blank" rel="noopener">Department of Physics</a>, <a class="cactus-link" href="https://www.ucmerced.edu" target="_blank" rel="noopener">University of California Merced</a>
+				</li>
+				<li>
+					<a class="cactus-link" href="https://cemb.upenn.edu" target="_blank" rel="noopener">Center for Engineering MechanoBiology</a>, UPenn
+				</li>
+				<li>
+					<a class="cactus-link" href="https://ccbm.ucmerced.edu" target="_blank" rel="noopener">Center for Cellular and Biomolecular Machines</a>
+				</li>
+			</ul>
+		</div>
 	</section>
-	{
-		latestNotes.length > 0 && (
-			<section class="mt-16">
-				<h2 class="title text-accent mb-6 text-xl">
-					<a href="/notes/">Notes</a>
-				</h2>
-				<ul class="space-y-6" role="list">
-					{latestNotes.map((note) => (
-						<li>
-							<Note note={note} as="h3" isPreview />
-						</li>
-					))}
-				</ul>
-			</section>
-		)
-	}
 </PageLayout>

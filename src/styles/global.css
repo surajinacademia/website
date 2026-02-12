@@ -3,6 +3,9 @@
 /* config for tailwindcss-typography plugin */
 @config "../../tailwind.config.ts";
 
+/* Import font similar to CMU Sans-serif */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+
 /* use a selector-based strategy for dark mode */
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
@@ -21,6 +24,7 @@
 		color-scheme: light dark;
 		accent-color: var(--color-accent);
 		scrollbar-gutter: stable;
+		font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 
 		&[data-theme="light"] {
 			color-scheme: light;
