@@ -1,0 +1,137 @@
+---
+import PageLayout from "@/layouts/Base.astro";
+
+const meta = {
+	description: "Research - Suraj Sahu",
+	title: "Research",
+};
+---
+
+<PageLayout meta={meta}>
+	<h1 class="title mb-12">Research</h1>
+	<div class="prose prose-sm prose-cactus max-w-none">
+		<div class="mb-12">
+			<h2 class="mb-4 text-xl">Research Overview</h2>
+			<p class="mb-4 text-justify">
+				My research lies at the intersection of computational physics, biophysics, and developmental biology.
+				I develop and apply computational models to understand how physical interactions at the cellular level
+				give rise to complex multicellular structures and networks. My work focuses on uncovering the fundamental
+				principles of self-organization in biological systems, particularly in the context of vascular network formation.
+			</p>
+		</div>
+
+		<div class="mb-12">
+			<h2 class="mb-4 text-xl">Research Interests</h2>
+			<ul class="list-inside list-disc space-y-2">
+				<li>
+					<strong>Computational Biophysics:</strong> Using physics-based computational models to understand
+					biological phenomena
+				</li>
+				<li>
+					<strong>Self-Organization:</strong> Investigating how order emerges from local interactions in
+					living systems
+				</li>
+				<li>
+					<strong>Vascular Development:</strong> Modeling blood vessel formation and remodeling during
+					embryonic development
+				</li>
+				<li>
+					<strong>Cell-ECM Interactions:</strong> Understanding how cells interact with and remodel their
+					extracellular matrix environment
+				</li>
+				<li>
+					<strong>Multicellular Networks:</strong> Studying the formation, structure, and function of
+					multicellular networks
+				</li>
+				<li>
+					<strong>Statistical Mechanics of Living Systems:</strong> Applying statistical physics principles
+					to biological systems
+				</li>
+			</ul>
+		</div>
+
+		<div class="mb-12">
+			<h2 class="mb-4 text-xl">Current Projects</h2>
+			<div class="space-y-6">
+				<div>
+					<h3 class="mb-2 font-semibold">Computational Modeling of Vascular Network Formation</h3>
+					<p class="text-sm opacity-90">
+						Developing agent-based and continuum models to simulate the formation of blood vascular networks
+						during embryonic development. This work integrates cellular mechanics, chemical signaling, and
+						tissue-scale remodeling to understand how functional vascular patterns emerge.
+					</p>
+				</div>
+				<div>
+					<h3 class="mb-2 font-semibold">Physical Principles of Self-Organization</h3>
+					<p class="text-sm opacity-90">
+						Investigating the universal physical principles that govern self-organization in multicellular
+						systems. This includes studying how cells coordinate their behavior through mechanical and
+						chemical cues to form stable, functional structures.
+					</p>
+				</div>
+				<div>
+					<h3 class="mb-2 font-semibold">Cell-ECM Mechanobiology</h3>
+					<p class="text-sm opacity-90">
+						Examining the bidirectional interactions between cells and their extracellular matrix,
+						particularly how mechanical forces influence cell behavior and how cells remodel their
+						mechanical environment.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="mb-12">
+			<h2 class="mb-4 text-xl">Publications</h2>
+			<p class="mb-4 text-sm opacity-75">
+				For a complete list of publications, please visit my
+				<a
+					class="cactus-link"
+					href="https://scholar.google.com/citations?user=sFKtiyQAAAAJ&hl=en&authuser=1"
+					target="_blank"
+					rel="noopener"
+				>
+					Google Scholar profile
+				</a>.
+			</p>
+		</div>
+
+		<div class="mb-12">
+			<h2 class="mb-4 text-xl">Collaborations</h2>
+			<p class="mb-4">
+				I collaborate with experimental and computational groups working on:
+			</p>
+			<ul class="list-inside list-disc space-y-1">
+				<li>Developmental biology and tissue morphogenesis</li>
+				<li>Mechanobiology and mechanochemical signaling</li>
+				<li>Complex systems and network science</li>
+				<li>Soft matter physics and active matter</li>
+			</ul>
+		</div>
+
+		<div class="mb-12">
+			<h2 class="mb-4 text-xl">Methods & Tools</h2>
+			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+				<div>
+					<h3 class="mb-2 font-semibold">Computational Approaches</h3>
+					<ul class="list-inside list-disc text-sm">
+						<li>Agent-based modeling</li>
+						<li>Continuum mechanics</li>
+						<li>Statistical physics</li>
+						<li>Network analysis</li>
+						<li>Numerical simulations</li>
+					</ul>
+				</div>
+				<div>
+					<h3 class="mb-2 font-semibold">Programming & Software</h3>
+					<ul class="list-inside list-disc text-sm">
+						<li>Python (NumPy, SciPy, NetworkX)</li>
+						<li>C/C++</li>
+						<li>High-performance computing</li>
+						<li>Data analysis & visualization</li>
+						<li>Machine learning tools</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</PageLayout>

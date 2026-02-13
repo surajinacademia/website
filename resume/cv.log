@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Homebrew) (preloaded format=pdflatex 2026.1.29)  12 FEB 2026 14:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Homebrew) (preloaded format=pdflatex 2026.1.29)  12 FEB 2026 16:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -588,7 +588,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 {/opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}{/opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/enc/dvips/ebgaramond/ebg_tcdnmr.enc}{/opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free0.enc}{/opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free1.enc}{/opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/enc/dvips/fontawesome5/fa5brands0.enc}{/opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/enc/dvips/base/8r.enc}]
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/it' will be
-(Font)              scaled to size 10.95pt on input line 185.
+(Font)              scaled to size 10.95pt on input line 186.
 
 
 [2{/opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/enc/dvips/ebgaramond/ebg_ljow5q.enc}]
@@ -596,6 +596,9 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/it' will be
 [3]
 
 [4]
+LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
+(Font)              scaled to size 8.0pt on input line 324.
+
 
 [5] (./cv.aux)
  ***********
@@ -606,18 +609,18 @@ Package rerunfilecheck Info: File `cv.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 18453 strings out of 473190
- 332509 string characters out of 5704335
+ 18467 strings out of 473190
+ 332933 string characters out of 5704335
  806732 words of memory out of 5000000
- 41273 multiletter control sequences out of 15000+600000
- 632381 words of font info for 175 fonts, out of 8000000 for 9000
+ 41275 multiletter control sequences out of 15000+600000
+ 638545 words of font info for 183 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,5n,79p,1097b,662s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/ebgaramond/EBGaramond-Bold.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/ebgaramond/EBGaramond-Italic.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/ebgaramond/EBGaramond-Regular.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/fontawesome5/FontAwesome5Brands-Regular.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/fontawesome5/FontAwesome5Free-Solid.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb>
-Output written on cv.pdf (5 pages, 136995 bytes).
+Output written on cv.pdf (5 pages, 137359 bytes).
 PDF statistics:
  121 PDF objects out of 1000 (max. 8388607)
  98 compressed objects within 1 object stream
  6 named destinations out of 1000 (max. 500000)
- 44545 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 48641 words of extra memory for PDF output out of 51595 (max. 10000000)
 

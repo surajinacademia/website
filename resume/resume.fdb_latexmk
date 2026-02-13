@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1770941855.86669 "/Users/suraj/Documents/website/resume/cv.tex" "cv.pdf" "cv" 1770941856.44676 0
-  "/Users/suraj/Documents/website/resume/cv.tex" 1770941855.67394 22327 55e543ddf581a2042e99de6b0b53f40b ""
+["pdflatex"] 1770940681.84034 "/Users/suraj/Documents/website/resume/resume.tex" "resume.pdf" "resume" 1770940682.33121 0
+  "/Users/suraj/Documents/website/resume/resume.tex" 1770940681.14678 14545 deb2888dc281bdd4a16aa9d20a9cc6a1 ""
   "/opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/enc/dvips/base/8r.enc" 1741388039 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/enc/dvips/ebgaramond/ebg_ljow5q.enc" 1741388039 3064 ad039a5bf6faa075ad3278d742de72a1 ""
   "/opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/enc/dvips/ebgaramond/ebg_tcdnmr.enc" 1741388039 3038 e164542e716a689948526cfb8c023ec2 ""
@@ -135,12 +135,12 @@
   "/opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/tex/latex/xkeyval/xkeyval.sty" 1741388039 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "/opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/web2c/texmf.cnf" 1741388039 42151 79f67285bdd95beca4d137b380b4b9e5 ""
   "/opt/homebrew/Cellar/texlive/20250308_2/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1741388039 3346134 324a77c42bfc38737e89c150c32e317e ""
-  "cv.aux" 1770941856.37734 282 74a287990d64052a29a511bde278b3d1 "pdflatex"
-  "cv.out" 1770941856.19714 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "cv.tex" 1770941855.67394 22327 55e543ddf581a2042e99de6b0b53f40b ""
+  "resume.aux" 1770940682.26678 282 f44b2593d8929b335b86f7d2d4341be5 "pdflatex"
+  "resume.out" 1770940682.10923 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "resume.tex" 1770940681.14678 14545 deb2888dc281bdd4a16aa9d20a9cc6a1 ""
   (generated)
-  "cv.aux"
-  "cv.log"
-  "cv.out"
-  "cv.pdf"
+  "resume.aux"
+  "resume.log"
+  "resume.out"
+  "resume.pdf"
   (rewritten before read)

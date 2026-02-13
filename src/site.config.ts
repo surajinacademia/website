@@ -45,6 +45,10 @@ export const menuLinks: { path: string; title: string }[] = [
 		title: "CV",
 	},
 	{
+		path: "/research/",
+		title: "Research",
+	},
+	{
 		path: "/posts/",
 		title: "Blog",
 	},
