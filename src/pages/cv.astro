@@ -1,5 +1,6 @@
 ---
 import PageLayout from "@/layouts/Base.astro";
+import { cvPage } from "@/data/pages/cv";
 
 const meta = {
 	description: "Curriculum Vitae - Suraj Sahu",
@@ -15,55 +16,36 @@ const meta = {
 		</p>
 		<a
 			class="cactus-link inline-block rounded-lg border border-current px-6 py-3 text-center font-medium hover:bg-accent hover:text-accent-fg"
-			href="/cv.pdf"
-			download="Suraj_Sahu_CV.pdf"
+			href={cvPage.downloadHref}
+			download={cvPage.downloadFilename}
 		>
-			Download CV (PDF)
+			{cvPage.downloadLabel}
 		</a>
 
 		<div class="mt-12">
 			<h2 class="mb-4 text-xl">Personal Statement</h2>
-			<p class="mb-4 text-justify">
-				I am a PhD candidate in Computational Physics at the University of California Merced, working in the Gopinathan Lab.
-				My research focuses on understanding the fundamental physical principles that govern biological self-organization,
-				particularly in multicellular systems. I am fascinated by how simple physical interactions between cells and their
-				surrounding extracellular matrix (ECM) give rise to complex, functional tissue architectures.
-			</p>
-			<p class="mb-4 text-justify">
-				My work centers on computational modeling of multicellular network formation and remodeling, with a specific emphasis
-				on blood vascular development. Through the lens of physics and computational simulation, I investigate how local
-				cell-cell and cell-ECM interactions lead to emergent patterns and structures that are essential for life. This
-				interdisciplinary approach combines principles from statistical mechanics, soft matter physics, and biophysics to
-				unravel the intricate mechanisms underlying tissue morphogenesis.
-			</p>
-			<p class="mb-4 text-justify">
-				What drives my research is the beauty of self-organization in living systems—how order emerges from seemingly
-				chaotic interactions, and how physical constraints shape biological function. I am committed to bridging the gap
-				between theoretical physics and experimental biology, developing computational models that not only explain existing
-				phenomena but also predict new behaviors that can guide experimental design and therapeutic interventions.
-			</p>
+			{cvPage.personalStatement.map((p) => (
+				<p class="mb-4 text-justify">{p}</p>
+			))}
 		</div>
 
 		<div class="mt-12">
 			<h2 class="mb-4 text-xl">Education</h2>
-			<div class="mb-6">
-				<h3 class="font-semibold">PhD in Computational Physics</h3>
-				<p class="text-sm opacity-75">University of California Merced - Gopinathan Lab</p>
-				<p class="text-sm opacity-75">Current</p>
-			</div>
-			<div class="mb-6">
-				<h3 class="font-semibold">Masters Degree</h3>
-				<p class="text-sm opacity-75">National Institute of Technology</p>
-			</div>
+			{cvPage.education.map((item) => (
+				<div class="mb-6">
+					<h3 class="font-semibold">{item.degree}</h3>
+					<p class="text-sm opacity-75">{item.institution}</p>
+					{item.period ? <p class="text-sm opacity-75">{item.period}</p> : null}
+				</div>
+			))}
 		</div>
 
 		<div class="mt-12">
 			<h2 class="mb-4 text-xl">Research Focus</h2>
 			<ul class="list-inside list-disc">
-				<li>Computational modeling of biological systems</li>
-				<li>Self-organization in multicellular networks</li>
-				<li>Blood vascular development</li>
-				<li>Cell-ECM interactions and tissue remodeling</li>
+				{cvPage.researchFocus.map((item) => (
+					<li>{item}</li>
+				))}
 			</ul>
 		</div>
 	</div>

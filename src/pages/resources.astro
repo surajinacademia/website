@@ -1,5 +1,6 @@
 ---
 import PageLayout from "@/layouts/Base.astro";
+import { resourcesPage } from "@/data/pages/resources";
 
 const meta = {
 	description: "Useful resources and links",
@@ -10,36 +11,26 @@ const meta = {
 <PageLayout meta={meta}>
 	<h1 class="title mb-12">Resources</h1>
 	<div class="prose prose-sm prose-cactus max-w-none">
-		<p class="mb-6">
-			A curated collection of useful resources, tools, and references.
-		</p>
+		<p class="mb-6">{resourcesPage.intro}</p>
+
+		{resourcesPage.sections.map((section) => (
+			<div class="mt-8">
+				<h2 class="mb-4 text-xl">{section.title}</h2>
+				<ul class="list-inside list-disc space-y-2">
+					{section.links.map((link) => (
+						<li>
+							<a class="cactus-link" href={link.href} target="_blank" rel="noopener">
+								{link.label}
+							</a>
+							{" "}- {link.description}
+						</li>
+					))}
+				</ul>
+			</div>
+		))}
 
 		<div class="mt-8">
-			<h2 class="mb-4 text-xl">Research Tools</h2>
-			<ul class="list-inside list-disc space-y-2">
-				<li>
-					<a class="cactus-link" href="https://scholar.google.com" target="_blank" rel="noopener">
-						Google Scholar
-					</a> - Academic research database
-				</li>
-			</ul>
-		</div>
-
-		<div class="mt-8">
-			<h2 class="mb-4 text-xl">Computational Resources</h2>
-			<ul class="list-inside list-disc space-y-2">
-				<li>
-					<a class="cactus-link" href="https://github.com" target="_blank" rel="noopener">
-						GitHub
-					</a> - Code repository and collaboration
-				</li>
-			</ul>
-		</div>
-
-		<div class="mt-8">
-			<p class="text-sm opacity-75">
-				More resources will be added soon. Check back later!
-			</p>
+			<p class="text-sm opacity-75">{resourcesPage.footerNote}</p>
 		</div>
 	</div>
 </PageLayout>
