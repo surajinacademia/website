@@ -23,3 +23,6 @@ pnpm-debug.log*
 *.pem
 .cache
 .astro
+
+# resume (private; do not sync to repo)
+resume/

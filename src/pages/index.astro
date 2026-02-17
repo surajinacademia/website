@@ -15,27 +15,35 @@ import PageLayout from "@/layouts/Base.astro";
 	</h1>
 
 	<!-- Polaroid-style image (left) + intro text (right) -->
-	<section class="mb-12 flex flex-col items-start gap-10 sm:flex-row sm:gap-12">
-		<div class="polaroid shrink-0">
-			<img
-				src="/icons/profile.jpg"
-				alt="Suraj Sahu"
-				class="block aspect-square w-56 object-cover sm:w-64"
-			/>
-			<span class="font-nothingyoucoulddo text-neutral-700 block pt-2 text-center text-lg">me</span>
-		</div>
-		<div class="min-w-0 flex-1">
-			<p class="text-accent-2 mb-4 text-xl font-bold">Hello there, I'm Suraj 👋</p>
-			<p class="text-global-text mb-4 leading-relaxed opacity-90">
-				PhD Candidate in Gopinathan Lab at University of California Merced. I am a computational physicist by training and I am interested in understanding the intricacies of how life works. I am motivated by the processes of self-organization and how that makes life so beautiful. I study how physical interactions between the cells and with their surrounding ECM lead to formation and remodeling of multicellular networks—for example, blood vascular development.
-			</p>
-			<p class="text-global-text mb-4 leading-relaxed opacity-90">
-				Before joining UC Merced I did my Masters from National Institute of Technology. Pronouns: He/Him/His.
-			</p>
-			<p class="text-global-text mb-6 leading-relaxed opacity-90">
-				Thank you for taking the time to learn a little about me and my work. If you're interested in collaborating or would like to connect, please get in touch.
-			</p>
-			<SocialList />
+	<section class="mb-12">
+		<div class="container mx-auto">
+			<div class="grid grid-cols-2 gap-14 md:gap-20">
+				<div class="col-span-2 md:col-span-1">
+					<div
+						class="relative -rotate-6 bg-white p-5 pb-28 shadow-lg transition duration-500 hover:rotate-0 dark:bg-neutral-900 dark:border-neutral-800 m-6 md:m-12 border border-gray-100"
+					>
+						<img
+							src="/icons/profile.jpg"
+							alt="Suraj Sahu"
+							class="block aspect-square w-56 object-cover sm:w-64"
+						/>
+						<span class="font-nothingyoucoulddo text-neutral-700 block pt-2 text-center text-lg dark:text-neutral-400">me</span>
+					</div>
+				</div>
+				<div class="col-span-2 md:col-span-1 min-w-0">
+					<p class="text-accent-2 mb-4 text-xl font-bold">Hello there, I'm Suraj 👋</p>
+					<p class="text-global-text mb-4 leading-relaxed opacity-90">
+						PhD Candidate in Gopinathan Lab at University of California Merced. I am a computational physicist by training and I am interested in understanding the intricacies of how life works. I am motivated by the processes of self-organization and how that makes life so beautiful. I study how physical interactions between the cells and with their surrounding ECM lead to formation and remodeling of multicellular networks—for example, blood vascular development.
+					</p>
+					<p class="text-global-text mb-4 leading-relaxed opacity-90">
+						Before joining UC Merced I did my Masters from National Institute of Technology. Pronouns: He/Him/His.
+					</p>
+					<p class="text-global-text mb-6 leading-relaxed opacity-90">
+						Thank you for taking the time to learn a little about me and my work. If you're interested in collaborating or would like to connect, please get in touch.
+					</p>
+					<SocialList />
+				</div>
+			</div>
 		</div>
 	</section>
 
