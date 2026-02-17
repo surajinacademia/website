@@ -12,41 +12,83 @@ const portfolioDir = path.join(process.cwd(), "public", "portfolio");
 const imageFiles = fs.existsSync(portfolioDir)
 	? fs.readdirSync(portfolioDir).filter((f) => /\.(jpg|jpeg|png|webp|gif)$/i.test(f)).sort()
 	: [];
+
+// Reference layout: two columns (flex w-full md:w-1/2), items in each column are full or half width
+const leftCol = imageFiles.filter((_, i) => i % 2 === 0);
+const rightCol = imageFiles.filter((_, i) => i % 2 === 1);
+
+function getItemWidthClass(index: number) {
+	// Pattern: full, half, half, full, half, half...
+	return index % 3 === 0 ? "w-full" : "w-full md:w-1/2";
+}
 ---
 
 <PageLayout meta={meta}>
-	<h1 class="title mb-12">Portfolio</h1>
-	<p class="text-global-text mb-10 max-w-xl opacity-90">
-		A collection of my photography work.
-	</p>
-
-	<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-		{
-			imageFiles.map((filename) => (
-				<a
-					href={`/portfolio/${filename}`}
-					class="block aspect-[4/3] w-full overflow-hidden focus:ring-2 focus:ring-offset-2 focus:ring-offset-global-bg dark:focus:ring-accent"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<div class="overflow-hidden h-full w-full">
-						<img
-							src={`/portfolio/${filename}`}
-							alt={filename.replace(/\.[^.]+$/, "").replace(/[-_]/g, " ")}
-							class="block h-full w-full object-cover object-center animate-fade-in opacity-100 transition duration-500 transform scale-100 hover:scale-110"
-							loading="lazy"
-						/>
+	<div class="container mx-auto">
+		<h1 class="text-4xl pt-10 pb-8 font-bold">PORTFOLIO</h1>
+		<section class="text-neutral-700 dark:text-neutral-300">
+			<div class="container w-full">
+				<div class="flex flex-wrap w-full">
+					<!-- Left column -->
+					<div class="flex w-full flex-wrap md:w-1/2">
+						{
+							leftCol.map((filename, i) => (
+								<div class={`p-1 ${getItemWidthClass(i)}`}>
+									<div class="overflow-hidden h-full w-full">
+										<a
+											href={`/portfolio/${filename}`}
+											target="_blank"
+											rel="noopener noreferrer"
+											class="block focus:ring-2 focus:ring-offset-2 focus:ring-offset-global-bg dark:focus:ring-accent"
+										>
+											<img
+												src={`/portfolio/${filename}`}
+												alt={filename.replace(/\.[^.]+$/, "").replace(/[-_]/g, " ")}
+												class="block h-full w-full object-cover object-center opacity-0 animate-fade-in transition duration-500 transform scale-100 hover:scale-110"
+												loading="lazy"
+											/>
+										</a>
+									</div>
+								</div>
+							))
+						}
 					</div>
-				</a>
-			))
-		}
+					<!-- Right column -->
+					<div class="flex w-full flex-wrap md:w-1/2">
+						{
+							rightCol.map((filename, i) => (
+								<div class={`p-1 ${getItemWidthClass(i)}`}>
+									<div class="overflow-hidden h-full w-full">
+										<a
+											href={`/portfolio/${filename}`}
+											target="_blank"
+											rel="noopener noreferrer"
+											class="block focus:ring-2 focus:ring-offset-2 focus:ring-offset-global-bg dark:focus:ring-accent"
+										>
+											<img
+												src={`/portfolio/${filename}`}
+												alt={filename.replace(/\.[^.]+$/, "").replace(/[-_]/g, " ")}
+												class="block h-full w-full object-cover object-center opacity-0 animate-fade-in transition duration-500 transform scale-100 hover:scale-110"
+												loading="lazy"
+											/>
+										</a>
+									</div>
+								</div>
+							))
+						}
+					</div>
+				</div>
+			</div>
+		</section>
 	</div>
 
 	{
 		imageFiles.length === 0 && (
-			<p class="text-global-text/80 text-sm">
-				Add photos to <code class="rounded bg-gray-200 px-1 dark:bg-gray-700">public/portfolio/</code> to see them here.
-			</p>
+			<div class="container mx-auto px-5 md:px-20">
+				<p class="text-global-text/80 text-sm">
+					Add photos to <code class="rounded bg-gray-200 px-1 dark:bg-gray-700">public/portfolio/</code> to see them here.
+				</p>
+			</div>
 		)
 	}
 </PageLayout>
