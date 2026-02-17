@@ -181,6 +181,15 @@ You may be asked to included a snippet inside the **HEAD** tag of your website w
 
 By default the site will be built (see [Commands](#commands) section above) to a `/dist` directory.
 
+### Host at www.sahusuraj.com (GitHub Pages)
+
+1. Push this repo to GitHub (e.g. `origin main`).
+2. In the repo: **Settings → Pages → Build and deployment → Source**: choose **GitHub Actions**.
+3. Push a commit (or re-run the **Deploy to GitHub Pages** workflow). The workflow builds the site and deploys it.
+4. In **Settings → Pages**, under **Custom domain**, enter `www.sahusuraj.com` and save. GitHub will show DNS instructions; add the suggested A/CNAME records at your domain registrar so the domain points to GitHub Pages.
+
+The repo includes `public/CNAME` with `www.sahusuraj.com` so Pages will serve your custom domain once DNS is set.
+
 ## Acknowledgment
 
 This theme was inspired by [Hexo Theme Cactus](https://github.com/probberechts/hexo-theme-cactus)

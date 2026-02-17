@@ -30,36 +30,14 @@ export const siteConfig: SiteConfig = {
 	url: "https://www.sahusuraj.com/",
 };
 
-// Used to generate links in both the Header & Footer.
+// Used to generate links in both the Header & Footer. About = homepage; Portfolio last.
 export const menuLinks: { path: string; title: string }[] = [
-	{
-		path: "/",
-		title: "Home",
-	},
-	{
-		path: "/about/",
-		title: "About",
-	},
-	{
-		path: "/cv/",
-		title: "CV",
-	},
-	{
-		path: "/research/",
-		title: "Research",
-	},
-	{
-		path: "/posts/",
-		title: "Blog",
-	},
-	{
-		path: "/photography/",
-		title: "Photography",
-	},
-	{
-		path: "/resources/",
-		title: "Resources",
-	},
+	{ path: "/", title: "About" },
+	{ path: "/cv/", title: "CV" },
+	{ path: "/research/", title: "Research" },
+	{ path: "/posts/", title: "Blog" },
+	{ path: "/resources/", title: "Resources" },
+	{ path: "/photography/", title: "Portfolio" },
 ];
 
 // https://expressive-code.com/reference/configuration/

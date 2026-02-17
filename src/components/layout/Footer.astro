@@ -1,27 +1,34 @@
 ---
+import SocialList from "@/components/SocialList.astro";
 import { menuLinks, siteConfig } from "@/site.config";
 
 const year = new Date().getFullYear();
 ---
 
-<footer
-	class="mt-auto flex w-full flex-col items-center justify-center gap-y-2 pt-20 pb-4 text-center align-top font-semibold text-gray-600 sm:flex-row sm:justify-between sm:text-xs dark:text-gray-400"
->
-	<div class="me-0 sm:me-4">
-		&copy; {siteConfig.author}
-		{year}.<span class="inline-block">&nbsp;🚀&nbsp;{siteConfig.title}</span>
+<footer class="mt-auto w-full border-t border-gray-200 pt-12 pb-8 dark:border-white/10">
+	<div class="flex flex-col items-center gap-6 text-center">
+		<p class="text-accent-2 text-lg font-semibold uppercase tracking-wider sm:text-xl">
+			{siteConfig.title}
+		</p>
+		<p class="text-global-text text-sm opacity-80">
+			PhD Candidate · UC Merced · Gopinathan Lab
+		</p>
+		<SocialList />
+		<nav
+			aria-labelledby="footer_links"
+			class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm opacity-80"
+		>
+			<p id="footer_links" class="sr-only">More on this site</p>
+			{
+				menuLinks.map((link) => (
+					<a class="hover:opacity-100 hover:underline" href={link.path}>
+						{link.title}
+					</a>
+				))
+			}
+		</nav>
+		<p class="text-global-text text-xs opacity-70">
+			&copy; {year} {siteConfig.author}. Built with Astro.
+		</p>
 	</div>
-	<nav
-		aria-labelledby="footer_links"
-		class="flex gap-x-2 sm:gap-x-0 sm:divide-x sm:divide-gray-500"
-	>
-		<p id="footer_links" class="sr-only">More on this site</p>
-		{
-			menuLinks.map((link) => (
-				<a class="hover:text-global-text px-4 py-2 hover:underline sm:py-0" href={link.path}>
-					{link.title}
-				</a>
-			))
-		}
-	</nav>
 </footer>

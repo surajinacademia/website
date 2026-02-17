@@ -5,45 +5,39 @@ import { menuLinks } from "@/site.config";
 import { siteConfig } from "../../site.config";
 ---
 
-<header class="group relative mb-28 flex items-center sm:ps-18" id="main-header">
-	<div class="flex sm:flex-col">
-		<a
-			aria-current={Astro.url.pathname === "/" ? "page" : false}
-			class="inline-flex items-center gap-3 sm:relative sm:inline-block"
-			href="/"
-		>
-			<img
-				src="/icons/profile.jpg"
-				alt="Suraj Sahu"
-				class="h-10 w-10 rounded-full object-cover sm:absolute sm:-start-18 sm:h-16 sm:w-16"
-			/>
-			<span class="text-xl font-bold sm:text-2xl">{siteConfig.title}</span>
-		</a>
-		<nav
-			aria-label="Main menu"
-			class="bg-global-bg absolute -inset-x-4 top-12 hidden flex-col divide-y px-2 py-4 group-[.menu-open]:z-50 group-[.menu-open]:flex sm:static sm:z-auto sm:-ms-4 sm:mt-1 sm:flex sm:flex-row sm:divide-x sm:divide-y-0 sm:bg-transparent sm:p-0"
-			id="navigation-menu"
-		>
-			{
-				menuLinks.map((link) => (
-					<a
-						aria-current={Astro.url.pathname === link.path ? "page" : false}
-						class="text-accent px-2 py-4 font-semibold sm:px-4 sm:py-0 sm:underline-offset-2 sm:hover:underline"
-						href={link.path}
-					>
-						{link.title}
-					</a>
-				))
-			}
-		</nav>
-	</div>
-	<Search />
-	<ThemeToggle />
-	<mobile-button>
+<header class="group relative mb-16 flex flex-wrap items-center justify-between gap-4 border-b border-gray-200 pb-4 dark:border-white/10" id="main-header">
+	<a
+		aria-current={Astro.url.pathname === "/" ? "page" : false}
+		class="text-accent-2 shrink-0 text-lg font-semibold uppercase tracking-wider sm:text-xl"
+		href="/"
+	>
+		{siteConfig.title}
+	</a>
+	<nav
+		aria-label="Main menu"
+		class="bg-global-bg absolute left-0 right-0 top-full z-50 hidden flex-col gap-1 border-t border-gray-200 px-4 py-4 dark:border-white/10 group-[.menu-open]:flex sm:static sm:flex sm:flex-row sm:gap-6 sm:border-0 sm:px-0 sm:py-0"
+		id="navigation-menu"
+	>
+		{
+			menuLinks.map((link) => (
+				<a
+					aria-current={Astro.url.pathname === link.path ? "page" : false}
+					class="text-accent-2 text-sm font-medium uppercase tracking-wide sm:py-0 sm:underline-offset-4 hover:underline aria-[current=page]:underline"
+					href={link.path}
+				>
+					{link.title}
+				</a>
+			))
+		}
+	</nav>
+	<div class="flex shrink-0 items-center gap-2">
+		<Search />
+		<ThemeToggle />
+		<mobile-button class="sm:hidden">
 		<button
 			aria-expanded="false"
 			aria-haspopup="menu"
-			class="group relative ms-4 h-7 w-7 sm:invisible sm:hidden"
+			class="relative flex h-9 w-9 items-center justify-center rounded-md text-global-text hover:bg-gray-200 dark:hover:bg-gray-700"
 			id="toggle-navigation-menu"
 			type="button"
 		>
@@ -65,7 +59,6 @@ import { siteConfig } from "../../site.config";
 			<svg
 				aria-hidden="true"
 				class="text-accent absolute start-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 scale-0 opacity-0 transition-all group-aria-expanded:scale-100 group-aria-expanded:opacity-100"
-				class="text-accent"
 				fill="none"
 				focusable="false"
 				id="cross-svg"
@@ -77,7 +70,8 @@ import { siteConfig } from "../../site.config";
 				<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path>
 			</svg>
 		</button>
-	</mobile-button>
+		</mobile-button>
+	</div>
 </header>
 
 <script>

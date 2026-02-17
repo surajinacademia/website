@@ -4,6 +4,11 @@ export default {
 	plugins: [require("@tailwindcss/typography")],
 	theme: {
 		extend: {
+			// Exact theme from JoaoFranco03/photography-portfolio (commit 3a059f64)
+			fontFamily: {
+				nothingyoucoulddo: ["Nothing You Could Do", "cursive"],
+				signika: ["Signika", "sans-serif"],
+			},
 			typography: () => ({
 				DEFAULT: {
 					css: {

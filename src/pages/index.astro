@@ -3,30 +3,44 @@ import SocialList from "@/components/SocialList.astro";
 import PageLayout from "@/layouts/Base.astro";
 ---
 
-<PageLayout meta={{ title: "Home" }}>
-	<section>
-		<div class="mb-8 flex flex-col items-center sm:flex-row sm:items-start sm:gap-8">
+<PageLayout
+	meta={{
+		title: "About",
+		description: "PhD Candidate in Computational Physics studying multicellular network formation",
+	}}
+>
+	<!-- Photography-portfolio style: ABOUT ME heading -->
+	<h1 class="text-accent-2 mb-10 text-2xl font-bold uppercase tracking-wider sm:text-3xl">
+		About Me
+	</h1>
+
+	<!-- Polaroid-style image (left) + intro text (right) -->
+	<section class="mb-12 flex flex-col items-start gap-10 sm:flex-row sm:gap-12">
+		<div class="polaroid shrink-0">
 			<img
 				src="/icons/profile.jpg"
 				alt="Suraj Sahu"
-				class="h-32 w-32 rounded-full object-cover shadow-lg sm:h-40 sm:w-40"
+				class="block aspect-square w-56 object-cover sm:w-64"
 			/>
-			<div class="mt-6 sm:mt-0">
-				<h1 class="title mb-2">Hi! I am Suraj.</h1>
-				<p class="mb-4 text-sm opacity-75">Pronouns: He/Him/His</p>
-				<p class="mb-4">
-					PhD Candidate in Gopinathan Lab at University of California Merced. I am a computational physicist by training and I am interested in understanding the intricacies of how life works. I am motivated by the processes of self-organization and how that makes life so beautiful. I study how physical interactions between the cells and with their surrounding ECM lead to formation and remodeling of multicellular networks. For example, Blood Vascular Development.
-				</p>
-				<p class="mb-4">
-					Before joining UC Merced I did my Masters from National Institute of Technology.
-				</p>
-			</div>
+			<span class="font-nothingyoucoulddo text-neutral-700 block pt-2 text-center text-lg">me</span>
 		</div>
-		<SocialList />
+		<div class="min-w-0 flex-1">
+			<p class="text-accent-2 mb-4 text-xl font-bold">Hello there, I'm Suraj 👋</p>
+			<p class="text-global-text mb-4 leading-relaxed opacity-90">
+				PhD Candidate in Gopinathan Lab at University of California Merced. I am a computational physicist by training and I am interested in understanding the intricacies of how life works. I am motivated by the processes of self-organization and how that makes life so beautiful. I study how physical interactions between the cells and with their surrounding ECM lead to formation and remodeling of multicellular networks—for example, blood vascular development.
+			</p>
+			<p class="text-global-text mb-4 leading-relaxed opacity-90">
+				Before joining UC Merced I did my Masters from National Institute of Technology. Pronouns: He/Him/His.
+			</p>
+			<p class="text-global-text mb-6 leading-relaxed opacity-90">
+				Thank you for taking the time to learn a little about me and my work. If you're interested in collaborating or would like to connect, please get in touch.
+			</p>
+			<SocialList />
+		</div>
 	</section>
 
 	<section class="mt-16">
-		<h2 class="title mb-6 text-xl">Affiliations</h2>
+		<h2 class="text-accent-2 mb-6 text-xl font-bold uppercase tracking-wider">Affiliations</h2>
 		<div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
 			<div class="flex items-center gap-4">
 				<img src="/icons/ucmerced.webp" alt="UC Merced" class="h-16 w-16 object-contain" />

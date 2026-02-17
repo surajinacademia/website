@@ -1,23 +1,52 @@
 ---
+import fs from "node:fs";
+import path from "node:path";
 import PageLayout from "@/layouts/Base.astro";
 
 const meta = {
-	description: "Photography by Suraj Sahu",
-	title: "Photography",
+	description: "Photography and visual work by Suraj Sahu",
+	title: "Portfolio",
 };
+
+const portfolioDir = path.join(process.cwd(), "public", "portfolio");
+const imageFiles = fs.existsSync(portfolioDir)
+	? fs.readdirSync(portfolioDir).filter((f) => /\.(jpg|jpeg|png|webp|gif)$/i.test(f)).sort()
+	: [];
 ---
 
 <PageLayout meta={meta}>
-	<h1 class="title mb-12">Photography</h1>
-	<div class="prose prose-sm prose-cactus max-w-none">
-		<p class="mb-6">
-			A collection of my photography work. More photos coming soon!
-		</p>
+	<h1 class="title mb-12">Portfolio</h1>
+	<p class="text-global-text mb-10 max-w-xl opacity-90">
+		A collection of my photography work.
+	</p>
 
-		<div class="mt-8">
-			<p class="text-sm opacity-75">
-				This page is under construction. Check back later for curated photo galleries.
-			</p>
-		</div>
+	<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+		{
+			imageFiles.map((filename) => (
+				<a
+					href={`/portfolio/${filename}`}
+					class="block aspect-[4/3] w-full overflow-hidden focus:ring-2 focus:ring-offset-2 focus:ring-offset-global-bg dark:focus:ring-accent"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<div class="overflow-hidden h-full w-full">
+						<img
+							src={`/portfolio/${filename}`}
+							alt={filename.replace(/\.[^.]+$/, "").replace(/[-_]/g, " ")}
+							class="block h-full w-full object-cover object-center animate-fade-in opacity-100 transition duration-500 transform scale-100 hover:scale-110"
+							loading="lazy"
+						/>
+					</div>
+				</a>
+			))
+		}
 	</div>
+
+	{
+		imageFiles.length === 0 && (
+			<p class="text-global-text/80 text-sm">
+				Add photos to <code class="rounded bg-gray-200 px-1 dark:bg-gray-700">public/portfolio/</code> to see them here.
+			</p>
+		)
+	}
 </PageLayout>

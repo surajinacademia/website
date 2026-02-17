@@ -1,34 +1,25 @@
 ---
-import PageLayout from "@/layouts/Base.astro";
-
-const meta = {
-	description: "PhD Candidate in Computational Physics studying multicellular network formation",
-	title: "About",
-};
+/**
+ * /about/ redirects to / (About is the homepage).
+ * Client redirect for static build; for SSR/host redirects you can use server redirect instead.
+ */
+const target = new URL("/", Astro.url.origin);
 ---
 
-<PageLayout meta={meta}>
-	<h1 class="title mb-12">About Me</h1>
-	<div class="prose prose-sm prose-cactus max-w-none">
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>About — Redirecting</title>
+		<link href="/icon.svg" rel="icon" type="image/svg+xml" />
+		<meta http-equiv="refresh" content={`0;url=${target}`} />
+		<script is:inline define:vars={{ target: target.toString() }}>
+			window.location.replace(target);
+		</script>
+	</head>
+	<body>
 		<p>
-			Hi! I am Suraj Sahu, a PhD Candidate in the Gopinathan Lab at University of California Merced.
-			I am a computational physicist by training and I am interested in understanding the intricacies of how life works.
+			<a href={target}>About (Suraj Sahu)</a> — redirecting…
 		</p>
-		<p>
-			I am motivated by the processes of self-organization and how that makes life so beautiful.
-			My research focuses on how physical interactions between cells and with their surrounding extracellular matrix (ECM)
-			lead to formation and remodeling of multicellular networks, such as blood vascular development.
-		</p>
-		<p>
-			Before joining UC Merced, I completed my Masters from National Institute of Technology.
-		</p>
-		<h2 class="mt-8 text-xl">Research Interests</h2>
-		<ul class="list-inside list-disc" role="list">
-			<li>Computational Physics</li>
-			<li>Self-organization in biological systems</li>
-			<li>Multicellular network formation</li>
-			<li>Blood vascular development</li>
-			<li>Cell-ECM interactions</li>
-		</ul>
-	</div>
-</PageLayout>
+	</body>
+</html>

@@ -1,7 +1,5 @@
 /* would like to ignore ./src/pages/og-image/[slug].png.ts */
-/* Import Computer Modern Sans Serif (CMU) */
-@import url('https://fonts.googleapis.com/css2?family=Computer+Modern+Sans:wght@300;400;500;600;700&display=swap');
-@import url('https://cdn.jsdelivr.net/npm/computer-modern@0.1.0/cmu-sans-serif.min.css');
+/* Photography portfolio theme: fonts loaded in BaseHead.astro */
 
 @import "tailwindcss";
 /* config for tailwindcss-typography plugin */
@@ -10,14 +8,14 @@
 /* use a selector-based strategy for dark mode */
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
-/* you could refactor below to use light-dark(), depending on your target audience */
+/* Photography portfolio: light default, dark matches JoaoFranco03/photography-portfolio */
 @theme {
-	--color-global-bg: oklch(98.48% 0 0);
-	--color-global-text: oklch(26.99% 0.0096 235.05);
-	--color-link: oklch(55.44% 0.0431 185.69);
-	--color-accent: oklch(55.27% 0.195 19.06);
-	--color-accent-2: oklch(18.15% 0 0);
-	--color-quote: oklch(55.27% 0.195 19.06);
+	--color-global-bg: oklch(99% 0 0);
+	--color-global-text: oklch(20% 0 0);
+	--color-link: oklch(45% 0.1 250);
+	--color-accent: oklch(35% 0.08 260);
+	--color-accent-2: oklch(15% 0 0);
+	--color-quote: oklch(40% 0.06 260);
 }
 
 @layer base {
@@ -25,7 +23,7 @@
 		color-scheme: light dark;
 		accent-color: var(--color-accent);
 		scrollbar-gutter: stable;
-		font-family: 'Computer Modern Sans', 'CMU Sans Serif', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+		font-family: "Signika", sans-serif;
 
 		&[data-theme="light"] {
 			color-scheme: light;
@@ -33,12 +31,13 @@
 
 		&[data-theme="dark"] {
 			color-scheme: dark;
-			--color-global-bg: oklch(23.64% 0.0045 248);
-			--color-global-text: oklch(83.54% 0 264);
-			--color-link: oklch(70.44% 0.1133 349);
-			--color-accent: oklch(70.91% 0.1415 163.7);
-			--color-accent-2: oklch(94.66% 0 0);
-			--color-quote: oklch(94.8% 0.106 136.49);
+			/* Black bg, white/light gray text — photography-portfolio About Me */
+			--color-global-bg: oklch(12% 0 0);
+			--color-global-text: oklch(95% 0 0);
+			--color-link: oklch(80% 0.05 250);
+			--color-accent: oklch(88% 0 0);
+			--color-accent-2: oklch(98% 0 0);
+			--color-quote: oklch(85% 0.02 260);
 		}
 	}
 
@@ -72,8 +71,60 @@
 	}
 
 	.title {
-		@apply text-accent-2 text-2xl font-semibold;
+		@apply font-nothingyoucoulddo text-accent-2 text-2xl font-semibold;
 	}
+
+	/* Photography-portfolio: polaroid-style image frame (white border in dark, light gray in light) */
+	.polaroid {
+		@apply inline-block px-3 py-3 pb-6 shadow-xl;
+		transform: rotate(-3deg);
+		background-color: oklch(98% 0 0);
+	}
+	:where([data-theme="dark"]) .polaroid {
+		background-color: oklch(98% 0 0);
+	}
+	.polaroid img {
+		@apply border-0;
+	}
+
+	/* From JoaoFranco03/photography-portfolio src/input.css */
+	.tap-highlight-transparent {
+		-webkit-tap-highlight-color: transparent;
+	}
+	.smooth-edges {
+		-webkit-backface-visibility: hidden;
+	}
+	.animate-wave {
+		animation-name: wave;
+		animation-duration: 2.5s;
+		animation-iteration-count: infinite;
+		transform-origin: 70% 70%;
+		display: inline-block;
+	}
+	/* Portfolio gallery: fade-in on load, scale 110% on hover (photography-portfolio theme) */
+	.animate-fade-in {
+		animation-name: fade-in;
+		animation-duration: 0.5s;
+		animation-fill-mode: both;
+	}
+}
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@keyframes wave {
+	0% { transform: rotate(0deg); }
+	10% { transform: rotate(14deg); }
+	20% { transform: rotate(-8deg); }
+	30% { transform: rotate(14deg); }
+	40% { transform: rotate(-4deg); }
+	50% { transform: rotate(10deg); }
+	60% { transform: rotate(0deg); }
+	100% { transform: rotate(0deg); }
 }
 
 @utility prose {
