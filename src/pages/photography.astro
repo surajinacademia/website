@@ -24,6 +24,7 @@ function getItemWidthClass(index: number) {
 ---
 
 <PageLayout meta={meta}>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
 	<div class="container mx-auto">
 		<h1 class="text-4xl pt-10 pb-8 font-bold">PORTFOLIO</h1>
 		<section class="text-neutral-700 dark:text-neutral-300">
@@ -37,8 +38,8 @@ function getItemWidthClass(index: number) {
 									<div class="overflow-hidden h-full w-full">
 										<a
 											href={`/portfolio/${filename}`}
-											target="_blank"
-											rel="noopener noreferrer"
+											data-fancybox="gallery"
+											data-caption={filename.replace(/\.[^.]+$/, "").replace(/[-_]/g, " ")}
 											class="block focus:ring-2 focus:ring-offset-2 focus:ring-offset-global-bg dark:focus:ring-accent"
 										>
 											<img
@@ -61,8 +62,8 @@ function getItemWidthClass(index: number) {
 									<div class="overflow-hidden h-full w-full">
 										<a
 											href={`/portfolio/${filename}`}
-											target="_blank"
-											rel="noopener noreferrer"
+											data-fancybox="gallery"
+											data-caption={filename.replace(/\.[^.]+$/, "").replace(/[-_]/g, " ")}
 											class="block focus:ring-2 focus:ring-offset-2 focus:ring-offset-global-bg dark:focus:ring-accent"
 										>
 											<img
@@ -89,6 +90,19 @@ function getItemWidthClass(index: number) {
 					Add photos to <code class="rounded bg-gray-200 px-1 dark:bg-gray-700">public/portfolio/</code> to see them here.
 				</p>
 			</div>
+		)
+	}
+
+	{
+		imageFiles.length > 0 && (
+			<>
+				<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js" />
+				<script is:inline>
+					window.addEventListener("load", function () {
+						if (typeof Fancybox !== "undefined") Fancybox.bind("[data-fancybox=\"gallery\"]", {});
+					});
+				</script>
+			</>
 		)
 	}
 </PageLayout>
