@@ -10,7 +10,10 @@ const meta = {
 
 const portfolioDir = path.join(process.cwd(), "public", "portfolio");
 const imageFiles = fs.existsSync(portfolioDir)
-	? fs.readdirSync(portfolioDir).filter((f) => /\.(jpg|jpeg|png|webp|gif)$/i.test(f)).sort()
+	? fs
+			.readdirSync(portfolioDir)
+			.filter((f) => /\.(jpg|jpeg|png|webp|gif)$/i.test(f))
+			.sort()
 	: [];
 
 // Reference layout: two columns (flex w-full md:w-1/2), items in each column are full or half width
@@ -24,58 +27,69 @@ function getItemWidthClass(index: number) {
 ---
 
 <PageLayout meta={meta}>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
 	<div class="container mx-auto">
-		<h1 class="text-4xl pt-10 pb-8 font-bold">PORTFOLIO</h1>
+		<h1 class="pt-10 pb-8 text-4xl font-bold">PORTFOLIO</h1>
 		<section class="text-neutral-700 dark:text-neutral-300">
 			<div class="container w-full">
-				<div class="flex flex-wrap w-full">
+				<div class="flex w-full flex-wrap">
 					<!-- Left column -->
 					<div class="flex w-full flex-wrap md:w-1/2">
 						{
-							leftCol.map((filename, i) => (
-								<div class={`p-1 ${getItemWidthClass(i)}`}>
-									<div class="overflow-hidden h-full w-full">
-										<a
-											href={`/portfolio/${filename}`}
-											data-fancybox="gallery"
-											data-caption={filename.replace(/\.[^.]+$/, "").replace(/[-_]/g, " ")}
-											class="block focus:ring-2 focus:ring-offset-2 focus:ring-offset-global-bg dark:focus:ring-accent"
-										>
-											<img
-												src={`/portfolio/${filename}`}
-												alt={filename.replace(/\.[^.]+$/, "").replace(/[-_]/g, " ")}
-												class="block h-full w-full object-cover object-center opacity-0 animate-fade-in transition duration-500 transform scale-100 hover:scale-110"
-												loading="lazy"
-											/>
-										</a>
+							leftCol.map((filename, i) => {
+								const thumbFilename = filename.replace(/\.(jpg|jpeg|png)$/i, ".webp");
+								return (
+									<div class={`p-1 ${getItemWidthClass(i)}`}>
+										<div class="h-full w-full overflow-hidden">
+											<a
+												href={`/portfolio/${filename}`}
+												target="_blank"
+												rel="noopener noreferrer"
+												class="focus:ring-offset-global-bg dark:focus:ring-accent block focus:ring-2 focus:ring-offset-2"
+											>
+												<img
+													src={`/portfolio-thumbs/${thumbFilename}`}
+													alt={filename.replace(/\.[^.]+$/, "").replace(/[-_]/g, " ")}
+													class="animate-fade-in block h-full w-full scale-100 transform object-cover object-center opacity-0 transition duration-500 hover:scale-110"
+													loading="lazy"
+													decoding="async"
+													width="800"
+													height="600"
+												/>
+											</a>
+										</div>
 									</div>
-								</div>
-							))
+								);
+							})
 						}
 					</div>
 					<!-- Right column -->
 					<div class="flex w-full flex-wrap md:w-1/2">
 						{
-							rightCol.map((filename, i) => (
-								<div class={`p-1 ${getItemWidthClass(i)}`}>
-									<div class="overflow-hidden h-full w-full">
-										<a
-											href={`/portfolio/${filename}`}
-											data-fancybox="gallery"
-											data-caption={filename.replace(/\.[^.]+$/, "").replace(/[-_]/g, " ")}
-											class="block focus:ring-2 focus:ring-offset-2 focus:ring-offset-global-bg dark:focus:ring-accent"
-										>
-											<img
-												src={`/portfolio/${filename}`}
-												alt={filename.replace(/\.[^.]+$/, "").replace(/[-_]/g, " ")}
-												class="block h-full w-full object-cover object-center opacity-0 animate-fade-in transition duration-500 transform scale-100 hover:scale-110"
-												loading="lazy"
-											/>
-										</a>
+							rightCol.map((filename, i) => {
+								const thumbFilename = filename.replace(/\.(jpg|jpeg|png)$/i, ".webp");
+								return (
+									<div class={`p-1 ${getItemWidthClass(i)}`}>
+										<div class="h-full w-full overflow-hidden">
+											<a
+												href={`/portfolio/${filename}`}
+												target="_blank"
+												rel="noopener noreferrer"
+												class="focus:ring-offset-global-bg dark:focus:ring-accent block focus:ring-2 focus:ring-offset-2"
+											>
+												<img
+													src={`/portfolio-thumbs/${thumbFilename}`}
+													alt={filename.replace(/\.[^.]+$/, "").replace(/[-_]/g, " ")}
+													class="animate-fade-in block h-full w-full scale-100 transform object-cover object-center opacity-0 transition duration-500 hover:scale-110"
+													loading="lazy"
+													decoding="async"
+													width="800"
+													height="600"
+												/>
+											</a>
+										</div>
 									</div>
-								</div>
-							))
+								);
+							})
 						}
 					</div>
 				</div>
@@ -87,22 +101,11 @@ function getItemWidthClass(index: number) {
 		imageFiles.length === 0 && (
 			<div class="container mx-auto px-5 md:px-20">
 				<p class="text-global-text/80 text-sm">
-					Add photos to <code class="rounded bg-gray-200 px-1 dark:bg-gray-700">public/portfolio/</code> to see them here.
+					Add photos to{" "}
+					<code class="rounded bg-gray-200 px-1 dark:bg-gray-700">public/portfolio/</code> to see
+					them here.
 				</p>
 			</div>
-		)
-	}
-
-	{
-		imageFiles.length > 0 && (
-			<>
-				<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js" />
-				<script is:inline>
-					window.addEventListener("load", function () {
-						if (typeof Fancybox !== "undefined") Fancybox.bind("[data-fancybox=\"gallery\"]", {});
-					});
-				</script>
-			</>
 		)
 	}
 </PageLayout>

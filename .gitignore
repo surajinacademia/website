@@ -29,6 +29,9 @@ pnpm-debug.log*
 # Duplicate portfolio folder (site uses public/portfolio/)
 portfolio/
 
+# Generated portfolio thumbnails
+public/portfolio-thumbs/
+
 # LaTeX build artifacts (not needed for website)
 *.aux
 *.fdb_latexmk
