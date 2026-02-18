@@ -108,16 +108,6 @@
 		animation-fill-mode: both;
 	}
 	
-	/* Smooth scrolling and interactions */
-	* {
-		scroll-behavior: smooth;
-	}
-	
-	/* Better image loading performance */
-	img {
-		image-rendering: -webkit-optimize-contrast;
-		image-rendering: crisp-edges;
-	}
 }
 @keyframes fade-in {
 	from {
