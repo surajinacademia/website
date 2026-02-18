@@ -18,6 +18,14 @@ const imageFiles = fs
 console.log(`Found ${imageFiles.length} images to optimize...`);
 
 // Process each image
+if (imageFiles.length === 0) {
+	console.log("No images found in portfolio directory.");
+	process.exit(0);
+}
+
+let successCount = 0;
+let errorCount = 0;
+
 for (const file of imageFiles) {
 	const inputPath = path.join(portfolioDir, file);
 	const outputPath = path.join(thumbsDir, file.replace(/\.(jpg|jpeg|png)$/i, ".webp"));
@@ -28,6 +36,7 @@ for (const file of imageFiles) {
 		const thumbStats = fs.statSync(outputPath);
 		if (thumbStats.mtime > sourceStats.mtime) {
 			console.log(`Skipping ${file} (thumbnail up to date)`);
+			successCount++;
 			continue;
 		}
 	}
@@ -42,9 +51,18 @@ for (const file of imageFiles) {
 			.toFile(outputPath);
 
 		console.log(`✓ Optimized ${file}`);
+		successCount++;
 	} catch (error) {
 		console.error(`✗ Failed to optimize ${file}:`, error.message);
+		errorCount++;
+		// Don't fail the build for individual image errors, but log them
 	}
 }
 
-console.log("Portfolio optimization complete!");
+console.log(`Portfolio optimization complete! Processed: ${successCount} successful, ${errorCount} errors.`);
+
+// Exit with error code only if all images failed
+if (errorCount > 0 && successCount === 0) {
+	console.error("All images failed to optimize. Build may fail.");
+	process.exit(1);
+}
