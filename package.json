@@ -21,6 +21,7 @@
 		"@astrojs/mdx": "4.3.12",
 		"@astrojs/rss": "4.0.14",
 		"@astrojs/sitemap": "3.6.0",
+		"@fancyapps/ui": "^6.1.10",
 		"@tailwindcss/vite": "4.1.17",
 		"astro": "5.16.3",
 		"astro-expressive-code": "^0.41.3",
@@ -61,7 +62,12 @@
 		"typescript": "^5.9.3"
 	},
 	"pnpm": {
-		"onlyBuiltDependencies": ["@biomejs/biome", "@tailwindcss/oxide", "esbuild", "sharp"],
+		"onlyBuiltDependencies": [
+			"@biomejs/biome",
+			"@tailwindcss/oxide",
+			"esbuild",
+			"sharp"
+		],
 		"overrides": {
 			"sharp": "^0.34.5"
 		}
