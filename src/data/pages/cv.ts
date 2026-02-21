@@ -14,7 +14,7 @@ export const cvPage = {
 			institution: "University of California Merced",
 			institutionUrl: "https://physics.ucmerced.edu/content/suraj-sahu",
 			period: "Jan 21 — present",
-			role: "PhD Candidate, Physics | Advisor: Prof. Ajay Gopinathan, GPA: 3.84/4.00",
+			role: "PhD Candidate, Physics | Advisor: Prof. Ajay Gopinathan",
 			location: "Merced, CA",
 		},
 		{

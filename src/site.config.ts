@@ -30,14 +30,19 @@ export const siteConfig: SiteConfig = {
 	url: "https://www.sahusuraj.com/",
 };
 
-// Used to generate links in both the Header & Footer. Homepage (/) is the about/landing page; no separate About link.
+// All menu links; home/landing is the about page.
 export const menuLinks: { path: string; title: string }[] = [
 	{ path: "/cv/", title: "CV" },
 	{ path: "/research/", title: "Research" },
 	{ path: "/posts/", title: "Blog" },
 	{ path: "/resources/", title: "Resources" },
-	{ path: "/photography/", title: "Portfolio" },
+	{ path: "/photography/", title: "Photography" },
 ];
+
+/** Links shown in header/footer nav. Never includes home or About; logo is the only link to "/". */
+export const navLinks = menuLinks.filter(
+	(l) => l.path !== "/" && l.title.toLowerCase() !== "about",
+);
 
 // https://expressive-code.com/reference/configuration/
 export const expressiveCodeOptions: AstroExpressiveCodeOptions = {

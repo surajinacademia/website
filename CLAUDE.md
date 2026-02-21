@@ -49,7 +49,7 @@ Draft posts (`draft: true`) are excluded in production but visible in dev.
 | `/posts/` | Blog listing |
 | `/notes/` | Notes listing |
 | `/tags/` | Tag index |
-| `/photography/` | Portfolio gallery |
+| `/photography/` | Photography gallery |
 | `/og-image/[slug].png` | Server-rendered OG images (Satori) |
 | `/rss.xml`, `/notes/rss.xml` | RSS feeds |
 
@@ -58,7 +58,7 @@ Draft posts (`draft: true`) are excluded in production but visible in dev.
 - [src/layouts/Base.astro](src/layouts/Base.astro) — root shell with `<html>`, `<head>` (via `BaseHead`), Header, Footer, ThemeProvider. All pages use this as `PageLayout`.
 - [src/layouts/BlogPost.astro](src/layouts/BlogPost.astro) — wraps `Base.astro` with blog-specific chrome (masthead, TOC, webmentions).
 
-### Portfolio (Photography)
+### Photography
 
 Photos go in `public/portfolio/`. The prebuild step (`scripts/optimize-portfolio.js`) generates WebP thumbnails into `public/portfolio-thumbs/` using `sharp`. The gallery page reads the filesystem at build time and uses **Fancybox** (`@fancyapps/ui`) for the lightbox.
 

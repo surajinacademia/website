@@ -1,7 +1,7 @@
 ---
 import Search from "@/components/Search.astro";
 import ThemeToggle from "@/components/ThemeToggle.astro";
-import { menuLinks, siteConfig } from "@/site.config";
+import { navLinks, siteConfig } from "@/site.config";
 ---
 
 <header class="group relative mb-16 flex flex-wrap items-center justify-between gap-4 border-b border-gray-200 pb-4 dark:border-white/10" id="main-header">
@@ -18,7 +18,7 @@ import { menuLinks, siteConfig } from "@/site.config";
 		id="navigation-menu"
 	>
 		{
-			menuLinks.map((link) => (
+			navLinks.map((link) => (
 				<a
 					aria-current={Astro.url.pathname === link.path ? "page" : false}
 					class="text-accent-2 text-sm font-medium uppercase tracking-wide sm:py-0 sm:underline-offset-4 hover:underline aria-[current=page]:underline"

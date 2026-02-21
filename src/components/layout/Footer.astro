@@ -1,6 +1,6 @@
 ---
 import SocialList from "@/components/SocialList.astro";
-import { menuLinks, siteConfig } from "@/site.config";
+import { navLinks, siteConfig } from "@/site.config";
 
 const year = new Date().getFullYear();
 ---
@@ -20,7 +20,7 @@ const year = new Date().getFullYear();
 		>
 			<p id="footer_links" class="sr-only">More on this site</p>
 			{
-				menuLinks.map((link) => (
+				navLinks.map((link) => (
 					<a class="hover:opacity-100 hover:underline" href={link.path}>
 						{link.title}
 					</a>
