@@ -5,9 +5,10 @@
 
 /** PDFs served from public/; copy from resume/ via pnpm build (prebuild copies them). */
 export const cvPage = {
-	downloads: [
-		{ label: "Download CV (PDF)", href: "/cv.pdf", filename: "Suraj_Sahu_CV.pdf" },
-		{ label: "Download Resume (PDF)", href: "/resume.pdf", filename: "Suraj_Sahu_Resume.pdf" },
+	/** Both PDFs open in a new tab for viewing; served from public/ via prebuild copy. */
+	pdfLinks: [
+		{ label: "View CV (PDF)", href: "/cv.pdf" },
+		{ label: "View Resume (PDF)", href: "/resume.pdf" },
 	] as const,
 
 	personalStatement: [

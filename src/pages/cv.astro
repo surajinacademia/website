@@ -12,16 +12,17 @@ const meta = {
 	<h1 class="title mb-12">Curriculum Vitae</h1>
 	<div class="prose prose-sm prose-cactus max-w-none">
 		<p class="mb-6">
-			Download my full CV or condensed resume as PDF using the buttons below:
+			View my full CV or condensed resume as PDF in a new tab using the buttons below:
 		</p>
 		<div class="flex flex-wrap gap-3">
-			{cvPage.downloads.map((d) => (
+			{cvPage.pdfLinks.map((link) => (
 				<a
 					class="cactus-link inline-block rounded-lg border border-current px-6 py-3 text-center font-medium hover:bg-accent hover:text-accent-fg"
-					href={d.href}
-					download={d.filename}
+					href={link.href}
+					target="_blank"
+					rel="noopener noreferrer"
 				>
-					{d.label}
+					{link.label}
 				</a>
 			))}
 		</div>
