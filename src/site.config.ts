@@ -30,9 +30,8 @@ export const siteConfig: SiteConfig = {
 	url: "https://www.sahusuraj.com/",
 };
 
-// Used to generate links in both the Header & Footer. About = homepage; Portfolio last.
+// Used to generate links in both the Header & Footer. Homepage (/) is the about/landing page; no separate About link.
 export const menuLinks: { path: string; title: string }[] = [
-	{ path: "/", title: "About" },
 	{ path: "/cv/", title: "CV" },
 	{ path: "/research/", title: "Research" },
 	{ path: "/posts/", title: "Blog" },
