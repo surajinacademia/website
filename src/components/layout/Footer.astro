@@ -7,12 +7,6 @@ const year = new Date().getFullYear();
 
 <footer class="mt-auto w-full border-t border-gray-200 pt-12 pb-8 dark:border-white/10">
 	<div class="flex flex-col items-center gap-6 text-center">
-		<p class="text-accent-2 text-lg font-semibold uppercase tracking-wider sm:text-xl">
-			{siteConfig.title}
-		</p>
-		<p class="text-global-text text-sm opacity-80">
-			PhD Candidate · UC Merced · Gopinathan Lab
-		</p>
 		<SocialList />
 		<nav
 			aria-labelledby="footer_links"
@@ -28,7 +22,9 @@ const year = new Date().getFullYear();
 			}
 		</nav>
 		<p class="text-global-text text-xs opacity-70">
-			&copy; {year} {siteConfig.author}. Built with Astro.
+			&copy; {year} {siteConfig.author}. Built with Astro; design based on the
+			<a class="cactus-link hover:opacity-100" href="https://github.com/JoaoFranco03/photography-portfolio" target="_blank" rel="noopener">Photography Portfolio</a>
+			template by João Franco.
 		</p>
 	</div>
 </footer>

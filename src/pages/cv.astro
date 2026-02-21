@@ -6,11 +6,6 @@ const meta = {
 	description: "Curriculum Vitae - Suraj Sahu",
 	title: "CV",
 };
-
-type ExperienceEntry = (typeof cvPage.experience)[number];
-function isProjectEntry(entry: ExperienceEntry): entry is ExperienceEntry & { project: string } {
-	return "project" in entry && entry.project != null;
-}
 ---
 
 <PageLayout meta={meta}>
@@ -33,12 +28,31 @@ function isProjectEntry(entry: ExperienceEntry): entry is ExperienceEntry & { pr
 		</div>
 
 		<div class="mt-12">
+			<h2 class="mb-4 text-xl">Personal Statement</h2>
+			<h3 class="mb-3 text-lg font-semibold">Research Interests</h3>
+			<p class="mb-4">{cvPage.personalStatement.researchInterests}</p>
+			<p class="mb-2 text-sm">
+				<strong>Keywords:</strong> {cvPage.personalStatement.researchKeywords.join(", ")}
+			</p>
+			<h3 class="mb-3 mt-6 text-lg font-semibold">Professional Development and Community Outreach</h3>
+			<p class="mb-4">{cvPage.personalStatement.professionalDevelopment}</p>
+			<p class="mb-2 text-sm">
+				<strong>Keywords:</strong> {cvPage.personalStatement.outreachKeywords.join(", ")}
+			</p>
+			<h3 class="mb-3 mt-6 text-lg font-semibold">Teaching</h3>
+			<p class="mb-4">{cvPage.personalStatement.teaching}</p>
+			<p class="text-sm">
+				<strong>Keywords:</strong> {cvPage.personalStatement.teachingKeywords.join(", ")}
+			</p>
+		</div>
+
+		<div class="mt-12">
 			<h2 class="mb-4 text-xl">Education</h2>
 			{
 				cvPage.education.map((item) => (
 					<div class="mb-6">
 						<h3 class="font-semibold">
-							{"institutionUrl" in item && item.institutionUrl ? (
+						{"institutionUrl" in item && item.institutionUrl ? (
 								<a class="cactus-link" href={item.institutionUrl} target="_blank" rel="noopener noreferrer">
 									{item.institution}
 								</a>
@@ -46,135 +60,252 @@ function isProjectEntry(entry: ExperienceEntry): entry is ExperienceEntry & { pr
 								item.institution
 							)}
 						</h3>
-						<p class="text-sm opacity-75">{item.role}</p>
-						<p class="text-sm opacity-75">
-							{item.period}
-							{"location" in item && item.location ? ` · ${item.location}` : ""}
-						</p>
+						<p class="text-sm opacity-75">{item.degree}</p>
+						<p class="text-sm opacity-75">{item.period}</p>
+						{"advisor" in item && item.advisor && (
+							<p class="text-sm opacity-75">
+								Advisor:
+								{"advisorUrl" in item && item.advisorUrl ? (
+									<a class="cactus-link" href={item.advisorUrl} target="_blank" rel="noopener noreferrer">
+										{item.advisor}
+									</a>
+								) : (
+									item.advisor
+								)}
+								{"gpa" in item && item.gpa ? `, GPA: ${item.gpa}` : ""}
+							</p>
+						)}
 					</div>
 				))
 			}
 		</div>
 
 		<div class="mt-12">
-			<h2 class="mb-4 text-xl">Skills</h2>
-			<ul class="list-inside list-disc space-y-1">
-				{cvPage.skills.map((s) => (
-					<li>
-						<strong>{s.category}:</strong> {s.items}
-					</li>
-				))}
-			</ul>
-		</div>
-
-		<div class="mt-12">
 			<h2 class="mb-4 text-xl">Publications</h2>
+			<h3 class="mb-3 text-lg font-semibold">Peer-Reviewed Journals</h3>
 			<ul class="list-inside list-disc space-y-2">
-				{cvPage.publications.map((p) => (
+				{cvPage.publications.peerReviewed.map((p) => (
 					<li>
-						{p.authors}. {p.url ? (
+						<span class="text-sm opacity-75">{p.date}. </span>
+						<strong>{p.authors}</strong>.{" "}
+						{p.url ? (
 							<a class="cactus-link" href={p.url} target="_blank" rel="noopener noreferrer">
 								{p.title}
 							</a>
 						) : (
 							p.title
 						)}
-						. <em>{p.journal}</em>, {p.vol}.
+						. <em>{p.journal}</em>.
 					</li>
 				))}
 			</ul>
 		</div>
 
 		<div class="mt-12">
-			<h2 class="mb-4 text-xl">Professional Experience</h2>
-			{
-				cvPage.experience.map((entry) => (
-					<div class="mb-8">
-						{isProjectEntry(entry) ? (
-							<>
-								<h3 class="font-semibold">
-									{"projectUrl" in entry && entry.projectUrl ? (
-										<a class="cactus-link" href={entry.projectUrl} target="_blank" rel="noopener noreferrer">
-											{entry.project}
-										</a>
-									) : (
-										entry.project
-									)}
-									{"tech" in entry && entry.tech ? <span class="font-normal text-sm opacity-80"> · {entry.tech}</span> : null}
-								</h3>
-								<p class="text-sm opacity-75">{entry.period}</p>
-							</>
-						) : (
-							<>
-								<h3 class="font-semibold">
-									{"orgUrl" in entry && entry.orgUrl ? (
-										<a class="cactus-link" href={entry.orgUrl} target="_blank" rel="noopener noreferrer">
-											{"role" in entry ? entry.role : ""}
-										</a>
-									) : (
-										"role" in entry ? entry.role : ""
-									)}
-								</h3>
-								{("org" in entry && entry.org) || ("location" in entry && entry.location) ? (
-									<p class="text-sm opacity-75">
-										{"org" in entry && entry.org ? (
-											"orgUrl" in entry && entry.orgUrl ? (
-												<a class="cactus-link" href={entry.orgUrl} target="_blank" rel="noopener noreferrer">
-													{entry.org}
-												</a>
-											) : (
-												(entry as { org?: string }).org ?? ""
-											)
-										) : null}
-										{"location" in entry && entry.location ? ("org" in entry && entry.org ? " · " : "") + entry.location : ""}
-									</p>
-								) : null}
-								<p class="text-sm opacity-75">{entry.period}</p>
-							</>
-						)}
-						<ul class="mt-2 list-inside list-disc space-y-1 text-sm">
-							{entry.items.map((item) => (
-								<li>{item}</li>
-							))}
-						</ul>
-					</div>
-				))
-			}
-		</div>
-
-		<div class="mt-12">
-			<h2 class="mb-4 text-xl">Leadership & Campus Involvement</h2>
-			{
-				cvPage.leadership.map((item) => (
-					<div class="mb-6">
-						<h3 class="font-semibold">
-							{"orgUrl" in item && item.orgUrl ? (
-								<a class="cactus-link" href={item.orgUrl} target="_blank" rel="noopener noreferrer">
-									{"org" in item ? item.org : ""}
-								</a>
-							) : (
-								(item as { org?: string }).org ?? ""
-							)}
-							<span class="font-normal text-sm opacity-80"> · {item.role}</span>
-						</h3>
-						<p class="text-sm opacity-75">{item.period}</p>
-						<ul class="mt-2 list-inside list-disc space-y-1 text-sm">
-							{item.items.map((bullet) => (
-								<li>{bullet}</li>
-							))}
-						</ul>
-					</div>
-				))
-			}
-		</div>
-
-		<div class="mt-12">
-			<h2 class="mb-4 text-xl">Relevant Coursework</h2>
-			<ul class="list-inside list-disc columns-1 gap-4 sm:columns-2 md:columns-3">
-				{cvPage.coursework.map((course) => (
-					<li>{course}</li>
+			<h2 class="mb-4 text-xl">Technical Skills</h2>
+			<ul class="list-inside list-disc space-y-1">
+				{cvPage.technicalSkills.map((s) => (
+					<li>
+						<strong>{s.category}:</strong> {s.items.join(", ")}
+					</li>
 				))}
 			</ul>
+		</div>
+
+		<div class="mt-12">
+			<h2 class="mb-4 text-xl">Research Experience</h2>
+			<h3 class="mb-3 text-lg font-semibold">Positions</h3>
+			{
+				cvPage.researchExperience.positions.map((item) => (
+					<div class="mb-6">
+						<h4 class="font-semibold">
+							{"roleUrl" in item && item.roleUrl ? (
+								<a class="cactus-link" href={item.roleUrl} target="_blank" rel="noopener noreferrer">
+									{item.role}
+								</a>
+							) : (
+								item.role
+							)}
+							{" at "}
+							{"orgUrl" in item && item.orgUrl ? (
+								<a class="cactus-link" href={item.orgUrl} target="_blank" rel="noopener noreferrer">
+									{item.organization}
+								</a>
+							) : (
+								item.organization
+							)}
+						</h4>
+						<p class="text-sm opacity-75">{item.period}</p>
+					</div>
+				))
+			}
+			<h3 class="mb-3 mt-6 text-lg font-semibold">Projects</h3>
+			{
+				cvPage.researchExperience.projects.map((item) => (
+					<div class="mb-6">
+						<h4 class="font-semibold">
+							{"titleUrl" in item && item.titleUrl ? (
+								<a class="cactus-link" href={item.titleUrl} target="_blank" rel="noopener noreferrer">
+									{item.title}
+								</a>
+							) : "githubUrl" in item && item.githubUrl ? (
+								<a class="cactus-link" href={item.githubUrl} target="_blank" rel="noopener noreferrer">
+									{item.title}
+								</a>
+							) : (
+								item.title
+							)}
+							{"inPreparation" in item && item.inPreparation ? (
+								<span class="ml-2 text-sm italic opacity-80">*In preparation</span>
+							) : null}
+						</h4>
+						<p class="text-sm opacity-75">{item.period}</p>
+						{"collaborators" in item && item.collaborators && (
+							<p class="text-sm opacity-75">In collaboration with {item.collaborators}.</p>
+						)}
+						<p class="mt-1">{item.description}</p>
+					</div>
+				))
+			}
+		</div>
+
+		<div class="mt-12">
+			<h2 class="mb-4 text-xl">Graduate Coursework</h2>
+			<ul class="list-inside list-disc space-y-1">
+				{cvPage.graduateCoursework.map((group) => (
+					<li>
+						<strong>{group.area}:</strong> {group.courses.join(", ")}
+					</li>
+				))}
+			</ul>
+		</div>
+
+		<div class="mt-12">
+			<h2 class="mb-4 text-xl">Awards and Achievements</h2>
+			{
+				cvPage.awards.map((item) => (
+					<div class="mb-4">
+						<p class="font-semibold">{item.year}</p>
+						<ul class="list-inside list-disc text-sm">
+							{item.items.map((i) => (
+								<li>{i}</li>
+							))}
+						</ul>
+					</div>
+				))
+			}
+		</div>
+
+		<div class="mt-12">
+			<h2 class="mb-4 text-xl">Conferences and Workshops</h2>
+			<h3 class="mb-3 text-lg font-semibold">Conferences</h3>
+			<ul class="list-inside list-disc space-y-2">
+				{cvPage.conferences.conferences.map((c) => (
+					<li>
+						<span class="text-sm opacity-75">{c.date}. </span>
+						<strong>{c.authors}</strong>. "{c.presentation}".{" "}
+						{"titleUrl" in c && c.titleUrl ? (
+							<a class="cactus-link" href={c.titleUrl} target="_blank" rel="noopener noreferrer">
+								<em>{c.title}</em>
+							</a>
+						) : (
+							<em>{c.title}</em>
+						)}
+						.
+					</li>
+				))}
+			</ul>
+			<h3 class="mb-3 mt-6 text-lg font-semibold">Workshops, Webinars and Tutorials</h3>
+			<ul class="list-inside list-disc space-y-2">
+				{cvPage.conferences.workshops.map((w) => (
+					<li>
+						{"date" in w && w.date ? <span class="text-sm opacity-75">{w.date}. </span> : null}
+						{"titleUrl" in w && w.titleUrl ? (
+							<a class="cactus-link" href={w.titleUrl} target="_blank" rel="noopener noreferrer">
+								{w.title}
+							</a>
+						) : (
+							w.title
+						)}
+						{"role" in w && w.role ? `, ${w.role}` : ""}
+						{"location" in w && w.location ? `, ${w.location}` : ""}.
+					</li>
+				))}
+			</ul>
+			<h3 class="mb-3 mt-6 text-lg font-semibold">Outreach and Community Engagement</h3>
+			<ul class="list-inside list-disc space-y-2">
+				{cvPage.conferences.outreach.map((o) => (
+					<li>
+						<span class="text-sm opacity-75">{o.date}. </span>
+						{"titleUrl" in o && o.titleUrl ? (
+							<a class="cactus-link" href={o.titleUrl} target="_blank" rel="noopener noreferrer">
+								{o.title}
+							</a>
+						) : (
+							o.title
+						)}
+						— {o.description}
+					</li>
+				))}
+			</ul>
+		</div>
+
+		<div class="mt-12">
+			<h2 class="mb-4 text-xl">Service</h2>
+			{
+				cvPage.service.map((item) => (
+					<div class="mb-6">
+						<h3 class="font-semibold">
+							{"roleUrl" in item && item.roleUrl ? (
+								<a class="cactus-link" href={item.roleUrl} target="_blank" rel="noopener noreferrer">
+									{item.role}
+								</a>
+							) : (
+								item.role
+							)}
+							{" at "}
+							{"orgUrl" in item && item.orgUrl ? (
+								<a class="cactus-link" href={item.orgUrl} target="_blank" rel="noopener noreferrer">
+									{item.organization}
+								</a>
+							) : (
+								item.organization
+							)}
+						</h3>
+						<p class="text-sm opacity-75">{item.period}</p>
+						<p class="mt-1 text-sm">{item.description}</p>
+					</div>
+				))
+			}
+		</div>
+
+		<div class="mt-12">
+			<h2 class="mb-4 text-xl">References</h2>
+			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+				{cvPage.references.map((r) => (
+					<div>
+						<p class="font-semibold">
+							{"nameUrl" in r && r.nameUrl ? (
+								<a class="cactus-link" href={r.nameUrl} target="_blank" rel="noopener noreferrer">
+									{r.name}
+								</a>
+							) : (
+								r.name
+							)}
+							{"email" in r && r.email ? (
+								<>
+									{" "}
+									<a class="cactus-link text-sm" href={`mailto:${r.email}`}>
+										{r.email}
+									</a>
+								</>
+							) : null}
+						</p>
+						<p class="text-sm opacity-75">{r.department}</p>
+						<p class="text-sm opacity-75">{r.institution}</p>
+					</div>
+				))}
+			</div>
 		</div>
 	</div>
 </PageLayout>
