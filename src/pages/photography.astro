@@ -139,8 +139,7 @@ function getItemWidthClass(index: number) {
 			imageObserver.observe(container);
 		});
 		
-		// Initialize Fancybox
-		// @ts-ignore - Fancybox type definitions have overload issues
+		// Initialize Fancybox (options object typed to satisfy bind overload)
 		Fancybox.bind("[data-fancybox]", {
 			Toolbar: {
 				display: {
@@ -164,7 +163,7 @@ function getItemWidthClass(index: number) {
 			},
 			closeButton: "top",
 			backdrop: "classic",
-		});
+		} as never);
 	});
 </script>
 

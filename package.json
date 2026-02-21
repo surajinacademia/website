@@ -7,7 +7,7 @@
 		"postinstall": "npm rebuild sharp --force",
 		"dev": "astro dev",
 		"start": "astro dev",
-		"prebuild": "node scripts/optimize-portfolio.js",
+		"prebuild": "node scripts/optimize-portfolio.js && node scripts/copy-resume-pdfs.js",
 		"build": "astro build",
 		"postbuild": "pagefind --site dist",
 		"preview": "astro preview",
@@ -62,12 +62,7 @@
 		"typescript": "^5.9.3"
 	},
 	"pnpm": {
-		"onlyBuiltDependencies": [
-			"@biomejs/biome",
-			"@tailwindcss/oxide",
-			"esbuild",
-			"sharp"
-		],
+		"onlyBuiltDependencies": ["@biomejs/biome", "@tailwindcss/oxide", "esbuild", "sharp"],
 		"overrides": {
 			"sharp": "^0.34.5"
 		}

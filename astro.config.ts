@@ -90,7 +90,9 @@ export default defineConfig({
 		optimizeDeps: {
 			exclude: ["@resvg/resvg-js"],
 		},
-		plugins: [tailwind(), rawFonts([".ttf", ".woff"])],
+		// Plugin types from @tailwindcss/vite and Astro’s Vite can differ; cast to satisfy config
+		// biome-ignore lint/suspicious/noExplicitAny: Vite plugin types from Tailwind vs Astro’s bundled Vite are incompatible
+		plugins: [tailwind(), rawFonts([".ttf", ".woff"])] as any,
 	},
 	env: {
 		schema: {

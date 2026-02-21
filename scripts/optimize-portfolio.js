@@ -11,9 +11,7 @@ if (!fs.existsSync(thumbsDir)) {
 }
 
 // Get all image files
-const imageFiles = fs
-	.readdirSync(portfolioDir)
-	.filter((f) => /\.(jpg|jpeg|png|webp)$/i.test(f));
+const imageFiles = fs.readdirSync(portfolioDir).filter((f) => /\.(jpg|jpeg|png|webp)$/i.test(f));
 
 console.log(`Found ${imageFiles.length} images to optimize...`);
 
@@ -59,7 +57,9 @@ for (const file of imageFiles) {
 	}
 }
 
-console.log(`Portfolio optimization complete! Processed: ${successCount} successful, ${errorCount} errors.`);
+console.log(
+	`Portfolio optimization complete! Processed: ${successCount} successful, ${errorCount} errors.`,
+);
 
 // Exit with error code only if all images failed
 if (errorCount > 0 && successCount === 0) {

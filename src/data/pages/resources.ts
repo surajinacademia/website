@@ -8,11 +8,23 @@ export const resourcesPage = {
 	sections: [
 		{
 			title: "Research Tools",
-			links: [{ label: "Google Scholar", href: "https://scholar.google.com", description: "Academic research database" }],
+			links: [
+				{
+					label: "Google Scholar",
+					href: "https://scholar.google.com",
+					description: "Academic research database",
+				},
+			],
 		},
 		{
 			title: "Computational Resources",
-			links: [{ label: "GitHub", href: "https://github.com", description: "Code repository and collaboration" }],
+			links: [
+				{
+					label: "GitHub",
+					href: "https://github.com",
+					description: "Code repository and collaboration",
+				},
+			],
 		},
 	],
 

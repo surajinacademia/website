@@ -1,11 +1,14 @@
 /**
  * CV page content. Edit here to change what appears on /cv/
+ * Source of truth: resume/cv.tex (full CV), resume/resume.tex (condensed resume).
  */
 
+/** PDFs served from public/; copy from resume/ via pnpm build (prebuild copies them). */
 export const cvPage = {
-	downloadLabel: "Download CV (PDF)",
-	downloadHref: "/cv.pdf",
-	downloadFilename: "Suraj_Sahu_CV.pdf",
+	downloads: [
+		{ label: "Download CV (PDF)", href: "/cv.pdf", filename: "Suraj_Sahu_CV.pdf" },
+		{ label: "Download Resume (PDF)", href: "/resume.pdf", filename: "Suraj_Sahu_Resume.pdf" },
+	] as const,
 
 	personalStatement: [
 		"I am a PhD candidate in Computational Physics at the University of California Merced, working in the Gopinathan Lab. My research focuses on understanding the fundamental physical principles that govern biological self-organization, particularly in multicellular systems. I am fascinated by how simple physical interactions between cells and their surrounding extracellular matrix (ECM) give rise to complex, functional tissue architectures.",
@@ -14,7 +17,11 @@ export const cvPage = {
 	],
 
 	education: [
-		{ degree: "PhD in Computational Physics", institution: "University of California Merced - Gopinathan Lab", period: "Current" },
+		{
+			degree: "PhD in Computational Physics",
+			institution: "University of California Merced - Gopinathan Lab",
+			period: "Current",
+		},
 		{ degree: "Masters Degree", institution: "National Institute of Technology", period: "" },
 	],
 

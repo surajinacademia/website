@@ -7,12 +7,31 @@ export const researchPage = {
 		"My research lies at the intersection of computational physics, biophysics, and developmental biology. I develop and apply computational models to understand how physical interactions at the cellular level give rise to complex multicellular structures and networks. My work focuses on uncovering the fundamental principles of self-organization in biological systems, particularly in the context of vascular network formation.",
 
 	interests: [
-		{ title: "Computational Biophysics", description: "Using physics-based computational models to understand biological phenomena" },
-		{ title: "Self-Organization", description: "Investigating how order emerges from local interactions in living systems" },
-		{ title: "Vascular Development", description: "Modeling blood vessel formation and remodeling during embryonic development" },
-		{ title: "Cell-ECM Interactions", description: "Understanding how cells interact with and remodel their extracellular matrix environment" },
-		{ title: "Multicellular Networks", description: "Studying the formation, structure, and function of multicellular networks" },
-		{ title: "Statistical Mechanics of Living Systems", description: "Applying statistical physics principles to biological systems" },
+		{
+			title: "Computational Biophysics",
+			description: "Using physics-based computational models to understand biological phenomena",
+		},
+		{
+			title: "Self-Organization",
+			description: "Investigating how order emerges from local interactions in living systems",
+		},
+		{
+			title: "Vascular Development",
+			description: "Modeling blood vessel formation and remodeling during embryonic development",
+		},
+		{
+			title: "Cell-ECM Interactions",
+			description:
+				"Understanding how cells interact with and remodel their extracellular matrix environment",
+		},
+		{
+			title: "Multicellular Networks",
+			description: "Studying the formation, structure, and function of multicellular networks",
+		},
+		{
+			title: "Statistical Mechanics of Living Systems",
+			description: "Applying statistical physics principles to biological systems",
+		},
 	],
 
 	projects: [
@@ -43,7 +62,19 @@ export const researchPage = {
 	],
 
 	methods: {
-		computational: ["Agent-based modeling", "Continuum mechanics", "Statistical physics", "Network analysis", "Numerical simulations"],
-		software: ["Python (NumPy, SciPy, NetworkX)", "C/C++", "High-performance computing", "Data analysis & visualization", "Machine learning tools"],
+		computational: [
+			"Agent-based modeling",
+			"Continuum mechanics",
+			"Statistical physics",
+			"Network analysis",
+			"Numerical simulations",
+		],
+		software: [
+			"Python (NumPy, SciPy, NetworkX)",
+			"C/C++",
+			"High-performance computing",
+			"Data analysis & visualization",
+			"Machine learning tools",
+		],
 	},
 } as const;
