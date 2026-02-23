@@ -10,9 +10,9 @@ import PageLayout from "@/layouts/Base.astro";
 	}}
 >
 	<!-- Site notice -->
-	<p class="text-global-text mb-8 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-center text-sm opacity-90 dark:border-white/10 dark:bg-white/5">
+	<div class="text-global-text mb-10 rounded-xl border-2 border-accent-2/30 bg-gray-100 px-6 py-5 text-center text-base font-medium opacity-95 dark:border-accent-2/40 dark:bg-white/10 md:px-8 md:py-6 md:text-lg">
 		This website was recently migrated and is under development as of Feb 2026. It will be updated soon.
-	</p>
+	</div>
 
 	<!-- Polaroid-style image (left) + intro text (right) -->
 	<section class="mb-12">
@@ -27,16 +27,16 @@ import PageLayout from "@/layouts/Base.astro";
 							alt="Suraj Sahu"
 							class="block aspect-square w-72 object-cover sm:w-80 md:w-96"
 						/>
-						<span class="text-accent-2 block pt-3 text-center text-lg font-semibold uppercase tracking-wider sm:text-xl">JOHAAR</span>
+						<span class="text-accent-2 block pt-3 text-center text-lg font-semibold uppercase tracking-wider sm:text-xl">SURAJ!</span>
 					</div>
 				</div>
 				<div class="col-span-2 md:col-span-1 min-w-0">
-					<p class="text-accent-2 mb-4 text-xl font-bold">Hello there, I'm Suraj 👋</p>
+					<p class="text-accent-2 mb-4 text-xl font-bold">Hello there, I'm Suraj 👋 JOHAAR!! 🙏</p>
 					<p class="text-global-text mb-4 leading-relaxed opacity-90">
 						PhD Candidate in <a class="cactus-link" href="http://gopinathanlab.ucmerced.edu" target="_blank" rel="noopener">Gopinathan Lab</a> at <a class="cactus-link" href="https://www.ucmerced.edu" target="_blank" rel="noopener">University of California, Merced</a>.
 					</p>
 					<p class="text-global-text mb-4 leading-relaxed opacity-90">
-						I don't know how I came to this point in my life—one I could only dream of. As a kid (people around me say I still am), I'm curious about how and why life works. I work at the intersection of physics and biology to understand the mechanisms that make life living. I study how scattered cells come together to form a multicellular network during blood vascular development, the physics behind cell–cell adhesion, and how cells literally yank their surrounding matrix and sometimes permanently change the architecture—something that happens during wound healing.
+						I work at the intersection of physics and biology to understand the mechanisms that make life "living". I study how a bunch of cells can come together to form a multicellular network, the physics behind cell–cell adhesion, and how cells push, pull, shove, and squeeze their surrounding matrix. I do all of this by writing code (or asking the AI to write it for me).
 					</p>
 					<p class="text-global-text mb-4 leading-relaxed opacity-90">
 						Before joining UC Merced I did my Master's at <a class="cactus-link" href="https://www.nitrkl.ac.in" target="_blank" rel="noopener">National Institute of Technology, Rourkela</a>, where I studied how the crowded environment inside a cell (and it really is crowded) can change protein–protein reactions.
@@ -45,7 +45,16 @@ import PageLayout from "@/layouts/Base.astro";
 						To study all of this I use some theory and mostly computation—neither of which I'm really good at, but I'm excited and motivated anyway.
 					</p>
 					<p class="text-global-text mb-4 leading-relaxed opacity-90">
-						I love learning about how the world works, even though I find it hard: half the time I'm distracted and half the time too focused on things that might not be important. It took years to be aware of my neurodivergence, and it might take some more to acknowledge it. After all, we're all humans trying to accept the things we aren't and deny the things we are.
+						I have ADHD and OCD. There! I said it!
+					</p>
+					<p class="text-global-text mb-4 leading-relaxed opacity-90">
+						If you're reading this, I will try my best not to let this hinder our working relationship and to be clear in our communication.
+					</p>
+					<p class="text-global-text mb-4 leading-relaxed opacity-90">
+						I love learning about how the world works, even though I find it hard: half the time I'm distracted and half the time too focused on things that might not be important. Sometimes it feels like a superpower and sometimes it's just hard to live with. It took me years to be aware of my ADHD and OCD (and it might take a few more to truly embrace it or not be ashamed of it). I want to be open about this not because my therapist suggested it, but so you know that if we ever work together I don't want this to be an issue.
+					</p>
+					<p class="text-global-text mb-4 leading-relaxed opacity-90">
+						After all, we're all humans trying to accept the things we aren't and deny the things we are.
 					</p>
 					<blockquote class="text-global-text mb-6 border-l-2 border-accent-2 pl-4 italic opacity-90">
 						"Rather than love, than money, than fame, give me truth." — Henry David Thoreau
@@ -56,34 +65,52 @@ import PageLayout from "@/layouts/Base.astro";
 		</div>
 	</section>
 
-	<section class="mt-16">
-		<h2 class="text-accent-2 mb-6 text-xl font-bold uppercase tracking-wider">Affiliations</h2>
-		<div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-			<div class="flex items-center gap-4">
-				<img src="/icons/ucmerced.webp" alt="UC Merced" class="h-16 w-16 object-contain" />
-				<div>
-					<a class="cactus-link font-semibold" href="https://www.ucmerced.edu" target="_blank" rel="noopener">University of California Merced</a>
-					<p class="text-sm opacity-75">
+	<section class="mt-16 border-t border-gray-200 pt-12 dark:border-white/10">
+		<h2 class="text-accent-2 mb-8 text-xl font-bold uppercase tracking-wider">Affiliations</h2>
+		<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+			<div
+				class="group flex flex-col gap-4 rounded-xl border border-gray-200 bg-gray-50/80 p-6 transition duration-200 hover:border-accent-2/30 hover:shadow-md dark:border-white/10 dark:bg-white/5 dark:hover:border-accent-2/40"
+			>
+				<a href="https://www.ucmerced.edu" target="_blank" rel="noopener" class="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white shadow-sm dark:bg-black/20">
+					<img src="/icons/ucmerced.webp" alt="UC Merced" class="h-12 w-12 object-contain" />
+				</a>
+				<div class="min-w-0">
+					<a class="cactus-link font-semibold text-global-text hover:text-accent-2" href="https://www.ucmerced.edu" target="_blank" rel="noopener">University of California Merced</a>
+					<p class="text-global-text mt-1 text-sm opacity-75">
 						Graduate Researcher, <a class="cactus-link" href="http://gopinathanlab.ucmerced.edu" target="_blank" rel="noopener">Gopinathan Group</a>
 					</p>
-					<p class="text-sm opacity-75">
+					<p class="text-global-text mt-0.5 text-sm opacity-75">
 						<a class="cactus-link" href="https://physics.ucmerced.edu" target="_blank" rel="noopener">Department of Physics</a>
 					</p>
 				</div>
 			</div>
-			<div class="flex items-center gap-4">
-				<img src="/icons/cemb.png" alt="CEMB" class="h-16 w-16 object-contain" />
-				<div>
-					<a class="cactus-link font-semibold" href="https://cemb.upenn.edu" target="_blank" rel="noopener">Center for Engineering MechanoBiology</a>
-					<p class="text-sm opacity-75">UPenn</p>
+			<a
+				href="https://cemb.upenn.edu"
+				target="_blank"
+				rel="noopener"
+				class="group flex flex-col gap-4 rounded-xl border border-gray-200 bg-gray-50/80 p-6 transition duration-200 hover:border-accent-2/30 hover:shadow-md dark:border-white/10 dark:bg-white/5 dark:hover:border-accent-2/40"
+			>
+				<div class="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white shadow-sm dark:bg-black/20">
+					<img src="/icons/cemb.png" alt="CEMB" class="h-12 w-12 object-contain" />
 				</div>
-			</div>
-			<div class="flex items-center gap-4">
-				<img src="/icons/ccbm.png" alt="CCBM" class="h-16 w-16 object-contain" />
-				<div>
-					<a class="cactus-link font-semibold" href="https://ccbm.ucmerced.edu" target="_blank" rel="noopener">Center for Cellular and Biomolecular Machines</a>
+				<div class="min-w-0">
+					<p class="cactus-link font-semibold text-global-text group-hover:text-accent-2">Center for Engineering MechanoBiology</p>
+					<p class="text-global-text mt-1 text-sm opacity-75">UPenn</p>
 				</div>
-			</div>
+			</a>
+			<a
+				href="https://ccbm.ucmerced.edu"
+				target="_blank"
+				rel="noopener"
+				class="group flex flex-col gap-4 rounded-xl border border-gray-200 bg-gray-50/80 p-6 transition duration-200 hover:border-accent-2/30 hover:shadow-md dark:border-white/10 dark:bg-white/5 dark:hover:border-accent-2/40"
+			>
+				<div class="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white shadow-sm dark:bg-black/20">
+					<img src="/icons/ccbm.png" alt="CCBM" class="h-12 w-12 object-contain" />
+				</div>
+				<div class="min-w-0">
+					<p class="cactus-link font-semibold text-global-text group-hover:text-accent-2">Center for Cellular and Biomolecular Machines</p>
+				</div>
+			</a>
 		</div>
 	</section>
 </PageLayout>
