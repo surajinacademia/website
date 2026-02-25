@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3:*)",
+      "Bash(pip3 install:*)",
+      "Bash(/tmp/skill-venv/bin/pip install:*)",
+      "Bash(/tmp/skill-venv/bin/python:*)",
+      "Bash(vercel:*)",
+      "Bash(vercel whoami:*)",
+      "Bash(pnpm check:*)",
+      "Bash(pnpm build:*)",
+      "Bash(curl *)",
+      "Bash(xelatex:*)"
+    ]
+  },
+  "enabledPlugins": {
+    "code-simplifier@claude-plugins-official": true,
+    "example-skills@anthropic-agent-skills": true,
+    "frontend-design@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "github@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true,
+    "figma@claude-plugins-official": true,
+    "agent-sdk-dev@claude-plugins-official": true,
+    "plugin-dev@claude-plugins-official": true,
+    "vercel@claude-plugins-official": true,
+    "sentry@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true
+  },
+  "Stop": [
+    {
+      "matcher": "*",
+      "hooks": [
+        {
+          "type": "prompt",
+          "prompt": "If the conversation involved deploying the website (sahusuraj.com, website-deploy, push to main) OR the user said they cannot see updates on the site: return JSON with decision 'approve' and systemMessage: 'Remind the user: Site updates may take 1-2 minutes after push. If updates are not visible: (1) Hard refresh (Ctrl+Shift+R) or open https://www.sahusuraj.com/cv/ in incognito, (2) Check deployment status: https://github.com/surajinacademia/website/actions. To verify the live site or re-run deploy, use the website-deploy agent.' Otherwise return decision 'approve' with no systemMessage.",
+          "timeout": 30
+        }
+      ]
+    }
+  ]
+}
