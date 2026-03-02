@@ -26,5 +26,393 @@ const meta = {
 				))
 			}
 		</div>
+
+		<div class="mt-12">
+			<h2 class="mb-4 text-xl">Personal Statement</h2>
+
+			<h3 class="mb-2 text-lg font-semibold">Research Interests</h3>
+			<p>{cvPage.personalStatement.researchInterests}</p>
+			<p>
+				<strong>Keywords:</strong>{" "}
+				{cvPage.personalStatement.researchKeywords.join(", ")}
+			</p>
+
+			<h3 class="mb-2 mt-6 text-lg font-semibold">
+				Professional Development and Community Outreach
+			</h3>
+			<p>{cvPage.personalStatement.professionalDevelopment}</p>
+			<p>
+				<strong>Keywords:</strong>{" "}
+				{cvPage.personalStatement.outreachKeywords.join(", ")}
+			</p>
+
+			<h3 class="mb-2 mt-6 text-lg font-semibold">Teaching</h3>
+			<p>{cvPage.personalStatement.teaching}</p>
+			<p>
+				<strong>Keywords:</strong>{" "}
+				{cvPage.personalStatement.teachingKeywords.join(", ")}
+			</p>
+		</div>
+
+		<div class="mt-12">
+			<h2 class="mb-4 text-xl">Education</h2>
+			{cvPage.education.map((edu) => (
+				<div class="mb-4">
+					<p class="font-semibold">{edu.degree}</p>
+					<p>
+						{edu.institutionUrl ? (
+							<a
+								href={edu.institutionUrl}
+								class="cactus-link"
+								target="_blank"
+								rel="noopener"
+							>
+								{edu.institution}
+							</a>
+						) : (
+							edu.institution
+						)}
+					</p>
+					<p>{edu.period}</p>
+					{(edu.advisor || edu.gpa) && (
+						<p class="text-sm">
+							{edu.advisor && (
+								<>
+									Advisor:{" "}
+									{edu.advisorUrl ? (
+										<a
+											href={edu.advisorUrl}
+											class="cactus-link"
+											target="_blank"
+											rel="noopener"
+										>
+											{edu.advisor}
+										</a>
+									) : (
+										edu.advisor
+									)}
+								</>
+							)}
+							{edu.advisor && edu.gpa && " · "}
+							{edu.gpa && <>GPA: {edu.gpa}</>}
+						</p>
+					)}
+				</div>
+			))}
+		</div>
+
+		<div class="mt-12">
+			<h2 class="mb-4 text-xl">Publications</h2>
+			<h3 class="mb-3 text-lg font-semibold">Peer-Reviewed Journals</h3>
+			<ul>
+				{cvPage.publications.peerReviewed.map((pub) => (
+					<li class="mb-2">
+						<span class="font-semibold">{pub.date}</span>
+						{": "}
+						<span>{pub.authors}. </span>
+						<span class="italic">{pub.title} </span>
+						<span>{pub.journal}</span>
+						{pub.url && (
+							<>
+								{" "}
+								<a
+									href={pub.url}
+									class="cactus-link"
+									target="_blank"
+									rel="noopener"
+								>
+									DOI
+								</a>
+							</>
+						)}
+					</li>
+				))}
+			</ul>
+		</div>
+
+		<div class="mt-12">
+			<h2 class="mb-4 text-xl">Technical Skills</h2>
+			<dl>
+				{cvPage.technicalSkills.map((skill) => (
+					<div class="mb-2">
+						<dt class="font-semibold">{skill.category}</dt>
+						<dd>{skill.items.join(", ")}</dd>
+					</div>
+				))}
+			</dl>
+		</div>
+
+		<div class="mt-12">
+			<h2 class="mb-4 text-xl">Research Experience</h2>
+
+			<h3 class="mb-3 text-lg font-semibold">Positions</h3>
+			<ul>
+				{cvPage.researchExperience.positions.map((pos) => (
+					<li class="mb-3">
+						<p class="font-semibold">
+							{pos.roleUrl ? (
+								<a
+									href={pos.roleUrl}
+									class="cactus-link"
+									target="_blank"
+									rel="noopener"
+								>
+									{pos.role}
+								</a>
+							) : (
+								pos.role
+							)}
+						</p>
+						<p>
+							{pos.orgUrl ? (
+								<a
+									href={pos.orgUrl}
+									class="cactus-link"
+									target="_blank"
+									rel="noopener"
+								>
+									{pos.organization}
+								</a>
+							) : (
+								pos.organization
+							)}
+						</p>
+						<p>{pos.period}</p>
+					</li>
+				))}
+			</ul>
+
+			<h3 class="mb-3 mt-6 text-lg font-semibold">Projects</h3>
+			<ul>
+				{cvPage.researchExperience.projects.map((proj) => (
+					<li class="mb-3">
+						<p class="font-semibold">
+							{proj.titleUrl ? (
+								<a
+									href={proj.titleUrl}
+									class="cactus-link"
+									target="_blank"
+									rel="noopener"
+								>
+									{proj.title}
+								</a>
+							) : (
+								proj.title
+							)}
+							{proj.inPreparation && " (In preparation)"}
+						</p>
+						{proj.githubUrl && (
+							<p>
+								<a
+									href={proj.githubUrl}
+									class="cactus-link"
+									target="_blank"
+									rel="noopener"
+								>
+									GitHub
+								</a>
+							</p>
+						)}
+						<p>{proj.description}</p>
+						{proj.collaborators && (
+							<p class="text-sm">Collaborators: {proj.collaborators}</p>
+						)}
+						<p class="text-sm">{proj.period}</p>
+					</li>
+				))}
+			</ul>
+		</div>
+
+		<div class="mt-12">
+			<h2 class="mb-4 text-xl">Graduate Coursework</h2>
+			<ul>
+				{cvPage.graduateCoursework.map((cw) => (
+					<li class="mb-2">
+						<p class="font-semibold">{cw.area}</p>
+						<p>{cw.courses.join(", ")}</p>
+					</li>
+				))}
+			</ul>
+		</div>
+
+		<div class="mt-12">
+			<h2 class="mb-4 text-xl">Awards and Achievements</h2>
+			<ul>
+				{cvPage.awards.map((award) => (
+					<li class="mb-2">
+						<p class="font-semibold">{award.year}</p>
+						<p>{award.items.join("; ")}</p>
+					</li>
+				))}
+			</ul>
+		</div>
+
+		<div class="mt-12">
+			<h2 class="mb-4 text-xl">Conferences and Workshops</h2>
+
+			<h3 class="mb-3 text-lg font-semibold">Conferences</h3>
+			<ul>
+				{cvPage.conferences.conferences.map((conf) => (
+					<li class="mb-3">
+						<p class="font-semibold">
+							{conf.date}
+							{" — "}
+							{conf.titleUrl ? (
+								<a
+									href={conf.titleUrl}
+									class="cactus-link"
+									target="_blank"
+									rel="noopener"
+								>
+									{conf.title}
+								</a>
+							) : (
+								conf.title
+							)}
+						</p>
+						<p>{conf.presentation}</p>
+						<p class="text-sm">{conf.authors}</p>
+					</li>
+				))}
+			</ul>
+
+			<h3 class="mb-3 mt-6 text-lg font-semibold">
+				Workshops, Webinars and Tutorials
+			</h3>
+			<ul>
+				{cvPage.conferences.workshops.map((ws) => (
+					<li class="mb-3">
+						<p class="font-semibold">
+							{ws.date && `${ws.date} — `}
+							{ws.titleUrl ? (
+								<a
+									href={ws.titleUrl}
+									class="cactus-link"
+									target="_blank"
+									rel="noopener"
+								>
+									{ws.title}
+								</a>
+							) : (
+								ws.title
+							)}
+						</p>
+						{(ws.role || ws.location) && (
+							<p class="text-sm">
+								{ws.role}
+								{ws.role && ws.location && " · "}
+								{ws.location}
+							</p>
+						)}
+					</li>
+				))}
+			</ul>
+
+			<h3 class="mb-3 mt-6 text-lg font-semibold">
+				Outreach and Community Engagement
+			</h3>
+			<ul>
+				{cvPage.conferences.outreach.map((ev) => (
+					<li class="mb-3">
+						<p class="font-semibold">
+							{ev.date}
+							{" — "}
+							{ev.titleUrl ? (
+								<a
+									href={ev.titleUrl}
+									class="cactus-link"
+									target="_blank"
+									rel="noopener"
+								>
+									{ev.title}
+								</a>
+							) : (
+								ev.title
+							)}
+						</p>
+						<p>{ev.description}</p>
+					</li>
+				))}
+			</ul>
+		</div>
+
+		<div class="mt-12">
+			<h2 class="mb-4 text-xl">Service</h2>
+			<ul>
+				{cvPage.service.map((svc) => (
+					<li class="mb-3">
+						<p class="font-semibold">
+							{svc.period}
+							{" — "}
+							{svc.roleUrl ? (
+								<a
+									href={svc.roleUrl}
+									class="cactus-link"
+									target="_blank"
+									rel="noopener"
+								>
+									{svc.role}
+								</a>
+							) : (
+								svc.role
+							)}
+						</p>
+						<p>
+							{svc.orgUrl ? (
+								<a
+									href={svc.orgUrl}
+									class="cactus-link"
+									target="_blank"
+									rel="noopener"
+								>
+									{svc.organization}
+								</a>
+							) : (
+								svc.organization
+							)}
+						</p>
+						<p>{svc.description}</p>
+					</li>
+				))}
+			</ul>
+		</div>
+
+		<div class="mt-12">
+			<h2 class="mb-4 text-xl">References</h2>
+			<ul>
+				{cvPage.references.map((ref) => (
+					<li class="mb-3">
+						<p class="font-semibold">
+							{ref.nameUrl ? (
+								<a
+									href={ref.nameUrl}
+									class="cactus-link"
+									target="_blank"
+									rel="noopener"
+								>
+									{ref.name}
+								</a>
+							) : (
+								ref.name
+							)}
+						</p>
+						<p>{ref.department}</p>
+						<p>{ref.institution}</p>
+						{ref.email && (
+							<p>
+								<a
+									href={`mailto:${ref.email}`}
+									class="cactus-link"
+									target="_blank"
+									rel="noopener"
+								>
+									{ref.email}
+								</a>
+							</p>
+						)}
+					</li>
+				))}
+			</ul>
+		</div>
 	</div>
 </PageLayout>
