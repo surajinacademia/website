@@ -9,8 +9,7 @@
 			"!**/.vercel",
 			"!**/.netlify",
 			"!**/.vscode",
-			"!**/.astro",
-			"!**/.claude"
+			"!**/.astro"
 		]
 	},
 	"formatter": {

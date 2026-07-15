@@ -4,16 +4,12 @@ import PageLayout from "@/layouts/Base.astro";
 ---
 
 <PageLayout
+	searchable
 	meta={{
 		title: "About",
 		description: "PhD Candidate at UC Merced studying physics and biology of multicellular networks, vascular development, and cell–matrix mechanics",
 	}}
 >
-	<!-- Site notice -->
-	<div class="text-global-text mb-10 rounded-xl border-2 border-accent-2/30 bg-gray-100 px-6 py-5 text-center text-base font-medium opacity-95 dark:border-accent-2/40 dark:bg-white/10 md:px-8 md:py-6 md:text-lg">
-		This website was recently migrated and is under development as of Feb 2026. It will be updated soon.
-	</div>
-
 	<!-- Polaroid-style image (left) + intro text (right) -->
 	<section class="mb-12">
 		<div class="container mx-auto">
@@ -56,9 +52,6 @@ import PageLayout from "@/layouts/Base.astro";
 					<p class="text-global-text mb-4 leading-relaxed opacity-90">
 						After all, we're all humans trying to accept the things we aren't and deny the things we are.
 					</p>
-					<blockquote class="text-global-text mb-6 border-l-2 border-accent-2 pl-4 italic opacity-90">
-						"Rather than love, than money, than fame, give me truth." — Henry David Thoreau
-					</blockquote>
 					<SocialList />
 				</div>
 			</div>

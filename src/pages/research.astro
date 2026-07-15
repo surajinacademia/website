@@ -8,67 +8,69 @@ const meta = {
 };
 ---
 
-<PageLayout meta={meta}>
-	<h1 class="title mb-12">Research</h1>
-	<div class="prose prose-sm prose-cactus max-w-none">
-		<div class="mb-12">
-			<h2 class="mb-4 text-xl">Research Overview</h2>
-			<p class="mb-4 text-justify">{researchPage.overview}</p>
-		</div>
+<PageLayout meta={meta} searchable>
+	<section aria-labelledby="research-title" class="mx-auto max-w-[68ch]">
+		<h1 class="title mb-10 sm:mb-12" id="research-title">Research</h1>
+		<div class="prose prose-base prose-cactus max-w-none">
+			<div class="mb-12">
+				<h2 class="mb-4 text-xl">Research Overview</h2>
+				<p class="mb-4">{researchPage.overview}</p>
+			</div>
 
-		<div class="mb-12">
-			<h2 class="mb-4 text-xl">Research Interests</h2>
-			<ul class="list-inside list-disc space-y-2">
-				{researchPage.interests.map((item) => (
-					<li>
-						<strong>{item.title}:</strong> {item.description}
-					</li>
-				))}
-			</ul>
-		</div>
+			<div class="mb-12">
+				<h2 class="mb-4 text-xl">Research Interests</h2>
+				<ul class="list-outside list-disc space-y-2 pl-5">
+					{
+						researchPage.interests.map((item) => (
+							<li>
+								<strong>{item.title}:</strong> {item.description}
+							</li>
+						))
+					}
+				</ul>
+			</div>
 
-		<div class="mb-12">
-			<h2 class="mb-4 text-xl">Current Projects</h2>
-			<div class="space-y-6">
-				{researchPage.projects.map((project) => (
+			<div class="mb-12">
+				<h2 class="mb-4 text-xl">Current Projects</h2>
+				<div class="space-y-6">
+					{
+						researchPage.projects.map((project) => (
+							<div>
+								<h3 class="mb-2 font-semibold">{project.title}</h3>
+								<p class="opacity-90">{project.description}</p>
+							</div>
+						))
+					}
+				</div>
+			</div>
+
+			<div class="mb-12">
+				<h2 class="mb-4 text-xl">Publications</h2>
+				<p class="mb-4 opacity-75">
+					For a complete list of publications, please visit my
+					<a class="cactus-link" href={researchPage.scholarUrl} target="_blank" rel="noopener">
+						Google Scholar profile
+					</a>.
+				</p>
+			</div>
+
+			<div class="mb-12">
+				<h2 class="mb-4 text-xl">Methods & Tools</h2>
+				<div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
 					<div>
-						<h3 class="mb-2 font-semibold">{project.title}</h3>
-						<p class="text-sm opacity-90">{project.description}</p>
+						<h3 class="mb-2 font-semibold">Computational Approaches</h3>
+						<ul class="list-outside list-disc pl-5">
+							{researchPage.methods.computational.map((item) => <li>{item}</li>)}
+						</ul>
 					</div>
-				))}
-			</div>
-		</div>
-
-		<div class="mb-12">
-			<h2 class="mb-4 text-xl">Publications</h2>
-			<p class="mb-4 text-sm opacity-75">
-				For a complete list of publications, please visit my
-				<a class="cactus-link" href={researchPage.scholarUrl} target="_blank" rel="noopener">
-					Google Scholar profile
-				</a>.
-			</p>
-		</div>
-
-		<div class="mb-12">
-			<h2 class="mb-4 text-xl">Methods & Tools</h2>
-			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-				<div>
-					<h3 class="mb-2 font-semibold">Computational Approaches</h3>
-					<ul class="list-inside list-disc text-sm">
-						{researchPage.methods.computational.map((item) => (
-							<li>{item}</li>
-						))}
-					</ul>
-				</div>
-				<div>
-					<h3 class="mb-2 font-semibold">Programming & Software</h3>
-					<ul class="list-inside list-disc text-sm">
-						{researchPage.methods.software.map((item) => (
-							<li>{item}</li>
-						))}
-					</ul>
+					<div>
+						<h3 class="mb-2 font-semibold">Programming & Software</h3>
+						<ul class="list-outside list-disc pl-5">
+							{researchPage.methods.software.map((item) => <li>{item}</li>)}
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 </PageLayout>

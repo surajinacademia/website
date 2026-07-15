@@ -1,9 +1,41 @@
 /* would like to ignore ./src/pages/og-image/[slug].png.ts */
-/* Photography portfolio theme: fonts loaded in BaseHead.astro */
+/* Photography portfolio theme: CMU Sans Serif is self-hosted; the title face loads in BaseHead.astro */
 
 @import "tailwindcss";
 /* config for tailwindcss-typography plugin */
 @config "../../tailwind.config.ts";
+
+@font-face {
+	font-family: "CMU Sans Serif";
+	font-style: normal;
+	font-weight: 300 500;
+	font-display: swap;
+	src: url("/fonts/cmu-sans-regular.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "CMU Sans Serif";
+	font-style: italic;
+	font-weight: 300 500;
+	font-display: swap;
+	src: url("/fonts/cmu-sans-oblique.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "CMU Sans Serif";
+	font-style: normal;
+	font-weight: 600 700;
+	font-display: swap;
+	src: url("/fonts/cmu-sans-bold.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "CMU Sans Serif";
+	font-style: italic;
+	font-weight: 600 700;
+	font-display: swap;
+	src: url("/fonts/cmu-sans-bold-oblique.woff2") format("woff2");
+}
 
 /* use a selector-based strategy for dark mode */
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
@@ -23,7 +55,7 @@
 		color-scheme: light dark;
 		accent-color: var(--color-accent);
 		scrollbar-gutter: stable;
-		font-family: "Signika", sans-serif;
+		font-family: "CMU Sans Serif", sans-serif;
 
 		&[data-theme="light"] {
 			color-scheme: light;

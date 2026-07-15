@@ -1,6 +1,13 @@
-# CLAUDE.md
+# AGENTS.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides durable repository guidance to OpenAI Codex.
+
+## Codex Configuration
+
+- Keep repository instructions in this `AGENTS.md` file.
+- Keep reusable repository workflows in `.agents/skills/`; the `cv-sync` skill owns synchronization of the full CV and condensed résumé PDFs.
+- Do not recreate `CLAUDE.md` or `.claude/`. Claude-specific permissions, plugin toggles, and hooks are not part of this repository's Codex configuration.
+- Keep machine-specific permissions, plugins, MCP servers, and credentials out of the repository.
 
 ## Commands
 
@@ -94,6 +101,15 @@ The `resume/` directory contains two LaTeX documents:
 
 When the user updates `cv.tex`, keep `resume.tex` in sync with the relevant content changes. `cv.tex` uses `pdflatex` + EB Garamond; `resume.tex` uses `xelatex` + CMU Sans Serif.
 
+The `/cv/` webpage is intentionally PDF-only. Keep its two choices mapped to `/cv.pdf` (long academic CV) and `/resume.pdf` (short résumé); do not duplicate the document content in Astro or TypeScript.
+
 ### Deployment
 
 GitHub Actions CI ([.github/workflows/ci.yml](.github/workflows/ci.yml)) runs `astro check` and `pnpm build` on push/PR to `main`. Deploy via GitHub Pages with source set to GitHub Actions.
+
+When the user explicitly asks to publish or deploy:
+
+1. Run `pnpm check` and `pnpm build`; do not publish a failing build.
+2. Never force-push. Only commit or push changes the user intends to publish.
+3. A push to `main` triggers [the deployment workflow](.github/workflows/deploy.yml).
+4. Verify the live site at `https://www.sahusuraj.com/` and, if deployment is still running, check `https://github.com/surajinacademia/website/actions`. GitHub Pages updates may take a minute or two; use a hard refresh or private window when checking a newly deployed version.
