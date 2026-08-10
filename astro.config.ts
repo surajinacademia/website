@@ -1,6 +1,6 @@
 import fs from "node:fs";
 // Rehype plugins
-import { rehypeHeadingIds } from "@astrojs/markdown-remark";
+import { rehypeHeadingIds, unified } from "@astrojs/markdown-remark";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@tailwindcss/vite";
@@ -21,6 +21,8 @@ import { expressiveCodeOptions, siteConfig } from "./src/site.config";
 
 // https://astro.build/config
 export default defineConfig({
+	// Preserve Astro 5's whitespace behavior while upgrading the security-patched runtime.
+	compressHTML: true,
 	site: siteConfig.url,
 	image: {
 		domains: ["webmention.io"],
@@ -67,24 +69,26 @@ export default defineConfig({
 		}),
 	],
 	markdown: {
-		rehypePlugins: [
-			rehypeHeadingIds,
-			[rehypeAutolinkHeadings, { behavior: "wrap", properties: { className: ["not-prose"] } }],
-			[
-				rehypeExternalLinks,
-				{
-					rel: ["noreferrer", "noopener"],
-					target: "_blank",
-				},
+		processor: unified({
+			rehypePlugins: [
+				rehypeHeadingIds,
+				[rehypeAutolinkHeadings, { behavior: "wrap", properties: { className: ["not-prose"] } }],
+				[
+					rehypeExternalLinks,
+					{
+						rel: ["noreferrer", "noopener"],
+						target: "_blank",
+					},
+				],
+				rehypeUnwrapImages,
 			],
-			rehypeUnwrapImages,
-		],
-		remarkPlugins: [remarkReadingTime, remarkDirective, remarkGithubCard, remarkAdmonitions],
-		remarkRehype: {
-			footnoteLabelProperties: {
-				className: [""],
+			remarkPlugins: [remarkReadingTime, remarkDirective, remarkGithubCard, remarkAdmonitions],
+			remarkRehype: {
+				footnoteLabelProperties: {
+					className: [""],
+				},
 			},
-		},
+		}),
 	},
 	vite: {
 		optimizeDeps: {

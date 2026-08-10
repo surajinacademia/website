@@ -81,6 +81,12 @@
 		navigation: auto;
 	}
 
+	::view-transition-old(root),
+	::view-transition-new(root) {
+		animation-duration: 180ms;
+		animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
 	/* Astro image responsive styles, modified from -> https://docs.astro.build/en/guides/images/#responsive-image-styles */
 	:where([data-astro-image]) {
 		object-fit: var(--fit);
@@ -126,52 +132,22 @@
 	.smooth-edges {
 		-webkit-backface-visibility: hidden;
 	}
-	.animate-wave {
-		animation-name: wave;
-		animation-duration: 2.5s;
-		animation-iteration-count: infinite;
-		transform-origin: 70% 70%;
-		display: inline-block;
-	}
-	/* Portfolio gallery: fade-in on load, scale 110% on hover (photography-portfolio theme) */
-	.animate-fade-in {
-		animation-name: fade-in;
-		animation-duration: 0.5s;
-		animation-fill-mode: both;
-	}
 }
-@keyframes fade-in {
-	from {
-		opacity: 0;
+
+@media (prefers-reduced-motion: reduce) {
+	html.scroll-smooth {
+		scroll-behavior: auto;
 	}
-	to {
-		opacity: 1;
+
+	::view-transition-old(root),
+	::view-transition-new(root) {
+		animation: none;
 	}
-}
-@keyframes wave {
-	0% {
-		transform: rotate(0deg);
-	}
-	10% {
-		transform: rotate(14deg);
-	}
-	20% {
-		transform: rotate(-8deg);
-	}
-	30% {
-		transform: rotate(14deg);
-	}
-	40% {
-		transform: rotate(-4deg);
-	}
-	50% {
-		transform: rotate(10deg);
-	}
-	60% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(0deg);
+
+	.github-card.gh-loading .gh-title .gh-avatar,
+	.github-card.gh-loading .gh-description,
+	.github-card.gh-loading .gh-chips span {
+		animation: none;
 	}
 }
 

@@ -17,7 +17,7 @@ import { navLinks, siteConfig } from "@/site.config";
 	</a>
 	<nav
 		aria-label="Main menu"
-		class="bg-global-bg absolute top-full right-0 left-0 z-50 hidden flex-col gap-1 border-y border-gray-200 px-4 py-4 shadow-lg group-[.menu-open]:flex sm:static sm:flex sm:flex-row sm:gap-6 sm:border-0 sm:px-0 sm:py-0 sm:shadow-none dark:border-white/10"
+		class="bg-global-bg pointer-events-none invisible absolute top-full right-0 left-0 z-50 flex -translate-y-1 flex-col gap-1 border-y border-gray-200 px-4 py-4 opacity-0 shadow-lg transition-[opacity,transform,visibility] duration-150 ease-out group-[.menu-open]:pointer-events-auto group-[.menu-open]:visible group-[.menu-open]:translate-y-0 group-[.menu-open]:opacity-100 motion-reduce:transition-none sm:pointer-events-auto sm:visible sm:static sm:flex sm:translate-y-0 sm:flex-row sm:gap-6 sm:border-0 sm:px-0 sm:py-0 sm:opacity-100 sm:shadow-none sm:transition-none dark:border-white/10"
 		id="navigation-menu"
 	>
 		{
@@ -46,7 +46,7 @@ import { navLinks, siteConfig } from "@/site.config";
 				<span class="sr-only" data-menu-label>Open main menu</span>
 				<svg
 					aria-hidden="true"
-					class="absolute start-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 transition-all group-aria-expanded:scale-0 group-aria-expanded:opacity-0"
+					class="absolute start-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 transition-[opacity,transform] duration-150 ease-out group-aria-expanded:scale-0 group-aria-expanded:opacity-0 motion-reduce:transition-none"
 					fill="none"
 					focusable="false"
 					id="line-svg"
@@ -60,7 +60,7 @@ import { navLinks, siteConfig } from "@/site.config";
 				</svg>
 				<svg
 					aria-hidden="true"
-					class="text-accent absolute start-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 scale-0 opacity-0 transition-all group-aria-expanded:scale-100 group-aria-expanded:opacity-100"
+					class="text-accent absolute start-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 scale-0 opacity-0 transition-[opacity,transform] duration-150 ease-out group-aria-expanded:scale-100 group-aria-expanded:opacity-100 motion-reduce:transition-none"
 					fill="none"
 					focusable="false"
 					id="cross-svg"

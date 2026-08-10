@@ -30,7 +30,7 @@ const comments = mentions.filter(
 								<a
 									class="u-author not-prose ring-global-text hover:ring-link focus-visible:ring-link shrink-0 overflow-hidden rounded-full ring-2 hover:ring-4 focus-visible:ring-4"
 									href={mention.author.url}
-									rel="noreferrer"
+									rel="noopener noreferrer"
 									target="_blank"
 									title={mention.author.name}
 								>
@@ -57,23 +57,22 @@ const comments = mentions.filter(
 								<p class="p-name text-accent-2 my-0 line-clamp-1 font-semibold">
 									{mention.author?.name}
 								</p>
-								<a
-									aria-labelledby="cmt-source"
-									class="u-url not-prose hover:text-link"
-									href={mention.url}
-									rel="noreferrer"
-									target="_blank"
-								>
-									<span class="hidden" id="cmt-source">
-										Visit the source of this webmention
-									</span>
-									<Icon
-										aria-hidden="true"
-										class="h-5 w-5"
-										focusable="false"
-										name="mdi:open-in-new"
-									/>
-								</a>
+								{mention.url && (
+									<a
+										aria-label="Visit the source of this webmention"
+										class="u-url not-prose hover:text-link"
+										href={mention.url}
+										rel="noopener noreferrer"
+										target="_blank"
+									>
+										<Icon
+											aria-hidden="true"
+											class="h-5 w-5"
+											focusable="false"
+											name="mdi:open-in-new"
+										/>
+									</a>
+								)}
 							</div>
 							<p class="comment-content mt-1 mb-0 [word-break:break-word] whitespace-pre-wrap">
 								{mention.content?.text}

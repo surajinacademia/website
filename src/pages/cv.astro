@@ -32,7 +32,7 @@ const documents = [
 				documents.map((document) => (
 					<a
 						aria-label={`Open ${document.title} PDF in a new tab`}
-						class="group text-global-text focus-visible:outline-accent flex min-h-40 flex-col justify-between rounded-lg border border-black/20 p-5 no-underline transition-colors duration-200 hover:border-black focus-visible:outline-2 focus-visible:outline-offset-4 dark:border-white/25 dark:hover:border-white"
+						class="group text-global-text focus-visible:outline-accent flex min-h-40 flex-col justify-between rounded-lg border border-black/20 p-5 no-underline transition-colors duration-200 hover:border-black focus-visible:outline-2 focus-visible:outline-offset-4 motion-reduce:transition-none dark:border-white/25 dark:hover:border-white"
 						href={document.href}
 						rel="noopener noreferrer"
 						target="_blank"
@@ -48,7 +48,7 @@ const documents = [
 							View PDF
 							<span
 								aria-hidden="true"
-								class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+								class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none"
 							>
 								↗
 							</span>

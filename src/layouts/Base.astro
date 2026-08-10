@@ -23,7 +23,7 @@ const {
 		<BaseHead articleDate={articleDate} description={description} ogImage={ogImage} title={title} />
 	</head>
 	<body
-		class="font-cmusans animate-fade-in flex min-h-screen w-full flex-col bg-white px-5 pt-12 text-base font-normal text-black antialiased opacity-100 transition duration-500 md:px-20 dark:bg-black dark:text-white"
+		class="font-cmusans flex min-h-screen w-full flex-col bg-white px-5 pt-12 text-base font-normal text-black antialiased transition-colors duration-200 ease-out motion-reduce:transition-none md:px-20 dark:bg-black dark:text-white"
 	>
 		<ThemeProvider />
 		<SkipLink />
@@ -39,7 +39,7 @@ const {
 						"where": {
 							"href_matches": "/*"
 						},
-						"eagerness": "immediate"
+						"eagerness": "moderate"
 					}
 				],
 				"prerender": [
@@ -47,7 +47,7 @@ const {
 						"where": {
 							"href_matches": "/*"
 						},
-						"eagerness": "moderate"
+						"eagerness": "conservative"
 					}
 				]
 			}
