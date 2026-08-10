@@ -14,6 +14,7 @@ export const resourcesPage = {
 				{
 					description:
 						"A Python MCP server for running Cellpose workflows through AI tools, including 2D and 3D segmentation, batch processing, image restoration, and custom model training.",
+					icon: "mdi:microscope",
 					label: "Microscopy · Python",
 					links: [
 						{
@@ -38,6 +39,7 @@ export const resourcesPage = {
 				{
 					description:
 						"A companion MCP server for reproducible Fiji and ImageJ workflows, with macro execution, plugin discovery, screenshots, and structured results.",
+					icon: "mdi:image-multiple-outline",
 					label: "Image analysis · Python",
 					links: [
 						{
@@ -64,6 +66,7 @@ export const resourcesPage = {
 				{
 					description:
 						"Workshop material on context-aware AI research workflows, scientific data analysis, image analysis, and computational reproducibility.",
+					icon: "mdi:robot-outline",
 					label: "Workshop · Tutorial",
 					links: [
 						{
@@ -76,6 +79,7 @@ export const resourcesPage = {
 				{
 					description:
 						"Figure 6 reproducibility code for a GFNN and SINDy pipeline developed for the paper “Zyxin is all you need: machine learning adherent cell mechanics.”",
+					icon: "mdi:graph-outline",
 					label: null,
 					links: [
 						{
@@ -92,6 +96,7 @@ export const resourcesPage = {
 				{
 					description:
 						"A minimalist Matplotlib style package for publication figures, using CMU Sans Serif, Computer Modern mathematics, and reusable journal-width presets.",
+					icon: "mdi:chart-line",
 					label: "Scientific figures · Python",
 					links: [
 						{
