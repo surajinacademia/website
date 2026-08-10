@@ -76,7 +76,7 @@ export const resourcesPage = {
 				{
 					description:
 						"Figure 6 reproducibility code for a GFNN and SINDy pipeline developed for the paper “Zyxin is all you need: machine learning adherent cell mechanics.”",
-					label: "Paper code · Machine learning",
+					label: null,
 					links: [
 						{
 							href: "https://github.com/surajinacademia/cell_force_gfnn",

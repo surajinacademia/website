@@ -29,9 +29,11 @@ const meta = {
 						<div class="divide-y divide-gray-200 dark:divide-white/10">
 							{section.resources.map((resource) => (
 								<article class="py-6 sm:py-7">
-									<p class="mb-2 text-xs font-medium tracking-[0.14em] uppercase opacity-55">
-										{resource.label}
-									</p>
+									{resource.label && (
+										<p class="mb-2 text-xs font-medium tracking-[0.14em] uppercase opacity-55">
+											{resource.label}
+										</p>
+									)}
 									<h3 class="text-accent-2 text-lg font-semibold">{resource.title}</h3>
 									<p class="text-global-text mt-2 max-w-[62ch] leading-7 opacity-80">
 										{resource.description}
