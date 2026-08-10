@@ -1,17 +1,77 @@
 ---
+import { resourcesPage } from "@/data/pages/resources";
 import PageLayout from "@/layouts/Base.astro";
 
 const meta = {
-	description: "Resources and links (under development)",
+	description: "Open research software, reproducible code, and teaching resources by Suraj Sahu",
 	title: "Resources",
 };
 ---
 
 <PageLayout meta={meta} searchable>
-	<h1 class="title mb-12">Resources</h1>
-	<div class="prose prose-sm prose-cactus max-w-none">
-		<p class="text-global-text opacity-90">
-			This page is under development and will be updated soon.
-		</p>
-	</div>
+	<section aria-labelledby="resources-title" class="mx-auto max-w-[68ch]">
+		<header class="mb-12 sm:mb-14">
+			<h1 class="title mb-5" id="resources-title">Resources</h1>
+			<p class="text-global-text max-w-[60ch] leading-7 opacity-80">{resourcesPage.intro}</p>
+		</header>
+
+		<div class="space-y-14">
+			{
+				resourcesPage.sections.map((section) => (
+					<section aria-labelledby={section.id}>
+						<h2
+							class="text-accent-2 border-b border-gray-200 pb-3 text-lg font-semibold dark:border-white/10"
+							id={section.id}
+						>
+							{section.title}
+						</h2>
+
+						<div class="divide-y divide-gray-200 dark:divide-white/10">
+							{section.resources.map((resource) => (
+								<article class="py-6 sm:py-7">
+									<p class="mb-2 text-xs font-medium tracking-[0.14em] uppercase opacity-55">
+										{resource.label}
+									</p>
+									<h3 class="text-accent-2 text-lg font-semibold">{resource.title}</h3>
+									<p class="text-global-text mt-2 max-w-[62ch] leading-7 opacity-80">
+										{resource.description}
+									</p>
+
+									<ul
+										class="mt-4 flex flex-wrap gap-x-5 gap-y-2"
+										aria-label={`${resource.title} links`}
+									>
+										{resource.links.map((link) => (
+											<li>
+												<a
+													class="cactus-link focus-visible:outline-accent inline-flex items-baseline gap-1 text-sm font-medium focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4"
+													href={link.href}
+													rel="noopener noreferrer"
+													target="_blank"
+												>
+													{link.text}
+													<span aria-hidden="true">↗</span>
+												</a>
+											</li>
+										))}
+									</ul>
+								</article>
+							))}
+						</div>
+					</section>
+				))
+			}
+		</div>
+
+		<footer class="mt-14 border-t border-gray-200 pt-6 dark:border-white/10">
+			<a
+				class="cactus-link focus-visible:outline-accent inline-flex items-baseline gap-1 text-sm font-medium focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4"
+				href={resourcesPage.github.href}
+				rel="noopener noreferrer"
+				target="_blank"
+			>
+				{resourcesPage.github.text}<span aria-hidden="true">↗</span>
+			</a>
+		</footer>
+	</section>
 </PageLayout>
