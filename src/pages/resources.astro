@@ -16,18 +16,28 @@ const meta = {
 			<p class="text-global-text max-w-[60ch] leading-7 opacity-80">{resourcesPage.intro}</p>
 		</header>
 
-		<div class="space-y-14">
+		<div>
 			{
 				resourcesPage.sections.map((section) => (
-					<section aria-labelledby={section.id}>
-						<h2
-							class="text-accent-2 border-b border-gray-200 pb-3 text-lg font-semibold dark:border-white/10"
-							id={section.id}
-						>
-							{section.title}
-						</h2>
+					<section
+						aria-label={section.title ? undefined : "Additional repositories"}
+						aria-labelledby={section.title ? section.id : undefined}
+					>
+						{section.title && (
+							<h2
+								class="text-accent-2 border-b border-gray-200 pb-3 text-lg font-semibold dark:border-white/10"
+								id={section.id}
+							>
+								{section.title}
+							</h2>
+						)}
 
-						<div class="divide-y divide-gray-200 dark:divide-white/10">
+						<div
+							class:list={[
+								"divide-y divide-gray-200 dark:divide-white/10",
+								!section.title && "border-t border-gray-200 dark:border-white/10",
+							]}
+						>
 							{section.resources.map((resource) => (
 								<article class="py-6 sm:py-7">
 									<div class="flex items-start gap-3.5">

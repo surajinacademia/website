@@ -61,7 +61,7 @@ export const resourcesPage = {
 		},
 		{
 			id: "code-and-teaching",
-			title: "Code, teaching & figures",
+			title: null,
 			resources: [
 				{
 					description:
@@ -75,23 +75,6 @@ export const resourcesPage = {
 						},
 					],
 					title: "AI-Aided Research Workflow",
-				},
-				{
-					description:
-						"Figure 6 reproducibility code for a GFNN and SINDy pipeline developed for the paper “Zyxin is all you need: machine learning adherent cell mechanics.”",
-					icon: "mdi:graph-outline",
-					label: null,
-					links: [
-						{
-							href: "https://github.com/surajinacademia/cell_force_gfnn",
-							text: "Source code",
-						},
-						{
-							href: "https://arxiv.org/abs/2303.00176",
-							text: "Read the paper",
-						},
-					],
-					title: "Cell Mechanics GFNN",
 				},
 				{
 					description:
