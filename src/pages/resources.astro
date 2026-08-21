@@ -1,5 +1,4 @@
 ---
-import { Icon } from "astro-icon/components";
 import { resourcesPage } from "@/data/pages/resources";
 import PageLayout from "@/layouts/Base.astro";
 
@@ -11,95 +10,22 @@ const meta = {
 
 <PageLayout meta={meta} searchable>
 	<section aria-labelledby="resources-title" class="mx-auto max-w-[68ch]">
-		<header class="mb-12 sm:mb-14">
-			<h1 class="title mb-5" id="resources-title">Resources</h1>
-			<p class="text-global-text max-w-[60ch] leading-7 opacity-80">{resourcesPage.intro}</p>
-		</header>
-
-		<div>
+		<h1 class="title mb-8" id="resources-title">Resources</h1>
+		<ol class="text-global-text list-decimal space-y-4 pl-6">
 			{
-				resourcesPage.sections.map((section) => (
-					<section
-						aria-label={section.title ? undefined : "Additional repositories"}
-						aria-labelledby={section.title ? section.id : undefined}
-					>
-						{section.title && (
-							<h2
-								class="text-accent-2 border-b border-gray-200 pb-3 text-lg font-semibold dark:border-white/10"
-								id={section.id}
-							>
-								{section.title}
-							</h2>
-						)}
-
-						<div
-							class:list={[
-								"divide-y divide-gray-200 dark:divide-white/10",
-								!section.title && "border-t border-gray-200 dark:border-white/10",
-							]}
+				resourcesPage.resources.map((resource) => (
+					<li class="pl-1">
+						<a
+							class="cactus-link focus-visible:outline-accent focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4"
+							href={resource.href}
+							rel="noopener noreferrer"
+							target="_blank"
 						>
-							{section.resources.map((resource) => (
-								<article class="py-6 sm:py-7">
-									<div class="flex items-start gap-3.5">
-										<span class="text-accent-2 flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-gray-200 bg-gray-50 dark:border-white/15 dark:bg-white/5">
-											<Icon
-												aria-hidden="true"
-												class="h-5 w-5"
-												focusable="false"
-												name={resource.icon}
-											/>
-										</span>
-										<div class="min-w-0 pt-0.5">
-											{resource.label && (
-												<p class="mb-1.5 text-xs font-medium tracking-[0.14em] uppercase opacity-55">
-													{resource.label}
-												</p>
-											)}
-											<h3 class="text-accent-2 text-lg font-semibold">{resource.title}</h3>
-										</div>
-									</div>
-
-									<div class="mt-3 sm:pl-14">
-										<p class="text-global-text max-w-[62ch] leading-7 opacity-80">
-											{resource.description}
-										</p>
-
-										<ul
-											class="mt-4 flex flex-wrap gap-x-5 gap-y-2"
-											aria-label={`${resource.title} links`}
-										>
-											{resource.links.map((link) => (
-												<li>
-													<a
-														class="cactus-link focus-visible:outline-accent inline-flex items-baseline gap-1 text-sm font-medium focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4"
-														href={link.href}
-														rel="noopener noreferrer"
-														target="_blank"
-													>
-														{link.text}
-														<span aria-hidden="true">↗</span>
-													</a>
-												</li>
-											))}
-										</ul>
-									</div>
-								</article>
-							))}
-						</div>
-					</section>
+							{resource.title}
+						</a>
+					</li>
 				))
 			}
-		</div>
-
-		<footer class="mt-14 border-t border-gray-200 pt-6 dark:border-white/10">
-			<a
-				class="cactus-link focus-visible:outline-accent inline-flex items-baseline gap-1 text-sm font-medium focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4"
-				href={resourcesPage.github.href}
-				rel="noopener noreferrer"
-				target="_blank"
-			>
-				{resourcesPage.github.text}<span aria-hidden="true">↗</span>
-			</a>
-		</footer>
+		</ol>
 	</section>
 </PageLayout>
