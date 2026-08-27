@@ -4,8 +4,8 @@
 
 	function getUserPref() {
 		const storedTheme = typeof localStorage !== "undefined" && localStorage.getItem("theme");
-		// Default to dark to match photography-portfolio theme
-		return storedTheme || "dark";
+		// Use the white theme until the visitor selects another theme.
+		return storedTheme || "light";
 	}
 
 	function setTheme(newTheme) {
