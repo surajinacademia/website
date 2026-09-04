@@ -29,6 +29,12 @@ export const resourcesPage = {
 			description: "Implements, debugs, and validates scientific models and simulations.",
 		},
 		{
+			href: "https://github.com/surajinacademia/theoretical-biophysics-modeling-skills/blob/main/skills/model-documentation/SKILL.md",
+			title: "Model Documentation",
+			description:
+				"Plan and verify one physics-focused model document with a fixed structure, defined notation, and reproducible methods.",
+		},
+		{
 			href: "https://github.com/surajinacademia/theoretical-biophysics-modeling-skills/blob/main/skills/schematic-designer/SKILL.md",
 			title: "Schematic Designer",
 			description: "Creates scientific schematics with Matplotlib and TikZ.",
