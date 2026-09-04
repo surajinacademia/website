@@ -3,7 +3,8 @@ import { resourcesPage } from "@/data/pages/resources";
 import PageLayout from "@/layouts/Base.astro";
 
 const meta = {
-	description: "Open research software, reproducible code, and teaching resources by Suraj Sahu",
+	description:
+		"Open research software, reproducible code, skills, and teaching resources by Suraj Sahu",
 	title: "Resources",
 };
 ---
@@ -27,5 +28,25 @@ const meta = {
 				))
 			}
 		</ol>
+		<section aria-labelledby="skills-title" class="mt-10">
+			<h2 class="mb-4 text-xl" id="skills-title">Skills</h2>
+			<ol class="text-global-text list-decimal space-y-4 pl-6">
+				{
+					resourcesPage.skills.map((skill) => (
+						<li class="pl-1">
+							<a
+								class="cactus-link focus-visible:outline-accent focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4"
+								href={skill.href}
+								rel="noopener noreferrer"
+								target="_blank"
+							>
+								{skill.title}
+							</a>
+							: {skill.description}
+						</li>
+					))
+				}
+			</ol>
+		</section>
 	</section>
 </PageLayout>

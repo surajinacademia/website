@@ -22,4 +22,26 @@ export const resourcesPage = {
 			title: "Minimalist Matplotlib Theme",
 		},
 	],
+	skills: [
+		{
+			href: "https://github.com/surajinacademia/theoretical-biophysics-modeling-skills/blob/main/skills/computational-modeling/SKILL.md",
+			title: "Computational Modeling",
+			description: "Implements, debugs, and validates scientific models and simulations.",
+		},
+		{
+			href: "https://github.com/surajinacademia/theoretical-biophysics-modeling-skills/blob/main/skills/schematic-designer/SKILL.md",
+			title: "Schematic Designer",
+			description: "Creates scientific schematics with Matplotlib and TikZ.",
+		},
+		{
+			href: "https://github.com/surajinacademia/theoretical-biophysics-modeling-skills/blob/main/skills/lets-be-clear/SKILL.md",
+			title: "Let's Be Clear",
+			description: "Clarifies and confirms a request's goal and scope before work begins.",
+		},
+		{
+			href: "https://github.com/surajinacademia/theoretical-biophysics-modeling-skills/blob/main/skills/gotcha/SKILL.md",
+			title: "Gotcha",
+			description: "Turns agent feedback into lasting repository guidance in AGENTS.md.",
+		},
+	],
 } as const;
