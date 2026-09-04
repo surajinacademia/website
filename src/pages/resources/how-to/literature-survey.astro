@@ -1,0 +1,738 @@
+---
+import GuideContentsItem from "@/components/resources/GuideContentsItem.astro";
+import guideHtml from "@/content/how-to/literature-survey.html?raw";
+import {
+	type LiteratureSurveyImage,
+	literatureSurveyImages,
+} from "@/data/pages/literature-survey-images";
+import { literatureSurveyTools } from "@/data/pages/literature-survey-tools";
+import { resourcesPage } from "@/data/pages/resources";
+import PageLayout from "@/layouts/Base.astro";
+import { generateToc } from "@/utils/generateToc";
+
+const escapeHtml = (value: string) =>
+	value.replace(
+		/[&<>"']/g,
+		(character) =>
+			({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[character] ??
+			character,
+	);
+
+const photoHtml = (photo: LiteratureSurveyImage) => `
+	<figure class="guide-photo">
+		<img src="${escapeHtml(photo.src)}" width="${photo.width}" height="${photo.height}"
+			alt="${escapeHtml(photo.alt)}" loading="lazy" decoding="async" />
+		<figcaption>${escapeHtml(photo.caption)}
+			<span class="photo-credit"><a href="${escapeHtml(photo.sourceUrl)}">${escapeHtml(photo.creditName)}</a>
+			· <a href="${escapeHtml(photo.licenseUrl)}">${escapeHtml(photo.licenseName)}</a>${photo.modificationNote ? ` · ${escapeHtml(photo.modificationNote)}` : ""}</span>
+		</figcaption>
+	</figure>`;
+
+const heroPhoto = literatureSurveyImages.find((photo) => photo.placement === "hero");
+const withPhotos = guideHtml.replace(
+	/<div data-step-media="([a-z-]+)"><\/div>/g,
+	(_, placement: string) => {
+		const photo = literatureSurveyImages.find((item) => item.placement === placement);
+		return photo ? photoHtml(photo) : "";
+	},
+);
+const toolsByUrl = new Map(
+	literatureSurveyTools.map((tool) => [tool.url.replace(/\/$/, ""), tool]),
+);
+const articleHtml = withPhotos.replace(
+	/<a\s+href="([^"]+)"\s*>([\s\S]*?)<\/a\s*>/g,
+	(original, href: string, label: string) => {
+		const tool = toolsByUrl.get(href.replace(/\/$/, ""));
+		if (!tool) return original;
+		return `<a class="tool-link" href="${escapeHtml(href)}"><img class="tool-logo" src="${escapeHtml(tool.logo)}" alt="" width="20" height="20" loading="lazy" decoding="async" />${label.trim()}</a>`;
+	},
+);
+
+const shortTitles: Record<string, string> = {
+	"the-plot": "The Plot",
+	"the-problem": "The Problem",
+	"unclear-evidence": "When the evidence is unclear",
+	"witness-statements": "Witness statements",
+	"hard-to-understand": "Reading papers critically",
+	"too-many-statements": "Keeping track of papers",
+	"research-process": "Research Process",
+	"find-evidence": "1. Follow the leads",
+	"evidence-room": "2. The evidence room",
+	"investigation-board": "3. The investigation board",
+	forensics: "4. Forensics",
+	"investigation-report": "5. The investigation report",
+	courtroom: "6. The courtroom",
+	"answer-the-specific-question": "Choose your question",
+	"question-led-search": "Search with a question",
+	"organization-structure": "Organization Structure",
+};
+const headings = [
+	...guideHtml.matchAll(
+		/<details\b([^>]*)>\s*<summary>\s*<h([2-4])>([\s\S]*?)<\/h\2>\s*<\/summary>/g,
+	),
+].flatMap((match) => {
+	const [, attributes, level, headingText] = match;
+	if (!attributes || !level || !headingText) return [];
+	const slug = attributes.match(/\bid="([^"]+)"/)?.[1];
+	if (!slug) return [];
+	return [
+		{
+			slug,
+			depth: Number(level),
+			text: shortTitles[slug] ?? headingText.replace(/<[^>]+>/g, "").trim(),
+		},
+	];
+});
+const contents = generateToc(headings);
+const processSteps = headings.filter((heading) =>
+	[
+		"find-evidence",
+		"evidence-room",
+		"investigation-board",
+		"forensics",
+		"investigation-report",
+		"courtroom",
+	].includes(heading.slug),
+);
+const guides = resourcesPage.categories.find((category) => category.slug === "how-to")?.items ?? [];
+const currentGuide = "/resources/how-to/literature-survey/";
+const nextGuide = guides[guides.findIndex((guide) => guide.href === currentGuide) + 1];
+
+const meta = {
+	title: "Literature Survey like a Detective",
+	description:
+		"A literature survey, from following leads and collecting papers to connecting ideas and presenting your case.",
+};
+---
+
+<PageLayout meta={meta} searchable>
+	<literature-walkthrough class="guide-layout">
+		<aside class="series-sidebar" aria-label="How to Series navigation">
+			<a class="series-title" href="/resources/how-to/">How to Series</a>
+			<nav aria-label="Guides in this series">
+				<ol>
+					{
+						guides.map((guide) => (
+							<li>
+								<a
+									href={guide.href}
+									aria-current={guide.href === currentGuide ? "page" : undefined}
+								>
+									{guide.title}
+								</a>
+							</li>
+						))
+					}
+				</ol>
+			</nav>
+			<a class="all-resources" href="/resources/">All resources</a>
+		</aside>
+		<aside class="contents-sidebar" aria-label="Page contents">
+			<details class="guide-contents" open>
+				<summary>Contents</summary>
+				<nav aria-label="On this page" data-guide-toc>
+					<a href="#guide-title">Start here</a>
+					<ol>{contents.map((heading) => <GuideContentsItem heading={heading} />)}</ol>
+				</nav>
+			</details>
+		</aside>
+		<article class="howto-article" aria-labelledby="guide-title">
+			<header class="guide-header">
+				<nav aria-label="Breadcrumb" class="guide-breadcrumb">
+					<a href="/resources/">Resources</a><span aria-hidden="true">/</span>
+					<a href="/resources/how-to/">How to Series</a>
+				</nav>
+				<h1 id="guide-title">Literature Survey like a Detective</h1>
+				<p class="guide-lede">From finding papers to connecting ideas and presenting your case.</p>
+			</header>
+			<details class="walkthrough-overview" open>
+				<summary><h2>In this walkthrough</h2></summary>
+				<ol>
+					{
+						processSteps.map((step) => (
+							<li>
+								<a href={`#${step.slug}`}>{step.text.replace(/^\d+\.\s*/, "")}</a>
+							</li>
+						))
+					}
+				</ol>
+			</details>
+			{
+				heroPhoto && (
+					<details class="guide-illustration">
+						<summary>The detective’s investigation board</summary>
+						<figure class="guide-photo">
+							<img
+								src={heroPhoto.src}
+								width={heroPhoto.width}
+								height={heroPhoto.height}
+								alt={heroPhoto.alt}
+								loading="lazy"
+								decoding="async"
+							/>
+							<figcaption>
+								{heroPhoto.caption}
+								<span class="photo-credit">
+									<a href={heroPhoto.sourceUrl}>{heroPhoto.creditName}</a>
+									{" · "}
+									<a href={heroPhoto.licenseUrl}>{heroPhoto.licenseName}</a>
+								</span>
+							</figcaption>
+						</figure>
+					</details>
+				)
+			}
+			<p class="guide-hint">
+				Use the contents to jump to a section. Select a heading to fold or unfold its notes.
+			</p>
+			<div class="guide-controls" hidden>
+				<button type="button" data-expand-sections>Expand sections</button>
+				<button type="button" data-collapse-sections>Collapse sections</button>
+			</div>
+			<div class="guide-copy" set:html={articleHtml} />
+			<nav class="guide-footer" aria-label="Continue reading">
+				<a href="/resources/how-to/">All guides</a>
+				{nextGuide && <a href={nextGuide.href}>Next guide: {nextGuide.title}</a>}
+			</nav>
+		</article>
+	</literature-walkthrough>
+</PageLayout>
+
+<script>
+	class LiteratureWalkthrough extends HTMLElement {
+		#controller: AbortController | undefined;
+
+		connectedCallback() {
+			this.#controller?.abort();
+			this.#controller = new AbortController();
+			const { signal } = this.#controller;
+			const sections = [
+				...this.querySelectorAll<HTMLDetailsElement>(".guide-copy details[data-heading-level]"),
+			];
+			const summaries = sections.map((section) =>
+				section.querySelector<HTMLElement>(":scope > summary"),
+			);
+			const printDetails = [...this.querySelectorAll<HTMLDetailsElement>(".howto-article details")];
+			const tocLinks = [
+				...this.querySelectorAll<HTMLAnchorElement>('[data-guide-toc] a[href^="#"]'),
+			];
+			const contents = this.querySelector<HTMLDetailsElement>(".guide-contents");
+			const sidebarQuery = window.matchMedia("(min-width: 1000px)");
+			const setContentsLayout = () => {
+				if (contents) contents.open = sidebarQuery.matches;
+			};
+			setContentsLayout();
+			sidebarQuery.addEventListener("change", setContentsLayout, { signal });
+			this.querySelector<HTMLElement>(".guide-controls")?.removeAttribute("hidden");
+
+			const setActive = (id: string) => {
+				for (const link of tocLinks) {
+					if (link.hash === `#${id}`) link.setAttribute("aria-current", "location");
+					else link.removeAttribute("aria-current");
+				}
+			};
+			const reveal = (id: string, moveFocus = false) => {
+				const target = document.getElementById(id);
+				if (!target || !this.contains(target)) return;
+				let ancestor: HTMLElement | null = target;
+				while (ancestor && ancestor !== this) {
+					if (ancestor instanceof HTMLDetailsElement) ancestor.open = true;
+					ancestor = ancestor.parentElement;
+				}
+				setActive(id);
+				if (moveFocus) {
+					const focusTarget =
+						target instanceof HTMLDetailsElement
+							? target.querySelector<HTMLElement>(":scope > summary")
+							: target;
+					if (focusTarget && focusTarget.tagName !== "SUMMARY")
+						focusTarget.setAttribute("tabindex", "-1");
+					focusTarget?.focus({ preventScroll: true });
+					target.scrollIntoView({ block: "start" });
+				}
+			};
+			const revealHash = () => {
+				try {
+					reveal(decodeURIComponent(window.location.hash.slice(1)), true);
+				} catch {
+					/* A malformed URL fragment should not break the contents. */
+				}
+			};
+
+			this.addEventListener(
+				"click",
+				(event) => {
+					if (!(event.target instanceof Element)) return;
+					if (
+						event instanceof MouseEvent &&
+						(event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)
+					)
+						return;
+					if (event.target.closest("[data-expand-sections]")) {
+						for (const section of sections) section.open = true;
+					} else if (event.target.closest("[data-collapse-sections]")) {
+						for (const section of sections) section.open = false;
+					} else {
+						const link = event.target.closest<HTMLAnchorElement>('a[href^="#"]');
+						if (!link) return;
+						let id: string;
+						try {
+							id = decodeURIComponent(link.hash.slice(1));
+						} catch {
+							return;
+						}
+						const target = document.getElementById(id);
+						if (!target || !this.contains(target)) return;
+						event.preventDefault();
+						if (window.location.hash !== link.hash) history.pushState(null, "", link.hash);
+						reveal(id, true);
+					}
+				},
+				{ signal },
+			);
+			window.addEventListener("hashchange", revealHash, { signal });
+
+			let frame: number | undefined;
+			const updateActive = () => {
+				frame = undefined;
+				let id = "guide-title";
+				const threshold = Math.min(160, window.innerHeight * 0.2);
+				for (const [index, summary] of summaries.entries()) {
+					if (summary?.getClientRects().length && summary.getBoundingClientRect().top <= threshold)
+						id = sections[index]?.id ?? id;
+				}
+				setActive(id);
+			};
+			const scheduleActive = () => {
+				if (frame === undefined) frame = requestAnimationFrame(updateActive);
+			};
+			window.addEventListener("scroll", scheduleActive, { passive: true, signal });
+			window.addEventListener("resize", scheduleActive, { signal });
+			window.addEventListener("pageshow", scheduleActive, { signal });
+			for (const section of sections)
+				section.addEventListener("toggle", scheduleActive, { signal });
+			signal.addEventListener(
+				"abort",
+				() => {
+					if (frame !== undefined) cancelAnimationFrame(frame);
+				},
+				{ once: true },
+			);
+
+			let beforePrint: boolean[] | undefined;
+			window.addEventListener(
+				"beforeprint",
+				() => {
+					if (beforePrint) return;
+					beforePrint = printDetails.map((section) => section.open);
+					for (const section of printDetails) section.open = true;
+				},
+				{ signal },
+			);
+			window.addEventListener(
+				"afterprint",
+				() => {
+					if (!beforePrint) return;
+					for (const [index, section] of printDetails.entries())
+						section.open = beforePrint[index] ?? false;
+					beforePrint = undefined;
+				},
+				{ signal },
+			);
+			if (window.location.hash) revealHash();
+			else {
+				setActive("guide-title");
+				scheduleActive();
+			}
+		}
+
+		disconnectedCallback() {
+			this.#controller?.abort();
+		}
+	}
+	if (!customElements.get("literature-walkthrough"))
+		customElements.define("literature-walkthrough", LiteratureWalkthrough);
+</script>
+
+<style>
+	.guide-layout {
+		--guide-level-2: var(--color-accent);
+		--guide-level-3: #196565;
+		--guide-level-4: #645080;
+		display: grid;
+		grid-template-areas: "series article contents";
+		grid-template-columns: 11rem minmax(0, 72ch) 14rem;
+		gap: 2rem;
+		align-items: start;
+		justify-content: center;
+		width: 100%;
+		max-width: 90rem;
+		margin-inline: auto;
+		font-family: "CMU Sans Serif", sans-serif;
+		font-size: clamp(1rem, 0.97rem + 0.15vw, 1.05rem);
+		color: var(--color-global-text);
+		line-height: 1.5;
+	}
+	:global([data-theme="dark"] .guide-layout) {
+		--guide-level-2: #bdd2f0;
+		--guide-level-3: #aad8d3;
+		--guide-level-4: #d5c1ed;
+	}
+	.series-sidebar {
+		grid-area: series;
+	}
+	.contents-sidebar {
+		grid-area: contents;
+	}
+	.series-sidebar,
+	.contents-sidebar {
+		position: sticky;
+		top: 1.5rem;
+		max-height: calc(100dvh - 3rem);
+		overflow-y: auto;
+		min-width: 0;
+		font-size: 0.85rem;
+		line-height: 1.45;
+		padding: 0.25rem;
+		overscroll-behavior: contain;
+	}
+	:global(.guide-layout a) {
+		color: var(--color-link);
+		text-decoration: underline;
+		text-underline-offset: 0.2em;
+	}
+	:global(.guide-layout a:hover) {
+		text-decoration-thickness: 2px;
+	}
+	:global(.guide-layout :is(a, button, summary):focus-visible) {
+		outline: 2px solid var(--color-accent);
+		outline-offset: 3px;
+		border-radius: 2px;
+	}
+	.series-title {
+		font-size: 1rem;
+		font-weight: 700;
+	}
+	.series-sidebar ol {
+		list-style: none;
+		padding: 0;
+		margin-block: 1rem;
+	}
+	.series-sidebar li + li {
+		margin-top: 0.85rem;
+	}
+	.series-sidebar nav a {
+		display: block;
+		text-decoration: none;
+		padding-inline-start: 0.65rem;
+		border-inline-start: 2px solid transparent;
+	}
+	.series-sidebar [aria-current="page"] {
+		font-weight: 700;
+		border-color: var(--color-link);
+	}
+	.all-resources {
+		display: inline-block;
+		margin-top: 0.75rem;
+	}
+	.guide-contents > summary {
+		font-size: 1rem;
+		font-weight: 700;
+		cursor: pointer;
+		padding-block: 0.25rem;
+	}
+	:global(.guide-layout [data-guide-toc]) {
+		padding-top: 0.65rem;
+		overflow-wrap: anywhere;
+	}
+	:global(.guide-layout [data-guide-toc] ol) {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	:global(.guide-layout [data-guide-toc] ol ol) {
+		padding-inline-start: 0.8rem;
+		border-inline-start: 1px solid color-mix(in srgb, currentColor 15%, transparent);
+	}
+	:global(.guide-layout [data-guide-toc] a) {
+		display: block;
+		padding: 0.3rem 0.3rem 0.3rem 0.45rem;
+		text-decoration: none;
+	}
+	:global(.guide-layout [data-toc-depth="2"] > a) {
+		margin-top: 0.4rem;
+		font-weight: 600;
+		color: var(--guide-level-2);
+	}
+	:global(.guide-layout [data-toc-depth="3"] > a) {
+		color: var(--guide-level-3);
+	}
+	:global(.guide-layout [data-toc-depth="4"] > a) {
+		color: var(--guide-level-4);
+		font-size: 0.8rem;
+	}
+	:global(.guide-layout [data-guide-toc] [aria-current="location"]) {
+		font-weight: 700;
+		background: color-mix(in srgb, var(--color-link) 9%, transparent);
+		text-decoration: underline;
+	}
+	.howto-article {
+		grid-area: article;
+		width: 100%;
+		min-width: 0;
+		overflow-wrap: anywhere;
+	}
+	.guide-breadcrumb {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem 0.65rem;
+		font-size: 0.8rem;
+		margin-bottom: 1rem;
+	}
+	.guide-header h1 {
+		font-size: clamp(1.6rem, 1.1rem + 1.5vw, 2.15rem);
+		font-weight: 700;
+		line-height: 1.2;
+		color: var(--color-accent-2);
+		text-wrap: balance;
+	}
+	.guide-lede {
+		margin-block: 0.75rem 1rem;
+	}
+	.walkthrough-overview {
+		margin-block: 1rem;
+	}
+	.walkthrough-overview summary {
+		cursor: pointer;
+		color: var(--guide-level-2);
+	}
+	.walkthrough-overview h2 {
+		display: inline;
+		font-size: 1.15rem;
+		font-weight: 700;
+	}
+	.walkthrough-overview ol {
+		list-style: decimal;
+		padding-inline-start: 1.5rem;
+		margin-block: 0.6rem;
+	}
+	.walkthrough-overview li {
+		margin-block: 0.3rem;
+	}
+	.guide-illustration {
+		margin-block: 0.8rem;
+	}
+	.guide-illustration > summary {
+		cursor: pointer;
+		color: var(--guide-level-3);
+		font-size: 0.9rem;
+	}
+	.guide-hint {
+		font-size: 0.85rem;
+		color: var(--color-quote);
+		margin-block: 1rem 0.5rem;
+	}
+	.guide-controls {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.6rem 1rem;
+		margin-block: 0.5rem 1rem;
+		font-size: 0.8rem;
+	}
+	.guide-controls[hidden] {
+		display: none;
+	}
+	.guide-controls button {
+		color: var(--color-link);
+		text-decoration: underline;
+		text-underline-offset: 0.2em;
+		cursor: pointer;
+	}
+	:global(.guide-layout .guide-copy) {
+		line-height: 1.5;
+		text-wrap: pretty;
+	}
+	:global(.guide-layout .guide-copy p) {
+		margin-block: 0.65rem;
+	}
+	:global(.guide-layout .guide-copy :is(ul, ol)) {
+		margin-block: 0.6rem;
+		padding-inline-start: clamp(1.1rem, 2.5vw, 1.5rem);
+	}
+	:global(.guide-layout .guide-copy ul) {
+		list-style: disc;
+	}
+	:global(.guide-layout .guide-copy ol) {
+		list-style: decimal;
+	}
+	:global(.guide-layout .guide-copy ol[type="a"]) {
+		list-style: lower-alpha;
+	}
+	:global(.guide-layout .guide-copy li) {
+		padding-inline-start: 0.15rem;
+		margin-block: 0.35rem;
+	}
+	:global(.guide-layout .guide-copy li::marker) {
+		color: var(--color-quote);
+	}
+	:global(.guide-layout .guide-copy details) {
+		margin-block: 1.15rem;
+	}
+	:global(.guide-layout .guide-copy details[data-heading-level="2"]) {
+		margin-top: 2rem;
+	}
+	:global(.guide-layout .guide-copy summary) {
+		cursor: pointer;
+		padding-block: 0.35rem;
+		line-height: 1.35;
+	}
+	:global(.guide-layout .guide-copy summary :is(h2, h3, h4)) {
+		display: inline;
+		font-weight: 700;
+		line-height: inherit;
+		margin: 0;
+	}
+	:global(.guide-layout [data-heading-level="2"] > summary) {
+		color: var(--guide-level-2);
+		font-size: clamp(1.3rem, 1.15rem + 0.4vw, 1.5rem);
+	}
+	:global(.guide-layout [data-heading-level="3"] > summary) {
+		color: var(--guide-level-3);
+		font-size: clamp(1.12rem, 1rem + 0.3vw, 1.25rem);
+	}
+	:global(.guide-layout [data-heading-level="4"] > summary) {
+		color: var(--guide-level-4);
+		font-size: 1.05rem;
+	}
+	:global(.guide-layout .guide-copy strong) {
+		font-weight: 700;
+	}
+	:global(.guide-layout [data-callout]) {
+		padding: clamp(0.75rem, 2vw, 1rem);
+		margin-block: 1rem;
+		background: color-mix(in srgb, var(--color-link) 5%, transparent);
+		border-inline-start: 2px solid var(--color-quote);
+	}
+	:global(.guide-layout [data-callout="abstract"]) {
+		padding: 0;
+		border: 0;
+		background: none;
+	}
+	:global(.guide-layout [data-callout] > :first-child) {
+		margin-top: 0;
+	}
+	:global(.guide-layout [data-callout] > :last-child) {
+		margin-bottom: 0;
+	}
+	:global(.guide-layout .guide-photo) {
+		margin-block: 1.25rem;
+	}
+	:global(.guide-layout .guide-photo img) {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+	:global(.guide-layout .guide-photo figcaption) {
+		margin-top: 0.5rem;
+		font-size: 0.8rem;
+		line-height: 1.4;
+		color: var(--color-quote);
+	}
+	:global(.guide-layout .photo-credit) {
+		display: block;
+		font-size: 0.75rem;
+		margin-top: 0.25rem;
+	}
+	:global(.guide-layout .tool-logo) {
+		display: inline-block;
+		width: 1.1em;
+		height: 1.1em;
+		margin-inline-end: 0.3em;
+		padding: 0.1em;
+		box-sizing: content-box;
+		object-fit: contain;
+		vertical-align: -0.27em;
+		background: #fff;
+		border-radius: 0.2em;
+	}
+	.guide-footer {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 1rem;
+		margin-top: 2rem;
+		padding-top: 1rem;
+		border-top: 1px solid color-mix(in srgb, currentColor 15%, transparent);
+		font-size: 0.9rem;
+	}
+	@media (max-width: 1279px) {
+		.guide-layout {
+			grid-template-areas: "series series" "article contents";
+			grid-template-columns: minmax(0, 72ch) 13rem;
+			column-gap: 1.5rem;
+		}
+		.series-sidebar {
+			position: static;
+			max-height: none;
+		}
+		.series-sidebar ol {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.5rem 1rem;
+			margin-block: 0.5rem;
+		}
+		.series-sidebar li + li {
+			margin-top: 0;
+		}
+		.all-resources {
+			margin-top: 0;
+		}
+	}
+	@media (max-width: 999px) {
+		.guide-layout {
+			grid-template-areas: "series" "contents" "article";
+			grid-template-columns: minmax(0, 72ch);
+			row-gap: 1rem;
+		}
+		.contents-sidebar {
+			position: static;
+			max-height: none;
+		}
+		.guide-contents {
+			border-block: 1px solid color-mix(in srgb, currentColor 15%, transparent);
+			padding-block: 0.5rem;
+		}
+		:global(.guide-layout [data-guide-toc]) {
+			max-height: 50dvh;
+			overflow-y: auto;
+			padding-bottom: 0.4rem;
+		}
+	}
+	@media print {
+		.guide-layout {
+			display: block;
+			max-width: none;
+		}
+		.series-sidebar,
+		.contents-sidebar,
+		.guide-breadcrumb,
+		.guide-controls,
+		.guide-hint,
+		.guide-footer {
+			display: none !important;
+		}
+		:global(.guide-layout .howto-article details::details-content) {
+			content-visibility: visible;
+			display: block;
+		}
+		:global(.guide-layout .howto-article details > :not(summary)) {
+			display: revert !important;
+		}
+		:global(.guide-layout summary) {
+			break-after: avoid;
+		}
+		:global(.guide-layout .guide-photo) {
+			break-inside: avoid;
+		}
+	}
+</style>

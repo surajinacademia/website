@@ -1,0 +1,22 @@
+---
+import type { TocItem } from "@/utils/generateToc";
+
+interface Props {
+	heading: TocItem;
+}
+
+const { heading } = Astro.props;
+---
+
+<li data-toc-depth={heading.depth}>
+	<a href={`#${heading.slug}`}>{heading.text}</a>
+	{
+		heading.children.length > 0 && (
+			<ol>
+				{heading.children.map((child) => (
+					<Astro.self heading={child} />
+				))}
+			</ol>
+		)
+	}
+</li>

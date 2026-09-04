@@ -1,9 +1,13 @@
 ---
 import Search from "@/components/Search.astro";
+import SocialList from "@/components/SocialList.astro";
 import ThemeToggle from "@/components/ThemeToggle.astro";
 import { navLinks, siteConfig } from "@/site.config";
 ---
 
+<div class="mb-4 flex justify-end">
+	<SocialList />
+</div>
 <header
 	class="group relative mb-16 flex flex-wrap items-center justify-between gap-4 border-b border-gray-200 pb-4 dark:border-white/10"
 	id="main-header"

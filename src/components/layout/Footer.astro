@@ -1,5 +1,4 @@
 ---
-import SocialList from "@/components/SocialList.astro";
 import { navLinks, siteConfig } from "@/site.config";
 
 const year = new Date().getFullYear();
@@ -7,7 +6,6 @@ const year = new Date().getFullYear();
 
 <footer class="mt-auto w-full border-t border-gray-200 pt-12 pb-8 dark:border-white/10">
 	<div class="flex flex-col items-center gap-6 text-center">
-		<SocialList />
 		<nav
 			aria-labelledby="footer_links"
 			class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm opacity-80"
@@ -15,15 +13,21 @@ const year = new Date().getFullYear();
 			<p id="footer_links" class="sr-only">More on this site</p>
 			{
 				navLinks.map((link) => (
-					<a class="hover:opacity-100 hover:underline" href={link.path}>
+					<a class="hover:underline hover:opacity-100" href={link.path}>
 						{link.title}
 					</a>
 				))
 			}
 		</nav>
 		<p class="text-global-text text-xs opacity-70">
-			&copy; {year} {siteConfig.author}. Built with Astro; design based on the
-			<a class="cactus-link hover:opacity-100" href="https://github.com/JoaoFranco03/photography-portfolio" target="_blank" rel="noopener">Photography Portfolio</a>
+			&copy; {year}
+			{siteConfig.author}. Built with Astro; design based on the
+			<a
+				class="cactus-link hover:opacity-100"
+				href="https://github.com/JoaoFranco03/photography-portfolio"
+				target="_blank"
+				rel="noopener">Photography Portfolio</a
+			>
 			template by João Franco.
 		</p>
 	</div>
