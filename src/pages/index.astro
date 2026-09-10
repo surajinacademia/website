@@ -11,10 +11,26 @@ import PageLayout from "@/layouts/Base.astro";
 			"Graduate researcher at UC Merced studying collective cell dynamics, multicellular networks, cell adhesion, and pattern formation",
 	}}
 >
-	<div class="mx-auto max-w-4xl pb-16">
+	<div class="pb-16">
 		<section aria-label="Introduction" class="mb-12">
-			<div class="grid items-start gap-8 md:grid-cols-[minmax(0,1fr)_12rem] md:gap-12">
-				<div class="min-w-0">
+			<div class="container mx-auto">
+			<div class="grid grid-cols-2 gap-14 md:gap-20">
+				<div class="col-span-2 w-full md:col-span-1">
+					<div
+						class="relative m-6 w-full max-w-full -rotate-6 border border-gray-100 bg-white p-3 pb-12 shadow-lg transition duration-500 hover:rotate-0 motion-reduce:transition-none md:m-12 dark:border-neutral-800 dark:bg-neutral-900"
+					>
+						<img
+							src="/icons/profile.jpg"
+							alt="Suraj Sahu"
+							class="block aspect-square w-full max-w-full bg-gray-100 object-contain dark:bg-neutral-800"
+						/>
+						<span
+							class="text-accent-2 block pt-3 text-center text-lg font-semibold tracking-wider uppercase sm:text-xl"
+							>SURAJ!</span
+						>
+					</div>
+				</div>
+				<div class="col-span-2 min-w-0 md:col-span-1">
 					<h1 class="sr-only">Suraj Sahu</h1>
 					<p class="text-global-text mb-5 leading-relaxed">
 						I am a graduate researcher in the <a
@@ -47,44 +63,34 @@ import PageLayout from "@/layouts/Base.astro";
 						<SocialList />
 					</nav>
 				</div>
-				<figure class="w-36 md:w-full">
-					<img
-						src="/icons/profile.jpg"
-						alt="Suraj Sahu"
-						width="192"
-						height="192"
-						class="aspect-square w-full rounded-lg bg-gray-100 object-contain dark:bg-neutral-800"
-					/>
-					<figcaption class="text-accent-2 pt-3 text-center text-sm font-semibold tracking-wider">
-						SURAJ!
-					</figcaption>
-				</figure>
+
+			</div>
 			</div>
 		</section>
 
 		<aside
 			aria-labelledby="personal-note"
-			class="border-link/20 border-l-link bg-link/5 mb-12 rounded-lg border border-l-4 p-6 sm:p-8"
+			class="mx-auto mb-12 max-w-4xl text-gray-600 dark:text-gray-400"
 		>
-			<h2 id="personal-note" class="text-accent-2 mb-4 text-xl font-semibold">A Note...</h2>
-			<p class="text-global-text mb-4 leading-relaxed last:mb-0">
+			<h2 id="personal-note" class="mb-4 text-base font-normal">A Note...</h2>
+			<p class="mb-4 leading-relaxed last:mb-0">
 				Some people might think that saying this could damage my career because it could make me
 				seem unsuitable for work. But I have ADHD and OCD! There, I said it.
 			</p>
-			<p class="text-global-text mb-4 leading-relaxed last:mb-0">
+			<p class="mb-4 leading-relaxed last:mb-0">
 				I do not mention this because I want you to lower your expectations of me or treat me
 				differently. I mention it so that you can understand that my working style might be
 				different from yours. Sometimes, the things I can do amaze even me. At other times, even
 				moving is hard. I believe that our true potential comes from empathy and from an
 				environment that helps us feel our best.
 			</p>
-			<p class="text-global-text mb-4 leading-relaxed last:mb-0">
+			<p class="mb-4 leading-relaxed last:mb-0">
 				I will try my best not to let this hinder our working relationship, and I will be clear
 				in our communication.
 			</p>
 		</aside>
 
-		<section aria-labelledby="affiliations" class="border-t border-gray-200 pt-8 dark:border-white/10">
+		<section aria-labelledby="affiliations" class="mx-auto max-w-4xl border-t border-gray-200 pt-8 dark:border-white/10">
 			<h2 id="affiliations" class="text-accent-2 mb-6 text-xl font-semibold">Affiliations</h2>
 			<div class="grid gap-6 md:grid-cols-3">
 				<div class="group flex items-start gap-3">
