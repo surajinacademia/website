@@ -16,19 +16,21 @@ import PageLayout from "@/layouts/Base.astro";
 			<div class="container mx-auto">
 			<div class="grid grid-cols-2 gap-14 md:gap-20">
 				<div class="col-span-2 w-full md:col-span-1">
-					<div
-						class="relative m-6 w-full max-w-full -rotate-6 border border-gray-100 bg-white p-3 pb-12 shadow-lg transition duration-500 hover:rotate-0 motion-reduce:transition-none md:m-12 dark:border-neutral-800 dark:bg-neutral-900"
+					<figure
+						class="relative m-6 -rotate-6 border border-gray-100 bg-white p-3 pb-12 shadow-lg transition duration-500 hover:rotate-0 motion-reduce:transition-none md:m-12 dark:border-neutral-800 dark:bg-neutral-900"
 					>
 						<img
 							src="/icons/profile.jpg"
 							alt="Suraj Sahu"
-							class="block aspect-square w-full max-w-full bg-gray-100 object-contain dark:bg-neutral-800"
+							width="1872"
+							height="1656"
+							class="block aspect-square h-auto w-full max-w-full bg-gray-100 object-contain dark:bg-neutral-800"
 						/>
-						<span
+						<figcaption
 							class="text-accent-2 block pt-3 text-center text-lg font-semibold tracking-wider uppercase sm:text-xl"
-							>SURAJ!</span
+							>SURAJ!</figcaption
 						>
-					</div>
+					</figure>
 				</div>
 				<div class="col-span-2 min-w-0 md:col-span-1">
 					<h1 class="sr-only">Suraj Sahu</h1>
@@ -68,7 +70,7 @@ import PageLayout from "@/layouts/Base.astro";
 			</div>
 		</section>
 
-		<aside class="mx-auto mb-12 max-w-4xl text-gray-600 dark:text-gray-400">
+		<aside aria-label="Personal statement" class="mx-auto mb-12 max-w-4xl text-gray-600 dark:text-gray-400">
 			<p class="mb-4 leading-relaxed last:mb-0">
 				I am neurodivergent. I live with ADHD and OCD. It’s always been a struggle to survive in
 				academia.
