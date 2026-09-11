@@ -69,7 +69,7 @@ export const researchPage: {
 							media: [
 								{
 									kind: "video",
-									src: "/research/fibroblast-collagen-remodeling.mp4",
+									src: "/research/fibroblast-collagen-remodeling.mp4?v=2",
 									poster: "/research/fibroblast-collagen-remodeling.jpg",
 									width: 1476,
 									height: 1476,
@@ -83,7 +83,7 @@ export const researchPage: {
 							media: [
 								{
 									kind: "video",
-									src: "/research/vasculogenesis-comparison.mp4?v=3",
+									src: "/research/vasculogenesis-comparison.mp4?v=4",
 									poster: "/research/vasculogenesis-comparison.jpg?v=3",
 									width: 1944,
 									height: 1760,
@@ -106,7 +106,7 @@ export const researchPage: {
 							media: [
 								{
 									kind: "video",
-									src: "/research/cell-cell-adhesion.mp4",
+									src: "/research/cell-cell-adhesion.mp4?v=2",
 									poster: "/research/cell-cell-adhesion.jpg",
 									width: 1600,
 									height: 1600,
@@ -148,7 +148,7 @@ export const researchPage: {
 							media: [
 								{
 									kind: "video",
-									src: "/research/active-brownian-particles.mp4",
+									src: "/research/active-brownian-particles.mp4?v=2",
 									poster: "/research/active-brownian-particles.jpg",
 									width: 1190,
 									height: 386,
@@ -163,7 +163,7 @@ export const researchPage: {
 							media: [
 								{
 									kind: "video",
-									src: "/research/collective-intelligence.mp4?v=2",
+									src: "/research/collective-intelligence.mp4?v=3",
 									poster: "/research/collective-intelligence.jpg?v=2",
 									width: 3840,
 									height: 2160,

@@ -66,12 +66,13 @@ const meta = {
 																	aria-label={project.title}
 																	class="h-auto w-full"
 																	controls
+																	data-research-video
 																	height={media.height}
 																	loop
 																	muted
 																	playsinline
 																	poster={media.poster}
-																	preload="metadata"
+																	preload="none"
 																	width={media.width}
 																>
 																	<source src={media.src} type="video/mp4" />
@@ -208,6 +209,61 @@ const meta = {
 		</p>
 	</section>
 </PageLayout>
+
+<script>
+	const videos = document.querySelectorAll<HTMLVideoElement>("video[data-research-video]");
+	const visibleVideos = new Set<HTMLVideoElement>();
+	const userPaused = new WeakSet<HTMLVideoElement>();
+	const automaticallyPaused = new WeakSet<HTMLVideoElement>();
+	const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+	function updatePlayback(video: HTMLVideoElement) {
+		if (document.hidden || !visibleVideos.has(video)) {
+			if (!video.paused) {
+				automaticallyPaused.add(video);
+				video.pause();
+			}
+		} else if (!userPaused.has(video) && !reducedMotion.matches) {
+			video.play().catch(() => {
+				// Native controls remain available if the browser blocks autoplay.
+			});
+		}
+	}
+
+	const preloadObserver = new IntersectionObserver(
+		(entries, observer) => {
+			for (const entry of entries) {
+				if (entry.isIntersecting) {
+					(entry.target as HTMLVideoElement).preload = "auto";
+					observer.unobserve(entry.target);
+				}
+			}
+		},
+		{ rootMargin: "400px 0px" },
+	);
+
+	const playbackObserver = new IntersectionObserver((entries) => {
+		for (const entry of entries) {
+			const video = entry.target as HTMLVideoElement;
+			if (entry.isIntersecting) visibleVideos.add(video);
+			else visibleVideos.delete(video);
+			updatePlayback(video);
+		}
+	});
+
+	for (const video of videos) {
+		video.addEventListener("pause", () => {
+			if (!automaticallyPaused.delete(video)) userPaused.add(video);
+		});
+		video.addEventListener("play", () => userPaused.delete(video));
+		preloadObserver.observe(video);
+		playbackObserver.observe(video);
+	}
+
+	document.addEventListener("visibilitychange", () => {
+		for (const video of videos) updatePlayback(video);
+	});
+</script>
 
 <style>
 	.publication-action {

@@ -22,42 +22,24 @@ const meta = {
 
 <PageLayout meta={meta} searchable>
 	<section class="resource-list-page" aria-labelledby="category-title">
-		<nav class="breadcrumb" aria-label="Breadcrumb">
-			<a class="cactus-link" href="/resources/">Resources</a>
-			<span aria-hidden="true">/</span>
-			<span aria-current="page">{category.title}</span>
+		<nav class="back-navigation" aria-label="Back to Resources">
+			<a href="/resources/">Resources</a>
 		</nav>
 		<h1 class="title" id="category-title">{category.title}</h1>
-		<p class="category-description">{category.description}</p>
-		<nav class="category-navigation" aria-label="Resource categories">
-			{
-				resourcesPage.categories.map((item) => (
-					<a
-						href={`/resources/${item.slug}/`}
-						aria-current={category.slug === item.slug ? "page" : undefined}
-					>
-						{item.title}
-					</a>
-				))
-			}
-		</nav>
 		<ul class="resource-list">
 			{
 				category.items.map((item) => {
 					const external = item.href.startsWith("https://");
 					return (
 						<li>
-							<h2>
-								<a
-									href={item.href}
-									target={external ? "_blank" : undefined}
-									rel={external ? "noopener noreferrer" : undefined}
-								>
-									{item.title}
-									{external && <span class="sr-only"> (opens in a new tab)</span>}
-								</a>
-							</h2>
-							<p>{item.description}</p>
+							<a
+								href={item.href}
+								target={external ? "_blank" : undefined}
+								rel={external ? "noopener noreferrer" : undefined}
+							>
+								{item.title}
+								{external && <span class="sr-only"> (opens in a new tab)</span>}
+							</a>
 						</li>
 					);
 				})
@@ -71,27 +53,17 @@ const meta = {
 		width: 100%;
 		max-width: 68ch;
 		margin-inline: auto;
+		font-family: "CMU Sans Serif", sans-serif;
 		color: var(--color-global-text);
 		overflow-wrap: anywhere;
 	}
-	.breadcrumb {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.65rem;
+	.back-navigation {
 		margin-bottom: 1.75rem;
 		font-size: 0.875rem;
 	}
-	.category-description {
-		margin-block: 1rem 1.75rem;
-		line-height: 1.75;
-	}
-	.category-navigation {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.75rem 1.5rem;
-		padding-block: 1rem;
-		border-block: 1px solid color-mix(in srgb, currentColor 15%, transparent);
-		font-size: 0.9rem;
+	.title {
+		margin-bottom: 2rem;
+		font-family: "CMU Sans Serif", sans-serif;
 	}
 	.resource-list-page a {
 		color: var(--color-link);
@@ -105,25 +77,16 @@ const meta = {
 		outline: 2px solid var(--color-accent);
 		outline-offset: 4px;
 	}
-	.category-navigation [aria-current="page"] {
-		color: var(--color-accent-2);
-		font-weight: 700;
-	}
 	.resource-list {
+		margin: 0;
 		list-style: none;
 		padding: 0;
-		margin-block: 2rem;
+	}
+	.resource-list li {
+		font-size: 1.125rem;
+		line-height: 1.6;
 	}
 	.resource-list li + li {
-		margin-top: 2rem;
-	}
-	.resource-list h2 {
-		font-size: 1.1rem;
-		line-height: 1.5;
-		font-weight: 700;
-	}
-	.resource-list p {
-		margin-top: 0.5rem;
-		line-height: 1.75;
+		margin-top: 1rem;
 	}
 </style>

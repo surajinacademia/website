@@ -1,5 +1,36 @@
 # Research media
 
+## Web playback
+
+Research videos use native browser controls and play muted, inline, and on a
+loop. Each video begins loading when it comes within 400 pixels of the viewport,
+then plays automatically while visible and pauses when offscreen or when the tab
+is hidden. A manual pause is remembered, and a reduced-motion preference
+suppresses automatic playback. This follows the general
+[lazy-loading video strategy](https://web.dev/articles/lazy-loading-video).
+
+## Web delivery compression
+
+Final web assets are compressed from the prior browser-ready derivatives; the
+source masters remain unchanged. All five final MP4s use H.264 via libx264's
+slow preset at CRF 24, YUV 4:2:0, no audio, and MP4 fast-start. Full-video SSIM
+compares each final asset with its prior derivative.
+
+| Website asset | Prior bytes | Final bytes | Reduction | SSIM |
+| --- | ---: | ---: | ---: | ---: |
+| `vasculogenesis-comparison.mp4` | 30,254,197 | 19,796,468 | 34.57% | 0.995743 |
+| `fibroblast-collagen-remodeling.mp4` | 6,456,194 | 3,297,453 | 48.93% | 0.992278 |
+| `active-brownian-particles.mp4` | 5,537,553 | 3,747,141 | 32.33% | 0.992959 |
+| `cell-cell-adhesion.mp4` | 2,378,512 | 1,126,910 | 52.62% | 0.997355 |
+| `collective-intelligence.mp4` | 1,268,994 | 657,062 | 48.22% | 0.999714 |
+| **Total** | **45,895,450** | **28,625,034** | **37.63%** | — |
+
+For every asset, the codec, dimensions, sample aspect ratio, pixel format,
+average frame rate, frame count, duration, and zero-second start time match the
+prior derivative. Title and comment metadata are retained, and the fast-start
+metadata precedes the video data. Midpoint frame review confirmed the retained
+panels, labels, and layouts.
+
 ## Original video collection
 
 `research-media/sources/` contains byte-identical copies of the seven supplied
@@ -27,19 +58,21 @@ Both retain their original playback speeds. The simulation's last frame is held
 for 16.5 seconds, as requested. Playback positions do not imply equivalent
 physical times between simulation and experiment.
 
-The export is H.264, YUV 4:2:0, 1944 × 1760, 10 fps, 285 frames, 28.5 seconds,
-with MP4 fast-start metadata and no audio. FFmpeg scales the original
-3600 × 3000 simulation to 1632 × 1360 and places it at (312, 0). The original
-720 × 480 experiment is scaled to 960 × 640 and placed at (0, 1120). Both
-aspect ratios are preserved using Lanczos filtering. The inset overlays part
-of the simulation's lower-left corner; neither input is cropped.
+The initial composite export was H.264, YUV 4:2:0, 1944 × 1760, 10 fps,
+285 frames, 28.5 seconds, with MP4 fast-start metadata and no audio. FFmpeg
+scaled the original 3600 × 3000 simulation to 1632 × 1360 and placed it at
+(312, 0). The original 720 × 480 experiment was scaled to 960 × 640 and placed
+at (0, 1120). Both aspect ratios were preserved using Lanczos filtering. The
+inset overlays part of the simulation's lower-left corner; neither input is
+cropped.
 
 The canvas width and experimental panel dimensions match the previous
 side-by-side export, keeping the experiment's on-page size unchanged. The
 simulation is 70% larger in each dimension. Black padding fills the remaining
-canvas. There are no added titles, captions, or other text overlays. Encoding
-uses libx264, slow preset, CRF 20. Experimental logos, the simulation timestamp,
-and the color bar are retained.
+canvas. There are no added titles, captions, or other text overlays. The initial
+composite export used libx264, slow preset, CRF 20; the final web asset is
+re-encoded from that derivative at CRF 24 as recorded above. Experimental logos,
+the simulation timestamp, and the color bar are retained.
 
 ### Experimental source
 
@@ -62,10 +95,11 @@ The supplied source is
 `experiment_simulation_compaction_fT_0_fc_1_Q_100_gap_12_4.mp4` from the
 Multicellular-Compaction project's `results/plots/videos/` directory.
 
-The original H.264 stream is copied without re-encoding, cropping, or retiming:
-1476 × 1476, 15 fps, 86 frames, approximately 5.73 seconds. MP4 fast-start moves
-the metadata to the beginning of the file for browser playback. All original
-panels, scale bars, labels, and timestamps are retained.
+The initial browser-ready derivative copied the original H.264 stream without
+re-encoding, cropping, or retiming and moved the metadata to the beginning for
+fast-start playback: 1476 × 1476, 15 fps, 86 frames, approximately 5.73 seconds.
+The final web asset is re-encoded from that derivative at CRF 24. All original
+panels, scale bars, labels, timestamps, and playback timing are retained.
 
 ## Physics of Cell Cell adhesion
 
@@ -74,10 +108,12 @@ Website assets: `public/research/cell-cell-adhesion.mp4` and
 The supplied source is `cadherin_myosin_splitting_insertion_synchronized.mp4`
 from the Adhesion project's `results/` directory.
 
-The original H.264 stream is copied without re-encoding, cropping, or retiming:
-1600 × 1600, 30 fps, 300 frames, 10 seconds. MP4 fast-start moves the metadata to
-the beginning of the file for browser playback. All original panels, legends,
-labels, timestamps, and the experimental source credit in the video are retained.
+The initial browser-ready derivative copied the original H.264 stream without
+re-encoding, cropping, or retiming and moved the metadata to the beginning for
+fast-start playback: 1600 × 1600, 30 fps, 300 frames, 10 seconds. The final web
+asset is re-encoded from that derivative at CRF 24. All original panels, legends,
+labels, timestamps, playback timing, and the experimental source credit in the
+video are retained.
 
 The embedded experimental credit identifies Engl et al., *Nature Cell Biology*
 (2014), [DOI 10.1038/ncb2973](https://doi.org/10.1038/ncb2973). The same source is
@@ -108,10 +144,10 @@ The 2048 × 1504 input is cropped using these pixel windows (top-left origin):
 
 The windows retain the complete square plot boundaries with small black margins;
 they exclude the overall title, legend, and column heading. Two 16-pixel black
-gaps separate the panels. No new title or caption is added. The output is
-1190 × 386, H.264, YUV 4:2:0, 10 fps, 200 frames, 20 seconds, encoded with
-libx264's slow preset at CRF 20 and MP4 fast-start. Original playback timing is
-preserved.
+gaps separate the panels. No new title or caption is added. The initial cropped
+export was 1190 × 386, H.264, YUV 4:2:0, 10 fps, 200 frames, 20 seconds, encoded
+with libx264's slow preset at CRF 20 and MP4 fast-start. The final web asset is
+re-encoded from that derivative at CRF 24. Original playback timing is preserved.
 
 ## Stability of Cell–Cell Junctions
 
@@ -151,7 +187,8 @@ Website assets: `public/research/collective-intelligence.mp4` and
 The supplied source is `collective_comparison/abm_vs_llm_minimalist_4k.mp4` from the
 September 11 collective-comparison visualization output.
 
-The original H.264 stream is copied without re-encoding, cropping, or retiming:
-3840 × 2160, YUV 4:2:0, 10 fps, 201 frames, 20.1 seconds, with no audio.
-MP4 fast-start places the metadata at the beginning of the file for browser
-playback. Both panels and all existing labels are retained.
+The initial browser-ready derivative copied the original H.264 stream without
+re-encoding, cropping, or retiming and moved the metadata to the beginning for
+fast-start playback: 3840 × 2160, YUV 4:2:0, 10 fps, 201 frames, 20.1 seconds,
+with no audio. The final web asset is re-encoded from that derivative at CRF 24.
+Both panels, all existing labels, and the playback timing are retained.

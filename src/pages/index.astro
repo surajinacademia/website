@@ -1,6 +1,11 @@
 ---
 import SocialList from "@/components/SocialList.astro";
 import PageLayout from "@/layouts/Base.astro";
+import { menuLinks } from "@/site.config";
+
+const bioLinks = menuLinks.filter(({ path }) =>
+	["/cv/", "/research/", "/resources/", "/photography/"].includes(path),
+);
 ---
 
 <PageLayout
@@ -62,6 +67,15 @@ import PageLayout from "@/layouts/Base.astro";
 							trainee leadership council, helping organize professional development workshops and
 							networking events.
 						</p>
+						<nav aria-label="Explore this site" class="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+							{
+								bioLinks.map(({ path, title }) => (
+									<a class="cactus-link py-1 font-semibold" href={path}>
+										{title}
+									</a>
+								))
+							}
+						</nav>
 						<nav aria-label="Social profiles" class="mt-6 flex justify-start">
 							<SocialList />
 						</nav>
