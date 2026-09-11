@@ -9,68 +9,226 @@ const meta = {
 ---
 
 <PageLayout meta={meta} searchable>
-	<section aria-labelledby="research-title" class="mx-auto max-w-[80ch]">
-		<h1 class="title mb-10 sm:mb-12" id="research-title">Research</h1>
-		<div class="prose prose-base prose-cactus max-w-none">
-			<div class="mb-12">
-				<h2 class="mb-4 text-xl">Research Overview</h2>
-				<p class="mb-4">{researchPage.overview}</p>
-			</div>
+	<section aria-labelledby="research-title" class="mx-auto max-w-[1100px] [&_p]:text-justify">
+		<h1 class="sr-only" id="research-title">Research</h1>
 
-			<div class="mb-12">
-				<h2 class="mb-4 text-xl">Research Interests</h2>
-				<ul class="list-outside list-disc space-y-2 pl-5">
-					{
-						researchPage.interests.map((item) => (
-							<li>
-								<strong>{item.title}:</strong> {item.description}
-							</li>
-						))
-					}
-				</ul>
-			</div>
+		<div class="space-y-36 sm:space-y-48">
+			{
+				researchPage.sections.map((section) => (
+					<section>
+						<h2 class="mb-14 text-2xl font-semibold tracking-tight sm:mb-16 sm:text-3xl">
+							{section.title}
+						</h2>
 
-			<div class="mb-12">
-				<h2 class="mb-4 text-xl">Current Projects</h2>
-				<div class="space-y-6">
-					{
-						researchPage.projects.map((project) => (
-							<div>
-								<h3 class="mb-2 font-semibold">{project.title}</h3>
-								<p class="opacity-90">{project.description}</p>
-							</div>
-						))
-					}
-				</div>
-			</div>
+						<div class="space-y-28 sm:space-y-36">
+							{section.groups.map((group) => (
+								<div>
+									{group.title && (
+										<h3 class="mb-10 text-xl font-semibold tracking-tight sm:mb-12">
+											{group.title}
+										</h3>
+									)}
 
-			<div class="mb-12">
-				<h2 class="mb-4 text-xl">Publications</h2>
-				<p class="mb-4 opacity-75">
-					For a complete list of publications, please visit my
-					<a class="cactus-link" href={researchPage.scholarUrl} target="_blank" rel="noopener">
-						Google Scholar profile
-					</a>.
-				</p>
-			</div>
+									<div class="grid grid-cols-1 gap-x-20 gap-y-28 sm:gap-y-36 lg:grid-cols-2 xl:gap-x-24">
+										{group.projects.map((project) => (
+											<article class:list={["min-w-0", { "lg:col-span-2": project.wide }]}>
+												{group.title ? (
+													<h4 class="mb-6 text-xl font-semibold tracking-tight sm:mb-8">
+														{project.title}
+													</h4>
+												) : (
+													<h3 class="mb-6 text-xl font-semibold tracking-tight sm:mb-8">
+														{project.title}
+													</h3>
+												)}
 
-			<div class="mb-12">
-				<h2 class="mb-4 text-xl">Methods & Tools</h2>
-				<div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-					<div>
-						<h3 class="mb-2 font-semibold">Computational Approaches</h3>
-						<ul class="list-outside list-disc pl-5">
-							{researchPage.methods.computational.map((item) => <li>{item}</li>)}
-						</ul>
-					</div>
-					<div>
-						<h3 class="mb-2 font-semibold">Programming & Software</h3>
-						<ul class="list-outside list-disc pl-5">
-							{researchPage.methods.software.map((item) => <li>{item}</li>)}
-						</ul>
-					</div>
-				</div>
-			</div>
+												{project.media && (
+													<div
+														class:list={[
+															"mb-10",
+															{
+																"grid gap-6 sm:gap-10": project.media.length > 1,
+															},
+														]}
+														style={
+															project.media.length > 1
+																? "grid-template-columns: " +
+																	project.media
+																		.map((media) => media.width / media.height + "fr")
+																		.join(" ") +
+																	";"
+																: undefined
+														}
+													>
+														{project.media.map((media) =>
+															media.kind === "video" ? (
+																<video
+																	aria-label={project.title}
+																	class="h-auto w-full"
+																	controls
+																	height={media.height}
+																	loop
+																	muted
+																	playsinline
+																	poster={media.poster}
+																	preload="metadata"
+																	width={media.width}
+																>
+																	<source src={media.src} type="video/mp4" />
+																	Your browser does not support the video tag.
+																</video>
+															) : (
+																<a
+																	aria-label={"Open full-resolution " + media.alt}
+																	class="block min-w-0"
+																	href={media.src}
+																	rel="noopener"
+																	target="_blank"
+																>
+																	<img
+																		alt={media.alt}
+																		class="h-auto w-full object-contain"
+																		decoding="async"
+																		height={media.height}
+																		loading="lazy"
+																		src={media.src}
+																		width={media.width}
+																	/>
+																</a>
+															),
+														)}
+													</div>
+												)}
+
+												<div class="prose prose-base prose-cactus max-w-none">
+													<p>
+														{project.abstract}
+														{project.experimentalVideoCredit && (
+															<>
+																{" "}
+																Experimental video:{" "}
+																<a
+																	class="cactus-link"
+																	href={project.experimentalVideoCredit.url}
+																	rel="noopener"
+																	target="_blank"
+																>
+																	{project.experimentalVideoCredit.label}
+																</a>
+																{"."}
+															</>
+														)}
+														{project.mediaCredit && (
+															<>
+																{" "}
+																{project.mediaCredit.prefix}{" "}
+																<a
+																	class="cactus-link"
+																	href={project.mediaCredit.url}
+																	rel="noopener"
+																	target="_blank"
+																>
+																	{project.mediaCredit.label}
+																</a>
+																{"."}
+															</>
+														)}
+													</p>
+												</div>
+												{project.publication && (
+													<div class="mt-10 flex items-start gap-5 text-base leading-relaxed sm:gap-7">
+														{project.media?.[0]?.kind === "image" && (
+															<img
+																alt=""
+																class="h-auto w-20 shrink-0 rounded-sm sm:w-32"
+																decoding="async"
+																height={project.media[0].height}
+																loading="lazy"
+																src={project.media[0].src}
+																width={project.media[0].width}
+															/>
+														)}
+														<div class="min-w-0 flex-1">
+															<cite class="block not-italic">
+																<a
+																	class="font-bold hover:underline"
+																	href={project.publication.url}
+																	rel="noopener"
+																	target="_blank"
+																>
+																	{project.publication.title}
+																</a>
+															</cite>
+															<div class="flex flex-wrap gap-x-1">
+																{project.publication.authors.map((author, index, authors) => (
+																	<span class:list={{ "font-bold": author.highlight }}>
+																		{author.name + (index < authors.length - 1 ? "," : "")}
+																	</span>
+																))}
+															</div>
+															<div>
+																<em>{project.publication.journal + ","}</em>{" "}
+																{project.publication.date}
+															</div>
+															<div class="relative mt-3">
+																<details>
+																	<summary class="publication-action cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+																		ABS
+																	</summary>
+																	<p class="mt-5 leading-relaxed">{project.abstract}</p>
+																</details>
+																<a
+																	class="publication-action absolute top-0 left-20"
+																	href={project.publication.url}
+																	rel="noopener"
+																	target="_blank"
+																>
+																	HTML
+																</a>
+															</div>
+														</div>
+													</div>
+												)}
+											</article>
+										))}
+									</div>
+								</div>
+							))}
+						</div>
+					</section>
+				))
+			}
 		</div>
+
+		<p class="mt-20 text-sm leading-relaxed opacity-75">
+			For a complete list of publications, visit my
+			<a class="cactus-link" href={researchPage.scholarUrl} rel="noopener" target="_blank">
+				Google Scholar profile
+			</a>.
+		</p>
 	</section>
 </PageLayout>
+
+<style>
+	.publication-action {
+		display: inline-flex;
+		min-width: 4rem;
+		min-height: 2rem;
+		align-items: center;
+		justify-content: center;
+		border: 1px solid currentColor;
+		border-radius: 2px;
+		padding: 0.25rem 0.75rem;
+		font-size: 0.75rem;
+		line-height: 1.5;
+	}
+
+	.publication-action:hover {
+		text-decoration: underline;
+	}
+
+	.publication-action:focus-visible {
+		outline: 2px solid currentColor;
+		outline-offset: 3px;
+	}
+</style>
