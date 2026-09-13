@@ -17,29 +17,26 @@ const bioLinks = menuLinks.filter(({ path }) =>
 	}}
 >
 	<div class="pb-16">
+		<div class="container mx-auto mb-8">
+			<h1 class="text-accent-2 text-4xl font-bold">About</h1>
+		</div>
 		<section aria-label="Introduction" class="mb-12">
 			<div class="container mx-auto">
-				<div class="grid grid-cols-2 gap-14 md:gap-20">
-					<div class="col-span-2 w-full md:col-span-1">
+				<div class="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-20">
+					<div class="mx-auto w-full max-w-xl">
 						<figure
-							class="relative m-6 -rotate-6 border border-gray-100 bg-white p-3 pb-12 shadow-lg transition duration-500 hover:rotate-0 motion-reduce:transition-none md:m-12 dark:border-neutral-800 dark:bg-neutral-900"
+							class="relative m-6 -rotate-6 border border-gray-100 bg-white p-5 pb-10 shadow-lg transition-transform duration-500 hover:rotate-0 motion-reduce:transition-none md:m-12 dark:border-neutral-800 dark:bg-neutral-900"
 						>
 							<img
 								src="/icons/profile.jpg"
 								alt="Suraj Sahu"
 								width="1872"
 								height="1656"
-								class="block aspect-square h-auto w-full max-w-full bg-gray-100 object-contain dark:bg-neutral-800"
+								class="block h-auto w-full max-w-full object-contain"
 							/>
-							<figcaption
-								class="text-accent-2 block pt-3 text-center text-lg font-semibold tracking-wider uppercase sm:text-xl"
-							>
-								SURAJ!
-							</figcaption>
 						</figure>
 					</div>
-					<div class="col-span-2 min-w-0 md:col-span-1">
-						<h1 class="sr-only">Suraj Sahu</h1>
+					<div class="min-w-0">
 						<p class="text-global-text mb-5 leading-relaxed">
 							I am a graduate researcher in the <a
 								class="cactus-link"

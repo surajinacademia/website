@@ -40,7 +40,7 @@
 /* use a selector-based strategy for dark mode */
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
-/* Photography portfolio: light default, dark matches JoaoFranco03/photography-portfolio */
+/* Light palette for the optional light theme; the page shell defaults to dark. */
 @theme {
 	--color-global-bg: oklch(99% 0 0);
 	--color-global-text: oklch(20% 0 0);

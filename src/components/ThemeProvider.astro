@@ -1,11 +1,13 @@
 {/* Inlined to avoid FOUC. This is a parser blocking script. */}
 <script is:inline>
-	const lightModePref = window.matchMedia("(prefers-color-scheme: light)");
-
 	function getUserPref() {
-		const storedTheme = typeof localStorage !== "undefined" && localStorage.getItem("theme");
-		// Use the white theme until the visitor selects another theme.
-		return storedTheme || "light";
+		try {
+			const storedTheme = localStorage.getItem("theme");
+			if (storedTheme === "light" || storedTheme === "dark") return storedTheme;
+		} catch {
+			// Storage may be unavailable in privacy-restricted browsers.
+		}
+		return "dark";
 	}
 
 	function setTheme(newTheme) {
@@ -24,8 +26,10 @@
 
 		root.setAttribute("data-theme", newTheme);
 
-		if (typeof localStorage !== "undefined") {
+		try {
 			localStorage.setItem("theme", newTheme);
+		} catch {
+			// The toggle still works for this page when storage is unavailable.
 		}
 	}
 
@@ -39,7 +43,4 @@
 	document.addEventListener("theme-change", (e) => {
 		setTheme(e.detail.theme);
 	});
-
-	// listen for prefers-color-scheme change.
-	lightModePref.addEventListener("change", (e) => setTheme(e.matches ? "light" : "dark"));
 </script>
