@@ -37,7 +37,7 @@ const bioLinks = menuLinks.filter(({ path }) =>
 						</figure>
 					</div>
 					<div class="min-w-0">
-						<p class="text-global-text mb-5 leading-relaxed">
+						<p class="text-global-text mb-5 text-justify leading-relaxed">
 							I am a graduate researcher in the <a
 								class="cactus-link"
 								href="http://gopinathanlab.ucmerced.edu"
@@ -51,20 +51,23 @@ const bioLinks = menuLinks.filter(({ path }) =>
 							>. My curiosity lies at the interface of biology and physics. More recently, I have
 							started thinking about the mechanics of learning.
 						</p>
-						<p class="text-global-text mb-5 leading-relaxed">
+						<p class="text-global-text mb-5 text-justify leading-relaxed">
 							My research focuses on the collective dynamics of cell–cell and cell–matrix
 							interactions, including multicellular network formation, cell adhesion, and pattern
 							formation. I use agent-based modeling, numerical methods, network analysis, and
 							network mechanics, along with some image analysis.
 						</p>
-						<p class="text-global-text mb-5 leading-relaxed">
+						<p class="text-global-text mb-5 text-justify leading-relaxed">
 							I also sometimes play with agentic tools and workflows for reproducible computation
 							and AI-assisted image analysis. I have organized hands-on STEM outreach. I have also
 							mentored graduate students through GradExcel, led journal club, and contributed to the
 							trainee leadership council, helping organize professional development workshops and
 							networking events.
 						</p>
-						<nav aria-label="Explore this site" class="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+						<nav
+							aria-label="Explore this site"
+							class="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2"
+						>
 							{
 								bioLinks.map(({ path, title }) => (
 									<a class="cactus-link py-1 font-semibold" href={path}>
@@ -73,7 +76,7 @@ const bioLinks = menuLinks.filter(({ path }) =>
 								))
 							}
 						</nav>
-						<nav aria-label="Social profiles" class="mt-6 flex justify-start">
+						<nav aria-label="Social profiles" class="mt-6 flex justify-center">
 							<SocialList />
 						</nav>
 					</div>
