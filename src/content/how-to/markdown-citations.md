@@ -43,10 +43,10 @@ Use direct links if you want to write the source labels yourself. Use Zotero if 
 Link the author's name beside the claim. Add a short **Sources:** line for supporting references. For example, from your model notes:
 
 ```markdown frame="none" wrap
-This reciprocal stabilization law is a hypothesis motivated by
-[Engl et al.](https://doi.org/10.1038/ncb2973), not a fitted law from that study.
+In his 1905 paper, [Einstein](https://doi.org/10.1002/andp.19053220806)
+connected the random motion of particles suspended in a liquid to molecular motion.
 
-Sources: [Nishikawa et al., Table 1 and Appendix](https://elifesciences.org/articles/19595), [Arslan et al., STAR Methods](https://research-explorer.ista.ac.at/download/14795/14813/2024_CurrentBiology_Arslan.pdf).
+Sources: [Einstein (1905), Brownian motion](https://doi.org/10.1002/andp.19053220806).
 ```
 
 This needs **no Zotero or bibliography file**. You write the labels and Sources line yourself. Local PDFs can also be linked using paths relative to the Markdown file.
