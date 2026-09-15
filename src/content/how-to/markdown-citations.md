@@ -102,15 +102,11 @@ pandoc model.md --standalone --mathjax --citeproc --bibliography=references.bib 
 
 Both commands create `model.html` beside your document. `--mathjax` enables equation rendering; Option B also uses `--citeproc` to turn citation keys into formatted citations.
 
-Open `model.html`. With Option B, `[@einstein1905]` should appear as **(Einstein 1905)**, with the full reference at the end.
-
 **For Jupyter Notebooks**, replace `model.md` in either command with:
 
 ```text frame="none" wrap
 model.ipynb --from=ipynb+citations+fenced_divs
 ```
-
-Pandoc exports the saved notebook; it does not run its cells. The extra notebook options enable bibliography citations and the References marker.
 
 ## 5. Save as PDF
 
