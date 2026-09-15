@@ -89,6 +89,12 @@ export const resourcesPage: { categories: ResourceCategory[] } = {
 			description: "Practical guides to literature surveys and research workflows.",
 			items: [
 				{
+					href: "/resources/how-to/markdown-citations/",
+					title: "Writing maths and citations in markdown.",
+					description:
+						"Write research notes in Markdown or Jupyter, add citations, and export to HTML or PDF without installing LaTeX.",
+				},
+				{
 					href: "/resources/how-to/literature-survey/",
 					title: "Literature Survey like a Detective",
 					description: "Follow the clues, keep a trail, and build your own investigation board.",

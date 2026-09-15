@@ -78,6 +78,7 @@ const meta = {
 		align-items: start;
 	}
 	.resource-category {
+		position: relative;
 		min-width: 0;
 		text-align: center;
 	}
@@ -138,13 +139,23 @@ const meta = {
 		outline-offset: 5px;
 	}
 	.image-credit {
-		margin-top: 0.75rem;
-		font-size: 0.7rem;
-		line-height: 1.6;
-		color: var(--color-quote);
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		margin: 0;
+		padding: 1.5rem 0.65rem 0.55rem;
+		font-size: 0.65rem;
+		line-height: 1.4;
+		text-align: right;
+		color: #fff;
+		background: linear-gradient(transparent, rgb(0 0 0 / 75%));
+		pointer-events: none;
 		overflow-wrap: anywhere;
 	}
 	.image-credit a {
+		color: inherit;
+		pointer-events: auto;
 		text-decoration: underline;
 		text-underline-offset: 0.2em;
 	}

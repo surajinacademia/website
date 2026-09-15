@@ -1,0 +1,87 @@
+---
+import { Content } from "@/content/how-to/markdown-citations.md";
+import PageLayout from "@/layouts/Base.astro";
+
+const meta = {
+	title: "Writing maths and citations in markdown.",
+	description:
+		"A five-step guide to writing equations and citations in Markdown or Jupyter and exporting to HTML or PDF, with or without LaTeX.",
+};
+---
+
+<PageLayout meta={meta} searchable>
+	<div class="markdown-guide">
+		<header class="guide-header">
+			<a class="guide-back" href="/resources/how-to/">How to Series</a>
+			<h1 class="text-accent-2 text-2xl font-semibold tracking-tight sm:text-3xl" id="guide-title">
+				Writing maths and citations in markdown.
+			</h1>
+		</header>
+		<article
+			class="guide-copy prose prose-base prose-cactus prose-headings:font-semibold prose-headings:tracking-tight prose-h2:text-2xl sm:prose-h2:text-3xl prose-h3:text-lg max-w-none"
+			aria-labelledby="guide-title"
+		>
+			<Content />
+		</article>
+	</div>
+</PageLayout>
+
+<style>
+	.markdown-guide {
+		width: 100%;
+		max-width: 1100px;
+		margin-inline: auto;
+	}
+	.guide-header {
+		margin-bottom: 1.25rem;
+	}
+	.guide-back {
+		display: inline-block;
+		font-size: 0.8rem;
+		margin-bottom: 0.75rem;
+		color: var(--color-link);
+		text-decoration: underline;
+		text-underline-offset: 0.2em;
+	}
+	.guide-copy {
+		width: 100%;
+		min-width: 0;
+		overflow-wrap: anywhere;
+	}
+	:global(.markdown-guide a:focus-visible) {
+		outline: 2px solid var(--color-link);
+		outline-offset: 4px;
+	}
+	:global(.markdown-guide .guide-copy :is(h2, h3) a) {
+		color: inherit;
+		text-decoration: none;
+	}
+	:global(.markdown-guide .guide-copy :is(h2, h3) a:hover) {
+		text-decoration: underline;
+	}
+	:global(.markdown-guide .tool-logo) {
+		display: inline-block;
+		width: 22px;
+		height: 22px;
+		object-fit: contain;
+		vertical-align: -0.25em;
+		margin-right: 0.35em;
+		margin-block: 0;
+	}
+	:global(.markdown-guide .expressive-code) {
+		--ec-codeBg: var(--color-global-bg);
+		--ec-codeFg: var(--color-global-text);
+		--ec-brdCol: color-mix(in srgb, var(--color-global-text) 20%, transparent);
+	}
+	:global(.markdown-guide .expressive-code pre),
+	:global(.markdown-guide .expressive-code .frame) {
+		background: var(--color-global-bg);
+		border-color: color-mix(in srgb, var(--color-global-text) 20%, transparent);
+	}
+	:global(.markdown-guide .expressive-code code span) {
+		color: var(--color-global-text) !important;
+	}
+	:global(.markdown-guide .guide-copy a) {
+		color: var(--color-global-text);
+	}
+</style>
