@@ -1,4 +1,4 @@
-This is a dirty, cheap and easy way to maintain docs including equations and sources in Markdown or Jupyter notebook and export to HTML or PDF. You may choose not to use LaTeX at all.
+This is a dirty, cheap and easy way to maintain docs including equations and sources in Markdown or Jupyter notebook and export to <a href="/examples/markdown-citations/model.html" target="_blank" rel="noopener noreferrer">HTML<span class="sr-only"> (opens in a new tab)</span></a> or <a href="/examples/markdown-citations/model-pdf.html" target="_blank" rel="noopener noreferrer">PDF<span class="sr-only"> (opens in a new tab)</span></a>. You may choose not to use LaTeX at all.
 
 ## 1. Install the tools
 
