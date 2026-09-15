@@ -34,7 +34,7 @@ For Jupyter Notebooks, put the text in **Markdown cells** in the same way.
 
 Use direct links if you want to write the source labels yourself. Use Zotero if you want Pandoc to generate the citations and reference list.
 
-### Option A: direct links — simplest
+### Option A: direct links
 
 Link the author's name beside the claim. Add a short **Sources:** line for supporting references. For example, from your model notes:
 
@@ -53,7 +53,7 @@ To display an `@` in the label, escape it:
 [\@einstein1905](https://doi.org/10.1002/andp.19053220806)
 ```
 
-### Option B: Zotero bibliography — automatic references
+### Option B: Zotero bibliography
 
 A citation key is a label for a source. Here, `einstein1905` connects the citation in your document to the paper in `references.bib`.
 
@@ -88,13 +88,13 @@ You can mix both citation methods. Use Option B's export command when the docume
 
 Save your document. In the terminal, run the matching command from your document folder. For Option B, keep `references.bib` in that folder too.
 
-**Option A — direct links:**
+**Option A: direct links**
 
 ```sh frame="none" wrap
 pandoc model.md --standalone --mathjax --metadata pagetitle="Model" -o model.html
 ```
 
-**Option B — bibliography citations:**
+**Option B: bibliography citations**
 
 ```sh frame="none" wrap
 pandoc model.md --standalone --mathjax --citeproc --bibliography=references.bib --metadata link-citations=true --metadata pagetitle="Model" -o model.html
@@ -113,7 +113,7 @@ model.ipynb --from=ipynb+citations+fenced_divs
 Choose **with LaTeX** or **without LaTeX**. The direct methods below start from `model.md`; the HTML method uses the file from Step 4. Each creates `model.pdf`.
 
 <details class="pdf-method">
-<summary>With LaTeX — Markdown to PDF</summary>
+<summary>With LaTeX</summary>
 
 
 Install a [LaTeX distribution](https://www.latex-project.org/get/), then run:
@@ -130,7 +130,7 @@ Pandoc converts the equations, citations and reference list into a PDF.
 <summary>Without LaTeX</summary>
 
 
-**Method 1: Pandoc and Typst — Markdown to PDF**
+**Method 1: Pandoc and Typst**
 
 Install [Typst](https://github.com/typst/typst#installation), then run:
 
@@ -142,7 +142,7 @@ This exports the equations and citations, but drops the manual `\tag{1}` number 
 
 For direct links only, omit `--citeproc --bibliography=references.bib` from either command. For notebooks, replace `model.md` as shown in Step 4.
 
-**Method 2: Markdown to HTML to PDF — using a command**
+**Method 2: HTML to PDF**
 
 Create `model.html` using Step 4. Install [Python](https://www.python.org/downloads/) and run these once:
 
