@@ -87,4 +87,9 @@ const meta = {
 	:global(.markdown-guide :not(pre) > code) {
 		border: 0;
 	}
+	:global(.markdown-guide .guide-copy a[href^="https://"]::after) {
+		content: " ↗";
+		font-size: 0.8em;
+		white-space: nowrap;
+	}
 </style>

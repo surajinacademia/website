@@ -23,7 +23,7 @@ $$
 ```
 
 :::note
-Use `$...$` for inline math and `$$...$$` for display equations. The `\tag{1}` adds a manually assigned equation number. Copy the contents without the outer code fences.
+Use `$...$` for inline math and `$$...$$` for display equations. The `\tag{1}` adds a manually assigned equation number.
 :::
 
 :::note
