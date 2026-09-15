@@ -71,4 +71,17 @@ const meta = {
 	:global(.markdown-guide .guide-copy a) {
 		color: var(--color-global-text);
 	}
+	:global(.markdown-guide .pdf-method) {
+		margin-block: 1.5rem;
+	}
+	:global(.markdown-guide .pdf-method > summary) {
+		cursor: pointer;
+		font-size: 1.125rem;
+		font-weight: 600;
+		color: var(--color-accent-2);
+	}
+	:global(.markdown-guide .pdf-method > summary:focus-visible) {
+		outline: 2px solid var(--color-link);
+		outline-offset: 4px;
+	}
 </style>

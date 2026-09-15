@@ -5,17 +5,9 @@ This is a dirty, cheap and easy way to maintain docs including equations and sou
 - Install **VS Code** and [Pandoc](https://pandoc.org/installing.html).
 - For notebooks, install Microsoft's **Python** and **Jupyter** extensions in VS Code.
 
-Open **Terminal > New Terminal** in VS Code and check that Pandoc is installed:
-
-```sh frame="none" wrap
-pandoc --version
-```
-
-You should see a version number. Run the other commands in this guide in the same terminal.
-
 ## 2. Create your document `model.md`
 
-Open a folder in VS Code, create `model.md`, and paste this into it:
+Create a Markdown file `model.md`.
 
 ```markdown frame="none" wrap
 # Model notes
@@ -30,9 +22,13 @@ $$
 $$
 ```
 
+:::note
 Use `$...$` for inline math and `$$...$$` for display equations. The `\tag{1}` adds a manually assigned equation number. Copy the contents without the outer code fences.
+:::
 
-**Jupyter:** create `model.ipynb` instead, put the text in **Markdown cells**, and press **Shift+Enter**. Keep each equation in one cell.
+:::note
+For Jupyter Notebooks, put the text in **Markdown cells** in the same way.
+:::
 
 ## 3. Choose a citation method
 
@@ -120,7 +116,9 @@ Pandoc exports the saved notebook; it does not run its cells. The extra notebook
 
 Choose **with LaTeX** or **without LaTeX**. The direct methods below start from `model.md`; the HTML method uses the file from Step 4. Each creates `model.pdf`.
 
-### With LaTeX — Markdown to PDF
+<details class="pdf-method">
+<summary>With LaTeX — Markdown to PDF</summary>
+
 
 Install a [LaTeX distribution](https://www.latex-project.org/get/), then run:
 
@@ -130,7 +128,11 @@ pandoc model.md --citeproc --bibliography=references.bib -o model.pdf
 
 Pandoc converts the equations, citations and reference list into a PDF.
 
-### Without LaTeX
+</details>
+
+<details class="pdf-method">
+<summary>Without LaTeX</summary>
+
 
 **Method 1: Pandoc and Typst — Markdown to PDF**
 
@@ -164,6 +166,8 @@ On macOS or Linux, use `python3` if `python` is not available. The script waits 
 :::note
 You can also open `model.html` in your browser, wait for the equations, and choose **Print > Save as PDF**.
 :::
+
+</details>
 
 Open `model.pdf` and check the equations and references. After editing your document, repeat the export commands.
 
