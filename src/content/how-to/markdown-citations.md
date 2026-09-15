@@ -80,6 +80,10 @@ Example paper citation [@einstein1905].
 :::
 ```
 
+:::note
+You can also use the [Zotero extension by mblode](https://open-vsx.org/extension/mblode/zotero) in your editor when working with Zotero citations.
+:::
+
 Keep Zotero running for automatic updates. Edit records in Zotero, rather than its exported file. A `.bib` file is citation data; it does not require LaTeX.
 
 You can mix both citation methods. Use Option B's export command when the document contains bibliography citations.
