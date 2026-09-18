@@ -13,12 +13,12 @@ const bioLinks = menuLinks.filter(({ path }) =>
 	meta={{
 		title: "About",
 		description:
-			"Graduate researcher at UC Merced studying collective cell dynamics, multicellular networks, cell adhesion, and pattern formation",
+			"PhD candidate at UC Merced studying collective cell dynamics, multicellular networks, cell adhesion, and pattern formation",
 	}}
 >
-	<div class="pb-16">
+	<div>
 		<div class="container mx-auto mb-8">
-			<h1 class="text-accent-2 text-4xl font-bold">About</h1>
+			<h1 class="title">About</h1>
 		</div>
 		<section aria-label="Introduction" class="mb-12">
 			<div class="container mx-auto">
@@ -33,12 +33,13 @@ const bioLinks = menuLinks.filter(({ path }) =>
 								width="1872"
 								height="1656"
 								class="block h-auto w-full max-w-full object-contain"
+								fetchpriority="high"
 							/>
 						</figure>
 					</div>
 					<div class="min-w-0">
-						<p class="text-global-text mb-5 text-justify leading-relaxed">
-							I am a graduate researcher in the <a
+						<p class="text-global-text mb-5 leading-relaxed">
+							I'm a PhD candidate at the <a
 								class="cactus-link"
 								href="http://gopinathanlab.ucmerced.edu"
 								target="_blank"
@@ -48,21 +49,27 @@ const bioLinks = menuLinks.filter(({ path }) =>
 								href="https://www.ucmerced.edu"
 								target="_blank"
 								rel="noopener">University of California, Merced</a
-							>. My curiosity lies at the interface of biology and physics. More recently, I have
-							started thinking about the mechanics of learning.
+							>. Broadly speaking, my research interests lie at the interface of biology and
+							physics. For my PhD thesis, I worked on various problems at cellular and tissue
+							scales, including the self-organization and remodeling of multicellular networks, the
+							physics of cell–cell adhesion and cell–matrix interactions, and problems related to
+							collective dynamics and pattern formation. I use theoretical models and computational
+							methods like agent-based modeling, network analysis, mechanics, and occasionally
+							experimental image analysis. Learn more about these in <a
+								class="cactus-link"
+								href="/research/">Research</a
+							>.
 						</p>
-						<p class="text-global-text mb-5 text-justify leading-relaxed">
-							My research focuses on the collective dynamics of cell–cell and cell–matrix
-							interactions, including multicellular network formation, cell adhesion, and pattern
-							formation. I use agent-based modeling, numerical methods, network analysis, and
-							network mechanics, along with some image analysis.
+						<p class="text-global-text mb-5 leading-relaxed">
+							I also develop agentic tools, reproducible scientific workflows, and various image
+							analysis techniques. You can find them in <a class="cactus-link" href="/resources/"
+								>Resources</a
+							>.
 						</p>
-						<p class="text-global-text mb-5 text-justify leading-relaxed">
-							I also sometimes play with agentic tools and workflows for reproducible computation
-							and AI-assisted image analysis. I have organized hands-on STEM outreach. I have also
-							mentored graduate students through GradExcel, led journal club, and contributed to the
-							trainee leadership council, helping organize professional development workshops and
-							networking events.
+						<p class="text-global-text mb-5 leading-relaxed">
+							As someone who got into science because of Carl Sagan, I am also invested in science
+							outreach, teaching, and mentoring. I have organized professional and skill development
+							workshops, led journal clubs, and organized fun science events for all ages.
 						</p>
 						<nav
 							aria-label="Explore this site"

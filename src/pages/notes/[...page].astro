@@ -49,6 +49,17 @@ const paginationProps = {
 				<Icon aria-hidden="true" class="h-6 w-6" focusable="false" name="mdi:rss" />
 			</a>
 		</h1>
+		{
+			page.data.length === 0 && (
+				<p>
+					No notes have been published yet. Explore my{" "}
+					<a class="cactus-link" href="/resources/">
+						resources
+					</a>
+					.
+				</p>
+			)
+		}
 		<ul class="mt-6 space-y-8 text-start">
 			{
 				page.data.map((note) => (

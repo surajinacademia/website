@@ -24,7 +24,7 @@ export const literatureSurveyImages: LiteratureSurveyImage[] = [
 			"https://www.pexels.com/photo/detective-at-a-investigation-board-running-through-leads-8371732/",
 		licenseName: "Pexels License",
 		licenseUrl: "https://www.pexels.com/license/",
-		placement: "hero",
+		placement: "investigation-board",
 	},
 	{
 		src: "/images/how-to/literature-survey/seattle-detectives-1900s.jpg",

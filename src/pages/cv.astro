@@ -8,15 +8,11 @@ const meta = {
 
 const documents = [
 	{
-		description: "Complete academic history",
 		href: "/cv.pdf",
-		length: "Long version",
 		title: "Academic CV",
 	},
 	{
-		description: "Concise professional overview",
 		href: "/resume.pdf",
-		length: "Short version",
 		title: "Résumé",
 	},
 ];
@@ -25,7 +21,6 @@ const documents = [
 <PageLayout meta={meta} searchable>
 	<section aria-labelledby="cv-title" class="mx-auto max-w-2xl">
 		<h1 class="title mb-5" id="cv-title">Curriculum Vitae</h1>
-		<p class="text-global-text mb-8 opacity-75">Choose a PDF.</p>
 
 		<div class="grid gap-3 sm:grid-cols-2">
 			{
@@ -37,13 +32,7 @@ const documents = [
 						rel="noopener noreferrer"
 						target="_blank"
 					>
-						<div>
-							<p class="text-xs font-medium tracking-[0.16em] uppercase opacity-60">
-								{document.length}
-							</p>
-							<h2 class="text-accent-2 mt-3 text-lg font-semibold">{document.title}</h2>
-							<p class="mt-1 text-sm opacity-70">{document.description}</p>
-						</div>
+						<h2 class="text-accent-2 text-lg font-semibold">{document.title}</h2>
 						<span class="mt-8 flex items-center justify-between text-sm font-medium">
 							View PDF
 							<span

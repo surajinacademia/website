@@ -50,7 +50,7 @@ interface ResearchProjectGroup {
 }
 
 interface ResearchSection {
-	title: string;
+	title?: string;
 	groups: ResearchProjectGroup[];
 }
 
@@ -60,12 +60,12 @@ export const researchPage: {
 } = {
 	sections: [
 		{
-			title: "Research Projects",
 			groups: [
 				{
+					title: "Self-organization of multicellular networks",
 					projects: [
 						{
-							title: "Multicellular Driven ECM Remodeling",
+							title: "Fibroblast-driven collagen remodeling",
 							media: [
 								{
 									kind: "video",
@@ -79,7 +79,7 @@ export const researchPage: {
 								"We model collective extracellular matrix (ECM) remodeling by representing the matrix as a mechanical fiber network in which cells exert traction on the matrix and contractile forces on nearby cells. As cell density increases, these cell–cell interactions produce a percolation transition in the multicellular network that drives the transition from low to high compaction. The cell–cell interaction range sets the critical cell gap for this transition. Mapping the observed time evolution of that gap to the model shows that the interaction range must increase with observation time to explain delayed compaction, in which an initially non-compacting collagen gel later compacts. Thus, network connectivity, rather than cell density alone, determines the transition. Passive non-contractile beads act as mechanical bridges, transmitting contractile forces and helping the multicellular network reach percolation.",
 						},
 						{
-							title: "Self-Organization and Remodeling of Multicellular Networks",
+							title: "Vascular network formation and remodeling",
 							media: [
 								{
 									kind: "video",
@@ -99,10 +99,10 @@ export const researchPage: {
 					],
 				},
 				{
-					title: "Physics of Cell–Cell Adhesion",
+					title: "Physics of cell–cell adhesion",
 					projects: [
 						{
-							title: "Cell–Cell Contact Formation and Patterning",
+							title: "Cell–cell contact formation and maturation",
 							media: [
 								{
 									kind: "video",
@@ -120,7 +120,7 @@ export const researchPage: {
 							},
 						},
 						{
-							title: "Stability of Cell–Cell Junctions",
+							title: "Stability of cell–cell junctions",
 							media: [
 								{
 									kind: "image",
@@ -135,16 +135,11 @@ export const researchPage: {
 						},
 					],
 				},
-			],
-		},
-		{
-			title: "Collective Dynamics",
-			groups: [
 				{
+					title: "Collective dynamics",
 					projects: [
 						{
-							title: "Active Brownian dynamics of particle mixtures",
-							wide: true,
+							title: "Active Brownian dynamics",
 							media: [
 								{
 									kind: "video",
@@ -159,7 +154,6 @@ export const researchPage: {
 						},
 						{
 							title: "Collective dynamics of LLM agents",
-							wide: true,
 							media: [
 								{
 									kind: "video",

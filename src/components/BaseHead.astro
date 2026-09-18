@@ -18,13 +18,7 @@ const socialImageURL = new URL(ogImage ? ogImage : "/social-card.png", Astro.url
 <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 <title>{siteTitle}</title>
 
-{/* Theme: self-hosted CMU Sans Serif + Nothing You Could Do for page titles */}
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-	href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap"
-	rel="stylesheet"
-/>
+<link rel="preload" href="/fonts/cmu-sans-regular.woff2" as="font" type="font/woff2" crossorigin />
 
 {/* Icons */}
 <link href="/icon.svg" rel="icon" type="image/svg+xml" />

@@ -17,14 +17,20 @@ import { navLinks, siteConfig } from "@/site.config";
 	</a>
 	<nav
 		aria-label="Main menu"
-		class="bg-global-bg pointer-events-none invisible absolute top-full right-0 left-0 z-50 flex -translate-y-1 flex-col gap-1 border-y border-gray-200 px-4 py-4 opacity-0 shadow-lg transition-[opacity,transform,visibility] duration-150 ease-out group-[.menu-open]:pointer-events-auto group-[.menu-open]:visible group-[.menu-open]:translate-y-0 group-[.menu-open]:opacity-100 motion-reduce:transition-none sm:pointer-events-auto sm:visible sm:static sm:flex sm:translate-y-0 sm:flex-row sm:gap-6 sm:border-0 sm:px-0 sm:py-0 sm:opacity-100 sm:shadow-none sm:transition-none dark:border-white/10"
+		class="bg-global-bg absolute top-full right-0 left-0 z-50 hidden flex-col gap-1 border-y border-gray-200 px-4 py-4 group-[.menu-open]:flex sm:static sm:flex sm:flex-row sm:gap-6 sm:border-0 sm:px-0 sm:py-0 dark:border-white/10"
 		id="navigation-menu"
 	>
 		{
 			navLinks.map((link) => (
 				<a
-					aria-current={Astro.url.pathname === link.path ? "page" : false}
-					class="text-accent-2 text-sm font-medium tracking-wide uppercase hover:underline aria-[current=page]:underline sm:py-0 sm:underline-offset-4"
+					aria-current={
+						Astro.url.pathname === link.path
+							? "page"
+							: Astro.url.pathname.startsWith(link.path)
+								? "true"
+								: undefined
+					}
+					class="text-accent-2 py-3 text-sm font-medium hover:underline aria-[current=page]:underline aria-[current=true]:underline sm:py-0 sm:underline-offset-4"
 					href={link.path}
 				>
 					{link.title}
@@ -38,8 +44,8 @@ import { navLinks, siteConfig } from "@/site.config";
 		<mobile-button class="sm:hidden">
 			<button
 				aria-expanded="false"
-				aria-haspopup="menu"
-				class="text-global-text relative flex h-9 w-9 items-center justify-center rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
+				aria-controls="navigation-menu"
+				class="text-global-text group relative flex h-11 w-11 items-center justify-center rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
 				id="toggle-navigation-menu"
 				type="button"
 			>
@@ -98,7 +104,17 @@ import { navLinks, siteConfig } from "@/site.config";
 				if (menuLabelEl) menuLabelEl.textContent = open ? "Close main menu" : "Open main menu";
 			};
 
-			mobileButtonEl?.addEventListener("click", () => setMenuOpen(!this.#menuOpen), { signal });
+			mobileButtonEl?.addEventListener(
+				"click",
+				() => {
+					const open = !this.#menuOpen;
+					setMenuOpen(open);
+					if (open) {
+						headerEl.querySelector<HTMLAnchorElement>("nav a")?.focus();
+					}
+				},
+				{ signal },
+			);
 			document.addEventListener(
 				"pointerdown",
 				(event) => {

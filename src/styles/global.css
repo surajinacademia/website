@@ -1,5 +1,5 @@
 /* would like to ignore ./src/pages/og-image/[slug].png.ts */
-/* Photography portfolio theme: CMU Sans Serif is self-hosted; the title face loads in BaseHead.astro */
+/* Shared typography: self-hosted CMU Sans Serif. */
 
 @import "tailwindcss";
 /* config for tailwindcss-typography plugin */
@@ -77,6 +77,15 @@
 		scroll-margin-block: 5ex;
 	}
 
+	:where(a, button, summary):focus-visible {
+		outline: 2px solid var(--color-accent);
+		outline-offset: 4px;
+	}
+
+	:where(h1, h2, h3) {
+		text-wrap: balance;
+	}
+
 	@view-transition {
 		navigation: auto;
 	}
@@ -109,20 +118,7 @@
 	}
 
 	.title {
-		@apply font-nothingyoucoulddo text-accent-2 text-2xl font-semibold;
-	}
-
-	/* Photography-portfolio: polaroid-style image frame (white border in dark, light gray in light) */
-	.polaroid {
-		@apply inline-block px-3 py-3 pb-6 shadow-xl;
-		transform: rotate(-3deg);
-		background-color: oklch(98% 0 0);
-	}
-	:where([data-theme="dark"]) .polaroid {
-		background-color: oklch(98% 0 0);
-	}
-	.polaroid img {
-		@apply border-0;
+		@apply text-accent-2 text-2xl font-semibold tracking-tight sm:text-3xl;
 	}
 
 	/* From JoaoFranco03/photography-portfolio src/input.css */

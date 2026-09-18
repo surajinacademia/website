@@ -38,15 +38,9 @@ const meta = {
 							</a>
 							{photo && (
 								<p class="image-credit">
-									<span>
-										<a href={photo.sourceUrl}>
-											<cite>{photo.artworkTitle}</cite>
-										</a>
-									</span>
-									{photo.creditName}, {photo.date}
-									{" · "}
-									<a href={photo.licenseUrl}>{photo.licenseName}</a>
-									{photo.modificationNote && <span>{photo.modificationNote}</span>}
+									<a href={photo.sourceUrl}>
+										{photo.creditName}, {photo.date}
+									</a>
 								</p>
 							)}
 						</section>
@@ -158,9 +152,6 @@ const meta = {
 		pointer-events: auto;
 		text-decoration: underline;
 		text-underline-offset: 0.2em;
-	}
-	.image-credit span {
-		display: block;
 	}
 	@media (max-width: 1100px) {
 		.resources-page {

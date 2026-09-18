@@ -3,6 +3,7 @@
 	"files": {
 		"includes": [
 			"**",
+			"!**/.agents/skills/impeccable",
 			"!**/build",
 			"!**/dist",
 			"!public/examples/markdown-citations/model.html",

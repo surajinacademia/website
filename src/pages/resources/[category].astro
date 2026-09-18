@@ -23,7 +23,21 @@ const meta = {
 <PageLayout meta={meta} searchable>
 	<section class="resource-list-page" aria-labelledby="category-title">
 		<nav class="back-navigation" aria-label="Back to Resources">
-			<a href="/resources/">Resources</a>
+			<a href="/resources/" aria-label="Back to Resources" title="Back to Resources">
+				<svg
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="1.5"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					aria-hidden="true"
+				>
+					<path d="M19 12H5m7 7-7-7 7-7"></path>
+				</svg>
+			</a>
 		</nav>
 		<h1 class="title" id="category-title">{category.title}</h1>
 		<ul class="resource-list">
@@ -59,7 +73,13 @@ const meta = {
 	}
 	.back-navigation {
 		margin-bottom: 1.75rem;
-		font-size: 0.875rem;
+	}
+	.back-navigation a {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 44px;
+		min-height: 44px;
 	}
 	.title {
 		margin-bottom: 2rem;

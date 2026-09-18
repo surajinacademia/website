@@ -12,184 +12,214 @@ const meta = {
 	<section aria-labelledby="research-title" class="mx-auto max-w-[1100px] [&_p]:text-justify">
 		<h1 class="sr-only" id="research-title">Research</h1>
 
+		<div class="prose prose-base prose-cactus mb-20 max-w-none sm:mb-24">
+			<p>
+				My curiosity lies at the boundary of physics and biology. I am broadly interested in
+				research questions related to self-organizing principles and pattern formation,
+				<a
+					class="cactus-link"
+					href="https://www.quantamagazine.org/how-is-flocking-like-computing-20240328/"
+					rel="noopener"
+					target="_blank">collective dynamics</a
+				>,
+				<a
+					class="cactus-link"
+					href="https://www.quantamagazine.org/in-natural-networks-strength-in-loops-20130814/"
+					rel="noopener"
+					target="_blank">multicellular network formation and remodeling</a
+				>, and
+				<a
+					class="cactus-link"
+					href="https://cemb.upenn.edu/what-is-mechanobiology/"
+					rel="noopener"
+					target="_blank">mechanobiology of cells and tissues</a
+				>. I am deeply interested in what makes life <em>living</em>—particularly the origin of life
+				and the
+				<a
+					class="cactus-link"
+					href="https://www.quantamagazine.org/single-cells-evolve-large-multicellular-forms-in-just-two-years-20210922/"
+					rel="noopener"
+					target="_blank">evolution of multicellularity</a
+				>. Apart from these, I am also interested in
+				<a
+					class="cactus-link"
+					href="https://www.youtube.com/watch?v=t3WX5kexdmI"
+					rel="noopener"
+					target="_blank">physical learning</a
+				> and learning principles in biological systems.
+			</p>
+		</div>
+
 		<div class="space-y-36 sm:space-y-48">
 			{
 				researchPage.sections.map((section) => (
 					<section>
-						<h2 class="mb-14 text-2xl font-semibold tracking-tight sm:mb-16 sm:text-3xl">
-							{section.title}
-						</h2>
+						{section.title && (
+							<h2 class="mb-14 text-2xl font-semibold tracking-tight sm:mb-16 sm:text-3xl">
+								{section.title}
+							</h2>
+						)}
 
 						<div class="space-y-28 sm:space-y-36">
 							{section.groups.map((group) => (
 								<div>
 									{group.title && (
-										<h3 class="mb-10 text-xl font-semibold tracking-tight sm:mb-12">
+										<h2 class="mb-14 text-2xl font-semibold tracking-tight sm:mb-16 sm:text-3xl">
 											{group.title}
-										</h3>
+										</h2>
 									)}
 
-									<div class="grid grid-cols-1 gap-x-20 gap-y-28 sm:gap-y-36 lg:grid-cols-2 xl:gap-x-24">
+									<div class="space-y-20 sm:space-y-24">
 										{group.projects.map((project) => (
-											<article class:list={["min-w-0", { "lg:col-span-2": project.wide }]}>
-												{group.title ? (
-													<h4 class="mb-6 text-xl font-semibold tracking-tight sm:mb-8">
-														{project.title}
-													</h4>
-												) : (
-													<h3 class="mb-6 text-xl font-semibold tracking-tight sm:mb-8">
-														{project.title}
-													</h3>
-												)}
+											<article class="research-topic min-w-0">
+												<h3 class="mb-6 text-lg font-semibold tracking-tight sm:mb-8">
+													{project.title}
+												</h3>
 
-												{project.media && (
-													<div
-														class:list={[
-															"mb-10",
-															{
-																"grid gap-6 sm:gap-10": project.media.length > 1,
-															},
-														]}
-														style={
-															project.media.length > 1
-																? "grid-template-columns: " +
-																	project.media
-																		.map((media) => media.width / media.height + "fr")
-																		.join(" ") +
-																	";"
-																: undefined
-														}
-													>
-														{project.media.map((media) =>
-															media.kind === "video" ? (
-																<video
-																	aria-label={project.title}
-																	class="h-auto w-full"
-																	controls
-																	data-research-video
-																	height={media.height}
-																	loop
-																	muted
-																	playsinline
-																	poster={media.poster}
-																	preload="none"
-																	width={media.width}
-																>
-																	<source src={media.src} type="video/mp4" />
-																	Your browser does not support the video tag.
-																</video>
-															) : (
-																<a
-																	aria-label={"Open full-resolution " + media.alt}
-																	class="block min-w-0"
-																	href={media.src}
-																	rel="noopener"
-																	target="_blank"
-																>
-																	<img
-																		alt={media.alt}
-																		class="h-auto w-full object-contain"
-																		decoding="async"
+												<div
+													class:list={[
+														"grid items-start gap-8",
+														{
+															"lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-12":
+																project.media?.length,
+														},
+													]}
+												>
+													{project.media && (
+														<div class="research-media grid min-w-0 gap-6">
+															{project.media.map((media) =>
+																media.kind === "video" ? (
+																	<video
+																		aria-label={project.title}
+																		class="h-auto w-full"
+																		controls
+																		data-research-video
 																		height={media.height}
-																		loading="lazy"
-																		src={media.src}
+																		loop
+																		muted
+																		playsinline
+																		poster={media.poster}
+																		preload="none"
 																		width={media.width}
-																	/>
-																</a>
-															),
-														)}
-													</div>
-												)}
-
-												<div class="prose prose-base prose-cactus max-w-none">
-													<p>
-														{project.abstract}
-														{project.experimentalVideoCredit && (
-															<>
-																{" "}
-																Experimental video:{" "}
-																<a
-																	class="cactus-link"
-																	href={project.experimentalVideoCredit.url}
-																	rel="noopener"
-																	target="_blank"
-																>
-																	{project.experimentalVideoCredit.label}
-																</a>
-																{"."}
-															</>
-														)}
-														{project.mediaCredit && (
-															<>
-																{" "}
-																{project.mediaCredit.prefix}{" "}
-																<a
-																	class="cactus-link"
-																	href={project.mediaCredit.url}
-																	rel="noopener"
-																	target="_blank"
-																>
-																	{project.mediaCredit.label}
-																</a>
-																{"."}
-															</>
-														)}
-													</p>
-												</div>
-												{project.publication && (
-													<div class="mt-10 flex items-start gap-5 text-base leading-relaxed sm:gap-7">
-														{project.media?.[0]?.kind === "image" && (
-															<img
-																alt=""
-																class="h-auto w-20 shrink-0 rounded-sm sm:w-32"
-																decoding="async"
-																height={project.media[0].height}
-																loading="lazy"
-																src={project.media[0].src}
-																width={project.media[0].width}
-															/>
-														)}
-														<div class="min-w-0 flex-1">
-															<cite class="block not-italic">
-																<a
-																	class="font-bold hover:underline"
-																	href={project.publication.url}
-																	rel="noopener"
-																	target="_blank"
-																>
-																	{project.publication.title}
-																</a>
-															</cite>
-															<div class="flex flex-wrap gap-x-1">
-																{project.publication.authors.map((author, index, authors) => (
-																	<span class:list={{ "font-bold": author.highlight }}>
-																		{author.name + (index < authors.length - 1 ? "," : "")}
-																	</span>
-																))}
-															</div>
-															<div>
-																<em>{project.publication.journal + ","}</em>{" "}
-																{project.publication.date}
-															</div>
-															<div class="relative mt-3">
-																<details>
-																	<summary class="publication-action cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-																		ABS
-																	</summary>
-																	<p class="mt-5 leading-relaxed">{project.abstract}</p>
-																</details>
-																<a
-																	class="publication-action absolute top-0 left-20"
-																	href={project.publication.url}
-																	rel="noopener"
-																	target="_blank"
-																>
-																	HTML
-																</a>
-															</div>
+																	>
+																		<source src={media.src} type="video/mp4" />
+																		Your browser does not support the video tag.
+																	</video>
+																) : (
+																	<a
+																		aria-label={"Open full-resolution " + media.alt}
+																		class="block min-w-0"
+																		href={media.src}
+																		rel="noopener"
+																		target="_blank"
+																	>
+																		<img
+																			alt={media.alt}
+																			class="h-auto w-full object-contain"
+																			decoding="async"
+																			height={media.height}
+																			loading="lazy"
+																			src={media.src}
+																			width={media.width}
+																		/>
+																	</a>
+																),
+															)}
 														</div>
+													)}
+
+													<div class="research-text min-w-0">
+														<div class="prose prose-base prose-cactus max-w-none">
+															<p>
+																{project.abstract}
+																{project.experimentalVideoCredit && (
+																	<>
+																		{" "}
+																		Experimental video:{" "}
+																		<a
+																			class="cactus-link"
+																			href={project.experimentalVideoCredit.url}
+																			rel="noopener"
+																			target="_blank"
+																		>
+																			{project.experimentalVideoCredit.label}
+																		</a>
+																		{"."}
+																	</>
+																)}
+																{project.mediaCredit && (
+																	<>
+																		{" "}
+																		{project.mediaCredit.prefix}{" "}
+																		<a
+																			class="cactus-link"
+																			href={project.mediaCredit.url}
+																			rel="noopener"
+																			target="_blank"
+																		>
+																			{project.mediaCredit.label}
+																		</a>
+																		{"."}
+																	</>
+																)}
+															</p>
+														</div>
+														{project.publication && (
+															<div class="mt-10 flex items-start gap-5 text-base leading-relaxed sm:gap-7">
+																{project.media?.[0]?.kind === "image" && (
+																	<img
+																		alt=""
+																		class="h-auto w-20 shrink-0 rounded-sm sm:w-32"
+																		decoding="async"
+																		height={project.media[0].height}
+																		loading="lazy"
+																		src={project.media[0].src}
+																		width={project.media[0].width}
+																	/>
+																)}
+																<div class="min-w-0 flex-1">
+																	<cite class="block not-italic">
+																		<a
+																			class="font-bold hover:underline"
+																			href={project.publication.url}
+																			rel="noopener"
+																			target="_blank"
+																		>
+																			{project.publication.title}
+																		</a>
+																	</cite>
+																	<div class="flex flex-wrap gap-x-1">
+																		{project.publication.authors.map((author, index, authors) => (
+																			<span class:list={{ "font-bold": author.highlight }}>
+																				{author.name + (index < authors.length - 1 ? "," : "")}
+																			</span>
+																		))}
+																	</div>
+																	<div>
+																		<em>{project.publication.journal + ","}</em>{" "}
+																		{project.publication.date}
+																	</div>
+																	<div class="relative mt-3">
+																		<details>
+																			<summary class="publication-action cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+																				ABS
+																			</summary>
+																			<p class="mt-5 leading-relaxed">{project.abstract}</p>
+																		</details>
+																		<a
+																			class="publication-action absolute top-0 left-20"
+																			href={project.publication.url}
+																			rel="noopener"
+																			target="_blank"
+																		>
+																			HTML
+																		</a>
+																	</div>
+																</div>
+															</div>
+														)}
 													</div>
-												)}
+												</div>
 											</article>
 										))}
 									</div>
