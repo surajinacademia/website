@@ -16,6 +16,9 @@ source masters remain unchanged. All five final MP4s use H.264 via libx264's
 slow preset at CRF 24, YUV 4:2:0, no audio, and MP4 fast-start. Full-video SSIM
 compares each final asset with its prior derivative.
 
+These measurements describe the initial compressed exports, before the later
+Actomyosin labels documented below were added to the adhesion video.
+
 | Website asset | Prior bytes | Final bytes | Reduction | SSIM |
 | --- | ---: | ---: | ---: | ---: |
 | `vasculogenesis-comparison.mp4` | 30,254,197 | 19,796,468 | 34.57% | 0.995743 |
@@ -101,6 +104,12 @@ fast-start playback: 1476 × 1476, 15 fps, 86 frames, approximately 5.73 seconds
 The final web asset is re-encoded from that derivative at CRF 24. All original
 panels, scale bars, labels, timestamps, and playback timing are retained.
 
+The experimental panels are credited on the Research page to Umnia Doha et al.,
+[*Disorder to order transition in cell-ECM systems mediated by cell-cell collective
+interactions*](https://doi.org/10.1016/j.actbio.2022.10.012), *Acta Biomaterialia*
+154, 290–301 (2022). The paper is linked at the end of the project abstract using
+the same experimental-video citation style as the other projects.
+
 ## Physics of Cell Cell adhesion
 
 Website assets: `public/research/cell-cell-adhesion.mp4` and
@@ -118,6 +127,16 @@ video are retained.
 The embedded experimental credit identifies Engl et al., *Nature Cell Biology*
 (2014), [DOI 10.1038/ncb2973](https://doi.org/10.1038/ncb2973). The same source is
 linked at the end of the project abstract.
+
+The September 2026 labeled export is rendered directly from the supplied source
+master using the same H.264 compression settings above. Three white, 40-pixel
+Arial labels reading “Actomyosin” sit beneath the simulation panels. Their
+horizontal centers and top coordinates in the 1600 × 1600 frame are (1140, 740),
+(330, 1540), and (1130, 1540), respectively, for the top-right, bottom-left, and
+bottom-right panels. FFmpeg's `drawtext` filter adds these labels in the existing
+black margins without covering the plots, color bars, or experimental credit.
+The poster is regenerated from the labeled export at 5 seconds. Both asset URLs
+use `?v=3` so browsers load the new annotations.
 
 ## Three-body interactions in active Brownian particles
 

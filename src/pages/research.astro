@@ -15,7 +15,7 @@ const meta = {
 		<div class="prose prose-base prose-cactus mb-20 max-w-none sm:mb-24">
 			<p>
 				My curiosity lies at the boundary of physics and biology. I am broadly interested in
-				research questions related to self-organizing principles and pattern formation,
+				questions related to self-organizing principles and pattern formation,
 				<a
 					class="cactus-link"
 					href="https://www.quantamagazine.org/how-is-flocking-like-computing-20240328/"
@@ -33,20 +33,20 @@ const meta = {
 					href="https://cemb.upenn.edu/what-is-mechanobiology/"
 					rel="noopener"
 					target="_blank">mechanobiology of cells and tissues</a
-				>. I am deeply interested in what makes life <em>living</em>—particularly the origin of life
-				and the
+				>. I motivated to understand <em>What is life?</em>(may be both scientifically and
+				philosophicallly) In the future, I would love to explore problems related to the
 				<a
 					class="cactus-link"
 					href="https://www.quantamagazine.org/single-cells-evolve-large-multicellular-forms-in-just-two-years-20210922/"
 					rel="noopener"
 					target="_blank">evolution of multicellularity</a
-				>. Apart from these, I am also interested in
+				> and the origin of complex life. I am currently exploring facinating problems in
 				<a
 					class="cactus-link"
 					href="https://www.youtube.com/watch?v=t3WX5kexdmI"
 					rel="noopener"
 					target="_blank">physical learning</a
-				> and learning principles in biological systems.
+				> and how these priciples can be applied to biological systems.
 			</p>
 		</div>
 
@@ -55,7 +55,7 @@ const meta = {
 				researchPage.sections.map((section) => (
 					<section>
 						{section.title && (
-							<h2 class="mb-14 text-2xl font-semibold tracking-tight sm:mb-16 sm:text-3xl">
+							<h2 class="research-group-heading mb-14 border-b border-gray-200 pb-4 text-2xl font-semibold tracking-tight sm:mb-16 sm:text-3xl dark:border-white/20">
 								{section.title}
 							</h2>
 						)}
@@ -64,7 +64,7 @@ const meta = {
 							{section.groups.map((group) => (
 								<div>
 									{group.title && (
-										<h2 class="mb-14 text-2xl font-semibold tracking-tight sm:mb-16 sm:text-3xl">
+										<h2 class="research-group-heading mb-14 border-b border-gray-200 pb-4 text-2xl font-semibold tracking-tight sm:mb-16 sm:text-3xl dark:border-white/20">
 											{group.title}
 										</h2>
 									)}
@@ -72,9 +72,11 @@ const meta = {
 									<div class="space-y-20 sm:space-y-24">
 										{group.projects.map((project) => (
 											<article class="research-topic min-w-0">
-												<h3 class="mb-6 text-lg font-semibold tracking-tight sm:mb-8">
-													{project.title}
-												</h3>
+												{project.title !== group.title && (
+													<h3 class="mb-6 text-lg font-semibold tracking-tight sm:mb-8">
+														{project.title}
+													</h3>
+												)}
 
 												<div
 													class:list={[
@@ -131,7 +133,7 @@ const meta = {
 													<div class="research-text min-w-0">
 														<div class="prose prose-base prose-cactus max-w-none">
 															<p>
-																{project.abstract}
+																{project.summary ?? project.abstract}
 																{project.experimentalVideoCredit && (
 																	<>
 																		{" "}
@@ -165,19 +167,8 @@ const meta = {
 															</p>
 														</div>
 														{project.publication && (
-															<div class="mt-10 flex items-start gap-5 text-base leading-relaxed sm:gap-7">
-																{project.media?.[0]?.kind === "image" && (
-																	<img
-																		alt=""
-																		class="h-auto w-20 shrink-0 rounded-sm sm:w-32"
-																		decoding="async"
-																		height={project.media[0].height}
-																		loading="lazy"
-																		src={project.media[0].src}
-																		width={project.media[0].width}
-																	/>
-																)}
-																<div class="min-w-0 flex-1">
+															<div class="publication-entry relative mt-10 min-h-20 pl-20 text-base leading-relaxed sm:pl-24">
+																<div class="min-w-0">
 																	<cite class="block not-italic">
 																		<a
 																			class="font-bold hover:underline"
@@ -199,15 +190,15 @@ const meta = {
 																		<em>{project.publication.journal + ","}</em>{" "}
 																		{project.publication.date}
 																	</div>
-																	<div class="relative mt-3">
+																	<div>
 																		<details>
-																			<summary class="publication-action cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+																			<summary class="publication-action absolute top-0 left-0 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
 																				ABS
 																			</summary>
 																			<p class="mt-5 leading-relaxed">{project.abstract}</p>
 																		</details>
 																		<a
-																			class="publication-action absolute top-0 left-20"
+																			class="publication-action absolute top-12 left-0"
 																			href={project.publication.url}
 																			rel="noopener"
 																			target="_blank"

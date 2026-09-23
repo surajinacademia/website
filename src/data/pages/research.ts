@@ -20,6 +20,7 @@ type ResearchMedia =
 
 interface ResearchProject {
 	title: string;
+	summary?: string;
 	abstract: string;
 	media?: ResearchMedia[];
 	wide?: boolean;
@@ -62,10 +63,10 @@ export const researchPage: {
 		{
 			groups: [
 				{
-					title: "Self-organization of multicellular networks",
+					title: "Collective dynamics of multicellular networks",
 					projects: [
 						{
-							title: "Fibroblast-driven collagen remodeling",
+							title: "Mechanics of cell–ECM interaction",
 							media: [
 								{
 									kind: "video",
@@ -76,10 +77,14 @@ export const researchPage: {
 								},
 							],
 							abstract:
-								"We model collective extracellular matrix (ECM) remodeling by representing the matrix as a mechanical fiber network in which cells exert traction on the matrix and contractile forces on nearby cells. As cell density increases, these cell–cell interactions produce a percolation transition in the multicellular network that drives the transition from low to high compaction. The cell–cell interaction range sets the critical cell gap for this transition. Mapping the observed time evolution of that gap to the model shows that the interaction range must increase with observation time to explain delayed compaction, in which an initially non-compacting collagen gel later compacts. Thus, network connectivity, rather than cell density alone, determines the transition. Passive non-contractile beads act as mechanical bridges, transmitting contractile forces and helping the multicellular network reach percolation.",
+								"Free-floating collagen gels populated by fibroblasts can undergo a cell-density-dependent disorder-to-order transition in which collagen disks compact significantly above a critical cell density. This transition has been proposed to be driven by multicellular network formation above the critical cell density. How cell density controls this compaction transition remains unclear. In our model, cellular traction applied to the extracellular matrix (ECM) without explicit cell–cell interactions produces no sharp transition; compaction instead increases additively with cell density. Introducing cell–cell interactions, however, produces a multicellular network in which we show that the percolation transition coincides with a sharp change in compaction and accounts for how that critical density shifts with observation time. Our work shows how cell–ECM and cell–cell interactions can collectively remodel the ECM, with relevance to wound healing and fibrosis.",
+							experimentalVideoCredit: {
+								label: "Doha et al. (2022)",
+								url: "https://doi.org/10.1016/j.actbio.2022.10.012",
+							},
 						},
 						{
-							title: "Vascular network formation and remodeling",
+							title: "Self-organization and remodeling of vascular networks",
 							media: [
 								{
 									kind: "video",
@@ -90,7 +95,7 @@ export const researchPage: {
 								},
 							],
 							abstract:
-								"Using particle based simulation, we model the formation and remodeling of preliminary vascular networks from individual endothelial cells during embryogenic development. During this process, also known as vasculogenesis, endothelial cells along with a myriad of other primitive cells form the primary vascular networks in presence of growth factors. This then acts as the foundation for the latter stages of vascular development. We show that single cell level properties like cell adhesion, contact inhibition of locomotion and response to mechanical stresses can affect network topology and the distribution of stresses within the network. We show that these features play important roles in network remodeling and maturation. We then compare our results with experiments and find single cell properties that produce efficient and robust vascular networks.",
+								"Vasculogenesis is the first stage of blood vessel formation, in which angioblasts differentiate into endothelial and other auxiliary cells, leading to the de novo formation of vascular networks in the presence of growth factors. Efficient transport of nutrients to tissues and organs requires optimized and robust vascular networks, but it is unclear how single-cell behavior affects the self-assembled formation of such networks. We use an agent-based model of vascular network formation in which cellular adhesion, chemotactic propulsion, mechanochemical feedback, contractile tugging forces, and cadherin kinetics produce rich dynamics of network morphologies. These networks exhibit self-organization and subsequent remodeling that we compare quantitatively with in vitro experiments.",
 							experimentalVideoCredit: {
 								label: "IPRASENSE (2015)",
 								url: "https://www.youtube.com/watch?v=tYDF1i1lRJU",
@@ -99,15 +104,15 @@ export const researchPage: {
 					],
 				},
 				{
-					title: "Physics of cell–cell adhesion",
+					title: "Mechanobiology of cell–cell adhesion",
 					projects: [
 						{
-							title: "Cell–cell contact formation and maturation",
+							title: "Dynamics of cell–cell adhesion formation and maturation",
 							media: [
 								{
 									kind: "video",
-									src: "/research/cell-cell-adhesion.mp4?v=2",
-									poster: "/research/cell-cell-adhesion.jpg",
+									src: "/research/cell-cell-adhesion.mp4?v=3",
+									poster: "/research/cell-cell-adhesion.jpg?v=3",
 									width: 1600,
 									height: 1600,
 								},
@@ -120,7 +125,7 @@ export const researchPage: {
 							},
 						},
 						{
-							title: "Stability of cell–cell junctions",
+							title: "Adhesion strength and stability of cell–cell junctions",
 							media: [
 								{
 									kind: "image",
@@ -136,48 +141,13 @@ export const researchPage: {
 					],
 				},
 				{
-					title: "Collective dynamics",
+					title: "Protein interactions in a crowded environment",
 					projects: [
 						{
-							title: "Active Brownian dynamics",
-							media: [
-								{
-									kind: "video",
-									src: "/research/active-brownian-particles.mp4?v=2",
-									poster: "/research/active-brownian-particles.jpg",
-									width: 1190,
-									height: 386,
-								},
-							],
-							abstract:
-								"We study a two-dimensional model of three-body interaction of active Brownian particles. Self-propulsion drives nonequilibrium motion, while rotational diffusion continually changes particle orientations. We aim to determine how density, propulsion speed, orientational persistence, and screening clearance control global scale aggregation, filament formation, network connectivity. Binary mixtures introduce differences in screening clearance while keeping intrinsic motility unchanged, allowing us to test whether interaction heterogeneity produces distinct mobility, composition patterns, or motion along emerging filaments.",
-						},
-						{
-							title: "Collective dynamics of LLM agents",
-							media: [
-								{
-									kind: "video",
-									src: "/research/collective-intelligence.mp4?v=3",
-									poster: "/research/collective-intelligence.jpg?v=2",
-									width: 3840,
-									height: 2160,
-								},
-							],
-							abstract:
-								"Biological collectives use local sensing and communication to coordinate behavior despite the limited information available to each individual. Inspired by chemotaxis and cell–cell signaling, we propose to investigate how these interactions support collective problem-solving in swarms of large language models (LLMs) agents. Agents navigate toward a chemical source using local measurements and signals exchanged with nearby neighbors. Both populations operate under matched sensory, movement, and communication constraints, allowing us to examine the contribution of the decision policy. These comparisons will reveal when communication compensates for uncertain local measurements, when it propagates misleading information, and whether LLM-based decisions improve or impair these effects relative to fixed rules. The study aims to identify how individual decision-making and local information exchange jointly determine collective performance, providing a controlled starting point for connecting biological collective behavior with artificial collective intelligence.",
-						},
-					],
-				},
-			],
-		},
-		{
-			title: "Previous Projects",
-			groups: [
-				{
-					projects: [
-						{
-							title: "Modeling Protein Reactions in Crowded Environments",
+							title: "Protein interactions in a crowded environment",
 							wide: true,
+							summary:
+								"Cells are highly crowded with proteins and other macromolecules, yet many experiments study protein reactions in dilute solutions. How does this difference affect protein–protein association? Understanding how the surrounding molecules influence whether two proteins bind is central to connecting laboratory measurements with conditions inside cells. In this project, we use reaction–diffusion simulations to explore how the size, shape, and interactions of these surrounding molecules affect association. We also study mixtures of different crowding agents, reflecting the diversity of the cellular environment. Our goal is to identify which features of crowding favor or hinder protein association and understand how their combined effects differ from those in simpler environments.",
 							media: [
 								{
 									kind: "image",
@@ -209,6 +179,39 @@ export const researchPage: {
 								date: "107, 107936 · September 2021",
 								url: "https://www.sciencedirect.com/science/article/pii/S1093326321001054",
 							},
+						},
+					],
+				},
+				{
+					title: "Collective dynamics of inanimate matter",
+					projects: [
+						{
+							title: "Collective dynamics in three-body interactions",
+							media: [
+								{
+									kind: "video",
+									src: "/research/active-brownian-particles.mp4?v=2",
+									poster: "/research/active-brownian-particles.jpg",
+									width: 1190,
+									height: 386,
+								},
+							],
+							abstract:
+								"We study a two-dimensional model of three-body interaction of active Brownian particles. Self-propulsion drives nonequilibrium motion, while rotational diffusion continually changes particle orientations. We aim to determine how density, propulsion speed, orientational persistence, and screening clearance control global scale aggregation, filament formation, network connectivity. Binary mixtures introduce differences in screening clearance while keeping intrinsic motility unchanged, allowing us to test whether interaction heterogeneity produces distinct mobility, composition patterns, or motion along emerging filaments.",
+						},
+						{
+							title: "Collective dynamics of LLM agents",
+							media: [
+								{
+									kind: "video",
+									src: "/research/collective-intelligence.mp4?v=3",
+									poster: "/research/collective-intelligence.jpg?v=2",
+									width: 3840,
+									height: 2160,
+								},
+							],
+							abstract:
+								"Biological collectives use local sensing and communication to coordinate behavior despite the limited information available to each individual. Inspired by chemotaxis and cell–cell signaling, we propose to investigate how these interactions support collective problem-solving in swarms of large language models (LLMs) agents. Agents navigate toward a chemical source using local measurements and signals exchanged with nearby neighbors. Both populations operate under matched sensory, movement, and communication constraints, allowing us to examine the contribution of the decision policy. These comparisons will reveal when communication compensates for uncertain local measurements, when it propagates misleading information, and whether LLM-based decisions improve or impair these effects relative to fixed rules. The study aims to identify how individual decision-making and local information exchange jointly determine collective performance, providing a controlled starting point for connecting biological collective behavior with artificial collective intelligence.",
 						},
 					],
 				},
