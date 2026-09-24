@@ -1,0 +1,20 @@
+---
+import { bagOfCoolThingsPage } from "@/data/pages/bag-of-cool-things";
+
+export function getStaticPaths() {
+	return [
+		...bagOfCoolThingsPage.categories.map((category) => ({
+			params: { category: category.slug },
+			props: { section: category.slug },
+		})),
+		{ params: { category: "experiments-models" }, props: { section: "hands-on-science" } },
+		{ params: { category: "planning-guides" }, props: { section: "science-communication" } },
+	];
+}
+
+interface Props {
+	section: string;
+}
+
+return Astro.redirect(`/bag-of-cool-things/#${Astro.props.section}`, 301);
+---

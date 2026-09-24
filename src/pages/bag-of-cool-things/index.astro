@@ -1,0 +1,93 @@
+---
+import { bagOfCoolThingsPage } from "@/data/pages/bag-of-cool-things";
+import PageLayout from "@/layouts/Base.astro";
+
+const meta = {
+	title: bagOfCoolThingsPage.title,
+	description: bagOfCoolThingsPage.description,
+};
+---
+
+<PageLayout meta={meta} searchable>
+	<section aria-labelledby="outreach-title" class="outreach-page">
+		<h1 id="outreach-title">{bagOfCoolThingsPage.title}</h1>
+		<p class="introduction">{bagOfCoolThingsPage.description}</p>
+		{
+			bagOfCoolThingsPage.categories.map((category) => (
+				<section class="resource-category" aria-labelledby={category.slug}>
+					<h2 id={category.slug}>{category.title}</h2>
+					<ul>
+						{category.items.map((item) => (
+							<li>
+								{item.title}{" "}
+								<a
+									href={item.href}
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label={`Link to ${item.title} (opens in a new tab)`}
+								>
+									Link
+								</a>
+							</li>
+						))}
+					</ul>
+				</section>
+			))
+		}
+	</section>
+</PageLayout>
+
+<style>
+	.outreach-page {
+		width: 100%;
+		max-width: 68ch;
+		margin-inline: auto;
+		font-family: "CMU Sans Serif", sans-serif;
+		overflow-wrap: anywhere;
+	}
+	h1 {
+		margin: 0 0 0.75rem;
+		font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.2rem);
+		font-weight: 600;
+		line-height: 1.4;
+		color: var(--color-accent-2);
+		text-wrap: balance;
+	}
+	.introduction {
+		margin: 0 0 2rem;
+		line-height: 1.7;
+	}
+	.resource-category + .resource-category {
+		margin-top: 2.5rem;
+	}
+	h2 {
+		margin: 0 0 0.75rem;
+		font-size: 1.25rem;
+		font-weight: 600;
+		line-height: 1.5;
+		color: var(--color-accent-2);
+		scroll-margin-top: 2rem;
+	}
+	ul {
+		margin: 0;
+		padding-inline-start: 1.25rem;
+		list-style: disc;
+		line-height: 1.7;
+	}
+	li + li {
+		margin-top: 0.5rem;
+	}
+	a {
+		padding-block: 0.2rem;
+		color: var(--color-link);
+		text-decoration: underline;
+		text-underline-offset: 0.2em;
+	}
+	a:hover {
+		text-decoration-thickness: 2px;
+	}
+	a:focus-visible {
+		outline: 2px solid var(--color-accent);
+		outline-offset: 4px;
+	}
+</style>
