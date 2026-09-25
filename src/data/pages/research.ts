@@ -22,6 +22,10 @@ interface ResearchProject {
 	title: string;
 	summary?: string;
 	abstract: string;
+	abstractLink?: {
+		label: string;
+		url: string;
+	};
 	media?: ResearchMedia[];
 	wide?: boolean;
 	experimentalVideoCredit?: {
@@ -95,7 +99,7 @@ export const researchPage: {
 								},
 							],
 							abstract:
-								"Vasculogenesis is the first stage of blood vessel formation, in which angioblasts differentiate into endothelial and other auxiliary cells, leading to the de novo formation of vascular networks in the presence of growth factors. Efficient transport of nutrients to tissues and organs requires optimized and robust vascular networks, but it is unclear how single-cell behavior affects the self-assembled formation of such networks. We use an agent-based model of vascular network formation in which cellular adhesion, chemotactic propulsion, mechanochemical feedback, contractile tugging forces, and cadherin kinetics produce rich dynamics of network morphologies. These networks exhibit self-organization and subsequent remodeling that we compare quantitatively with in vitro experiments.",
+								"Vasculogenesis results in the formation of primitive multicellular networks of endothelial cells that later provide the structure for a fully functional vascular network. Chemical guidance, cell–cell adhesion, and cell–matrix interactions have been proposed to explain the self-organization of these networks. However, how local cell interactions coordinate assembly with subsequent remodeling remains an open question. We develop a simple particle-based network model that combines chemotaxis and protrusion-based cell adhesion to describe initial network formation. We then introduce mechanochemical feedback between cell-generated contractile tension and the stability of cell–cell adhesions to explain the remodeling phase. Analysis of the network topology shows how this feedback permits reorganization through branch loss and loop merging while preserving load-bearing connections. Our work highlights the underlying principles of pattern formation during morphogenesis and may help explain how disruptions in early vascular development contribute to cardiovascular disease.",
 							experimentalVideoCredit: {
 								label: "IPRASENSE (2015)",
 								url: "https://www.youtube.com/watch?v=tYDF1i1lRJU",
@@ -211,7 +215,11 @@ export const researchPage: {
 								},
 							],
 							abstract:
-								"Biological collectives use local sensing and communication to coordinate behavior despite the limited information available to each individual. Inspired by chemotaxis and cell–cell signaling, we propose to investigate how these interactions support collective problem-solving in swarms of large language models (LLMs) agents. Agents navigate toward a chemical source using local measurements and signals exchanged with nearby neighbors. Both populations operate under matched sensory, movement, and communication constraints, allowing us to examine the contribution of the decision policy. These comparisons will reveal when communication compensates for uncertain local measurements, when it propagates misleading information, and whether LLM-based decisions improve or impair these effects relative to fixed rules. The study aims to identify how individual decision-making and local information exchange jointly determine collective performance, providing a controlled starting point for connecting biological collective behavior with artificial collective intelligence.",
+								"Biological collectives use local sensing and communication to coordinate behavior despite the limited information available to each individual. Using collective chemotaxis models as inspiration, we investigate how local rules and short range cell-cell interactions can help with collective problem-solving in swarms of large language model (LLM) agents, for example, finding solutions in a landscape with multiple local optima in particle swarm optimization (PSO). By comparing with agent-based models of collective cell dynamics and varying communication constraints, we examine the effects on agent decision policies. We ask how LLMs process local information and communicate uncertain local measurements to other agents. This helps us understand how misleading information or errors can propagate and whether LLM-based decisions improve or impair collective performance. Examining local rules and communication in both biological collectives and artificial agent systems may provide broader insight into how information exchange shapes collective behavior in complex systems, including opinion dynamics and adaptation in social and biological systems.",
+							abstractLink: {
+								label: "particle swarm optimization",
+								url: "https://en.wikipedia.org/wiki/Particle_swarm_optimization",
+							},
 						},
 					],
 				},

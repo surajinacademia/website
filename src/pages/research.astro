@@ -12,44 +12,6 @@ const meta = {
 	<section aria-labelledby="research-title" class="mx-auto max-w-[1100px] [&_p]:text-justify">
 		<h1 class="sr-only" id="research-title">Research</h1>
 
-		<div class="prose prose-base prose-cactus mb-20 max-w-none sm:mb-24">
-			<p>
-				My curiosity lies at the boundary of physics and biology. I am broadly interested in
-				questions related to self-organizing principles and pattern formation,
-				<a
-					class="cactus-link"
-					href="https://www.quantamagazine.org/how-is-flocking-like-computing-20240328/"
-					rel="noopener"
-					target="_blank">collective dynamics</a
-				>,
-				<a
-					class="cactus-link"
-					href="https://www.quantamagazine.org/in-natural-networks-strength-in-loops-20130814/"
-					rel="noopener"
-					target="_blank">multicellular network formation and remodeling</a
-				>, and
-				<a
-					class="cactus-link"
-					href="https://cemb.upenn.edu/what-is-mechanobiology/"
-					rel="noopener"
-					target="_blank">mechanobiology of cells and tissues</a
-				>. I motivated to understand <em>What is life?</em>(may be both scientifically and
-				philosophicallly) In the future, I would love to explore problems related to the
-				<a
-					class="cactus-link"
-					href="https://www.quantamagazine.org/single-cells-evolve-large-multicellular-forms-in-just-two-years-20210922/"
-					rel="noopener"
-					target="_blank">evolution of multicellularity</a
-				> and the origin of complex life. I am currently exploring facinating problems in
-				<a
-					class="cactus-link"
-					href="https://www.youtube.com/watch?v=t3WX5kexdmI"
-					rel="noopener"
-					target="_blank">physical learning</a
-				> and how these priciples can be applied to biological systems.
-			</p>
-		</div>
-
 		<div class="space-y-36 sm:space-y-48">
 			{
 				researchPage.sections.map((section) => (
@@ -133,7 +95,25 @@ const meta = {
 													<div class="research-text min-w-0">
 														<div class="prose prose-base prose-cactus max-w-none">
 															<p>
-																{project.summary ?? project.abstract}
+																{project.abstractLink?.label
+																	? (project.summary ?? project.abstract)
+																			.split(project.abstractLink.label)
+																			.map((part, index) => (
+																				<>
+																					{index > 0 && project.abstractLink && (
+																						<a
+																							class="cactus-link"
+																							href={project.abstractLink.url}
+																							rel="noopener"
+																							target="_blank"
+																						>
+																							{project.abstractLink.label}
+																						</a>
+																					)}
+																					{part}
+																				</>
+																			))
+																	: (project.summary ?? project.abstract)}
 																{project.experimentalVideoCredit && (
 																	<>
 																		{" "}
