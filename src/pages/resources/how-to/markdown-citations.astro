@@ -57,15 +57,6 @@ const meta = {
 	:global(.markdown-guide .guide-copy :is(h2, h3) a:hover) {
 		text-decoration: underline;
 	}
-	:global(.markdown-guide .tool-logo) {
-		display: inline-block;
-		width: 22px;
-		height: 22px;
-		object-fit: contain;
-		vertical-align: -0.25em;
-		margin-right: 0.35em;
-		margin-block: 0;
-	}
 	:global(.markdown-guide .guide-copy a) {
 		color: var(--color-global-text);
 	}
@@ -84,10 +75,5 @@ const meta = {
 	}
 	:global(.markdown-guide :not(pre) > code) {
 		border: 0;
-	}
-	:global(.markdown-guide .guide-copy a[href^="https://"]::after) {
-		content: " ↗";
-		font-size: 0.8em;
-		white-space: nowrap;
 	}
 </style>

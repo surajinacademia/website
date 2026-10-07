@@ -1,0 +1,54 @@
+{
+	"description": "Original user-supplied Research page videos. Files are unchanged copies; website exports are in public/research.",
+	"videos": [
+		{
+			"project": "multicellular-compaction",
+			"file": "multicellular-compaction/experiment_simulation_compaction_fT_0_fc_1_Q_100_gap_12_4.mp4",
+			"original_path": "/Users/suraj/Documents/Research/Multicellular-Compaction/results/plots/videos/experiment_simulation_compaction_fT_0_fc_1_Q_100_gap_12_4.mp4",
+			"bytes": 6456194,
+			"sha256": "e10b8ddee9c8c69de0c5893786c8558a5014baad0856ad42ce994f27716a19a0"
+		},
+		{
+			"project": "vasculogenesis",
+			"file": "vasculogenesis/network_formation_open_sector_turnover_n1000_s1_seed6201_t3000.mp4",
+			"original_path": "/Users/suraj/Documents/Research/vasculogenesis/network_formation/results/network_formation_open_sector_turnover_n1000_s1_seed6201_t3000.mp4",
+			"bytes": 18418852,
+			"sha256": "8161920c8faf7241023f58c5c1c9ccbcacabc6421ca1a2bf3df74d4bed38ba0e"
+		},
+		{
+			"project": "vasculogenesis",
+			"file": "vasculogenesis/brut-enh-logos.mp4",
+			"original_path": "/Users/suraj/Documents/Research/vasculogenesis/network_formation/archive/videos/brut-enh-logos.mp4",
+			"bytes": 18696029,
+			"sha256": "cf2dfc8825d4ea2c9c368d20b51021d9499335e13cf3711417604ca7f81c8728"
+		},
+		{
+			"project": "cell-cell-adhesion",
+			"file": "cell-cell-adhesion/cadherin_myosin_splitting_insertion_synchronized.mp4",
+			"original_path": "/Users/suraj/Documents/Research/Adhesion/results/cadherin_myosin_splitting_insertion_synchronized.mp4",
+			"bytes": 2378512,
+			"sha256": "989eb06c8d5402ea0ffd1785f8f6d0f73b1cc3bfeb660017679a22cd5b3ac179"
+		},
+		{
+			"project": "active-brownian-particles",
+			"file": "active-brownian-particles/farnaz_binary_if_pbc_abp_initial4_n1500_philow0_0p5_1_iflow0_ifhigh1_box100_cr21_lw13_mcr13_mcs33p333333_seed42_populationseed43_t2000_initial_condition_by_phi_low_type_colored_collage.mp4",
+			"original_path": "/Users/suraj/Documents/Research/intercalation_model/results/video/farnaz_binary_if_pbc_abp_initial4_n1500_philow0_0p5_1_iflow0_ifhigh1_box100_cr21_lw13_mcr13_mcs33p333333_seed42_populationseed43_t2000_initial_condition_by_phi_low_type_colored_collage.mp4",
+			"bytes": 28365223,
+			"sha256": "2ab3778a50fa4fa3a76da4c074fa3bfdd591a57bd2a4e174f5dab4e14f7972ff"
+		},
+		{
+			"project": "collective-intelligence",
+			"file": "collective-intelligence/abm_vs_llm_4k.mp4",
+			"original_path": "/Users/suraj/.codex/visualizations/2026/09/11/01a08eaa-3fcd-7c51-b2d7-d2e68493b278/collective_comparison/abm_vs_llm_4k.mp4",
+			"bytes": 1244633,
+			"sha256": "5e9293b9bdcff96be4b414f547237db9fe42f3ae48b7089fd5e0d8dcb0b8ed58"
+		},
+		{
+			"project": "collective-intelligence",
+			"file": "collective-intelligence/abm_vs_llm_minimalist_4k.mp4",
+			"original_path": "/Users/suraj/.codex/visualizations/2026/09/11/01a08eaa-3fcd-7c51-b2d7-d2e68493b278/collective_comparison/abm_vs_llm_minimalist_4k.mp4",
+			"bytes": 1268994,
+			"sha256": "1ec190f57e33bded2a67d468f64e6aa8ddfbb459d591a521a53abb238ac4f219"
+		}
+	]
+}

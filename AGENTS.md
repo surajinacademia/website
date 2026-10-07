@@ -26,6 +26,22 @@ This file provides durable repository guidance to OpenAI Codex.
 - Do not recreate `CLAUDE.md` or `.claude/`. Claude-specific permissions, plugin toggles, and hooks are not part of this repository's Codex configuration.
 - Keep machine-specific permissions, plugins, MCP servers, and credentials out of the repository.
 
+## Coding principles
+
+- Keep implementations simple, readable, and focused on the requested change.
+- Reuse existing routines and established libraries. Introduce abstractions only for demonstrated reuse or a clearer expression of the computation.
+- Keep comments and docstrings current with changed behavior. Explain non-obvious scientific, numerical, or programming choices rather than restating syntax.
+- Use portable paths with an explicit project, script, or caller-supplied base; avoid new machine-specific absolute paths in reusable code.
+
+## Debugging and verification
+
+- When debugging code, isolate a representative failing case and identify the cause before choosing a fix.
+- Use the smallest decisive checks for the changed behavior or material claim, and complete applicable required checks. Reuse valid evidence; rerun affected checks when code, inputs, or assumptions change, and broaden verification only for unsupported claims or unresolved uncertainty.
+- For input and data validation, use one check per distinct plausible failure mode; do not re-check invariants guaranteed by the preceding operation.
+- Expose unexpected warnings, failed checks, and missing required results. Fix the cause or report it with context; do not suppress or silently skip failures to claim success.
+- Preserve source files and stored outputs during read-only checks; use temporary copies or isolated checks when needed. Existing outputs alone do not establish that the current code ran.
+- Report the checks actually performed, their outcomes, and any remaining verification gaps or uncertainty.
+
 ## Commands
 
 ```bash

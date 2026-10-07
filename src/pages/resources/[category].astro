@@ -40,6 +40,15 @@ const meta = {
 			</a>
 		</nav>
 		<h1 class="title" id="category-title">{category.title}</h1>
+		{
+			category.introduction && (
+				<div class="introduction">
+					{category.introduction.map((paragraph) => (
+						<p>{paragraph}</p>
+					))}
+				</div>
+			)
+		}
 		<ul class="resource-list">
 			{
 				category.items.map((item) => {
@@ -54,6 +63,7 @@ const meta = {
 								{item.title}
 								{external && <span class="sr-only"> (opens in a new tab)</span>}
 							</a>
+							{category.slug === "skills" && <p class="skill-description">{item.description}</p>}
 						</li>
 					);
 				})
@@ -96,6 +106,16 @@ const meta = {
 	.resource-list-page a:focus-visible {
 		outline: 2px solid var(--color-accent);
 		outline-offset: 4px;
+	}
+	.introduction {
+		margin-bottom: 2rem;
+		line-height: 1.6;
+	}
+	.introduction p + p {
+		margin-top: 1rem;
+	}
+	.skill-description {
+		font-size: 1rem;
 	}
 	.resource-list {
 		margin: 0;
