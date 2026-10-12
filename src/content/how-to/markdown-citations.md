@@ -86,12 +86,11 @@ Both commands create `model.html` beside your document. `--mathjax` enables equa
 
 ## 5. Save as PDF
 
-Open `model.html` from Step 4 in your browser, wait for the equations to render, and choose **Print > Save as PDF**. The HTML needs internet access to load MathJax.
+Open `model.html` from Step 4 in your browser, wait for the equations to render, and choose **Print > Save as PDF**.[^mathjax]
 
 For command-line exports, use one of these methods. In the LaTeX and Typst commands, omit `--citeproc --bibliography=references.bib` if you only use direct links.
 
-<details class="pdf-method">
-<summary>With LaTeX</summary>
+### With LaTeX
 
 Install a [LaTeX distribution](https://www.latex-project.org/get/), then run:
 
@@ -99,12 +98,9 @@ Install a [LaTeX distribution](https://www.latex-project.org/get/), then run:
 pandoc model.md --citeproc --bibliography=references.bib -o model.pdf
 ```
 
-</details>
+### With Typst
 
-<details class="pdf-method">
-<summary>With Typst (without LaTeX)</summary>
-
-Install [Typst](https://github.com/typst/typst#installation), then run:
+To export without LaTeX, install [Typst](https://github.com/typst/typst#installation), then run:
 
 ```sh frame="none" wrap
 pandoc model.md --pdf-engine=typst --citeproc --bibliography=references.bib -o model.pdf
@@ -112,12 +108,9 @@ pandoc model.md --pdf-engine=typst --citeproc --bibliography=references.bib -o m
 
 This exports the equations and citations, but drops the manual `\tag{1}` number in this example. Use LaTeX or export from HTML to keep it.
 
-</details>
+### From HTML with a script
 
-<details class="pdf-method">
-<summary>From HTML with a script (without LaTeX)</summary>
-
-Install [Python](https://www.python.org/downloads/) and run these once:
+You can also export from HTML without LaTeX. Install [Python](https://www.python.org/downloads/) and run these once:
 
 ```sh frame="none" wrap
 python -m pip install playwright
@@ -132,12 +125,9 @@ python html_to_pdf.py model.html model.pdf
 
 On macOS or Linux, use `python3` if `python` is not available. The script waits for MathJax to render the equations, then creates the PDF.
 
-</details>
-
 Open `model.pdf` and check the equations and references. After editing your document, repeat the export commands.
 
-<details class="pdf-method">
-<summary>Optional citation tools and labels</summary>
+## Optional citation tools and labels
 
 You can also use the [Zotero extension by mblode](https://open-vsx.org/extension/mblode/zotero) in your editor when working with Zotero citations.
 
@@ -147,8 +137,6 @@ To display an `@` in the label, escape it:
 [\@einstein1905](https://doi.org/10.1002/andp.19053220806)
 ```
 
-</details>
-
 ## Using a Jupyter notebook
 
 Install Microsoft's Python and Jupyter extensions in VS Code, and write the document in Markdown cells. In the Pandoc commands above, replace `model.md` with:
@@ -156,3 +144,5 @@ Install Microsoft's Python and Jupyter extensions in VS Code, and write the docu
 ```text frame="none" wrap
 model.ipynb --from=ipynb+citations+fenced_divs
 ```
+
+[^mathjax]: The HTML needs internet access to load MathJax.

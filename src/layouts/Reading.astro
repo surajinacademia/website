@@ -1,0 +1,92 @@
+---
+import ThemeToggle from "@/components/ThemeToggle.astro";
+import type { SiteMeta } from "@/types";
+import BaseLayout from "./Base.astro";
+
+interface Props {
+	meta: SiteMeta;
+	heading?: string;
+	parentLabel?: string;
+	parentHref?: string;
+	searchable?: boolean;
+}
+
+const {
+	meta,
+	heading = meta.title,
+	parentLabel = "Blog",
+	parentHref = "/posts/",
+	searchable = true,
+} = Astro.props;
+---
+
+<BaseLayout meta={meta} searchable={searchable} reading>
+	<div class="reading-page">
+		<div class="reading-navigation">
+			<nav aria-label="Breadcrumb">
+				<a href="/">Home</a>
+				<span aria-hidden="true">/</span>
+				{
+					parentHref !== "/resources/" && parentHref.startsWith("/resources/") && (
+						<>
+							<>
+								<a href="/resources/">Resources</a>
+								<span aria-hidden="true">/</span>
+							</>
+						</>
+					)
+				}
+				<a href={parentHref}>{parentLabel}</a>
+			</nav>
+			<ThemeToggle />
+		</div>
+		<article aria-labelledby="guide-title" data-pagefind-body={searchable || undefined}>
+			<header class="reading-header" id="blog-hero">
+				<slot name="header"><h1 id="guide-title">{heading}</h1></slot>
+			</header>
+			<div class="reading-copy"><slot /></div>
+		</article>
+		<footer class="reading-footer">
+			<a href={parentHref}>Back to {parentLabel}</a>
+			<a href="#main">Back to top</a>
+		</footer>
+	</div>
+</BaseLayout>
+
+<style>
+	.reading-page {
+		width: 100%;
+		max-width: 42rem;
+		margin-inline: auto;
+	}
+	.reading-navigation {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		margin-bottom: 3rem;
+	}
+	.reading-navigation nav {
+		display: flex;
+		align-items: baseline;
+		flex-wrap: wrap;
+		gap: 0.6rem;
+	}
+	.reading-header {
+		margin-bottom: 2rem;
+	}
+	.reading-footer {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 1rem;
+		margin-top: 3rem;
+		padding-top: 1.25rem;
+		border-top: 1px solid var(--site-border);
+	}
+	@media (max-width: 640px) {
+		.reading-navigation {
+			margin-bottom: 2rem;
+		}
+	}
+</style>

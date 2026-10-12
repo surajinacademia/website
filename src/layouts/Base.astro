@@ -3,35 +3,35 @@ import BaseHead from "@/components/BaseHead.astro";
 import Footer from "@/components/layout/Footer.astro";
 import Header from "@/components/layout/Header.astro";
 import SkipLink from "@/components/SkipLink.astro";
-import ThemeProvider from "@/components/ThemeProvider.astro";
 import { siteConfig } from "@/site.config";
 import type { SiteMeta } from "@/types";
 
 interface Props {
 	meta: SiteMeta;
 	searchable?: boolean;
+	reading?: boolean;
 }
 
 const {
 	meta: { articleDate, description = siteConfig.description, ogImage, title },
 	searchable = false,
+	reading = false,
 } = Astro.props;
 ---
 
-<html class="scroll-smooth" data-theme="dark" lang={siteConfig.lang}>
+<html class="scroll-smooth" data-theme="dark" id="site-root" lang={siteConfig.lang}>
 	<head>
 		<BaseHead articleDate={articleDate} description={description} ogImage={ogImage} title={title} />
 	</head>
 	<body
 		class="font-cmusans flex min-h-screen w-full flex-col bg-white px-5 pt-12 text-base font-normal text-black antialiased transition-colors duration-200 ease-out motion-reduce:transition-none md:px-20 dark:bg-black dark:text-white"
 	>
-		<ThemeProvider />
 		<SkipLink />
-		<Header />
+		{!reading && <Header />}
 		<main class="pb-16" data-pagefind-body={searchable || undefined} id="main">
 			<slot />
 		</main>
-		<Footer />
+		{!reading && <Footer />}
 		<script is:inline type="speculationrules">
 			{
 				"prefetch": [

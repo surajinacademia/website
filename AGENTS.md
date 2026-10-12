@@ -8,6 +8,8 @@ This file provides durable repository guidance to OpenAI Codex.
 - Always keep this website minimal, readable, and focused on its academic content. Apply this rule to every page, component, and design change.
 - Prefer the simplest layout that communicates the content clearly. Use typography, spacing, and alignment to establish hierarchy; remove elements that do not help visitors read, navigate, or understand.
 - Preserve the existing visual language and reuse shared components and design tokens. Keep colors, typefaces, font sizes, and decorative treatments limited and consistent.
+- Use the shared rules in `public/styles/site.css` and self-hosted fonts in `public/fonts/cmu.css`: CMU Serif for body text and CMU Sans Serif for headings and controls. Keep text to 16px and 24px, with no underlines. Use Tailwind rose-600 accents on white in light mode and rose-400 accents on black in dark mode.
+- Use `src/layouts/Reading.astro` for blog posts, guides, and resource listings: one reading column, breadcrumb navigation, and a theme control. Keep citations as native footnotes with return links; the literature guide's image credits belong in its endnotes.
 - Avoid generic AI-generated styling: decorative gradients, glass effects, gratuitous shadows, oversized marketing heroes, repetitive card grids, unnecessary badges or icons, and animations added only for visual flair.
 - Use cards, borders, backgrounds, and motion only when they serve a clear content or interaction purpose. Prefer straightforward text, lists, and links where sufficient.
 - Keep copy direct and specific. Do not add marketing filler, invented statistics, redundant section labels, or placeholder content to fill space.
@@ -15,6 +17,7 @@ This file provides durable repository guidance to OpenAI Codex.
 - Before completing a visual change, review desktop and mobile views and remove unnecessary decoration, repetition, and complexity.
 - When using design skills, apply their guidance within this minimal aesthetic. Suggestions for novelty, boldness, or elaborate visuals must not override this rule unless the user explicitly requests a different direction.
 - Preserve the Research page's content and layout during general website audits or design changes. Change `src/pages/research.astro` or `src/data/pages/research.ts` only when the user explicitly requests changes to Research.
+- Apply the shared typography to Research without restructuring its content or layout: 24px section headings (`h2`), 16px bold subheadings (`h3`), and 16px CMU Serif body text.
 - Preserve the Resources category artwork and overlays as part of the user's visual style: keep category labels inside the image and show only the artist's name and year at the bottom inside each image. Do not move captions outside, add visible artwork titles or license details, remove the images, or replace the image-based navigation with plain text unless explicitly requested.
 - Preserve the About profile photo's tilted frame and hover-to-straighten animation as part of the user's personal style, including reduced-motion support, unless explicitly asked to change it.
 

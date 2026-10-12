@@ -66,8 +66,15 @@ Draft posts (`draft: true`) are excluded in production but visible in dev.
 
 ### Layouts
 
-- [src/layouts/Base.astro](src/layouts/Base.astro) — root shell with `<html>`, `<head>` (via `BaseHead`), Header, Footer, ThemeProvider. All pages use this as `PageLayout`.
-- [src/layouts/BlogPost.astro](src/layouts/BlogPost.astro) — wraps `Base.astro` with blog-specific chrome (masthead, TOC, webmentions).
+- [src/layouts/Base.astro](src/layouts/Base.astro) — root shell with `<html>`, `<head>` (via `BaseHead`), Header, and Footer. Its `reading` prop hides the shared Header and Footer. `ThemeProvider` loads the theme script in the head.
+- [src/layouts/Reading.astro](src/layouts/Reading.astro) — shared single-column layout for blog posts, guides, and resource listings, with breadcrumb navigation and a theme control. Citations use native footnotes with return links; the literature guide keeps image credits in its endnotes.
+- [src/layouts/BlogPost.astro](src/layouts/BlogPost.astro) — wraps `Reading.astro` with the blog masthead and webmentions.
+
+### Styles and theme
+
+[public/styles/site.css](public/styles/site.css) owns the shared typography and theme rules. [public/fonts/cmu.css](public/fonts/cmu.css) loads self-hosted CMU Serif for body text and CMU Sans Serif for headings and controls. The site uses two text sizes, 16px and 24px, without underlines. Research uses 24px `h2` headings, 16px bold `h3` subheadings, and 16px serif body text while retaining its content and layout.
+
+Light mode uses white with Tailwind rose-600 accents; dark mode uses black with rose-400 accents. [public/styles/theme.js](public/styles/theme.js) defaults to dark mode, remembers the choice under the local-storage key `theme`, and supports `?theme=light` and `?theme=dark`.
 
 ### Photography
 

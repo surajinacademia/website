@@ -1,0 +1,344 @@
+/* Shared typography and theme tokens for the site. */
+html#site-root {
+	--site-body: "CMU Serif", Georgia, serif;
+	--site-heading: "CMU Sans Serif", sans-serif;
+	--site-text: 16px;
+	--site-title: 24px;
+	--site-accent: oklch(58.6% 0.253 17.585);
+	--site-foreground: #000;
+	--site-background: #fff;
+	--site-surface: #f5f5f5;
+	--site-border: #e5e5e5;
+	--site-overlay: rgb(255 255 255 / 86%);
+	--site-credit: rgb(255 255 255 / 94%);
+	--color-global-bg: var(--site-background);
+	--color-global-text: var(--site-foreground);
+	--color-link: var(--site-accent);
+	--color-accent: var(--site-accent);
+	--color-accent-2: var(--site-foreground);
+	--color-quote: var(--site-foreground);
+	color-scheme: light;
+	background: var(--site-background);
+}
+
+/* The root selector also covers scoped page styles and generated content. */
+html#site-root body {
+	font-family: var(--site-body);
+	font-size: var(--site-text);
+	font-weight: 400;
+	line-height: 1.5;
+	color: var(--site-foreground);
+	background: var(--site-background);
+}
+
+html#site-root
+	body
+	:where(*):not(:where(.katex, .katex *, mjx-container, mjx-container *, .MathJax, .MathJax *)) {
+	font-family: var(--site-body);
+	font-size: var(--site-text);
+	line-height: 1.5;
+	color: var(--site-foreground);
+}
+
+html#site-root
+	body
+	:where(
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		.title,
+		.category-label,
+		h1 *,
+		h2 *,
+		h3 *,
+		h4 *,
+		h5 *,
+		h6 *,
+		.title *,
+		.category-label *
+	):not(:where(.katex, .katex *, mjx-container, mjx-container *, .MathJax, .MathJax *)) {
+	font-family: var(--site-heading);
+	font-size: var(--site-title);
+	line-height: 1.35;
+	font-weight: 600;
+}
+
+html#site-root
+	body
+	:where(
+		#main-header,
+		#main-header *,
+		nav,
+		nav *,
+		button,
+		input,
+		select,
+		summary,
+		summary *,
+		.admonition-title,
+		.gh-title,
+		.gh-title *
+	):not(:where(.katex, .katex *, mjx-container, mjx-container *, .MathJax, .MathJax *)) {
+	font-family: var(--site-heading);
+}
+
+html#site-root body :where(#main-header) > a {
+	font-size: var(--site-title);
+}
+
+html#site-root
+	body
+	:where(a, a *, [data-footnote-ref], [data-footnote-backref]):not(
+		:where(a:has(img), a:has(img) *)
+	) {
+	color: var(--site-accent);
+}
+
+html#site-root body :where(a, button, summary, input):focus-visible {
+	outline: 2px solid var(--site-foreground);
+	outline-offset: 4px;
+}
+
+html#site-root
+	body
+	:where(p, li, figcaption, time, .publication-date, .image-credit, footer, footer *) {
+	opacity: 1;
+}
+
+/* Keep artwork captions inside each image with surfaces that follow the theme. */
+html#site-root body .category-label {
+	background: var(--site-overlay);
+}
+
+html#site-root body .image-credit {
+	padding: 0.35rem 0.65rem;
+	background: var(--site-credit);
+}
+
+html#site-root body .image-credit a {
+	color: var(--site-foreground);
+}
+
+/* Footnote references retain their existing text and return links. */
+html#site-root body :where(sup) {
+	position: relative;
+	top: -0.3em;
+	vertical-align: baseline;
+	line-height: 0;
+}
+
+html#site-root body :where(.footnotes, [data-footnotes]) {
+	margin-top: 2rem;
+	padding-top: 1rem;
+	border-top: 1px solid var(--site-accent);
+}
+
+html#site-root body :where([data-footnote-ref], [data-footnote-backref]) {
+	scroll-margin-top: 5rem;
+}
+
+/* Technical examples use the same two text faces; mathematical glyphs keep their renderer. */
+html#site-root body :where(pre, code, code *, kbd, samp) {
+	font-family: var(--site-heading);
+}
+
+html#site-root body :where(pre, .expressive-code, .expressive-code *) {
+	--ec-codeBg: var(--site-background);
+	--ec-codeFontSize: var(--site-text);
+	--ec-codeFontFamily: var(--site-heading);
+}
+
+html#site-root body pre {
+	background: var(--site-background);
+	border: 1px solid var(--site-border);
+}
+
+html#site-root body :where(blockquote, .admonition) {
+	--admonition-color: var(--site-accent);
+	border-color: var(--site-accent);
+}
+
+html#site-root body #cactus__search {
+	--pagefind-ui-text: var(--site-foreground);
+	--pagefind-ui-primary: var(--site-accent);
+	--pagefind-ui-background: var(--site-background);
+	--pagefind-ui-font: var(--site-body);
+}
+
+/* Syntax highlighters set inline colors; code follows the active foreground. */
+html#site-root body .expressive-code span {
+	/* biome-ignore lint/complexity/noImportantStyles: Keep generated inline syntax colors within the active theme palette. */
+	color: var(--site-foreground) !important;
+}
+
+html#site-root[data-theme="dark"] {
+	--site-accent: oklch(71.2% 0.194 13.428);
+	--site-foreground: #f5f5f5;
+	--site-background: #000;
+	--site-surface: #151515;
+	--site-border: #303030;
+	--site-overlay: rgb(0 0 0 / 86%);
+	--site-credit: rgb(0 0 0 / 94%);
+	color-scheme: dark;
+}
+
+/* Remove decorations from every state, including the original utility classes. */
+html#site-root body :where(*, *::before, *::after) {
+	text-decoration: none;
+}
+
+html#site-root body :where(*::before, *::after) {
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+}
+
+html#site-root body :where(h1, h2, h3, h4, h5, h6) a,
+html#site-root body :where(h1, h2, h3, h4, h5, h6) a :where(*),
+html#site-root body :where(#main-header) > a {
+	color: var(--site-foreground);
+}
+
+html#site-root
+	body
+	#cactus__search
+	:where(.pagefind-ui__result-link, .pagefind-ui__result-link:hover) {
+	background-image: none;
+}
+
+html#site-root body :where(pre, .expressive-code, .expressive-code *) {
+	--ec-frm-edBg: var(--site-background);
+	--ec-frm-edActTabBg: var(--site-background);
+	--ec-frm-edTabBarBg: var(--site-surface);
+	--ec-frm-trmBg: var(--site-background);
+	--ec-frm-trmTtbBg: var(--site-surface);
+	--ec-frm-inlBtnFg: var(--site-foreground);
+	--ec-frm-inlBtnBg: var(--site-surface);
+}
+
+html#site-root body :where(.admonition) {
+	background: var(--site-surface);
+}
+
+/* Articles follow one continuous reading column, using spacing for hierarchy. */
+html#site-root body .reading-copy {
+	min-width: 0;
+	overflow-wrap: anywhere;
+}
+
+html#site-root body .reading-copy :where(p, ul, ol) {
+	margin-block: 0 1.25rem;
+}
+
+html#site-root body .reading-copy :where(ul, ol) {
+	padding-inline-start: 1.4rem;
+}
+
+html#site-root body .reading-copy ul {
+	list-style: disc;
+}
+
+html#site-root body .reading-copy ol {
+	list-style: decimal;
+}
+
+html#site-root body .reading-copy li {
+	margin-block: 0.4rem;
+}
+
+html#site-root body .reading-copy h2 {
+	margin-block: 2.5rem 1rem;
+	font-weight: 500;
+}
+
+html#site-root
+	body
+	.reading-copy
+	:where(h3, h4, h5, h6, h3 *, h4 *, h5 *, h6 *):not(
+		:where(.katex, .katex *, mjx-container, mjx-container *, .MathJax, .MathJax *)
+	) {
+	font-size: var(--site-text);
+	font-weight: 600;
+}
+
+html#site-root body .reading-copy :where(h3, h4, h5, h6) {
+	margin-block: 1.75rem 0.75rem;
+}
+
+html#site-root body .reading-copy :where(figure, .expressive-code) {
+	margin-block: 1.75rem;
+}
+
+html#site-root body .reading-copy :where(figure img) {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	margin-inline: auto;
+}
+
+html#site-root body .reading-copy figcaption {
+	margin-top: 0.6rem;
+	text-align: center;
+}
+
+html#site-root body .reading-copy :where(blockquote) {
+	margin-block: 1.5rem;
+	padding-inline-start: 1rem;
+	border-inline-start: 1px solid var(--site-border);
+}
+
+html#site-root body .reading-copy :where(table) {
+	display: block;
+	max-width: 100%;
+	overflow-x: auto;
+}
+
+html#site-root body .reading-copy :where(th, td) {
+	padding: 0.5rem;
+	text-align: left;
+}
+
+html#site-root body .reading-copy :where(.footnotes, [data-footnotes]) {
+	border-color: var(--site-border);
+}
+
+html#site-root body .reading-copy :where([data-footnotes] > h2, .footnotes > h2) {
+	margin-top: 0;
+}
+
+html#site-root body .reading-copy :where(pre) {
+	border-color: var(--site-border);
+}
+
+html#site-root body .reading-copy :where(:not(pre) > code) {
+	border: 0;
+	padding: 0;
+}
+
+/* Research sections, project headings, and abstracts have distinct levels. */
+html#site-root
+	body
+	[aria-labelledby="research-title"]
+	:where(h3, h3 *):not(
+		:where(.katex, .katex *, mjx-container, mjx-container *, .MathJax, .MathJax *)
+	) {
+	font-size: var(--site-text);
+	font-weight: 700;
+}
+
+/* Preserve readable paper output even when the saved screen theme is black. */
+@media print {
+	html#site-root[data-theme] {
+		--site-accent: oklch(58.6% 0.253 17.585);
+		--site-foreground: #000;
+		--site-background: #fff;
+		--site-surface: #f5f5f5;
+		--site-border: #e5e5e5;
+		--site-overlay: rgb(255 255 255 / 86%);
+		--site-credit: rgb(255 255 255 / 94%);
+		color-scheme: light;
+	}
+}

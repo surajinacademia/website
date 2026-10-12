@@ -1,41 +1,9 @@
 /* would like to ignore ./src/pages/og-image/[slug].png.ts */
-/* Shared typography: self-hosted CMU Sans Serif. */
+/* Typography is registered in public/fonts/cmu.css and styled in public/styles/site.css. */
 
 @import "tailwindcss";
 /* config for tailwindcss-typography plugin */
 @config "../../tailwind.config.ts";
-
-@font-face {
-	font-family: "CMU Sans Serif";
-	font-style: normal;
-	font-weight: 300 500;
-	font-display: swap;
-	src: url("/fonts/cmu-sans-regular.woff2") format("woff2");
-}
-
-@font-face {
-	font-family: "CMU Sans Serif";
-	font-style: italic;
-	font-weight: 300 500;
-	font-display: swap;
-	src: url("/fonts/cmu-sans-oblique.woff2") format("woff2");
-}
-
-@font-face {
-	font-family: "CMU Sans Serif";
-	font-style: normal;
-	font-weight: 600 700;
-	font-display: swap;
-	src: url("/fonts/cmu-sans-bold.woff2") format("woff2");
-}
-
-@font-face {
-	font-family: "CMU Sans Serif";
-	font-style: italic;
-	font-weight: 600 700;
-	font-display: swap;
-	src: url("/fonts/cmu-sans-bold-oblique.woff2") format("woff2");
-}
 
 /* use a selector-based strategy for dark mode */
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));

@@ -18,9 +18,36 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 };
 ---
 
+{data.draft && <p>(Draft)</p>}
+<h1 id="guide-title">{data.title}</h1>
+<div class="post-metadata">
+	<p><FormattedDate date={data.publishDate} dateTimeOptions={dateTimeOptions} /> / {readingTime}</p>
+	{
+		data.updatedDate && (
+			<p>
+				Updated: <FormattedDate date={data.updatedDate} dateTimeOptions={dateTimeOptions} />
+			</p>
+		)
+	}
+	{
+		data.tags.length > 0 && (
+			<p>
+				{data.tags.map((tag, index) => (
+					<>
+						<a data-pagefind-filter={`tag:${tag}`} href={`/tags/${tag}/`}>
+							<span class="sr-only">View more blogs with the tag </span>
+							{tag}
+						</a>
+						{index < data.tags.length - 1 && ", "}
+					</>
+				))}
+			</p>
+		)
+	}
+</div>
 {
 	data.coverImage && (
-		<div class="mb-6 aspect-video">
+		<figure class="post-cover">
 			<Image
 				alt={data.coverImage.alt}
 				layout="constrained"
@@ -29,56 +56,18 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 				priority
 				src={data.coverImage.src}
 			/>
-		</div>
+		</figure>
 	)
 }
-{data.draft ? <span class="text-base text-red-500">(Draft)</span> : null}
-<h1 class="title">
-	{data.title}
-</h1>
-<div class="flex flex-wrap items-center gap-x-3 gap-y-2">
-	<p class="font-semibold">
-		<FormattedDate date={data.publishDate} dateTimeOptions={dateTimeOptions} /> /{" "}
-		{readingTime}
-	</p>
-	{
-		data.updatedDate && (
-			<span class="bg-quote/5 text-quote rounded-lg px-2 py-1">
-				Updated:
-				<FormattedDate class="ms-1" date={data.updatedDate} dateTimeOptions={dateTimeOptions} />
-			</span>
-		)
+
+<style>
+	h1 {
+		margin-bottom: 0.75rem;
 	}
-</div>
-{
-	!!data.tags?.length && (
-		<div class="mt-2">
-			<svg
-				aria-hidden="true"
-				class="inline-block h-6 w-6"
-				fill="none"
-				focusable="false"
-				stroke="currentColor"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				stroke-width="1.5"
-				viewBox="0 0 24 24"
-				xmlns="http://www.w3.org/2000/svg"
-			>
-				<path d="M0 0h24v24H0z" fill="none" stroke="none" />
-				<path d="M7.859 6h-2.834a2.025 2.025 0 0 0 -2.025 2.025v2.834c0 .537 .213 1.052 .593 1.432l6.116 6.116a2.025 2.025 0 0 0 2.864 0l2.834 -2.834a2.025 2.025 0 0 0 0 -2.864l-6.117 -6.116a2.025 2.025 0 0 0 -1.431 -.593z" />
-				<path d="M17.573 18.407l2.834 -2.834a2.025 2.025 0 0 0 0 -2.864l-7.117 -7.116" />
-				<path d="M6 9h-.01" />
-			</svg>
-			{data.tags.map((tag, i) => (
-				<>
-					{/* prettier-ignore */}
-					<span class="contents">
-						<a class="cactus-link inline-block before:content-['#']" data-pagefind-filter={`tag:${tag}`} href={`/tags/${tag}/`}><span class="sr-only">View more blogs with the tag&nbsp;</span>{tag}
-						</a>{i < data.tags.length - 1 && ", "}
-					</span>
-				</>
-			))}
-		</div>
-	)
-}
+	.post-metadata p {
+		margin-block: 0.25rem;
+	}
+	.post-cover {
+		margin-top: 1.75rem;
+	}
+</style>
