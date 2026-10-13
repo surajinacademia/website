@@ -27,24 +27,72 @@ const meta = {
 	parentHref="/resources/"
 >
 	{category.introduction && category.introduction.map((paragraph) => <p>{paragraph}</p>)}
-	<ul class="resource-list">
-		{
-			category.items.map((item) => {
-				const external = item.href.startsWith("https://");
-				return (
-					<li>
+	{
+		category.slug === "mcps" ? (
+			category.items.map((item) => (
+				<section aria-label={item.title}>
+					<h2>
 						<a
 							href={item.href}
-							target={external ? "_blank" : undefined}
-							rel={external ? "noopener noreferrer" : undefined}
+							style="color: var(--site-accent);"
+							target="_blank"
+							rel="noopener noreferrer"
 						>
 							{item.title}
-							{external && <span class="sr-only"> (opens in a new tab)</span>}
+							<span class="sr-only"> (opens in a new tab)</span>
 						</a>
-						{category.slug === "skills" && <p>{item.description}</p>}
-					</li>
-				);
-			})
-		}
-	</ul>
+					</h2>
+					<p>{item.description}</p>
+					{item.poster && (
+						<figure>
+							<a
+								href={item.poster.image}
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label={`Open full-size ${item.title} poster image (opens in a new tab)`}
+							>
+								<img
+									src={item.poster.image}
+									alt={item.poster.alt}
+									width={item.poster.width}
+									height={item.poster.height}
+									loading="lazy"
+									decoding="async"
+								/>
+							</a>
+							<figcaption>
+								<a
+									href={item.poster.pdf}
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label={`View ${item.title} poster PDF (opens in a new tab)`}
+								>
+									View poster (PDF)<span class="sr-only"> (opens in a new tab)</span>
+								</a>
+							</figcaption>
+						</figure>
+					)}
+				</section>
+			))
+		) : (
+			<ul class="resource-list">
+				{category.items.map((item) => {
+					const external = item.href.startsWith("https://");
+					return (
+						<li>
+							<a
+								href={item.href}
+								target={external ? "_blank" : undefined}
+								rel={external ? "noopener noreferrer" : undefined}
+							>
+								{item.title}
+								{external && <span class="sr-only"> (opens in a new tab)</span>}
+							</a>
+							{category.slug === "skills" && <p>{item.description}</p>}
+						</li>
+					);
+				})}
+			</ul>
+		)
+	}
 </ReadingLayout>

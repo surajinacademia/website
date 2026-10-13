@@ -3,6 +3,13 @@ export interface ResourceItem {
 	href: string;
 	title: string;
 	description: string;
+	poster?: {
+		image: string;
+		pdf: string;
+		alt: string;
+		width: number;
+		height: number;
+	};
 }
 
 export interface ResourceCategory {
@@ -26,12 +33,26 @@ export const resourcesPage: { categories: ResourceCategory[] } = {
 					title: "Cellpose MCP",
 					description:
 						"Run Cellpose image segmentation, restoration, training, and visualization through an AI assistant.",
+					poster: {
+						image: "/posters/cellpose-mcp.png",
+						pdf: "/posters/cellpose-mcp.pdf",
+						alt: "Cellpose MCP poster covering cell segmentation, image restoration, custom training, and integration with napari.",
+						width: 4379,
+						height: 3285,
+					},
 				},
 				{
 					href: "https://github.com/surajinacademia/Fiji_imageJ_mcp",
 					title: "Fiji / ImageJ MCP",
 					description:
 						"Connect an AI assistant to Fiji for image processing, macros, scripts, and results tables.",
+					poster: {
+						image: "/posters/fiji-mcp.png",
+						pdf: "/posters/fiji-mcp.pdf",
+						alt: "Fiji MCP poster covering image processing, command discovery, macros and scripts, measurements, and visual verification in Fiji / ImageJ.",
+						width: 4608,
+						height: 3456,
+					},
 				},
 			],
 		},

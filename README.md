@@ -82,6 +82,10 @@ Light mode uses white with Tailwind rose-600 accents; dark mode uses black with 
 
 [src/data/pages/resources.ts](src/data/pages/resources.ts) lists skill collections. The Computational Modeling Skills subpage uses [src/data/pages/computational-modeling-skills.ts](src/data/pages/computational-modeling-skills.ts), with descriptions checked against the collection's [GitHub README and skill instructions](https://github.com/surajinacademia/Computational_modeling_skills). Its logo in `public/images/skills/computational-modeling-logo.svg` is the repository's original `assets/logo.svg`. Update the catalog and logo from that source when the collection changes.
 
+### MCP posters
+
+The MCPs page displays the Cellpose and Fiji posters listed in [src/data/pages/resources.ts](src/data/pages/resources.ts). Original PNG previews and PDFs are served from `public/posters/`; their sources are `poster/cellpose_mcp_poster.{png,pdf}` in `cellpose_mcp` and `poster/fiji_mcp_poster.{png,pdf}` in `Fiji_imageJ_mcp`. Keep these exports intact when updating them. Each preview links to the full-size image, with a PDF link below it.
+
 ### Photography
 
 Photos go in `public/portfolio/`. The prebuild step (`scripts/optimize-portfolio.js`) generates WebP thumbnails into `public/portfolio-thumbs/` using `sharp`. The gallery page reads the filesystem at build time and uses **Fancybox** (`@fancyapps/ui`) for the lightbox.
