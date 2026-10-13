@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="650" viewBox="0 0 640 650" role="img" aria-labelledby="title description">
+  <title id="title">COMPUTATIONAL — MODELING</title>
+  <desc id="description">An open charcoal C surrounds a teal curve ending in three dots. Original outlined lettering reads COMPUTATIONAL on the first line and MODELING on the second.</desc>
+  <!-- Editable native SVG geometry; lettering is hand-drawn paths, with no font dependency. -->
+  <rect width="640" height="650" rx="24" fill="#ffffff"/>
+  <g transform="translate(64 10)"><g id="model-mark" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path id="trajectory" d="M 108,321 C 149,336 169,274 211,219 C 239,182 265,181 290,214 C 315,247 322,266 350,268" stroke="#218c91" stroke-width="18"/>
+    <path id="open-c" d="M 387,151 A 170,170 0 1,0 387,329" stroke="#222d3b" stroke-width="22"/>
+    <circle cx="380" cy="269" r="14" fill="#218c91"/>
+    <circle cx="420" cy="269" r="11" fill="#469d9c"/>
+    <circle cx="458" cy="269" r="10" fill="#75b3a9"/>
+  </g></g>
+  <g id="word-computational" aria-label="COMPUTATIONAL" transform="translate(58.94 494) scale(1.14)" fill="none" stroke="#222d3b" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+      <path data-letter="C" transform="translate(0 0)" d="M24 3 C19 -1 8 -1 3 5 C-1 10 -1 22 3 28 C8 34 19 34 24 29"/>
+      <path data-letter="O" transform="translate(36 0)" d="M13 0 C4 0 0 6 0 16 C0 26 4 32 13 32 C22 32 26 26 26 16 C26 6 22 0 13 0 Z"/>
+      <path data-letter="M" transform="translate(72 0)" d="M0 32 V0 L13 20 L26 0 V32"/>
+      <path data-letter="P" transform="translate(108 0)" d="M0 32 V0 H13 C30 0 30 17 13 17 H0"/>
+      <path data-letter="U" transform="translate(144 0)" d="M0 0 V20 C0 36 26 36 26 20 V0"/>
+      <path data-letter="T" transform="translate(180 0)" d="M0 0 H26 M13 0 V32"/>
+      <path data-letter="A" transform="translate(216 0)" d="M0 32 L13 0 L26 32 M5 21 H21"/>
+      <path data-letter="T" transform="translate(252 0)" d="M0 0 H26 M13 0 V32"/>
+      <path data-letter="I" transform="translate(288 0)" d="M8 0 H18 M13 0 V32 M8 32 H18"/>
+      <path data-letter="O" transform="translate(324 0)" d="M13 0 C4 0 0 6 0 16 C0 26 4 32 13 32 C22 32 26 26 26 16 C26 6 22 0 13 0 Z"/>
+      <path data-letter="N" transform="translate(360 0)" d="M0 32 V0 L26 32 V0"/>
+      <path data-letter="A" transform="translate(396 0)" d="M0 32 L13 0 L26 32 M5 21 H21"/>
+      <path data-letter="L" transform="translate(432 0)" d="M0 0 V32 H25"/>
+  </g>
+  <g id="word-modeling" aria-label="MODELING" transform="translate(145.58 558) scale(1.14)" fill="none" stroke="#222d3b" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+      <path data-letter="M" transform="translate(0 0)" d="M0 32 V0 L13 20 L26 0 V32"/>
+      <path data-letter="O" transform="translate(40 0)" d="M13 0 C4 0 0 6 0 16 C0 26 4 32 13 32 C22 32 26 26 26 16 C26 6 22 0 13 0 Z"/>
+      <path data-letter="D" transform="translate(80 0)" d="M0 32 V0 H10 C32 0 32 32 10 32 Z"/>
+      <path data-letter="E" transform="translate(120 0)" d="M25 0 H0 V32 H25 M0 15 H20"/>
+      <path data-letter="L" transform="translate(160 0)" d="M0 0 V32 H25"/>
+      <path data-letter="I" transform="translate(200 0)" d="M8 0 H18 M13 0 V32 M8 32 H18"/>
+      <path data-letter="N" transform="translate(240 0)" d="M0 32 V0 L26 32 V0"/>
+      <path data-letter="G" transform="translate(280 0)" d="M25 4 C19 -1 8 -1 3 5 C-1 10 -1 22 3 28 C8 34 20 34 26 28 V18 H15"/>
+  </g>
+</svg>

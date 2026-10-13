@@ -57,6 +57,8 @@ Draft posts (`draft: true`) are excluded in production but visible in dev.
 | `/` | About (index.astro) |
 | `/cv/` | CV |
 | `/research/` | Research |
+| `/resources/skills/` | Skill collections |
+| `/resources/skills/computational-modeling-skills/` | Computational Modeling Skills catalog |
 | `/posts/` | Blog listing |
 | `/notes/` | Notes listing |
 | `/tags/` | Tag index |
@@ -75,6 +77,10 @@ Draft posts (`draft: true`) are excluded in production but visible in dev.
 [public/styles/site.css](public/styles/site.css) owns the shared typography and theme rules. [public/fonts/cmu.css](public/fonts/cmu.css) loads self-hosted CMU Serif for body text and CMU Sans Serif for headings and controls. The site uses two text sizes, 16px and 24px, without underlines. Research uses 24px `h2` headings, 16px bold `h3` subheadings, and 16px serif body text while retaining its content and layout.
 
 Light mode uses white with Tailwind rose-600 accents; dark mode uses black with rose-400 accents. [public/styles/theme.js](public/styles/theme.js) defaults to dark mode, remembers the choice under the local-storage key `theme`, and supports `?theme=light` and `?theme=dark`.
+
+### Skills
+
+[src/data/pages/resources.ts](src/data/pages/resources.ts) lists skill collections. The Computational Modeling Skills subpage uses [src/data/pages/computational-modeling-skills.ts](src/data/pages/computational-modeling-skills.ts), with descriptions checked against the collection's [GitHub README and skill instructions](https://github.com/surajinacademia/Computational_modeling_skills). Its logo in `public/images/skills/computational-modeling-logo.svg` is the repository's original `assets/logo.svg`. Update the catalog and logo from that source when the collection changes.
 
 ### Photography
 

@@ -1,0 +1,60 @@
+---
+import { computationalModelingSkills as collection } from "@/data/pages/computational-modeling-skills";
+import ReadingLayout from "@/layouts/Reading.astro";
+
+const meta = {
+	title: collection.title,
+	description: collection.description,
+};
+---
+
+<ReadingLayout meta={meta} parentLabel="Skills" parentHref="/resources/skills/">
+	<Fragment slot="header">
+		<img
+			class="skills-logo"
+			src="/images/skills/computational-modeling-logo.svg"
+			alt="Computational Modeling Skills logo: an open C around a teal curve."
+			width="640"
+			height="650"
+		/>
+		<h1 id="guide-title">{collection.title}</h1>
+	</Fragment>
+	{collection.introduction.map((paragraph) => <p>{paragraph}</p>)}
+	<p>
+		The full instructions, templates, and examples are available in the <a
+			href={collection.repository}
+			target="_blank"
+			rel="noopener noreferrer"
+			>GitHub repository<span class="sr-only"> (opens in a new tab)</span></a
+		>.
+	</p>
+	<h2>Included skills</h2>
+	{
+		collection.skills.map((skill) => (
+			<section>
+				<h3>
+					<a
+						href={skill.href}
+						style="color: var(--site-accent);"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						{skill.title}
+						<span class="sr-only"> (opens in a new tab)</span>
+					</a>
+				</h3>
+				<p>{skill.description}</p>
+			</section>
+		))
+	}
+</ReadingLayout>
+
+<style>
+	.skills-logo {
+		display: block;
+		width: 200px;
+		max-width: 100%;
+		height: auto;
+		margin: 0 auto 2rem;
+	}
+</style>
