@@ -74,7 +74,7 @@ Draft posts (`draft: true`) are excluded in production but visible in dev.
 
 ### Styles and theme
 
-[src/styles/global.css](src/styles/global.css) and [public/styles/site.css](public/styles/site.css) define the shared typography and theme rules based on the `JoaoFranco03/photography-portfolio` aesthetic: `Signika` for headings and navigation, clean sans-serif for body text, white background with black text in light mode, and black background with white text in dark mode. [public/styles/theme.js](public/styles/theme.js) defaults to dark mode, remembers the choice under the local-storage key `theme`, and supports `?theme=light` and `?theme=dark`.
+[src/styles/global.css](src/styles/global.css), [public/fonts/cmu.css](public/fonts/cmu.css), and [public/styles/site.css](public/styles/site.css) define the shared typography and theme rules based on the `JoaoFranco03/photography-portfolio` monochrome aesthetic with `CMU Sans Serif` and a compact scale (`15px` body text, `14px` navigation links, `24px` page titles, `18px` section headings, `16px` subheadings): white background with black text in light mode, and black background with white text in dark mode. [public/styles/theme.js](public/styles/theme.js) defaults to dark mode, remembers the choice under the local-storage key `theme`, and supports `?theme=light` and `?theme=dark`.
 
 ### Skills
 

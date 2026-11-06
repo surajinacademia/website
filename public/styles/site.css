@@ -1,9 +1,9 @@
-/* Shared theme tokens and clean reading styles (JoaoFranco03/photography-portfolio palette & typography). */
+/* Shared theme tokens and compact typographic scale (CMU Sans Serif: 15px body, 14px nav, 24px h1, 18px h2, 16px h3). */
 html#site-root {
 	--site-body:
-		ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-		"Helvetica Neue", Arial, sans-serif;
-	--site-heading: "Signika", ui-sans-serif, system-ui, sans-serif;
+		"CMU Sans Serif", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+		Roboto, "Helvetica Neue", Arial, sans-serif;
+	--site-heading: var(--site-body);
 	--site-accent: #000000;
 	--site-foreground: #000000;
 	--site-muted: #4b5563;
@@ -32,15 +32,40 @@ html#site-root[data-theme="dark"] {
 
 html#site-root body {
 	font-family: var(--site-body);
-	font-size: 16px;
+	font-size: 15px;
 	font-weight: 400;
 	line-height: 1.65;
+	letter-spacing: 0;
 	color: var(--site-foreground);
 	background: var(--site-background);
 }
 
 html#site-root body :where(h1, h2, h3, h4, h5, h6, .title, .category-label) {
 	font-family: var(--site-heading);
+	letter-spacing: -0.01em;
+}
+
+html#site-root body :where(h1, .title) {
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 1.3;
+}
+
+html#site-root body :where(h2, .research-group-heading) {
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 1.4;
+}
+
+html#site-root body :where(h3, h4) {
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 1.45;
+}
+
+html#site-root body :where(.prose) {
+	font-size: 15px;
+	line-height: 1.65;
 }
 
 html#site-root body #cactus__search {
@@ -54,15 +79,16 @@ html#site-root body #cactus__search {
 html#site-root body .reading-copy {
 	min-width: 0;
 	overflow-wrap: anywhere;
+	font-size: 15px;
 	line-height: 1.7;
 }
 
 html#site-root body .reading-copy :where(p, ul, ol) {
-	margin-block: 0 1.25rem;
+	margin-block: 0 1.15rem;
 }
 
 html#site-root body .reading-copy :where(ul, ol) {
-	padding-inline-start: 1.4rem;
+	padding-inline-start: 1.35rem;
 }
 
 html#site-root body .reading-copy ul {
@@ -74,21 +100,21 @@ html#site-root body .reading-copy ol {
 }
 
 html#site-root body .reading-copy li {
-	margin-block: 0.4rem;
+	margin-block: 0.35rem;
 }
 
 html#site-root body .reading-copy h2 {
-	margin-block: 2.5rem 0.85rem;
-	font-size: 1.5rem;
-	font-weight: 700;
-	line-height: 1.35;
+	margin-block: 2.25rem 0.75rem;
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 1.4;
 }
 
 html#site-root body .reading-copy :where(h3, h4, h5, h6) {
-	margin-block: 1.75rem 0.65rem;
-	font-size: 1.125rem;
+	margin-block: 1.5rem 0.5rem;
+	font-size: 16px;
 	font-weight: 600;
-	line-height: 1.4;
+	line-height: 1.45;
 }
 
 html#site-root body .reading-copy a {
@@ -111,7 +137,7 @@ html#site-root body .reading-copy :where(h1, h2, h3, h4) a:hover {
 }
 
 html#site-root body .reading-copy :where(figure, .expressive-code) {
-	margin-block: 1.75rem;
+	margin-block: 1.5rem;
 }
 
 html#site-root body .reading-copy :where(figure img) {
@@ -122,14 +148,14 @@ html#site-root body .reading-copy :where(figure img) {
 }
 
 html#site-root body .reading-copy figcaption {
-	margin-top: 0.6rem;
-	font-size: 0.875rem;
+	margin-top: 0.5rem;
+	font-size: 13px;
 	color: var(--site-muted);
 	text-align: center;
 }
 
 html#site-root body .reading-copy :where(blockquote) {
-	margin-block: 1.5rem;
+	margin-block: 1.25rem;
 	padding-inline-start: 1rem;
 	border-inline-start: 2px solid var(--site-border);
 	color: var(--site-muted);
@@ -147,16 +173,16 @@ html#site-root body .reading-copy :where(th, td) {
 }
 
 html#site-root body :where(.footnotes, [data-footnotes]) {
-	margin-top: 2.5rem;
-	padding-top: 1.25rem;
+	margin-top: 2.25rem;
+	padding-top: 1rem;
 	border-top: 1px solid var(--site-border);
-	font-size: 0.875rem;
+	font-size: 13px;
 	color: var(--site-muted);
 }
 
 html#site-root body .reading-copy :where([data-footnotes] > h2, .footnotes > h2) {
 	margin-top: 0;
-	font-size: 1.125rem;
+	font-size: 16px;
 	color: var(--site-foreground);
 }
 

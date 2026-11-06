@@ -20,13 +20,9 @@ const socialImageURL = new URL(ogImage ? ogImage : "/social-card.png", Astro.url
 <title>{siteTitle}</title>
 
 <ThemeProvider />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link
-	href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&family=Signika:wght@400;600;700&display=swap"
-	rel="stylesheet"
-/>
+<link rel="stylesheet" href="/fonts/cmu.css" />
 <link rel="stylesheet" href="/styles/site.css" />
+<link rel="preload" href="/fonts/cmu-sans-regular.woff2" as="font" type="font/woff2" crossorigin />
 
 {/* Icons */}
 <link href="/icon.svg" rel="icon" type="image/svg+xml" />

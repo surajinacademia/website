@@ -9,7 +9,7 @@ import { navLinks, siteConfig } from "@/site.config";
 		<div class="mr-4 md:mr-8">
 			<a
 				aria-current={Astro.url.pathname === "/" ? "page" : false}
-				class="font-signika text-2xl font-bold tracking-wide uppercase"
+				class="text-lg font-semibold tracking-wider uppercase"
 				href="/"
 			>
 				{siteConfig.title}
@@ -33,7 +33,7 @@ import { navLinks, siteConfig } from "@/site.config";
 										? "true"
 										: undefined
 							}
-							class="group/link font-signika py-1 text-xl tracking-wide uppercase transition duration-300 md:py-0 lg:text-2xl"
+							class="group/link py-1 text-sm font-medium tracking-wider uppercase transition duration-300 md:py-0"
 							href={link.path}
 						>
 							{link.title}

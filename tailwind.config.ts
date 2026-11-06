@@ -5,9 +5,9 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				cmusans: ["Signika", "ui-sans-serif", "system-ui", "sans-serif"],
-				signika: ["Signika", "ui-sans-serif", "system-ui", "sans-serif"],
-				nothingyoucoulddo: ["Nothing You Could Do", "cursive"],
+				sans: ["CMU Sans Serif", "ui-sans-serif", "system-ui", "sans-serif"],
+				cmusans: ["CMU Sans Serif", "ui-sans-serif", "system-ui", "sans-serif"],
+				signika: ["CMU Sans Serif", "ui-sans-serif", "system-ui", "sans-serif"],
 			},
 			typography: () => ({
 				DEFAULT: {
