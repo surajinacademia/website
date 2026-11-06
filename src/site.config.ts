@@ -69,7 +69,7 @@ export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
 		// return default selector
 		return `[data-theme="${theme.name}"]`;
 	},
-	// One dark, one light theme => https://expressive-code.com/guides/themes/#available-themes
-	themes: ["dracula", "github-light"],
+	// One light, one dark theme => https://expressive-code.com/guides/themes/#available-themes
+	themes: ["github-light", "dracula"],
 	useThemedScrollbars: false,
 };
