@@ -81,7 +81,7 @@ export const researchPage: {
 								},
 							],
 							abstract:
-								"Fibroblasts embedded in free-floating collagen gels can drive a sharp, cell-density-dependent compaction transition, yet how local cellular forces coordinate across scales to remodel the extracellular matrix (ECM) remains unclear. We develop a coarse-grained computational model of cells interacting within a deformable matrix to study how cellular traction and intercellular coordination govern collective matrix deformation across cell densities and timescales. These systems elucidate the collective mechanical effects of multicellular actions on matrix remodeling during wound healing and fibrosis.",
+								"Fibroblasts embedded in free-floating collagen gels can drive a sharp, cell-density-dependent compaction transition. How cellular forces can collectively remodel the extracellular matrix (ECM) remains unclear. We develop a coarse-grained contractile multicellular model coupled to a nonlinear matrix network to study how cellular traction can lead to long-range cell–cell mechanical interactions, and how such cell–cell interactions can lead to strong matrix deformation. These systems elucidate the collective mechanical effects of multicellular actions on matrix remodeling that drive tissue remodeling during wound healing and fibrosis.",
 							experimentalVideoCredit: {
 								label: "Doha et al. (2022)",
 								url: "https://doi.org/10.1016/j.actbio.2022.10.012",
@@ -99,7 +99,7 @@ export const researchPage: {
 								},
 							],
 							abstract:
-								"During early vascular development, endothelial cells self-organize into primitive multicellular networks that later remodel into functional vasculature, but how local cell interactions coordinate initial assembly with subsequent structural refinement remains an open question. We use a particle-based computational model paired with topological network analysis to study how chemical guidance and mechanical forces govern both network formation and remodeling. Tracking network connectivity and geometry over time reveals how collective architecture evolves across developmental stages.",
+								"During early vascular development, endothelial cells self-organize into primitive multicellular networks that later remodel into functional vasculature, but how local cell interactions coordinate initial assembly with subsequent structural remodeling is not clear. We use a particle-based computational model paired with network analysis to study how chemical guidance and mechanical forces govern both network formation and remodeling.",
 							experimentalVideoCredit: {
 								label: "IPRASENSE (2015)",
 								url: "https://www.youtube.com/watch?v=tYDF1i1lRJU",
@@ -122,7 +122,7 @@ export const researchPage: {
 								},
 							],
 							abstract:
-								"When two cells touch, cadherin proteins bind across the interface while the underlying actomyosin cortex reorganizes to expand and stabilize the contact. We use an active-gel model of the cell–cell interface to study how cortical tension, actin flow, and protein turnover drive contact growth and organize adhesion clusters along the contact rim. The model lets us follow how a nascent contact matures into a patterned junction, offering a physical picture of how cells build stable contacts during tissue development.",
+								"When two cells touch, cadherin proteins bind across the interface while the underlying actomyosin cortex reorganizes to expand and stabilize the contact. We use an active-gel model of the cell–cell interface to study how cortical tension, actin flow, and turnover drive contact growth and organize adhesion clusters along the contact rim. We also see how actomyosin patterning in this cortical rim can evolve via distinct mechanisms during contact growth.",
 							experimentalVideoCredit: {
 								label: "Engl et al. (2014)",
 								url: "https://doi.org/10.1038/ncb2973",
@@ -140,7 +140,7 @@ export const researchPage: {
 								},
 							],
 							abstract:
-								"How much pulling force can a cell–cell junction withstand before it breaks, and what lets it stay strong while still remaining able to remodel? To address this, we model a two-cell contact under mechanical load, coupling cortical tension and contact geometry with cadherin bond dynamics. By testing when a loaded contact holds together and when it detaches, this work connects single-doublet pulling experiments to how tissues resist tearing under mechanical stress.",
+								"How much pulling force can a cell–cell junction withstand before it breaks, and what lets it stay strong while still remaining able to remodel? To address this, we model a two-cell contact under mechanical load. By testing when a loaded contact holds together and when it detaches, this work connects single-doublet pulling experiments to how tissues resist tearing under mechanical stress.",
 						},
 					],
 				},
@@ -201,7 +201,7 @@ export const researchPage: {
 								},
 							],
 							abstract:
-								"We simulate self-propelled Brownian particles with screened particle interactions, where particles influence one another through three-body effects rather than isolated pair collisions. Exploring homogeneous populations and binary mixtures across motility and density regimes, we see orientational persistence, clustering, network formation, and transport. These kinds of systems can inspire tunable synthetic active matter.",
+								"We simulate self-propelled Brownian particles with screened particle interactions, where particles influence one another through three-body interactions. Exploring homogeneous populations and binary mixtures across motility and density regimes, we see orientational persistence, clustering, network formation, and transport in tunable synthetic active matter.",
 						},
 						{
 							title: "Collective dynamics of LLM agents",
