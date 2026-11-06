@@ -9,9 +9,9 @@ This file provides durable repository guidance to OpenAI Codex.
 - Prefer the simplest layout that communicates the content clearly. Use typography, spacing, and alignment to establish hierarchy; remove elements that do not help visitors read, navigate, or understand.
 - Preserve the existing visual language and reuse shared components and design tokens. Keep colors, typefaces, font sizes, and decorative treatments limited and consistent.
 - Follow the `JoaoFranco03/photography-portfolio` layout with `CMU Sans Serif` typography (`public/fonts/cmu.css`), a clear typographic hierarchy (`24–30px` page titles and Research section headings, `20–24px` `h2`, `18px` `h3`, `16px` body text, `14px` navigation and metadata), and a strict 3-color font palette in `src/styles/global.css` and `public/styles/site.css`:
-  1. **Headings (`--color-accent-2`)**: Crisp White (`#f8fafc`) in dark mode / Deep Ink (`#111827`) in light mode.
-  2. **Body & metadata (`--color-global-text`)**: Soft Zinc (`#d4d4d8`) in dark mode / Slate Gray (`#374151`) in light mode.
-  3. **Links & accents (`--color-link` / `--color-accent`)**: Steel Blue (`#93c5fd`) in dark mode / Royal Blue (`#1d4ed8`) in light mode.
+  1. **Headings (`--color-accent-2`)**: Pure White (`#ffffff`) in dark mode / Pure Black (`#000000`) in light mode.
+  2. **Body & metadata (`--color-global-text`)**: Soft Zinc (`#d4d4d8`) in dark mode / Dark Zinc (`#3f3f46`) in light mode.
+  3. **Links & accents (`--color-link` / `--color-accent`)**: Terracotta (`#ea580c`) in both dark and light mode.
 - Use `src/layouts/Reading.astro` for blog posts, guides, and resource listings: one reading column and breadcrumb navigation. Keep citations as native footnotes with return links; the literature guide's image credits belong in its endnotes.
 - Avoid generic AI-generated styling: decorative gradients, glass effects, gratuitous shadows, oversized marketing heroes, repetitive card grids, unnecessary badges or icons, and animations added only for visual flair.
 - Use cards, borders, backgrounds, and motion only when they serve a clear content or interaction purpose. Prefer straightforward text, lists, and links where sufficient.

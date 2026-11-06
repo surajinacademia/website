@@ -1,7 +1,7 @@
 /* Minimal 3-color typographic palette with CMU Sans Serif and multi-level size hierarchy:
-   1. Headings (--color-accent-2): Crisp White (#f8fafc) in dark / Deep Ink (#111827) in light
-   2. Body text (--color-global-text): Soft Zinc (#d4d4d8) in dark / Slate Gray (#374151) in light
-   3. Links & accents (--color-link / --color-accent): Steel Blue (#93c5fd) in dark / Royal Blue (#1d4ed8) in light */
+   1. Headings (--color-accent-2): Pure White (#ffffff) in dark / Pure Black (#000000) in light
+   2. Body text (--color-global-text): Soft Zinc (#d4d4d8) in dark / Dark Zinc (#3f3f46) in light
+   3. Links & accents (--color-link / --color-accent): Terracotta (#ea580c) in both dark and light */
 
 @import "tailwindcss";
 /* config for tailwindcss-typography plugin */
@@ -12,11 +12,11 @@
 
 @theme {
 	--color-global-bg: #ffffff;
-	--color-global-text: #374151;
-	--color-link: #1d4ed8;
-	--color-accent: #1d4ed8;
-	--color-accent-2: #111827;
-	--color-quote: #374151;
+	--color-global-text: #3f3f46;
+	--color-link: #ea580c;
+	--color-accent: #ea580c;
+	--color-accent-2: #000000;
+	--color-quote: #3f3f46;
 }
 
 @layer base {
@@ -36,9 +36,9 @@
 			color-scheme: dark;
 			--color-global-bg: #000000;
 			--color-global-text: #d4d4d8;
-			--color-link: #93c5fd;
-			--color-accent: #93c5fd;
-			--color-accent-2: #f8fafc;
+			--color-link: #ea580c;
+			--color-accent: #ea580c;
+			--color-accent-2: #ffffff;
 			--color-quote: #d4d4d8;
 		}
 	}
