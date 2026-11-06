@@ -9,9 +9,9 @@ const meta = {
 ---
 
 <PageLayout meta={meta} searchable>
-	<section aria-labelledby="outreach-title" class="mx-auto w-full max-w-3xl">
+	<section aria-labelledby="outreach-title" class="mx-auto w-full max-w-[1100px]">
 		<h1 class="title" id="outreach-title">{bagOfCoolThingsPage.title}</h1>
-		<div class="space-y-10">
+		<div class="max-w-3xl space-y-10">
 			{
 				bagOfCoolThingsPage.categories.map((category) => (
 					<section aria-labelledby={category.slug}>

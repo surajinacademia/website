@@ -19,10 +19,10 @@ const documents = [
 ---
 
 <PageLayout meta={meta} searchable>
-	<section aria-labelledby="cv-title" class="mx-auto max-w-2xl">
+	<section aria-labelledby="cv-title" class="mx-auto max-w-[1100px]">
 		<h1 class="title mb-5" id="cv-title">Curriculum Vitae</h1>
 
-		<div class="grid gap-3 sm:grid-cols-2">
+		<div class="grid max-w-2xl gap-3 sm:grid-cols-2">
 			{
 				documents.map((document) => (
 					<a

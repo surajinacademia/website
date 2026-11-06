@@ -4,12 +4,14 @@ import ThemeToggle from "@/components/ThemeToggle.astro";
 import { navLinks, siteConfig } from "@/site.config";
 ---
 
-<header class="group relative mb-8 flex w-full pt-2 pb-1" id="main-header">
-	<div class="container mx-auto flex flex-wrap items-center justify-between gap-4">
-		<div class="mr-4 md:mr-8">
+<header class="group relative mb-10 flex w-full pt-2" id="main-header">
+	<div
+		class="mx-auto flex w-full max-w-[1100px] items-center justify-between gap-6 border-b border-gray-200 pb-4 dark:border-neutral-800"
+	>
+		<div class="shrink-0">
 			<a
 				aria-current={Astro.url.pathname === "/" ? "page" : false}
-				class="text-accent-2 text-lg font-semibold tracking-wider uppercase sm:text-xl"
+				class="text-accent-2 text-lg font-semibold tracking-wider whitespace-nowrap uppercase sm:text-xl"
 				href="/"
 			>
 				{siteConfig.title}
@@ -17,7 +19,7 @@ import { navLinks, siteConfig } from "@/site.config";
 		</div>
 		<nav
 			aria-label="Main menu"
-			class="bg-global-bg absolute top-full right-0 left-0 z-50 hidden flex-col gap-3 border-y border-gray-200 px-4 py-4 group-[.menu-open]:flex md:static md:ml-auto md:flex md:flex-row md:items-center md:gap-6 md:border-0 md:bg-transparent md:p-0 dark:border-neutral-800"
+			class="bg-global-bg absolute top-full right-0 left-0 z-50 hidden flex-col gap-3 border-y border-gray-200 px-4 py-4 group-[.menu-open]:flex lg:static lg:ml-auto lg:flex lg:flex-row lg:items-center lg:gap-6 lg:border-0 lg:bg-transparent lg:p-0 dark:border-neutral-800"
 			id="navigation-menu"
 		>
 			{
@@ -34,7 +36,7 @@ import { navLinks, siteConfig } from "@/site.config";
 										: undefined
 							}
 							class:list={[
-								"group/link py-1 text-sm font-medium tracking-wider uppercase transition duration-300 md:py-0",
+								"group/link py-1 text-sm font-medium tracking-wider whitespace-nowrap uppercase transition duration-300 lg:py-0",
 								isActive ? "text-accent-2" : "text-global-text hover:text-link",
 							]}
 							href={link.path}
@@ -42,7 +44,7 @@ import { navLinks, siteConfig } from "@/site.config";
 							{link.title}
 							<span
 								class:list={[
-									"bg-link hidden h-0.5 transition-all duration-500 md:block",
+									"bg-link hidden h-0.5 transition-all duration-500 lg:block",
 									isActive ? "max-w-full" : "max-w-0 group-hover/link:max-w-full",
 								]}
 							/>
@@ -54,7 +56,7 @@ import { navLinks, siteConfig } from "@/site.config";
 		<div class="flex shrink-0 items-center gap-2">
 			<Search />
 			<ThemeToggle />
-			<mobile-button class="md:hidden">
+			<mobile-button class="lg:hidden">
 				<button
 					aria-expanded="false"
 					aria-controls="navigation-menu"
@@ -108,7 +110,7 @@ import { navLinks, siteConfig } from "@/site.config";
 			const headerEl = document.getElementById("main-header")!;
 			const mobileButtonEl = this.querySelector<HTMLButtonElement>("button");
 			const menuLabelEl = this.querySelector<HTMLElement>("[data-menu-label]");
-			const desktopQuery = window.matchMedia("(min-width: 768px)");
+			const desktopQuery = window.matchMedia("(min-width: 1024px)");
 			const { signal } = this.#controller;
 
 			const setMenuOpen = (open: boolean) => {
