@@ -81,7 +81,7 @@ export const researchPage: {
 								},
 							],
 							abstract:
-								"Fibroblasts in a free-floating collagen gel pull on surrounding fibers, and above a critical cell density the entire gel suddenly compacts. Why a gradual increase in cell number triggers such an abrupt tissue-scale change is hard to see from experiments alone. We build a computational model of contractile cells in a fiber network to track how cell-generated forces and cell–cell interactions reorganize the extracellular matrix over time. Connecting these cell-scale forces to bulk compaction helps explain how tissues remodel during wound healing and fibrosis.",
+								"Fibroblasts embedded in free-floating collagen gels can drive a sharp, cell-density-dependent compaction transition, yet how local cellular forces coordinate across scales to remodel the extracellular matrix (ECM) remains unclear. We develop a coarse-grained computational model of cells interacting within a deformable matrix to study how cellular traction and intercellular coordination govern collective matrix deformation across cell densities and timescales. These systems elucidate the collective mechanical effects of multicellular actions on matrix remodeling during wound healing and fibrosis.",
 							experimentalVideoCredit: {
 								label: "Doha et al. (2022)",
 								url: "https://doi.org/10.1016/j.actbio.2022.10.012",
@@ -99,7 +99,7 @@ export const researchPage: {
 								},
 							],
 							abstract:
-								"Blood vessel development happens in two stages: endothelial cells first assemble into a rough primitive network and then remodel that network into a working vascular tree. How do local interactions between cells guide both initial assembly and later pruning without a central blueprint? Using agent-based and particle-based simulations alongside network topology analysis, we study how cell migration, chemical cues, and mechanical forces reshape vascular networks over time and affect their transport function.",
+								"During early vascular development, endothelial cells self-organize into primitive multicellular networks that later remodel into functional vasculature, but how local cell interactions coordinate initial assembly with subsequent structural refinement remains an open question. We use a particle-based computational model paired with topological network analysis to study how chemical guidance and mechanical forces govern both network formation and remodeling. Tracking network connectivity and geometry over time reveals how collective architecture evolves across developmental stages.",
 							experimentalVideoCredit: {
 								label: "IPRASENSE (2015)",
 								url: "https://www.youtube.com/watch?v=tYDF1i1lRJU",
@@ -151,7 +151,7 @@ export const researchPage: {
 							title: "Protein interactions in a crowded environment",
 							wide: true,
 							summary:
-								"Cells are tightly packed with proteins and other macromolecules, yet most experiments measure protein reactions in dilute buffer. Understanding how surrounding molecules influence whether two proteins bind is central to connecting test-tube measurements with conditions inside living cells. We use reaction–diffusion simulations to explore how the size, shape, and interactions of crowding agents affect protein association, both for single crowder species and for mixtures that reflect the diversity of the cell interior.",
+								"Cells are tightly packed with proteins and other macromolecules, yet most experiments measure protein reactions in dilute buffer. How does a crowded environment change whether two proteins bind? We use reaction–diffusion simulations to study how the size, shape, and interactions of surrounding crowder molecules affect protein association, both for single crowder types and for mixtures that better reflect the cell interior. This helps connect test-tube measurements in dilute solution to how protein reactions behave inside living cells.",
 							media: [
 								{
 									kind: "image",
@@ -201,7 +201,7 @@ export const researchPage: {
 								},
 							],
 							abstract:
-								"We simulate self-propelled Brownian particles in two dimensions to ask how multi-particle interactions change collective motion compared with standard pairwise models. In dense biological and synthetic active matter, nearby particles often influence one another through three-body effects rather than isolated pair collisions. Exploring homogeneous populations and binary mixtures across motility and density regimes shows how orientational persistence and three-body coupling control clustering, filament formation, and transport in active systems.",
+								"We simulate self-propelled Brownian particles with screened particle interactions, where particles influence one another through three-body effects rather than isolated pair collisions. Exploring homogeneous populations and binary mixtures across motility and density regimes, we see orientational persistence, clustering, network formation, and transport. These kinds of systems can inspire tunable synthetic active matter.",
 						},
 						{
 							title: "Collective dynamics of LLM agents",
@@ -215,7 +215,7 @@ export const researchPage: {
 								},
 							],
 							abstract:
-								"Groups of cells and animals navigate noisy environments using only local sensing and short-range signals with neighbors. Inspired by biological chemotaxis, we use multi-agent simulations to test whether similar local rules can help swarms of large language model (LLM) agents solve search problems with many local optima, as in particle swarm optimization. Varying how agents share and interpret uncertain local measurements shows when neighbor communication helps the group find better solutions and when it spreads errors across the swarm.",
+								"Biological collectives coordinate behavior through local sensing and communication despite limited individual information, raising the question of how similar local rules shape collective problem-solving in artificial agent swarms. Drawing inspiration from biophysical models of collective dynamics, we use multi-agent simulations to study how swarms of large language model (LLM) agents explore rugged landscapes in particle swarm optimization.",
 							abstractLink: {
 								label: "particle swarm optimization",
 								url: "https://en.wikipedia.org/wiki/Particle_swarm_optimization",
