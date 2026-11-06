@@ -87,7 +87,7 @@ const meta = {
 								{item.title}
 								{external && <span class="sr-only"> (opens in a new tab)</span>}
 							</a>
-							{category.slug === "skills" && <p>{item.description}</p>}
+							{item.description && <p>{item.description}</p>}
 						</li>
 					);
 				})}

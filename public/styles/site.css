@@ -138,9 +138,35 @@ html#site-root body .reading-copy :where(h1, h2, h3, h4) a:hover {
 	text-decoration: underline;
 }
 
+html#site-root body .reading-copy .resource-list {
+	list-style: none;
+	padding-inline-start: 0;
+}
+
+html#site-root body .reading-copy .resource-list > li {
+	margin-block: 0;
+}
+
+html#site-root body .reading-copy .resource-list > li + li {
+	margin-top: 1.5rem;
+}
+
 html#site-root body .reading-copy .resource-list > li > a {
 	font-size: 1.125rem;
-	font-weight: 500;
+	font-weight: 600;
+}
+
+html#site-root body .reading-copy .resource-list > li > p {
+	margin-block: 0.35rem 0;
+}
+
+html#site-root body :where(sup) {
+	font-size: 0.75em;
+	line-height: 0;
+	position: relative;
+	top: -0.4em;
+	vertical-align: baseline;
+	margin-inline-start: 0.15em;
 }
 
 html#site-root body .reading-copy :where(figure, .expressive-code) {

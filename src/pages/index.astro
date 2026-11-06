@@ -1,11 +1,6 @@
 ---
 import SocialList from "@/components/SocialList.astro";
 import PageLayout from "@/layouts/Base.astro";
-import { menuLinks } from "@/site.config";
-
-const bioLinks = menuLinks.filter(({ path }) =>
-	["/cv/", "/research/", "/resources/", "/bag-of-cool-things/", "/photography/"].includes(path),
-);
 ---
 
 <PageLayout
@@ -17,100 +12,87 @@ const bioLinks = menuLinks.filter(({ path }) =>
 	}}
 >
 	<div class="mx-auto max-w-[1100px]">
-		<div class="mb-8">
-			<h1 class="title">About</h1>
-		</div>
-		<section aria-label="Introduction" class="mb-14">
-			<div>
-				<div class="grid grid-cols-1 items-center gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] md:gap-12 lg:gap-16">
-					<div class="mx-auto w-full max-w-[420px]">
-						<figure
-							class="relative mx-auto -rotate-6 border border-gray-200 bg-white p-4 pb-12 shadow-lg transition-transform duration-500 hover:rotate-0 motion-reduce:transition-none sm:p-5 sm:pb-14 dark:border-neutral-800 dark:bg-neutral-900"
-						>
-							<img
-								src="/icons/profile.jpg"
-								alt="Suraj Sahu"
-								width="1872"
-								height="1656"
-								class="block aspect-[4/5] w-full object-cover object-[center_78%]"
-								fetchpriority="high"
-							/>
-						</figure>
-					</div>
-					<div class="min-w-0">
-						<p class="text-global-text mb-5 leading-relaxed">
-							I'm a PhD candidate at the <a
-								class="cactus-link"
-								href="http://gopinathanlab.ucmerced.edu"
-								target="_blank"
-								rel="noopener">Gopinathan Lab</a
-							> at the <a
-								class="cactus-link"
-								href="https://www.ucmerced.edu"
-								target="_blank"
-								rel="noopener">University of California, Merced</a
-							>. Broadly speaking, my research interests lie at the interface of biology and
-							physics. For my PhD thesis, I worked on various problems in mechanobiology at cellular
-							and tissue scales. I studied the self-organization and remodeling of multicellular
-							networks, the physics of cell–cell adhesion and cell–matrix interactions, and pattern
-							formation.I use theoretical models and computational methods like agent-based modeling, particle based simulations and some occasional image analysis. You can find them in <a
-								class="cactus-link"
-								href="/research/">Research</a
-							>.
-						</p>
-						<p class="text-global-text mb-5 leading-relaxed">
-							I also develop agentic tools, reproducible scientific workflows that you can check out <a
-								class="cactus-link"
-								href="/resources/">Resources</a
-							>.
-						</p>
-						<p class="text-global-text mb-5 leading-relaxed">
-							As someone who got into science because of Carl Sagan, I am personally invested in
-							science outreach, teaching, and mentoring.
-						</p>
-					</div>
+		<h1 class="title mb-6">About</h1>
+
+		<section aria-label="Introduction" class="mb-16">
+			<div class="grid grid-cols-1 items-center gap-10 md:grid-cols-[minmax(0,380px)_minmax(0,1fr)] md:gap-14 lg:gap-20">
+				<div class="mx-auto w-full max-w-[360px] py-4 sm:max-w-[380px]">
+					<figure
+						class="relative mx-auto -rotate-6 border border-gray-200 bg-white p-4 pb-12 shadow-lg transition-transform duration-500 hover:rotate-0 motion-reduce:transition-none sm:p-5 sm:pb-14 dark:border-neutral-800 dark:bg-neutral-900"
+					>
+						<img
+							src="/icons/profile.jpg"
+							alt="Suraj Sahu"
+							width="1872"
+							height="1656"
+							class="block aspect-[4/5] w-full object-cover object-[center_78%]"
+							fetchpriority="high"
+						/>
+					</figure>
 				</div>
-				<nav
-					aria-label="Explore this site"
-					class="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2"
-				>
-					{
-						bioLinks.map(({ path, title }) => (
-							<a class="cactus-link py-1 font-semibold" href={path}>
-								{title}
-							</a>
-						))
-					}
-				</nav>
-				<nav aria-label="Social profiles" class="mt-6 flex justify-center">
-					<SocialList />
-				</nav>
+
+				<div class="min-w-0 space-y-5 text-base leading-7">
+					<p class="text-global-text">
+						I'm a PhD candidate at the <a
+							class="cactus-link"
+							href="http://gopinathanlab.ucmerced.edu"
+							target="_blank"
+							rel="noopener">Gopinathan Lab</a
+						> at the <a
+							class="cactus-link"
+							href="https://www.ucmerced.edu"
+							target="_blank"
+							rel="noopener">University of California, Merced</a
+						>. Broadly speaking, my research interests lie at the interface of biology and physics.
+						For my PhD thesis, I worked on various problems in mechanobiology at cellular and tissue
+						scales. I studied the self-organization and remodeling of multicellular networks, the
+						physics of cell–cell adhesion and cell–matrix interactions, and pattern formation. I use
+						theoretical models and computational methods like agent-based modeling, particle-based
+						simulations, and some occasional image analysis. You can find them in <a
+							class="cactus-link"
+							href="/research/">Research</a
+						>.
+					</p>
+					<p class="text-global-text">
+						I also develop agentic tools and reproducible scientific workflows that you can check
+						out in <a class="cactus-link" href="/resources/">Resources</a>.
+					</p>
+					<p class="text-global-text">
+						As someone who got into science because of Carl Sagan, I am personally invested in
+						science outreach, teaching, and mentoring.
+					</p>
+					<nav aria-label="Social profiles" class="flex justify-center pt-2 md:justify-start">
+						<SocialList />
+					</nav>
+				</div>
 			</div>
 		</section>
 
 		<section
 			aria-labelledby="affiliations"
-			class="mx-auto max-w-4xl border-t border-gray-200 pt-8 dark:border-white/10"
+			class="border-t border-gray-200 pt-10 dark:border-neutral-800"
 		>
 			<h2 id="affiliations" class="text-accent-2 mb-6 text-xl font-semibold">Affiliations</h2>
-			<div class="grid gap-6 md:grid-cols-3">
-				<div class="group flex items-start gap-3">
+			<div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+				<div class="flex items-start gap-4">
 					<a
 						href="https://www.ucmerced.edu"
 						target="_blank"
 						rel="noopener"
-						class="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-white"
+						class="flex h-12 w-12 shrink-0 items-center justify-center rounded-md border border-gray-200 bg-white p-1.5 dark:border-neutral-800"
 					>
-						<img src="/icons/ucmerced.webp" alt="UC Merced" class="h-10 w-10 object-contain" />
+						<img src="/icons/ucmerced.webp" alt="UC Merced" class="h-full w-full object-contain" />
 					</a>
-					<div class="min-w-0">
-						<a
-							class="cactus-link font-semibold"
-							href="https://www.ucmerced.edu"
-							target="_blank"
-							rel="noopener">University of California Merced</a
-						>
-						<p class="text-global-text mt-1 text-sm">
+					<div class="min-w-0 space-y-1 leading-snug">
+						<p class="font-semibold">
+							<a
+								class="text-accent-2 hover:text-link transition-colors hover:underline"
+								href="https://www.ucmerced.edu"
+								target="_blank"
+								rel="noopener">University of California, Merced</a
+							>
+						</p>
+						<p class="text-global-text text-sm leading-normal">
 							Graduate Researcher, <a
 								class="cactus-link"
 								href="http://gopinathanlab.ucmerced.edu"
@@ -118,7 +100,7 @@ const bioLinks = menuLinks.filter(({ path }) =>
 								rel="noopener">Gopinathan Group</a
 							>
 						</p>
-						<p class="text-global-text mt-0.5 text-sm">
+						<p class="text-global-text text-sm leading-normal">
 							<a
 								class="cactus-link"
 								href="https://physics.ucmerced.edu"
@@ -128,37 +110,50 @@ const bioLinks = menuLinks.filter(({ path }) =>
 						</p>
 					</div>
 				</div>
-				<a
-					href="https://cemb.upenn.edu"
-					target="_blank"
-					rel="noopener"
-					class="group flex items-start gap-3"
-				>
-					<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-white">
-						<img src="/icons/cemb.png" alt="CEMB" class="h-10 w-10 object-contain" />
-					</div>
-					<div class="min-w-0">
-						<p class="cactus-link font-semibold">
-							Center for Engineering MechanoBiology
+
+				<div class="flex items-start gap-4">
+					<a
+						href="https://cemb.upenn.edu"
+						target="_blank"
+						rel="noopener"
+						class="flex h-12 w-12 shrink-0 items-center justify-center rounded-md border border-gray-200 bg-white p-1.5 dark:border-neutral-800"
+					>
+						<img src="/icons/cemb.png" alt="CEMB" class="h-full w-full object-contain" />
+					</a>
+					<div class="min-w-0 space-y-1 leading-snug">
+						<p class="font-semibold">
+							<a
+								class="text-accent-2 hover:text-link transition-colors hover:underline"
+								href="https://cemb.upenn.edu"
+								target="_blank"
+								rel="noopener">Center for Engineering MechanoBiology</a
+							>
 						</p>
-						<p class="text-global-text mt-1 text-sm">UPenn</p>
+						<p class="text-global-text text-sm leading-normal">UPenn</p>
 					</div>
-				</a>
-				<a
-					href="https://ccbm.ucmerced.edu"
-					target="_blank"
-					rel="noopener"
-					class="group flex items-start gap-3"
-				>
-					<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-white">
-						<img src="/icons/ccbm.png" alt="CCBM" class="h-10 w-10 object-contain" />
-					</div>
-					<div class="min-w-0">
-						<p class="cactus-link font-semibold">
-							Center for Cellular and Biomolecular Machines
+				</div>
+
+				<div class="flex items-start gap-4">
+					<a
+						href="https://ccbm.ucmerced.edu"
+						target="_blank"
+						rel="noopener"
+						class="flex h-12 w-12 shrink-0 items-center justify-center rounded-md border border-gray-200 bg-white p-1.5 dark:border-neutral-800"
+					>
+						<img src="/icons/ccbm.png" alt="CCBM" class="h-full w-full object-contain" />
+					</a>
+					<div class="min-w-0 space-y-1 leading-snug">
+						<p class="font-semibold">
+							<a
+								class="text-accent-2 hover:text-link transition-colors hover:underline"
+								href="https://ccbm.ucmerced.edu"
+								target="_blank"
+								rel="noopener">Center for Cellular and Biomolecular Machines</a
+							>
 						</p>
+						<p class="text-global-text text-sm leading-normal">UC Merced</p>
 					</div>
-				</a>
+				</div>
 			</div>
 		</section>
 	</div>
