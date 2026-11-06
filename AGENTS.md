@@ -25,7 +25,6 @@ This file provides durable repository guidance to OpenAI Codex.
 
 - End a completed task response with a clickable localhost preview link only when the task edits the website. Omit it for questions, read-only audits, and instruction- or skill-only changes. Use the running server's actual port and the relevant page path when applicable; the default is `http://localhost:4321/`. Verify availability before describing the preview as running, and state clearly if the server is not running.
 - Keep repository instructions in this `AGENTS.md` file.
-- Keep reusable repository workflows in `.agents/skills/`; the `cv-sync` skill owns synchronization of the full CV and condensed résumé PDFs.
 - Do not recreate `CLAUDE.md` or `.claude/`. Claude-specific permissions, plugin toggles, and hooks are not part of this repository's Codex configuration.
 - Keep machine-specific permissions, plugins, MCP servers, and credentials out of the repository.
 

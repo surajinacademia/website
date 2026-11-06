@@ -31,25 +31,10 @@ This ledger records the source, reuse terms, and local processing for the photog
 - **Local dimensions:** 700 × 563 JPEG, 53,479 bytes.
 - **Transformation:** None; the Commons original is stored unchanged.
 
-## Fingerprint examination
-
-- **Local asset:** `/images/how-to/literature-survey/fingerprint-examiner.webp`
-- **Suggested placement:** “Forensics: Analyze those fingerprints.”
-- **Alt text:** A forensic examiner uses a magnifier and green laser light to inspect a fingerprint on a clear plastic bottle.
-- **Photographer:** Ed Drohan, Combined Joint Task Force Paladin Public Affairs
-- **Date:** 14 November 2013
-- **Source record:** DVIDS image 1069103; VIRIN 131114-D-ZQ898-531.
-- **Source page:** [CSI Afghanistan 131114-D-ZQ898-531](https://commons.wikimedia.org/wiki/File:CSI_Afghanistan_131114-D-ZQ898-531.jpg)
-- **Original file:** [Wikimedia Commons JPEG](https://upload.wikimedia.org/wikipedia/commons/9/9e/CSI_Afghanistan_131114-D-ZQ898-531.jpg)
-- **Reuse status:** [Public domain in the United States (PD-USGov-Military)](https://commons.wikimedia.org/wiki/Template:PD-USGov-Military), as recorded on the file page.
-- **Photography evidence:** The source carries a DVIDS identifier and camera metadata for a Nikon D7000, including a 2013 capture time and “directly photographed image” scene type.
-- **Local dimensions:** 1,600 × 1,045 WebP, 90,884 bytes.
-- **Transformation:** Auto-oriented, proportionally resized from 4,401 × 2,874, and encoded as WebP at quality 82. No crop, compositing, generative fill, or color edit.
-
 ## Forensic laboratory interior
 
 - **Local asset:** `/images/how-to/literature-survey/forensics-lab-bgsu.webp`
-- **Suggested placement:** Primary image for “Forensics: Analyze those fingerprints.” Keep the fingerprint-examiner image above available for a later detail or optional reveal.
+- **Suggested placement:** Primary image for “Forensics: Analyze those fingerprints.”
 - **Alt text:** Microscopes, computers, analytical instruments, and workbenches fill a forensic science laboratory at Bowling Green State University.
 - **Photographer:** Mbrickn
 - **Date:** 14 October 2020, 09:56:02

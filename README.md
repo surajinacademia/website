@@ -92,8 +92,6 @@ Photos go in `public/portfolio/`. The prebuild step (`scripts/optimize-portfolio
 
 Add a description of each photo to `src/data/pages/photography.ts`; these descriptions supply accessible image text and lightbox captions. Do not use camera filenames as descriptions.
 
-Bundled theme demonstration posts, notes, and tag metadata are archived in `docs/theme-examples/`, outside the published content collections.
-
 ### Custom Remark/Rehype Plugins
 
 Located in [src/plugins/](src/plugins/):
@@ -120,7 +118,7 @@ WEBMENTION_PINGBACK=  # optional
 
 ## CV and résumé
 
-The maintained sources are [resume/cv.tex](resume/cv.tex) and [resume/resume.tex](resume/resume.tex). The academic CV is the content authority; the condensed résumé follows its relevant content. The local [cv-sync skill](.agents/skills/cv-sync/SKILL.md) owns synchronization and document compilation.
+The maintained sources are `resume/cv.tex` and `resume/resume.tex`. The academic CV is the content authority; the condensed résumé follows its relevant content.
 
 The build copies existing `resume/cv.pdf` and `resume/resume.pdf` into `public/`; it does not compile LaTeX. The `/cv/` page exposes these two PDFs without duplicating their content in the webpage. Follow the document and page rules in [AGENTS.md](AGENTS.md).
 

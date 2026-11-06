@@ -11,9 +11,8 @@ This folder holds all **content collections** used by the site. Routes and rende
 ## Folders
 
 - **post/** – Blog posts. Use subfolders for series or topics (e.g. `post/some-topic/my-post.md`). Use `draft: true` in frontmatter to hide from production.
-- **post/testing/** – Example/test posts (e.g. for styling, long titles, drafts).
-- **post/markdown-elements/** – Posts that demonstrate markdown and component features.
 - **note/** – Note entries (simpler schema: title, description?, publishDate).
-- **tag/** – One file per tag slug (e.g. `tag/image.md`, `tag/markdown.md`) with optional `title` and `description`.
+- **tag/** – One file per tag slug with optional `title` and `description`.
+- **how-to/** – Guides rendered under `/resources/how-to/`.
 
 Edit content here; pages in `src/pages/` and components in `src/components/` consume these via the Astro content layer.
