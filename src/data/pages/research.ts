@@ -81,7 +81,7 @@ export const researchPage: {
 								},
 							],
 							abstract:
-								"When fibroblasts are placed in a free-floating collagen gel, they pull on the surrounding fibers and can cause the entire gel to compact suddenly above a certain cell density. How do forces from individual cells add up to drive this collective change across the tissue? In this project, we build a computational model of contractile cells in a fiber matrix to study how cell-generated forces and cell–cell interactions reorganize the extracellular matrix over time. This helps us connect cell-scale mechanics to tissue remodeling in processes such as wound healing and fibrosis.",
+								"Fibroblasts in a free-floating collagen gel pull on surrounding fibers, and above a critical cell density the entire gel suddenly compacts. Why a gradual increase in cell number triggers such an abrupt tissue-scale change is hard to see from experiments alone. We build a computational model of contractile cells in a fiber network to track how cell-generated forces and cell–cell interactions reorganize the extracellular matrix over time. Connecting these cell-scale forces to bulk compaction helps explain how tissues remodel during wound healing and fibrosis.",
 							experimentalVideoCredit: {
 								label: "Doha et al. (2022)",
 								url: "https://doi.org/10.1016/j.actbio.2022.10.012",
@@ -99,7 +99,7 @@ export const researchPage: {
 								},
 							],
 							abstract:
-								"During early blood vessel development, endothelial cells migrate and connect into a primitive network that later remodels into a working vascular system. How do local interactions between cells guide both the initial assembly of this network and its later remodeling? We use agent-based and particle-based simulations, together with network topology analysis, to study how cell migration, chemical cues, and mechanical forces shape vascular networks over time. Our goal is to understand how tissues build functional transport networks during development and what goes wrong in vascular disease.",
+								"Blood vessel development happens in two stages: endothelial cells first assemble into a rough primitive network and then remodel that network into a working vascular tree. How do local interactions between cells guide both initial assembly and later pruning without a central blueprint? Using agent-based and particle-based simulations alongside network topology analysis, we study how cell migration, chemical cues, and mechanical forces reshape vascular networks over time and affect their transport function.",
 							experimentalVideoCredit: {
 								label: "IPRASENSE (2015)",
 								url: "https://www.youtube.com/watch?v=tYDF1i1lRJU",
@@ -122,7 +122,7 @@ export const researchPage: {
 								},
 							],
 							abstract:
-								"For tissues to hold together, neighboring cells must form stable contacts and organize adhesion proteins along their shared boundary. Once cadherin molecules bind across two cells, how does remodeling of the actomyosin cortex control the growth and patterning of the contact? We use an active-gel model of the cell–cell interface to study how cortical tension, actin flow, and protein turnover expand the contact and organize adhesion clusters along the rim. This gives us a physical picture of how cells build and maintain contacts during tissue development.",
+								"When two cells touch, cadherin proteins bind across the interface while the underlying actomyosin cortex reorganizes to expand and stabilize the contact. We use an active-gel model of the cell–cell interface to study how cortical tension, actin flow, and protein turnover drive contact growth and organize adhesion clusters along the contact rim. The model lets us follow how a nascent contact matures into a patterned junction, offering a physical picture of how cells build stable contacts during tissue development.",
 							experimentalVideoCredit: {
 								label: "Engl et al. (2014)",
 								url: "https://doi.org/10.1038/ncb2973",
@@ -140,7 +140,7 @@ export const researchPage: {
 								},
 							],
 							abstract:
-								"Cell–cell junctions have to resist mechanical forces without losing the ability to remodel as tissues move and deform. What determines how much pulling force a junction can take before it breaks? Using a mechanical model of a two-cell contact under load, we study how cortical tension, contact geometry, and cadherin bond dynamics work together to keep a junction stable or cause it to fail. This work helps connect single-doublet pulling experiments to how tissues resist tearing under mechanical stress.",
+								"How much pulling force can a cell–cell junction withstand before it breaks, and what lets it stay strong while still remaining able to remodel? To address this, we model a two-cell contact under mechanical load, coupling cortical tension and contact geometry with cadherin bond dynamics. By testing when a loaded contact holds together and when it detaches, this work connects single-doublet pulling experiments to how tissues resist tearing under mechanical stress.",
 						},
 					],
 				},
@@ -151,7 +151,7 @@ export const researchPage: {
 							title: "Protein interactions in a crowded environment",
 							wide: true,
 							summary:
-								"Cells are tightly packed with proteins and other macromolecules, yet most experiments measure protein reactions in dilute buffer. How does a crowded environment change whether two proteins bind? We use reaction–diffusion simulations to study how the size, shape, and interactions of surrounding crowder molecules affect protein association, both for single crowder types and for mixtures that better reflect the cell interior. This helps connect test-tube measurements in dilute solution to how protein reactions behave inside living cells.",
+								"Cells are tightly packed with proteins and other macromolecules, yet most experiments measure protein reactions in dilute buffer. Understanding how surrounding molecules influence whether two proteins bind is central to connecting test-tube measurements with conditions inside living cells. We use reaction–diffusion simulations to explore how the size, shape, and interactions of crowding agents affect protein association, both for single crowder species and for mixtures that reflect the diversity of the cell interior.",
 							media: [
 								{
 									kind: "image",
@@ -201,7 +201,7 @@ export const researchPage: {
 								},
 							],
 							abstract:
-								"Most models of active matter assume that self-propelled particles interact only in pairs, even though dense biological and synthetic systems often involve multi-particle interactions. How do three-body interactions change the collective motion of active particles? We simulate self-propelled Brownian particles in two dimensions to explore how motility, rotational diffusion, and three-body coupling shape clustering, filament formation, and transport in both uniform populations and mixtures. This helps us understand how higher-order local rules control large-scale patterns in active matter.",
+								"We simulate self-propelled Brownian particles in two dimensions to ask how multi-particle interactions change collective motion compared with standard pairwise models. In dense biological and synthetic active matter, nearby particles often influence one another through three-body effects rather than isolated pair collisions. Exploring homogeneous populations and binary mixtures across motility and density regimes shows how orientational persistence and three-body coupling control clustering, filament formation, and transport in active systems.",
 						},
 						{
 							title: "Collective dynamics of LLM agents",
@@ -215,7 +215,7 @@ export const researchPage: {
 								},
 							],
 							abstract:
-								"Groups of cells and animals can solve complex navigation problems using only noisy local sensing and short-range communication with neighbors. Can similar local rules help swarms of artificial agents solve search problems together? Inspired by biological chemotaxis, we use multi-agent simulations to study how swarms of large language model (LLM) agents search landscapes with many local optima, as in particle swarm optimization. By varying how agents share and interpret uncertain local information, we examine when communication helps the group find better solutions and when it spreads errors.",
+								"Groups of cells and animals navigate noisy environments using only local sensing and short-range signals with neighbors. Inspired by biological chemotaxis, we use multi-agent simulations to test whether similar local rules can help swarms of large language model (LLM) agents solve search problems with many local optima, as in particle swarm optimization. Varying how agents share and interpret uncertain local measurements shows when neighbor communication helps the group find better solutions and when it spreads errors across the swarm.",
 							abstractLink: {
 								label: "particle swarm optimization",
 								url: "https://en.wikipedia.org/wiki/Particle_swarm_optimization",
