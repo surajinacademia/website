@@ -4,31 +4,36 @@ import { navLinks, siteConfig } from "@/site.config";
 const year = new Date().getFullYear();
 ---
 
-<footer class="mt-auto w-full border-t border-gray-200 pt-12 pb-8 dark:border-white/10">
-	<div class="flex flex-col items-center gap-6 text-center">
-		<nav
-			aria-labelledby="footer_links"
-			class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm opacity-80"
-		>
-			<p id="footer_links" class="sr-only">More on this site</p>
-			{
-				navLinks.map((link) => (
-					<a class="hover:underline hover:opacity-100" href={link.path}>
-						{link.title}
-					</a>
-				))
-			}
-		</nav>
-		<p class="text-global-text text-xs opacity-70">
-			&copy; {year}
-			{siteConfig.author}. Built with Astro; design based on the
-			<a
-				class="cactus-link hover:opacity-100"
-				href="https://github.com/JoaoFranco03/photography-portfolio"
-				target="_blank"
-				rel="noopener">Photography Portfolio</a
+<footer class="mt-auto w-full">
+	<div class="mx-auto max-w-screen-xl py-16">
+		<div class="mx-auto grid grid-cols-1 gap-6 text-center">
+			<p class="font-signika tracking-wide uppercase">
+				<b>{siteConfig.title}</b>
+			</p>
+			<nav
+				aria-labelledby="footer_links"
+				class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-600 dark:text-gray-300"
 			>
-			template by João Franco.
-		</p>
+				<p id="footer_links" class="sr-only">More on this site</p>
+				{
+					navLinks.map((link) => (
+						<a class="transition duration-300 hover:underline hover:opacity-75" href={link.path}>
+							{link.title}
+						</a>
+					))
+				}
+			</nav>
+			<p class="text-center text-xs text-gray-600 dark:text-gray-300">
+				&copy; {year}
+				{siteConfig.author}. Built with Astro; design based on the
+				<a
+					class="underline"
+					href="https://github.com/JoaoFranco03/photography-portfolio"
+					target="_blank"
+					rel="noopener">Photography Portfolio</a
+				>
+				template by João Franco.
+			</p>
+		</div>
 	</div>
 </footer>

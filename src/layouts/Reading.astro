@@ -1,5 +1,4 @@
 ---
-import ThemeToggle from "@/components/ThemeToggle.astro";
 import type { SiteMeta } from "@/types";
 import BaseLayout from "./Base.astro";
 
@@ -20,73 +19,31 @@ const {
 } = Astro.props;
 ---
 
-<BaseLayout meta={meta} searchable={searchable} reading>
-	<div class="reading-page">
-		<div class="reading-navigation">
-			<nav aria-label="Breadcrumb">
-				<a href="/">Home</a>
-				<span aria-hidden="true">/</span>
-				{
-					parentHref !== "/resources/" && parentHref.startsWith("/resources/") && (
-						<>
-							<>
-								<a href="/resources/">Resources</a>
-								<span aria-hidden="true">/</span>
-							</>
-						</>
-					)
-				}
-				<a href={parentHref}>{parentLabel}</a>
-			</nav>
-			<ThemeToggle />
-		</div>
+<BaseLayout meta={meta} searchable={searchable}>
+	<div class="mx-auto w-full max-w-3xl">
+		<nav
+			aria-label="Breadcrumb"
+			class="mb-6 flex flex-wrap items-baseline gap-2 text-sm text-gray-600 dark:text-gray-300"
+		>
+			<a class="hover:underline" href="/">Home</a>
+			<span aria-hidden="true">/</span>
+			{
+				parentHref !== "/resources/" && parentHref.startsWith("/resources/") && (
+					<>
+						<a class="hover:underline" href="/resources/">
+							Resources
+						</a>
+						<span aria-hidden="true">/</span>
+					</>
+				)
+			}
+			<a class="hover:underline" href={parentHref}>{parentLabel}</a>
+		</nav>
 		<article aria-labelledby="guide-title" data-pagefind-body={searchable || undefined}>
-			<header class="reading-header" id="blog-hero">
-				<slot name="header"><h1 id="guide-title">{heading}</h1></slot>
+			<header class="mb-8" id="blog-hero">
+				<slot name="header"><h1 class="title pt-2 pb-0" id="guide-title">{heading}</h1></slot>
 			</header>
 			<div class="reading-copy"><slot /></div>
 		</article>
-		<footer class="reading-footer">
-			<a href={parentHref}>Back to {parentLabel}</a>
-			<a href="#main">Back to top</a>
-		</footer>
 	</div>
 </BaseLayout>
-
-<style>
-	.reading-page {
-		width: 100%;
-		max-width: 42rem;
-		margin-inline: auto;
-	}
-	.reading-navigation {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 1rem;
-		margin-bottom: 3rem;
-	}
-	.reading-navigation nav {
-		display: flex;
-		align-items: baseline;
-		flex-wrap: wrap;
-		gap: 0.6rem;
-	}
-	.reading-header {
-		margin-bottom: 2rem;
-	}
-	.reading-footer {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
-		gap: 1rem;
-		margin-top: 3rem;
-		padding-top: 1.25rem;
-		border-top: 1px solid var(--site-border);
-	}
-	@media (max-width: 640px) {
-		.reading-navigation {
-			margin-bottom: 2rem;
-		}
-	}
-</style>

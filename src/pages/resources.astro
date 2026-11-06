@@ -10,8 +10,8 @@ const meta = {
 ---
 
 <PageLayout meta={meta} searchable>
-	<section aria-labelledby="resources-title" class="resources-page">
-		<h1 id="resources-title">Resources</h1>
+	<section aria-labelledby="resources-title" class="resources-page container mx-auto">
+		<h1 class="title" id="resources-title">Resources</h1>
 		<div class="resource-grid">
 			{
 				resourcesPage.categories.map((category, index) => {
@@ -54,16 +54,7 @@ const meta = {
 <style>
 	.resources-page {
 		width: 100%;
-		max-width: 76rem;
-		margin-inline: auto;
-		font-family: "CMU Sans Serif", sans-serif;
-	}
-	.resources-page > h1 {
-		margin-bottom: clamp(2rem, 4vw, 3.5rem);
-		font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.2rem);
-		font-weight: 600;
-		line-height: 1.4;
-		color: var(--color-accent-2);
+		font-family: "Signika", ui-sans-serif, system-ui, sans-serif;
 	}
 	.resource-grid {
 		display: grid;

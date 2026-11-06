@@ -4,81 +4,92 @@ import ThemeToggle from "@/components/ThemeToggle.astro";
 import { navLinks, siteConfig } from "@/site.config";
 ---
 
-<header
-	class="group relative mb-16 flex flex-wrap items-center justify-between gap-4 border-b border-gray-200 pb-4 dark:border-white/10"
-	id="main-header"
->
-	<a
-		aria-current={Astro.url.pathname === "/" ? "page" : false}
-		class="text-accent-2 shrink-0 text-lg font-semibold tracking-wider uppercase sm:text-xl"
-		href="/"
-	>
-		{siteConfig.title}
-	</a>
-	<nav
-		aria-label="Main menu"
-		class="bg-global-bg absolute top-full right-0 left-0 z-50 hidden flex-col gap-1 border-y border-gray-200 px-4 py-4 group-[.menu-open]:flex sm:static sm:flex sm:flex-row sm:gap-6 sm:border-0 sm:px-0 sm:py-0 dark:border-white/10"
-		id="navigation-menu"
-	>
-		{
-			navLinks.map((link) => (
-				<a
-					aria-current={
-						Astro.url.pathname === link.path
-							? "page"
-							: Astro.url.pathname.startsWith(link.path)
-								? "true"
-								: undefined
-					}
-					class="text-accent-2 py-3 text-sm font-medium hover:underline aria-[current=page]:underline aria-[current=true]:underline sm:py-0 sm:underline-offset-4"
-					href={link.path}
-				>
-					{link.title}
-				</a>
-			))
-		}
-	</nav>
-	<div class="flex shrink-0 items-center gap-2">
-		<Search />
-		<ThemeToggle />
-		<mobile-button class="sm:hidden">
-			<button
-				aria-expanded="false"
-				aria-controls="navigation-menu"
-				class="text-global-text group relative flex h-11 w-11 items-center justify-center rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
-				id="toggle-navigation-menu"
-				type="button"
+<header class="group relative mb-8 flex w-full pt-2 pb-1" id="main-header">
+	<div class="container mx-auto flex flex-wrap items-center justify-between gap-4">
+		<div class="mr-4 md:mr-8">
+			<a
+				aria-current={Astro.url.pathname === "/" ? "page" : false}
+				class="font-signika text-2xl font-bold tracking-wide uppercase"
+				href="/"
 			>
-				<span class="sr-only" data-menu-label>Open main menu</span>
-				<svg
-					aria-hidden="true"
-					class="absolute start-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 transition-[opacity,transform] duration-150 ease-out group-aria-expanded:scale-0 group-aria-expanded:opacity-0 motion-reduce:transition-none"
-					fill="none"
-					focusable="false"
-					id="line-svg"
-					stroke="currentColor"
-					stroke-width="1.5"
-					viewBox="0 0 24 24"
-					xmlns="http://www.w3.org/2000/svg"
+				{siteConfig.title}
+			</a>
+		</div>
+		<nav
+			aria-label="Main menu"
+			class="bg-global-bg absolute top-full right-0 left-0 z-50 hidden flex-col gap-3 border-y border-gray-200 px-4 py-4 group-[.menu-open]:flex md:static md:ml-auto md:flex md:flex-row md:items-center md:gap-6 md:border-0 md:bg-transparent md:p-0 dark:border-neutral-800"
+			id="navigation-menu"
+		>
+			{
+				navLinks.map((link) => {
+					const isActive =
+						Astro.url.pathname === link.path || Astro.url.pathname.startsWith(link.path);
+					return (
+						<a
+							aria-current={
+								Astro.url.pathname === link.path
+									? "page"
+									: isActive
+										? "true"
+										: undefined
+							}
+							class="group/link font-signika py-1 text-xl tracking-wide uppercase transition duration-300 md:py-0 lg:text-2xl"
+							href={link.path}
+						>
+							{link.title}
+							<span
+								class:list={[
+									"hidden h-0.5 bg-black transition-all duration-500 md:block dark:bg-white",
+									isActive ? "max-w-full" : "max-w-0 group-hover/link:max-w-full",
+								]}
+							/>
+						</a>
+					);
+				})
+			}
+		</nav>
+		<div class="flex shrink-0 items-center gap-2">
+			<Search />
+			<ThemeToggle />
+			<mobile-button class="md:hidden">
+				<button
+					aria-expanded="false"
+					aria-controls="navigation-menu"
+					class="tap-highlight-transparent text-global-text group relative flex h-10 w-10 items-center justify-center rounded-md hover:bg-gray-100 dark:hover:bg-neutral-900"
+					id="toggle-navigation-menu"
+					type="button"
 				>
-					<path d="M3.75 9h16.5m-16.5 6.75h16.5" stroke-linecap="round" stroke-linejoin="round"
-					></path>
-				</svg>
-				<svg
-					aria-hidden="true"
-					class="text-accent absolute start-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 scale-0 opacity-0 transition-[opacity,transform] duration-150 ease-out group-aria-expanded:scale-100 group-aria-expanded:opacity-100 motion-reduce:transition-none"
-					fill="none"
-					focusable="false"
-					id="cross-svg"
-					stroke="currentColor"
-					stroke-width="1.5"
-					viewBox="0 0 24 24"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path>
-				</svg>
-			</button>
-		</mobile-button>
+					<span class="sr-only" data-menu-label>Open main menu</span>
+					<svg
+						aria-hidden="true"
+						class="absolute start-1/2 top-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 transition-[opacity,transform] duration-150 ease-out group-aria-expanded:scale-0 group-aria-expanded:opacity-0 motion-reduce:transition-none"
+						fill="none"
+						focusable="false"
+						id="line-svg"
+						stroke="currentColor"
+						stroke-width="1.5"
+						viewBox="0 0 24 24"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path d="M3.75 9h16.5m-16.5 6.75h16.5" stroke-linecap="round" stroke-linejoin="round"
+						></path>
+					</svg>
+					<svg
+						aria-hidden="true"
+						class="absolute start-1/2 top-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 scale-0 opacity-0 transition-[opacity,transform] duration-150 ease-out group-aria-expanded:scale-100 group-aria-expanded:opacity-100 motion-reduce:transition-none"
+						fill="none"
+						focusable="false"
+						id="cross-svg"
+						stroke="currentColor"
+						stroke-width="1.5"
+						viewBox="0 0 24 24"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path>
+					</svg>
+				</button>
+			</mobile-button>
+		</div>
 	</div>
 </header>
 
@@ -94,7 +105,7 @@ import { navLinks, siteConfig } from "@/site.config";
 			const headerEl = document.getElementById("main-header")!;
 			const mobileButtonEl = this.querySelector<HTMLButtonElement>("button");
 			const menuLabelEl = this.querySelector<HTMLElement>("[data-menu-label]");
-			const desktopQuery = window.matchMedia("(min-width: 640px)");
+			const desktopQuery = window.matchMedia("(min-width: 768px)");
 			const { signal } = this.#controller;
 
 			const setMenuOpen = (open: boolean) => {

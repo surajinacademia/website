@@ -9,13 +9,11 @@ import type { SiteMeta } from "@/types";
 interface Props {
 	meta: SiteMeta;
 	searchable?: boolean;
-	reading?: boolean;
 }
 
 const {
 	meta: { articleDate, description = siteConfig.description, ogImage, title },
 	searchable = false,
-	reading = false,
 } = Astro.props;
 ---
 
@@ -24,33 +22,13 @@ const {
 		<BaseHead articleDate={articleDate} description={description} ogImage={ogImage} title={title} />
 	</head>
 	<body
-		class="font-cmusans flex min-h-screen w-full flex-col bg-white px-5 pt-12 text-base font-normal text-black antialiased transition-colors duration-200 ease-out motion-reduce:transition-none md:px-20 dark:bg-black dark:text-white"
+		class="animate-fade-in flex min-h-screen w-full flex-col bg-white px-5 pt-10 text-base font-normal text-black antialiased transition duration-500 motion-reduce:transition-none md:px-20 dark:bg-black dark:text-white"
 	>
 		<SkipLink />
-		{!reading && <Header />}
-		<main class="pb-16" data-pagefind-body={searchable || undefined} id="main">
+		<Header />
+		<main class="pb-8" data-pagefind-body={searchable || undefined} id="main">
 			<slot />
 		</main>
-		{!reading && <Footer />}
-		<script is:inline type="speculationrules">
-			{
-				"prefetch": [
-					{
-						"where": {
-							"href_matches": "/*"
-						},
-						"eagerness": "moderate"
-					}
-				],
-				"prerender": [
-					{
-						"where": {
-							"href_matches": "/*"
-						},
-						"eagerness": "conservative"
-					}
-				]
-			}
-		</script>
+		<Footer />
 	</body>
 </html>
