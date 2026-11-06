@@ -1,4 +1,7 @@
-/* Minimal monochrome theme with CMU Sans Serif and compact typographic scale */
+/* Minimal 3-color typographic palette with CMU Sans Serif and multi-level size hierarchy:
+   1. Headings (--color-accent-2): Crisp White (#f8fafc) in dark / Deep Ink (#111827) in light
+   2. Body text (--color-global-text): Soft Zinc (#d4d4d8) in dark / Slate Gray (#374151) in light
+   3. Links & accents (--color-link / --color-accent): Steel Blue (#93c5fd) in dark / Royal Blue (#1d4ed8) in light */
 
 @import "tailwindcss";
 /* config for tailwindcss-typography plugin */
@@ -9,11 +12,11 @@
 
 @theme {
 	--color-global-bg: #ffffff;
-	--color-global-text: #000000;
-	--color-link: #000000;
-	--color-accent: #000000;
-	--color-accent-2: #000000;
-	--color-quote: #4b5563;
+	--color-global-text: #374151;
+	--color-link: #1d4ed8;
+	--color-accent: #1d4ed8;
+	--color-accent-2: #111827;
+	--color-quote: #374151;
 }
 
 @layer base {
@@ -32,11 +35,11 @@
 		&[data-theme="dark"] {
 			color-scheme: dark;
 			--color-global-bg: #000000;
-			--color-global-text: #ffffff;
-			--color-link: #ffffff;
-			--color-accent: #ffffff;
-			--color-accent-2: #ffffff;
-			--color-quote: #d1d5db;
+			--color-global-text: #d4d4d8;
+			--color-link: #93c5fd;
+			--color-accent: #93c5fd;
+			--color-accent-2: #f8fafc;
+			--color-quote: #d4d4d8;
 		}
 	}
 
@@ -53,6 +56,7 @@
 		font-family:
 			"CMU Sans Serif", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
 			Roboto, sans-serif;
+		color: var(--color-accent-2);
 		text-wrap: balance;
 	}
 
@@ -74,7 +78,7 @@
 	@import "./components/github-card.css";
 
 	.cactus-link {
-		@apply underline decoration-current/40 underline-offset-4 transition-colors hover:decoration-current;
+		@apply text-link underline decoration-current/50 underline-offset-4 transition-colors hover:decoration-current;
 	}
 
 	.title {
@@ -119,12 +123,12 @@
 
 @utility prose {
 	--tw-prose-body: var(--color-global-text);
-	--tw-prose-bold: var(--color-global-text);
+	--tw-prose-bold: var(--color-accent-2);
 	--tw-prose-bullets: var(--color-global-text);
-	--tw-prose-code: var(--color-global-text);
+	--tw-prose-code: var(--color-accent-2);
 	--tw-prose-headings: var(--color-accent-2);
 	--tw-prose-hr: 0.5px dashed #666;
-	--tw-prose-links: var(--color-global-text);
+	--tw-prose-links: var(--color-link);
 	--tw-prose-quotes: var(--color-quote);
 	--tw-prose-th-borders: #666;
 }

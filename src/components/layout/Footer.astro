@@ -7,27 +7,27 @@ const year = new Date().getFullYear();
 <footer class="mt-auto w-full">
 	<div class="mx-auto max-w-screen-xl py-16">
 		<div class="mx-auto grid grid-cols-1 gap-6 text-center">
-			<p class="text-sm font-semibold tracking-wider uppercase">
+			<p class="text-accent-2 text-sm font-semibold tracking-wider uppercase">
 				<b>{siteConfig.title}</b>
 			</p>
 			<nav
 				aria-labelledby="footer_links"
-				class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-600 dark:text-gray-300"
+				class="text-global-text flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm"
 			>
 				<p id="footer_links" class="sr-only">More on this site</p>
 				{
 					navLinks.map((link) => (
-						<a class="transition duration-300 hover:underline hover:opacity-75" href={link.path}>
+						<a class="hover:text-link transition duration-300 hover:underline" href={link.path}>
 							{link.title}
 						</a>
 					))
 				}
 			</nav>
-			<p class="text-center text-xs text-gray-600 dark:text-gray-300">
+			<p class="text-global-text text-center text-xs">
 				&copy; {year}
 				{siteConfig.author}. Built with Astro; design based on the
 				<a
-					class="underline"
+					class="cactus-link"
 					href="https://github.com/JoaoFranco03/photography-portfolio"
 					target="_blank"
 					rel="noopener">Photography Portfolio</a

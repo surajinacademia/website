@@ -74,7 +74,7 @@ Draft posts (`draft: true`) are excluded in production but visible in dev.
 
 ### Styles and theme
 
-[src/styles/global.css](src/styles/global.css), [public/fonts/cmu.css](public/fonts/cmu.css), and [public/styles/site.css](public/styles/site.css) define the shared typography and theme rules based on the `JoaoFranco03/photography-portfolio` monochrome aesthetic with `CMU Sans Serif` and a clear size hierarchy (`24–30px` page titles and Research section headings, `20–24px` `h2`, `18px` `h3`, `16px` body text, `14px` navigation and metadata): white background with black text in light mode, and black background with white text in dark mode. [public/styles/theme.js](public/styles/theme.js) defaults to dark mode, remembers the choice under the local-storage key `theme`, and supports `?theme=light` and `?theme=dark`.
+[src/styles/global.css](src/styles/global.css), [public/fonts/cmu.css](public/fonts/cmu.css), and [public/styles/site.css](public/styles/site.css) define the shared typography and theme rules with `CMU Sans Serif`, a clear size hierarchy (`24–30px` page titles and Research section headings, `20–24px` `h2`, `18px` `h3`, `16px` body text, `14px` navigation and metadata), and a 3-color font palette (headings: `#f8fafc` dark / `#111827` light; body text: `#d4d4d8` dark / `#374151` light; links: `#93c5fd` dark / `#1d4ed8` light). [public/styles/theme.js](public/styles/theme.js) defaults to dark mode, remembers the choice under the local-storage key `theme`, and supports `?theme=light` and `?theme=dark`.
 
 ### Skills
 

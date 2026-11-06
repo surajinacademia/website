@@ -23,21 +23,21 @@ const {
 	<div class="mx-auto w-full max-w-3xl">
 		<nav
 			aria-label="Breadcrumb"
-			class="mb-6 flex flex-wrap items-baseline gap-2 text-sm text-gray-600 dark:text-gray-300"
+			class="text-global-text mb-6 flex flex-wrap items-baseline gap-2 text-sm"
 		>
-			<a class="hover:underline" href="/">Home</a>
+			<a class="text-link hover:underline" href="/">Home</a>
 			<span aria-hidden="true">/</span>
 			{
 				parentHref !== "/resources/" && parentHref.startsWith("/resources/") && (
 					<>
-						<a class="hover:underline" href="/resources/">
+						<a class="text-link hover:underline" href="/resources/">
 							Resources
 						</a>
 						<span aria-hidden="true">/</span>
 					</>
 				)
 			}
-			<a class="hover:underline" href={parentHref}>{parentLabel}</a>
+			<a class="text-link hover:underline" href={parentHref}>{parentLabel}</a>
 		</nav>
 		<article aria-labelledby="guide-title" data-pagefind-body={searchable || undefined}>
 			<header class="mb-8" id="blog-hero">
