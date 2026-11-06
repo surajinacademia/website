@@ -74,7 +74,7 @@ Draft posts (`draft: true`) are excluded in production but visible in dev.
 
 ### Styles and theme
 
-[src/styles/global.css](src/styles/global.css), [public/fonts/cmu.css](public/fonts/cmu.css), and [public/styles/site.css](public/styles/site.css) define the shared typography and theme rules with `CMU Sans Serif`, a clear size hierarchy (`24–30px` page titles and Research section headings, `20–24px` `h2`, `18px` `h3`, `16px` body text, `14px` navigation and metadata), and a 3-color font palette (headings: `#ffffff` dark / `#000000` light; body text: `#d4d4d8` dark / `#3f3f46` light; links: `#ea580c` terracotta in both dark and light). [public/styles/theme.js](public/styles/theme.js) defaults to dark mode, remembers the choice under the local-storage key `theme`, and supports `?theme=light` and `?theme=dark`.
+[src/styles/global.css](src/styles/global.css), [public/fonts/cmu.css](public/fonts/cmu.css), and [public/styles/site.css](public/styles/site.css) define the shared typography and theme rules with `CMU Sans Serif`, a clear size hierarchy (`24–30px` page titles and Research section headings, `20–24px` `h2`, `18px` `h3`, `16px` body text, `14px` navigation and metadata), and a 3-color font palette (headings: `#ffffff` dark / `#000000` light; body text: `#d4d4d8` dark / `#3f3f46` light; links: `#e11d48` rose/crimson in both dark and light). [public/styles/theme.js](public/styles/theme.js) defaults to dark mode, remembers the choice under the local-storage key `theme`, and supports `?theme=light` and `?theme=dark`.
 
 ### Skills
 

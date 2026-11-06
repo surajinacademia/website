@@ -11,7 +11,7 @@ This file provides durable repository guidance to OpenAI Codex.
 - Follow the `JoaoFranco03/photography-portfolio` layout with `CMU Sans Serif` typography (`public/fonts/cmu.css`), a clear typographic hierarchy (`24–30px` page titles and Research section headings, `20–24px` `h2`, `18px` `h3`, `16px` body text, `14px` navigation and metadata), and a strict 3-color font palette in `src/styles/global.css` and `public/styles/site.css`:
   1. **Headings (`--color-accent-2`)**: Pure White (`#ffffff`) in dark mode / Pure Black (`#000000`) in light mode.
   2. **Body & metadata (`--color-global-text`)**: Soft Zinc (`#d4d4d8`) in dark mode / Dark Zinc (`#3f3f46`) in light mode.
-  3. **Links & accents (`--color-link` / `--color-accent`)**: Terracotta (`#ea580c`) in both dark and light mode.
+  3. **Links & accents (`--color-link` / `--color-accent`)**: Rose / Crimson (`#e11d48`) in both dark and light mode.
 - Use `src/layouts/Reading.astro` for blog posts, guides, and resource listings: one reading column and breadcrumb navigation. Keep citations as native footnotes with return links; the literature guide's image credits belong in its endnotes.
 - Avoid generic AI-generated styling: decorative gradients, glass effects, gratuitous shadows, oversized marketing heroes, repetitive card grids, unnecessary badges or icons, and animations added only for visual flair.
 - Use cards, borders, backgrounds, and motion only when they serve a clear content or interaction purpose. Prefer straightforward text, lists, and links where sufficient.

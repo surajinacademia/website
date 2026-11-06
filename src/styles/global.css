@@ -1,7 +1,7 @@
 /* Minimal 3-color typographic palette with CMU Sans Serif and multi-level size hierarchy:
    1. Headings (--color-accent-2): Pure White (#ffffff) in dark / Pure Black (#000000) in light
    2. Body text (--color-global-text): Soft Zinc (#d4d4d8) in dark / Dark Zinc (#3f3f46) in light
-   3. Links & accents (--color-link / --color-accent): Terracotta (#ea580c) in both dark and light */
+   3. Links & accents (--color-link / --color-accent): Rose Crimson (#e11d48) in both dark and light */
 
 @import "tailwindcss";
 /* config for tailwindcss-typography plugin */
@@ -13,8 +13,8 @@
 @theme {
 	--color-global-bg: #ffffff;
 	--color-global-text: #3f3f46;
-	--color-link: #ea580c;
-	--color-accent: #ea580c;
+	--color-link: #e11d48;
+	--color-accent: #e11d48;
 	--color-accent-2: #000000;
 	--color-quote: #3f3f46;
 }
@@ -36,8 +36,8 @@
 			color-scheme: dark;
 			--color-global-bg: #000000;
 			--color-global-text: #d4d4d8;
-			--color-link: #ea580c;
-			--color-accent: #ea580c;
+			--color-link: #e11d48;
+			--color-accent: #e11d48;
 			--color-accent-2: #ffffff;
 			--color-quote: #d4d4d8;
 		}
