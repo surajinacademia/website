@@ -187,7 +187,7 @@ export const researchPage: {
 					],
 				},
 				{
-					title: "Collective dynamics of inanimate matter",
+					title: "Collective dynamics and Active matter",
 					projects: [
 						{
 							title: "Collective dynamics in three-body interactions",
