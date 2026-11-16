@@ -1,0 +1,42 @@
+---
+import { bagOfCoolThingsPage } from "@/data/pages/bag-of-cool-things";
+import PageLayout from "@/layouts/Base.astro";
+
+const meta = {
+	title: bagOfCoolThingsPage.title,
+	description: bagOfCoolThingsPage.description,
+};
+---
+
+<PageLayout meta={meta} searchable>
+	<section aria-labelledby="outreach-title" class="mx-auto w-full max-w-3xl">
+		<h1 class="title mb-6" id="outreach-title">{bagOfCoolThingsPage.title}</h1>
+		<div class="space-y-10">
+			{
+				bagOfCoolThingsPage.categories.map((category) => (
+					<section aria-labelledby={category.slug}>
+						<h2 class="mb-3 text-xl font-semibold" id={category.slug}>
+							{category.title}
+						</h2>
+						<ul class="list-disc space-y-2 ps-5 leading-relaxed">
+							{category.items.map((item) => (
+								<li>
+									{item.title}{" "}
+									<a
+										class="cactus-link"
+										href={item.href}
+										target="_blank"
+										rel="noopener noreferrer"
+										aria-label={`Link to ${item.title} (opens in a new tab)`}
+									>
+										Link
+									</a>
+								</li>
+							))}
+						</ul>
+					</section>
+				))
+			}
+		</div>
+	</section>
+</PageLayout>

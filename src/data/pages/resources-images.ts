@@ -14,7 +14,22 @@ export interface ResourceCategoryImage {
 	position?: string;
 }
 
-export const resourceCategoryImages: Record<ResourceCategory["slug"], ResourceCategoryImage> = {
+export const resourceCategoryImages: Record<
+	ResourceCategory["slug"] | "bag-of-cool-things",
+	ResourceCategoryImage
+> = {
+	"bag-of-cool-things": {
+		src: "/images/resources/bag-of-cool-things-wright-orrery.webp",
+		width: 1200,
+		height: 888,
+		artworkTitle: "Philosopher Giving a Lecture on the Orrery",
+		date: "c. 1768",
+		creditName: "Joseph Wright of Derby",
+		sourceUrl:
+			"https://commons.wikimedia.org/wiki/File:Joseph_Wright_of_Derby_-_Philosopher_giving_a_lecture_on_the_orrery_-_Google_Art_Project.jpg",
+		licenseName: "Public domain",
+		licenseUrl: "https://creativecommons.org/publicdomain/mark/1.0/",
+	},
 	mcps: {
 		src: "/images/resources/mcps-mondrian-lozenge.webp",
 		width: 1200,

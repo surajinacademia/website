@@ -1,7 +1,13 @@
 ---
+import { bagOfCoolThingsPage } from "@/data/pages/bag-of-cool-things";
 import { resourcesPage } from "@/data/pages/resources";
 import { resourceCategoryImages } from "@/data/pages/resources-images";
 import PageLayout from "@/layouts/Base.astro";
+
+const tiles = [
+	...resourcesPage.categories,
+	{ slug: "bag-of-cool-things" as const, title: bagOfCoolThingsPage.title },
+];
 
 const meta = {
 	description: "MCPs, skills, tools, and practical research guides by Suraj Sahu.",
@@ -14,7 +20,7 @@ const meta = {
 		<h1 class="title" id="resources-title">Resources</h1>
 		<div class="resource-grid">
 			{
-				resourcesPage.categories.map((category, index) => {
+				tiles.map((category, index) => {
 					const photo = resourceCategoryImages[category.slug];
 					return (
 						<section class="resource-category" aria-labelledby={`${category.slug}-title`}>
@@ -84,6 +90,9 @@ const meta = {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+	}
+	:global(html#site-root body) .category-label {
+		color: #fff;
 	}
 	.category-label {
 		position: absolute;

@@ -57,6 +57,8 @@ Draft posts (`draft: true`) are excluded in production but visible in dev.
 | `/` | About (index.astro) |
 | `/cv/` | CV |
 | `/research/` | Research |
+| `/resources/` | Artwork tiles for resource collections |
+| `/resources/bag-of-cool-things/` | Science outreach activities, games, and art |
 | `/resources/skills/` | Skill collections |
 | `/resources/skills/computational-modeling-skills/` | Computational Modeling Skills catalog |
 | `/posts/` | Blog listing |
