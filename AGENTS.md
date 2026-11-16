@@ -50,7 +50,7 @@ This file provides durable repository guidance to OpenAI Codex.
 
 ```bash
 pnpm dev          # Start dev server
-pnpm build        # Prebuild (thumbnails + CV PDFs) + Astro build + Pagefind indexing
+pnpm build        # Prebuild (thumbnails) + Astro build + Pagefind indexing
 pnpm preview      # Preview production build
 pnpm check        # Astro type check + Biome lint check
 pnpm lint         # Biome lint with auto-fix (--write)
@@ -64,15 +64,11 @@ Package manager: **pnpm** (v10). Use Node v22, at least 22.12.0 for the declared
 
 Use [README.md](README.md#architecture) for the source map, content collections, and build behavior. [package.json](package.json), [pnpm-lock.yaml](pnpm-lock.yaml), and [.nvmrc](.nvmrc) define the maintained dependency and runtime versions. Update the README when those entrypoints change.
 
-## Resume / CV (LaTeX)
+## Published CV
 
-The `resume/` directory contains two LaTeX documents:
-- **`cv.tex`** — the full academic CV; this is the **source of truth** for all content (experience, publications, education, etc.)
-- **`resume.tex`** — a condensed industry resume; content should mirror `cv.tex` but is a different template (Jake Gutierrez / CMU Sans Serif, compile with `xelatex`)
+The `/cv/` webpage is intentionally PDF-only and offers one document: `/cv.pdf`. `public/cv.pdf` is the published copy of the updated academic CV supplied by the user from the Jobs workspace. Keep that supplied PDF unchanged; do not duplicate its content in Astro or TypeScript.
 
-When the user updates `cv.tex`, keep `resume.tex` in sync with the relevant content changes. `cv.tex` uses `pdflatex` + EB Garamond; `resume.tex` uses `xelatex` + CMU Sans Serif.
-
-The `/cv/` webpage is intentionally PDF-only. Keep its two choices mapped to `/cv.pdf` (long academic CV) and `/resume.pdf` (short résumé); do not duplicate the document content in Astro or TypeScript.
+Do not publish the résumé or restore `/resume.pdf`. The private `resume/` folder contains older local materials; do not use it to overwrite the published CV during builds. Update the published copy only when the user provides or requests an updated CV.
 
 ## Deployment
 

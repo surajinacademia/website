@@ -19,7 +19,7 @@ Use the localhost URL and port printed by Astro. A local preview does not publis
 | --- | --- |
 | `pnpm dev` | Start the development server |
 | `pnpm check` | Run Astro checks and Biome checks without applying fixes |
-| `pnpm build` | Generate portfolio thumbnails, copy compiled CV PDFs, build Astro, then index `dist/` with Pagefind |
+| `pnpm build` | Generate portfolio thumbnails, build Astro, then index `dist/` with Pagefind |
 | `pnpm preview` | Preview the existing production build |
 | `pnpm lint` | Apply Biome fixes; this changes files |
 | `pnpm format` | Apply Prettier formatting; this changes files |
@@ -116,11 +116,9 @@ WEBMENTION_URL=       # public client var
 WEBMENTION_PINGBACK=  # optional
 ```
 
-## CV and résumé
+## CV
 
-The maintained sources are `resume/cv.tex` and `resume/resume.tex`. The academic CV is the content authority; the condensed résumé follows its relevant content.
-
-The build copies existing `resume/cv.pdf` and `resume/resume.pdf` into `public/`; it does not compile LaTeX. The `/cv/` page exposes these two PDFs without duplicating their content in the webpage. Follow the document and page rules in [AGENTS.md](AGENTS.md).
+The `/cv/` page offers only `/cv.pdf`. `public/cv.pdf` is an exact copy of the updated academic CV supplied by the user from the Jobs workspace. Replace this published copy only with a user-provided updated PDF; the build does not copy or compile documents from the private `resume/` folder. The résumé is not published.
 
 ## Deployment
 

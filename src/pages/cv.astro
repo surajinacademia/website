@@ -11,10 +11,6 @@ const documents = [
 		href: "/cv.pdf",
 		title: "Academic CV",
 	},
-	{
-		href: "/resume.pdf",
-		title: "Résumé",
-	},
 ];
 ---
 
@@ -22,7 +18,7 @@ const documents = [
 	<section aria-labelledby="cv-title" class="mx-auto max-w-3xl">
 		<h1 class="title mb-6" id="cv-title">Curriculum Vitae</h1>
 
-		<div class="grid gap-4 sm:grid-cols-2">
+		<div class="grid gap-4">
 			{
 				documents.map((document) => (
 					<a

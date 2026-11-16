@@ -7,7 +7,7 @@
 		"postinstall": "npm rebuild sharp --force",
 		"dev": "astro dev",
 		"start": "astro dev",
-		"prebuild": "node scripts/optimize-portfolio.js && node scripts/copy-resume-pdfs.js",
+		"prebuild": "node scripts/optimize-portfolio.js",
 		"build": "astro build",
 		"postbuild": "pagefind --site dist",
 		"preview": "astro preview",
