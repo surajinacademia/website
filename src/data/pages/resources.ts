@@ -36,9 +36,9 @@ export const resourcesPage: { categories: ResourceCategory[] } = {
 					poster: {
 						image: "/posters/cellpose-mcp.png",
 						pdf: "/posters/cellpose-mcp.pdf",
-						alt: "Cellpose MCP poster covering cell segmentation, image restoration, custom training, and integration with napari.",
-						width: 4379,
-						height: 3285,
+						alt: "Cellpose MCP tutorial: install the server, then ask your AI app to count nuclei in one image, check the outlines, count a folder, and name the nuclei channel, with the outlines and counts each step returned.",
+						width: 2400,
+						height: 3600,
 					},
 				},
 				{
@@ -49,9 +49,22 @@ export const resourcesPage: { categories: ResourceCategory[] } = {
 					poster: {
 						image: "/posters/fiji-mcp.png",
 						pdf: "/posters/fiji-mcp.pdf",
-						alt: "Fiji MCP poster covering image processing, command discovery, macros and scripts, measurements, and visual verification in Fiji / ImageJ.",
-						width: 4608,
-						height: 3456,
+						alt: "Fiji MCP tutorial: install the server, then ask your AI app to threshold the blobs sample, count and measure the blobs, and return the macro, with the mask, 43-blob count, and measurements each step returned.",
+						width: 2400,
+						height: 3600,
+					},
+				},
+				{
+					href: "https://github.com/surajinacademia/saenopy_mcp",
+					title: "saenopy MCP",
+					description:
+						"Measure 3D matrix displacement and traction forces with saenopy through an AI assistant.",
+					poster: {
+						image: "/posters/saenopy-mcp.png",
+						pdf: "/posters/saenopy-mcp.pdf",
+						alt: "saenopy MCP tutorial: install the server, then ask your AI app to measure how far the gel moved around an organoid, fit the forces, and export the movement, with the movement arrows, force arrows, and a plot of movement against distance.",
+						width: 2400,
+						height: 3600,
 					},
 				},
 			],
